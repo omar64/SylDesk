@@ -9,3 +9,14 @@ C:\Users\omarc\source\repos\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.csproj
 C:\Users\omarc\source\repos\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.exe
 C:\Users\omarc\source\repos\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.pdb
 C:\Users\omarc\source\repos\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.Form2.resources
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\SylDeskForm.exe.config
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\SylDeskForm.exe
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\SylDeskForm.pdb
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.csprojResolveAssemblyReference.cache
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.Form1.resources
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.Form2.resources
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.Properties.Resources.resources
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.csproj.GenerateResource.Cache
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.csproj.CoreCompileInputs.cache
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.exe
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.pdb
