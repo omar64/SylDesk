@@ -48,6 +48,7 @@ namespace SylDeskForm
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
             try
+<<<<<<< HEAD
             {
                 /*cmd = SqlConnector.getConnection().CreateCommand();
 
@@ -56,6 +57,11 @@ namespace SylDeskForm
                 MessageBoxButton button = MessageBoxButton.YesNoCancel;
                 MessageBoxImage icon = MessageBoxImage.Warning;
 
+=======
+            {                 
+                /*
+                cmd = SqlConnector.getConnection(cmd);                
+>>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
                 cmd.CommandText = "Insert into proyectos(nombre, superficie, sector, descripcion)Values(@nombre,@superficie,@sector,@descripcion)";
                 cmd.Parameters.AddWithValue("@nombre", textBoxNombre.Text);
                 cmd.Parameters.AddWithValue("@superficie", int.Parse(textBoxSuperficie.Text));
@@ -63,13 +69,12 @@ namespace SylDeskForm
                 cmd.Parameters.AddWithValue("@descripcion", richTextBoxDescripcion.Text);
                 cmd.ExecuteNonQuery();
 
-
-                cmd = SqlConnector.getConnection().CreateCommand();
-
+                cmd = SqlConnector.getConnection(cmd);
                 string sqlQueryString = "SELECT id from proyectos where nombre = @nombre";
                 cmd.CommandText = sqlQueryString;
                 cmd.Parameters.AddWithValue("@nombre", textBoxNombre.Text);
 
+<<<<<<< HEAD
                 var results = cmd.ExecuteReader();*/
 
                 /*
@@ -98,8 +103,26 @@ namespace SylDeskForm
 
 
                 FormRegistro2 obj = new FormRegistro2(0); //objeto declarado para abrir el form2
-                obj.Show(); //abre el form declarado con el objeto
+=======
+                var results = cmd.ExecuteReader();                                
+                results.Read();
+                string proyecto_idS = string.Format("{0}", results[0]) + "\n";
+                int proyecto_idI = int.Parse(proyecto_idS);
+                results.Close();
+                results.Dispose();
 
+                cmd = SqlConnector.getConnection(cmd);
+                cmd.CommandText = "Insert into sitios(proyecto_id, numero_sitio, numero_consecutivo)Values(@proyecto_id, @numero_sitio, @numero_consecutivo)";
+                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_idI);
+                cmd.Parameters.AddWithValue("@numero_sitio", 1);
+                cmd.Parameters.AddWithValue("@numero_consecutivo", 1);
+                cmd.ExecuteNonQuery();
+                */
+
+                this.Hide(); //esconde el form actual
+                FormRegistro2 obj = new FormRegistro2(1); //objeto declarado para abrir el form2 proyecto_idI
+>>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
+                obj.Show(); //abre el form declarado con el objeto
             }
             catch (Exception)
             {

@@ -41,6 +41,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro2));
+<<<<<<< HEAD
             this.dataGridViewIndividuos = new System.Windows.Forms.DataGridView();
             this.Cuadrante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,6 +93,57 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
+=======
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.labelMinimize = new System.Windows.Forms.Label();
+            this.labelClose = new System.Windows.Forms.Label();
+            this.pictureBoxSylvaticaLogo = new System.Windows.Forms.PictureBox();
+            this.panelLeft = new System.Windows.Forms.Panel();
+            this.buttonSitio = new System.Windows.Forms.Button();
+            this.buttonCampo = new System.Windows.Forms.Button();
+            this.buttonGalerias = new System.Windows.Forms.Button();
+            this.buttonProyectos = new System.Windows.Forms.Button();
+            this.buttonHome = new System.Windows.Forms.Button();
+            this.dataGridViewIndividuos = new System.Windows.Forms.DataGridView();
+            this.comboBoxSitios = new System.Windows.Forms.ComboBox();
+            this.comboBoxAreas = new System.Windows.Forms.ComboBox();
+            this.buttonAgregarSitio = new System.Windows.Forms.Button();
+            this.buttonBorrarSitio = new System.Windows.Forms.Button();
+            this.labelSitios = new System.Windows.Forms.Label();
+            this.labelAreas = new System.Windows.Forms.Label();
+            this.labelCoordenadas = new System.Windows.Forms.Label();
+            this.labelX = new System.Windows.Forms.Label();
+            this.labelY = new System.Windows.Forms.Label();
+            this.textBoxX = new System.Windows.Forms.TextBox();
+            this.textBoxY = new System.Windows.Forms.TextBox();
+            this.labelMunicipio = new System.Windows.Forms.Label();
+            this.labelEstadoSucesional = new System.Windows.Forms.Label();
+            this.textBoxMunicipio = new System.Windows.Forms.TextBox();
+            this.textBoxEstadoSucesional = new System.Windows.Forms.TextBox();
+            this.cuadrante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.arbolnumeroensitio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.especie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecientifico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecomun = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.familia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perimetro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diametro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alturafl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alturatotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coberturalargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coberturaancho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formadefuste = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.estadocondicion = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSylvaticaLogo)).BeginInit();
+            this.panelLeft.SuspendLayout();
+>>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIndividuos)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -105,8 +157,11 @@
             // 
             // dataGridViewIndividuos
             // 
+            this.dataGridViewIndividuos.AllowUserToAddRows = false;
+            this.dataGridViewIndividuos.AllowUserToDeleteRows = false;
             this.dataGridViewIndividuos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewIndividuos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+<<<<<<< HEAD
             this.Cuadrante,
             this.Numero,
             this.ArbolNumeroEnSitio,
@@ -130,96 +185,299 @@
             this.Volumenvv,
             this.Municipio});
             this.dataGridViewIndividuos.Location = new System.Drawing.Point(38, 211);
+=======
+            this.cuadrante,
+            this.numero,
+            this.arbolnumeroensitio,
+            this.especie,
+            this.nombrecientifico,
+            this.nombrecomun,
+            this.familia,
+            this.perimetro,
+            this.diametro,
+            this.alturafl,
+            this.alturatotal,
+            this.coberturalargo,
+            this.coberturaancho,
+            this.formadefuste,
+            this.estadocondicion});
+            this.dataGridViewIndividuos.Location = new System.Drawing.Point(146, 211);
+>>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
             this.dataGridViewIndividuos.Name = "dataGridViewIndividuos";
             this.dataGridViewIndividuos.Size = new System.Drawing.Size(1031, 427);
             this.dataGridViewIndividuos.TabIndex = 16;
             this.dataGridViewIndividuos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIndividuos_CellEndEdit);
-            this.dataGridViewIndividuos.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridViewIndividuos_RowsAdded);
             this.dataGridViewIndividuos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewIndividuos_KeyPress);
             // 
-            // Cuadrante
+            // comboBoxSitios
             // 
-            this.Cuadrante.HeaderText = "Cuadrante";
-            this.Cuadrante.Name = "Cuadrante";
+            this.comboBoxSitios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSitios.FormattingEnabled = true;
+            this.comboBoxSitios.Location = new System.Drawing.Point(146, 121);
+            this.comboBoxSitios.Name = "comboBoxSitios";
+            this.comboBoxSitios.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSitios.TabIndex = 18;
+            this.comboBoxSitios.SelectedIndexChanged += new System.EventHandler(this.comboBoxSitios_SelectedIndexChanged);
             // 
-            // Numero
+            // comboBoxAreas
             // 
+            this.comboBoxAreas.AutoCompleteCustomSource.AddRange(new string[] {
+            "500",
+            "100",
+            "5"});
+            this.comboBoxAreas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAreas.FormattingEnabled = true;
+            this.comboBoxAreas.Items.AddRange(new object[] {
+            "500",
+            "100",
+            "5"});
+            this.comboBoxAreas.Location = new System.Drawing.Point(146, 161);
+            this.comboBoxAreas.Name = "comboBoxAreas";
+            this.comboBoxAreas.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxAreas.TabIndex = 19;
+            this.comboBoxAreas.SelectedIndexChanged += new System.EventHandler(this.comboBoxAreas_SelectedIndexChanged);
+            // 
+            // buttonAgregarSitio
+            // 
+            this.buttonAgregarSitio.Location = new System.Drawing.Point(288, 121);
+            this.buttonAgregarSitio.Name = "buttonAgregarSitio";
+            this.buttonAgregarSitio.Size = new System.Drawing.Size(75, 23);
+            this.buttonAgregarSitio.TabIndex = 20;
+            this.buttonAgregarSitio.Text = "Añadir Sitio";
+            this.buttonAgregarSitio.UseVisualStyleBackColor = true;
+            this.buttonAgregarSitio.Click += new System.EventHandler(this.buttonAgregarSitio_Click);
+            // 
+            // buttonBorrarSitio
+            // 
+            this.buttonBorrarSitio.Location = new System.Drawing.Point(369, 121);
+            this.buttonBorrarSitio.Name = "buttonBorrarSitio";
+            this.buttonBorrarSitio.Size = new System.Drawing.Size(75, 23);
+            this.buttonBorrarSitio.TabIndex = 21;
+            this.buttonBorrarSitio.Text = "Eliminar Sitio";
+            this.buttonBorrarSitio.UseVisualStyleBackColor = true;
+            this.buttonBorrarSitio.Click += new System.EventHandler(this.buttonBorrarSitio_Click);
+            // 
+            // labelSitios
+            // 
+            this.labelSitios.AutoSize = true;
+            this.labelSitios.Location = new System.Drawing.Point(146, 105);
+            this.labelSitios.Name = "labelSitios";
+            this.labelSitios.Size = new System.Drawing.Size(32, 13);
+            this.labelSitios.TabIndex = 22;
+            this.labelSitios.Text = "Sitios";
+            // 
+            // labelAreas
+            // 
+            this.labelAreas.AutoSize = true;
+            this.labelAreas.Location = new System.Drawing.Point(146, 145);
+            this.labelAreas.Name = "labelAreas";
+            this.labelAreas.Size = new System.Drawing.Size(34, 13);
+            this.labelAreas.TabIndex = 23;
+            this.labelAreas.Text = "Areas";
+            // 
+            // labelCoordenadas
+            // 
+            this.labelCoordenadas.AutoSize = true;
+            this.labelCoordenadas.Location = new System.Drawing.Point(477, 105);
+            this.labelCoordenadas.Name = "labelCoordenadas";
+            this.labelCoordenadas.Size = new System.Drawing.Size(70, 13);
+            this.labelCoordenadas.TabIndex = 24;
+            this.labelCoordenadas.Text = "Coordenadas";
+            // 
+            // labelX
+            // 
+            this.labelX.AutoSize = true;
+            this.labelX.Location = new System.Drawing.Point(460, 129);
+            this.labelX.Name = "labelX";
+            this.labelX.Size = new System.Drawing.Size(14, 13);
+            this.labelX.TabIndex = 25;
+            this.labelX.Text = "X";
+            // 
+            // labelY
+            // 
+            this.labelY.AutoSize = true;
+            this.labelY.Location = new System.Drawing.Point(460, 169);
+            this.labelY.Name = "labelY";
+            this.labelY.Size = new System.Drawing.Size(14, 13);
+            this.labelY.TabIndex = 26;
+            this.labelY.Text = "Y";
+            // 
+            // textBoxX
+            // 
+            this.textBoxX.Location = new System.Drawing.Point(480, 124);
+            this.textBoxX.Name = "textBoxX";
+            this.textBoxX.Size = new System.Drawing.Size(100, 20);
+            this.textBoxX.TabIndex = 27;
+            this.textBoxX.TextChanged += new System.EventHandler(this.textBoxX_TextChanged);
+            // 
+            // textBoxY
+            // 
+            this.textBoxY.Location = new System.Drawing.Point(480, 162);
+            this.textBoxY.Name = "textBoxY";
+            this.textBoxY.Size = new System.Drawing.Size(100, 20);
+            this.textBoxY.TabIndex = 28;
+            this.textBoxY.TextChanged += new System.EventHandler(this.textBoxY_TextChanged);
+            // 
+            // labelMunicipio
+            // 
+            this.labelMunicipio.AutoSize = true;
+            this.labelMunicipio.Location = new System.Drawing.Point(613, 130);
+            this.labelMunicipio.Name = "labelMunicipio";
+            this.labelMunicipio.Size = new System.Drawing.Size(52, 13);
+            this.labelMunicipio.TabIndex = 29;
+            this.labelMunicipio.Text = "Municipio";
+            // 
+            // labelEstadoSucesional
+            // 
+            this.labelEstadoSucesional.AutoSize = true;
+            this.labelEstadoSucesional.Location = new System.Drawing.Point(613, 168);
+            this.labelEstadoSucesional.Name = "labelEstadoSucesional";
+            this.labelEstadoSucesional.Size = new System.Drawing.Size(95, 13);
+            this.labelEstadoSucesional.TabIndex = 30;
+            this.labelEstadoSucesional.Text = "Estado Sucesional";
+            this.labelEstadoSucesional.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxMunicipio
+            // 
+            this.textBoxMunicipio.Location = new System.Drawing.Point(714, 127);
+            this.textBoxMunicipio.Name = "textBoxMunicipio";
+            this.textBoxMunicipio.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMunicipio.TabIndex = 31;
+            this.textBoxMunicipio.TextChanged += new System.EventHandler(this.textBoxMunicipio_TextChanged);
+            // 
+            // textBoxEstadoSucesional
+            // 
+            this.textBoxEstadoSucesional.Location = new System.Drawing.Point(714, 166);
+            this.textBoxEstadoSucesional.Name = "textBoxEstadoSucesional";
+            this.textBoxEstadoSucesional.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEstadoSucesional.TabIndex = 32;
+            this.textBoxEstadoSucesional.TextChanged += new System.EventHandler(this.textBoxEstadoSucesional_TextChanged);
+            // 
+            // cuadrante
+            // 
+            this.cuadrante.HeaderText = "Cuadrante";
+            this.cuadrante.Name = "cuadrante";
+            // 
+            // numero
+            // 
+<<<<<<< HEAD
             dataGridViewCellStyle61.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle61.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Numero.DefaultCellStyle = dataGridViewCellStyle61;
             this.Numero.HeaderText = "Numero";
             this.Numero.Name = "Numero";
             this.Numero.ReadOnly = true;
+=======
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numero.DefaultCellStyle = dataGridViewCellStyle1;
+            this.numero.HeaderText = "Consecutivo";
+            this.numero.Name = "numero";
+            this.numero.ReadOnly = true;
+>>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
             // 
-            // ArbolNumeroEnSitio
+            // arbolnumeroensitio
             // 
+<<<<<<< HEAD
             dataGridViewCellStyle62.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle62.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ArbolNumeroEnSitio.DefaultCellStyle = dataGridViewCellStyle62;
             this.ArbolNumeroEnSitio.HeaderText = "Arbol Numero En Sitio";
             this.ArbolNumeroEnSitio.Name = "ArbolNumeroEnSitio";
             this.ArbolNumeroEnSitio.ReadOnly = true;
+=======
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle2;
+            this.arbolnumeroensitio.HeaderText = "NO. EN CAMPO";
+            this.arbolnumeroensitio.Name = "arbolnumeroensitio";
+            this.arbolnumeroensitio.ReadOnly = true;
+>>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
             // 
-            // NombreCientifico
+            // especie
             // 
-            this.NombreCientifico.HeaderText = "Nombre Cientifico";
-            this.NombreCientifico.Name = "NombreCientifico";
+            this.especie.HeaderText = "Especie";
+            this.especie.Name = "especie";
             // 
-            // NombreComun
+            // nombrecientifico
             // 
+<<<<<<< HEAD
             dataGridViewCellStyle63.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle63.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NombreComun.DefaultCellStyle = dataGridViewCellStyle63;
             this.NombreComun.HeaderText = "Nombre Comun";
             this.NombreComun.Name = "NombreComun";
             this.NombreComun.ReadOnly = true;
+=======
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle3;
+            this.nombrecientifico.HeaderText = "Nombre Cientifico";
+            this.nombrecientifico.Name = "nombrecientifico";
+            this.nombrecientifico.ReadOnly = true;
+>>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
             // 
-            // Familia
+            // nombrecomun
             // 
+<<<<<<< HEAD
             dataGridViewCellStyle64.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle64.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Familia.DefaultCellStyle = dataGridViewCellStyle64;
             this.Familia.HeaderText = "Familia";
             this.Familia.Name = "Familia";
             this.Familia.ReadOnly = true;
+=======
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecomun.DefaultCellStyle = dataGridViewCellStyle4;
+            this.nombrecomun.HeaderText = "Nombre Comun";
+            this.nombrecomun.Name = "nombrecomun";
+            this.nombrecomun.ReadOnly = true;
+>>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
             // 
-            // Perimetro
+            // familia
             // 
-            this.Perimetro.HeaderText = "Perimetro";
-            this.Perimetro.Name = "Perimetro";
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.familia.DefaultCellStyle = dataGridViewCellStyle5;
+            this.familia.HeaderText = "Familia";
+            this.familia.Name = "familia";
+            this.familia.ReadOnly = true;
             // 
-            // Diametro
+            // perimetro
             // 
-            this.Diametro.HeaderText = "Diametro";
-            this.Diametro.Name = "Diametro";
+            this.perimetro.HeaderText = "Perimetro";
+            this.perimetro.Name = "perimetro";
             // 
-            // AlturaFL
+            // diametro
             // 
-            this.AlturaFL.HeaderText = "Altura F.L";
-            this.AlturaFL.Name = "AlturaFL";
+            this.diametro.HeaderText = "Diametro";
+            this.diametro.Name = "diametro";
             // 
-            // AlturaTotal
+            // alturafl
             // 
-            this.AlturaTotal.HeaderText = "Altura Total";
-            this.AlturaTotal.Name = "AlturaTotal";
+            this.alturafl.HeaderText = "Altura F.L";
+            this.alturafl.Name = "alturafl";
             // 
-            // Cobertura
+            // alturatotal
             // 
-            this.Cobertura.HeaderText = "Cobertura";
-            this.Cobertura.Name = "Cobertura";
+            this.alturatotal.HeaderText = "Altura Total";
+            this.alturatotal.Name = "alturatotal";
             // 
-            // FormaFuste
+            // coberturalargo
             // 
-            this.FormaFuste.HeaderText = "Forma de Fuste";
-            this.FormaFuste.Name = "FormaFuste";
+            this.coberturalargo.HeaderText = "Cobertura(Largo)";
+            this.coberturalargo.Name = "coberturalargo";
+            this.coberturalargo.Visible = false;
             // 
-            // EstadoCondicion
+            // coberturaancho
             // 
-            this.EstadoCondicion.HeaderText = "Estado o Condicion";
-            this.EstadoCondicion.Name = "EstadoCondicion";
+            this.coberturaancho.HeaderText = "Cobertura(Ancho)";
+            this.coberturaancho.Name = "coberturaancho";
+            this.coberturaancho.Visible = false;
             // 
-            // RAD
+            // formadefuste
             // 
+<<<<<<< HEAD
             dataGridViewCellStyle65.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle65.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RAD.DefaultCellStyle = dataGridViewCellStyle65;
@@ -293,6 +551,28 @@
             // 
             this.Municipio.HeaderText = "Municipio";
             this.Municipio.Name = "Municipio";
+=======
+            this.formadefuste.HeaderText = "Forma de Fuste";
+            this.formadefuste.Items.AddRange(new object[] {
+            "Curvo",
+            "Curvo Bifurcado",
+            "Recto"});
+            this.formadefuste.Name = "formadefuste";
+            this.formadefuste.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.formadefuste.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // estadocondicion
+            // 
+            this.estadocondicion.HeaderText = "Estado o Condicion";
+            this.estadocondicion.Items.AddRange(new object[] {
+            "Sano",
+            "Sano despuntado",
+            "Samago",
+            "Inclinado"});
+            this.estadocondicion.Name = "estadocondicion";
+            this.estadocondicion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estadocondicion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+>>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
             // 
             // groupBox3
             // 
@@ -672,6 +952,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1100, 700);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.groupBox3);
@@ -679,6 +960,24 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
+=======
+            this.ClientSize = new System.Drawing.Size(900, 565);
+            this.Controls.Add(this.textBoxEstadoSucesional);
+            this.Controls.Add(this.textBoxMunicipio);
+            this.Controls.Add(this.labelEstadoSucesional);
+            this.Controls.Add(this.labelMunicipio);
+            this.Controls.Add(this.textBoxY);
+            this.Controls.Add(this.textBoxX);
+            this.Controls.Add(this.labelY);
+            this.Controls.Add(this.labelX);
+            this.Controls.Add(this.labelCoordenadas);
+            this.Controls.Add(this.labelAreas);
+            this.Controls.Add(this.labelSitios);
+            this.Controls.Add(this.buttonBorrarSitio);
+            this.Controls.Add(this.buttonAgregarSitio);
+            this.Controls.Add(this.comboBoxAreas);
+            this.Controls.Add(this.comboBoxSitios);
+>>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
             this.Controls.Add(this.dataGridViewIndividuos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormRegistro2";
@@ -697,11 +996,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridViewIndividuos;
+<<<<<<< HEAD
         private System.Windows.Forms.DataGridViewTextBoxColumn Cuadrante;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn ArbolNumeroEnSitio;
@@ -752,5 +1053,38 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button17;
+=======
+        private System.Windows.Forms.Label labelMinimize;
+        private System.Windows.Forms.ComboBox comboBoxSitios;
+        private System.Windows.Forms.ComboBox comboBoxAreas;
+        private System.Windows.Forms.Button buttonAgregarSitio;
+        private System.Windows.Forms.Button buttonBorrarSitio;
+        private System.Windows.Forms.Label labelSitios;
+        private System.Windows.Forms.Label labelAreas;
+        private System.Windows.Forms.Label labelCoordenadas;
+        private System.Windows.Forms.Label labelX;
+        private System.Windows.Forms.Label labelY;
+        private System.Windows.Forms.TextBox textBoxX;
+        private System.Windows.Forms.TextBox textBoxY;
+        private System.Windows.Forms.Label labelMunicipio;
+        private System.Windows.Forms.Label labelEstadoSucesional;
+        private System.Windows.Forms.TextBox textBoxMunicipio;
+        private System.Windows.Forms.TextBox textBoxEstadoSucesional;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cuadrante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn arbolnumeroensitio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn especie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombrecientifico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombrecomun;
+        private System.Windows.Forms.DataGridViewTextBoxColumn familia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn perimetro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diametro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alturafl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alturatotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coberturalargo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coberturaancho;
+        private System.Windows.Forms.DataGridViewComboBoxColumn formadefuste;
+        private System.Windows.Forms.DataGridViewComboBoxColumn estadocondicion;
+>>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
     }
 }
