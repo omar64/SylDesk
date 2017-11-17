@@ -26,7 +26,7 @@ namespace SylDeskForm
             comboBoxSitios.SelectedIndex = 0;
             comboBoxAreas.SelectedIndex = 0;
 
-            dataGridViewIndividuos_Populate();
+            //dataGridViewIndividuos_Populate();
             fillForm();
         }
 
@@ -254,7 +254,7 @@ namespace SylDeskForm
             string sqlQueryString = "SELECT municipio, coordenada_x, coordenada_y, estado_sucesional FROM `sitios` where proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
             cmd.CommandText = sqlQueryString;
             cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@numero_sitio", 1);
+            cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
 
             var results = cmd.ExecuteReader();
 

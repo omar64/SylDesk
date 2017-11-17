@@ -39,7 +39,6 @@
             this.richTextBoxDescripcion = new System.Windows.Forms.RichTextBox();
             this.buttonRegistrar = new System.Windows.Forms.Button();
             this.groupBoxRegistro = new System.Windows.Forms.GroupBox();
-<<<<<<< HEAD
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
@@ -67,7 +66,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-=======
             this.panelLeft = new System.Windows.Forms.Panel();
             this.buttonsSitio = new System.Windows.Forms.Button();
             this.buttonCampo = new System.Windows.Forms.Button();
@@ -79,7 +77,7 @@
             this.labelClose = new System.Windows.Forms.Label();
             this.pictureBoxSylvaticaLogo = new System.Windows.Forms.PictureBox();
             this.labelHectareas = new System.Windows.Forms.Label();
->>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBoxRegistro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -89,25 +87,26 @@
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSylvaticaLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.Location = new System.Drawing.Point(136, 45);
+            this.textBoxNombre.Location = new System.Drawing.Point(164, 42);
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(182, 22);
             this.textBoxNombre.TabIndex = 0;
             // 
             // textBoxSuperficie
             // 
-            this.textBoxSuperficie.Location = new System.Drawing.Point(136, 94);
+            this.textBoxSuperficie.Location = new System.Drawing.Point(164, 97);
             this.textBoxSuperficie.Name = "textBoxSuperficie";
             this.textBoxSuperficie.Size = new System.Drawing.Size(182, 22);
             this.textBoxSuperficie.TabIndex = 1;
             // 
             // textBoxSector
             // 
-            this.textBoxSector.Location = new System.Drawing.Point(136, 143);
+            this.textBoxSector.Location = new System.Drawing.Point(164, 140);
             this.textBoxSector.Name = "textBoxSector";
             this.textBoxSector.Size = new System.Drawing.Size(182, 22);
             this.textBoxSector.TabIndex = 2;
@@ -115,7 +114,7 @@
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(5, 51);
+            this.labelNombre.Location = new System.Drawing.Point(33, 48);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(134, 16);
             this.labelNombre.TabIndex = 3;
@@ -124,7 +123,7 @@
             // labelSuperficie
             // 
             this.labelSuperficie.AutoSize = true;
-            this.labelSuperficie.Location = new System.Drawing.Point(65, 100);
+            this.labelSuperficie.Location = new System.Drawing.Point(93, 97);
             this.labelSuperficie.Name = "labelSuperficie";
             this.labelSuperficie.Size = new System.Drawing.Size(69, 16);
             this.labelSuperficie.TabIndex = 4;
@@ -133,7 +132,7 @@
             // labelSector
             // 
             this.labelSector.AutoSize = true;
-            this.labelSector.Location = new System.Drawing.Point(85, 149);
+            this.labelSector.Location = new System.Drawing.Point(113, 146);
             this.labelSector.Name = "labelSector";
             this.labelSector.Size = new System.Drawing.Size(50, 16);
             this.labelSector.TabIndex = 5;
@@ -142,7 +141,7 @@
             // labelDescripcion
             // 
             this.labelDescripcion.AutoSize = true;
-            this.labelDescripcion.Location = new System.Drawing.Point(54, 202);
+            this.labelDescripcion.Location = new System.Drawing.Point(82, 199);
             this.labelDescripcion.Name = "labelDescripcion";
             this.labelDescripcion.Size = new System.Drawing.Size(80, 16);
             this.labelDescripcion.TabIndex = 6;
@@ -151,7 +150,7 @@
             // richTextBoxDescripcion
             // 
             this.richTextBoxDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBoxDescripcion.Location = new System.Drawing.Point(136, 203);
+            this.richTextBoxDescripcion.Location = new System.Drawing.Point(164, 200);
             this.richTextBoxDescripcion.Name = "richTextBoxDescripcion";
             this.richTextBoxDescripcion.Size = new System.Drawing.Size(389, 132);
             this.richTextBoxDescripcion.TabIndex = 7;
@@ -174,12 +173,8 @@
             // 
             // groupBoxRegistro
             // 
-<<<<<<< HEAD
             this.groupBoxRegistro.BackColor = System.Drawing.Color.Gainsboro;
-=======
-            this.groupBoxRegistro.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBoxRegistro.Controls.Add(this.labelHectareas);
->>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
+            this.groupBoxRegistro.Controls.Add(this.label4);
             this.groupBoxRegistro.Controls.Add(this.richTextBoxDescripcion);
             this.groupBoxRegistro.Controls.Add(this.textBoxNombre);
             this.groupBoxRegistro.Controls.Add(this.textBoxSuperficie);
@@ -558,6 +553,77 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // panelLeft
+            // 
+            this.panelLeft.Location = new System.Drawing.Point(0, 0);
+            this.panelLeft.Name = "panelLeft";
+            this.panelLeft.Size = new System.Drawing.Size(200, 100);
+            this.panelLeft.TabIndex = 0;
+            // 
+            // buttonsSitio
+            // 
+            this.buttonsSitio.Location = new System.Drawing.Point(0, 0);
+            this.buttonsSitio.Name = "buttonsSitio";
+            this.buttonsSitio.Size = new System.Drawing.Size(75, 23);
+            this.buttonsSitio.TabIndex = 0;
+            // 
+            // buttonCampo
+            // 
+            this.buttonCampo.Location = new System.Drawing.Point(0, 0);
+            this.buttonCampo.Name = "buttonCampo";
+            this.buttonCampo.Size = new System.Drawing.Size(75, 23);
+            this.buttonCampo.TabIndex = 0;
+            // 
+            // buttonGalerias
+            // 
+            this.buttonGalerias.Location = new System.Drawing.Point(0, 0);
+            this.buttonGalerias.Name = "buttonGalerias";
+            this.buttonGalerias.Size = new System.Drawing.Size(75, 23);
+            this.buttonGalerias.TabIndex = 0;
+            // 
+            // buttonProyectos
+            // 
+            this.buttonProyectos.Location = new System.Drawing.Point(0, 0);
+            this.buttonProyectos.Name = "buttonProyectos";
+            this.buttonProyectos.Size = new System.Drawing.Size(75, 23);
+            this.buttonProyectos.TabIndex = 0;
+            // 
+            // buttonHome
+            // 
+            this.buttonHome.Location = new System.Drawing.Point(0, 0);
+            this.buttonHome.Name = "buttonHome";
+            this.buttonHome.Size = new System.Drawing.Size(75, 23);
+            this.buttonHome.TabIndex = 0;
+            // 
+            // panelTop
+            // 
+            this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(200, 100);
+            this.panelTop.TabIndex = 0;
+            // 
+            // labelMinimize
+            // 
+            this.labelMinimize.Location = new System.Drawing.Point(0, 0);
+            this.labelMinimize.Name = "labelMinimize";
+            this.labelMinimize.Size = new System.Drawing.Size(100, 23);
+            this.labelMinimize.TabIndex = 0;
+            // 
+            // labelClose
+            // 
+            this.labelClose.Location = new System.Drawing.Point(0, 0);
+            this.labelClose.Name = "labelClose";
+            this.labelClose.Size = new System.Drawing.Size(100, 23);
+            this.labelClose.TabIndex = 0;
+            // 
+            // pictureBoxSylvaticaLogo
+            // 
+            this.pictureBoxSylvaticaLogo.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxSylvaticaLogo.Name = "pictureBoxSylvaticaLogo";
+            this.pictureBoxSylvaticaLogo.Size = new System.Drawing.Size(100, 50);
+            this.pictureBoxSylvaticaLogo.TabIndex = 0;
+            this.pictureBoxSylvaticaLogo.TabStop = false;
+            // 
             // labelHectareas
             // 
             this.labelHectareas.AutoSize = true;
@@ -566,6 +632,15 @@
             this.labelHectareas.Size = new System.Drawing.Size(64, 15);
             this.labelHectareas.TabIndex = 8;
             this.labelHectareas.Text = "Hectareas";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(20, 97);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 16);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Hectareas";
             // 
             // FormRegistro1
             // 
@@ -596,6 +671,7 @@
             this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSylvaticaLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -612,7 +688,7 @@
         private System.Windows.Forms.RichTextBox richTextBoxDescripcion;
         private System.Windows.Forms.Button buttonRegistrar;
         private System.Windows.Forms.GroupBox groupBoxRegistro;
-<<<<<<< HEAD
+
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button12;
@@ -640,7 +716,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-=======
+
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Button buttonsSitio;
@@ -652,7 +728,7 @@
         private System.Windows.Forms.Label labelClose;
         private System.Windows.Forms.Label labelMinimize;
         private System.Windows.Forms.Label labelHectareas;
->>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
+        private System.Windows.Forms.Label label4;
     }
 }
 

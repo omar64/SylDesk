@@ -48,20 +48,11 @@ namespace SylDeskForm
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
             try
-<<<<<<< HEAD
-            {
-                /*cmd = SqlConnector.getConnection().CreateCommand();
 
-                string messageBoxText = "all gud";
-                string caption = "Message Box";
-                MessageBoxButton button = MessageBoxButton.YesNoCancel;
-                MessageBoxImage icon = MessageBoxImage.Warning;
-
-=======
             {                 
                 /*
                 cmd = SqlConnector.getConnection(cmd);                
->>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
+
                 cmd.CommandText = "Insert into proyectos(nombre, superficie, sector, descripcion)Values(@nombre,@superficie,@sector,@descripcion)";
                 cmd.Parameters.AddWithValue("@nombre", textBoxNombre.Text);
                 cmd.Parameters.AddWithValue("@superficie", int.Parse(textBoxSuperficie.Text));
@@ -74,36 +65,6 @@ namespace SylDeskForm
                 cmd.CommandText = sqlQueryString;
                 cmd.Parameters.AddWithValue("@nombre", textBoxNombre.Text);
 
-<<<<<<< HEAD
-                var results = cmd.ExecuteReader();*/
-
-                /*
-                string textolargo = "";
-                while (results.Read())
-                {
-                    textolargo += String.Format("{0}", results[0]) + "\n";
-                }
-                */
-
-                // Configure the message box to be displayed
-                /*results.Read();
-                string proyecto_idS = string.Format("{0}", results[0]) + "\n";
-                int proyecto_idI = int.Parse(proyecto_idS);
-                */
-                /*
-                string messageBoxText = proyecto_idS;
-                string caption = "Word Processor";
-                MessageBoxButton button = MessageBoxButton.YesNoCancel;
-                MessageBoxImage icon = MessageBoxImage.Warning;
-
-                System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
-                */
-
-                this.Hide(); //esconde el form actual
-
-
-                FormRegistro2 obj = new FormRegistro2(0); //objeto declarado para abrir el form2
-=======
                 var results = cmd.ExecuteReader();                                
                 results.Read();
                 string proyecto_idS = string.Format("{0}", results[0]) + "\n";
@@ -121,7 +82,7 @@ namespace SylDeskForm
 
                 this.Hide(); //esconde el form actual
                 FormRegistro2 obj = new FormRegistro2(1); //objeto declarado para abrir el form2 proyecto_idI
->>>>>>> de3032e7d93b29a14a9bfcf0572c828a1d4312a5
+
                 obj.Show(); //abre el form declarado con el objeto
             }
             catch (Exception)
