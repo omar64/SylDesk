@@ -49,6 +49,7 @@
             this.labelMinimize = new System.Windows.Forms.Label();
             this.labelClose = new System.Windows.Forms.Label();
             this.pictureBoxSylvaticaLogo = new System.Windows.Forms.PictureBox();
+            this.labelHectareas = new System.Windows.Forms.Label();
             this.groupBoxRegistro.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.panelTop.SuspendLayout();
@@ -79,7 +80,7 @@
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(6, 51);
+            this.labelNombre.Location = new System.Drawing.Point(5, 51);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(125, 15);
             this.labelNombre.TabIndex = 3;
@@ -88,7 +89,7 @@
             // labelSuperficie
             // 
             this.labelSuperficie.AutoSize = true;
-            this.labelSuperficie.Location = new System.Drawing.Point(65, 94);
+            this.labelSuperficie.Location = new System.Drawing.Point(65, 100);
             this.labelSuperficie.Name = "labelSuperficie";
             this.labelSuperficie.Size = new System.Drawing.Size(65, 15);
             this.labelSuperficie.TabIndex = 4;
@@ -97,7 +98,7 @@
             // labelSector
             // 
             this.labelSector.AutoSize = true;
-            this.labelSector.Location = new System.Drawing.Point(85, 146);
+            this.labelSector.Location = new System.Drawing.Point(85, 149);
             this.labelSector.Name = "labelSector";
             this.labelSector.Size = new System.Drawing.Size(45, 15);
             this.labelSector.TabIndex = 5;
@@ -106,7 +107,7 @@
             // labelDescripcion
             // 
             this.labelDescripcion.AutoSize = true;
-            this.labelDescripcion.Location = new System.Drawing.Point(55, 203);
+            this.labelDescripcion.Location = new System.Drawing.Point(54, 202);
             this.labelDescripcion.Name = "labelDescripcion";
             this.labelDescripcion.Size = new System.Drawing.Size(76, 15);
             this.labelDescripcion.TabIndex = 6;
@@ -139,6 +140,7 @@
             // groupBoxRegistro
             // 
             this.groupBoxRegistro.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBoxRegistro.Controls.Add(this.labelHectareas);
             this.groupBoxRegistro.Controls.Add(this.richTextBoxDescripcion);
             this.groupBoxRegistro.Controls.Add(this.textBoxNombre);
             this.groupBoxRegistro.Controls.Add(this.textBoxSuperficie);
@@ -310,6 +312,15 @@
             this.pictureBoxSylvaticaLogo.TabIndex = 0;
             this.pictureBoxSylvaticaLogo.TabStop = false;
             // 
+            // labelHectareas
+            // 
+            this.labelHectareas.AutoSize = true;
+            this.labelHectareas.Location = new System.Drawing.Point(242, 97);
+            this.labelHectareas.Name = "labelHectareas";
+            this.labelHectareas.Size = new System.Drawing.Size(64, 15);
+            this.labelHectareas.TabIndex = 8;
+            this.labelHectareas.Text = "Hectareas";
+            // 
             // FormRegistro1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,6 +366,7 @@
         private System.Windows.Forms.PictureBox pictureBoxSylvaticaLogo;
         private System.Windows.Forms.Label labelClose;
         private System.Windows.Forms.Label labelMinimize;
+        private System.Windows.Forms.Label labelHectareas;
     }
 }
 

@@ -13,16 +13,22 @@ namespace SylDeskForm
     {
         private static String MyConnectionString = "Server=localhost;Database=syldesk_db;Uid=root;Pwd='';";
         private static MySqlConnection connection;
-
+        
         public static void InitializeConnection()
         {
             SqlConnector.connection = new MySqlConnection(MyConnectionString);
             SqlConnector.connection.Open();
         }
 
-        public static MySqlConnection getConnection()
+        public static MySqlCommand getConnection(MySqlCommand cmd)
         {
-            return SqlConnector.connection;
+            return SqlConnector.connection.CreateCommand();
+        }
+
+        public static void closeConnection(MySqlCommand cmd)
+        {
+            SqlConnector.connection.Close();
+            SqlConnector.connection.Dispose();
         }
     }
 }
