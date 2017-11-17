@@ -28,18 +28,28 @@ namespace SylDeskForm
             //connection.Open();
         }
 
-
-
-        private void labelClose_Click(object sender, EventArgs e)
+        private void button10_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
         }
-        
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+
+
+        /*private void labelClose_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }*/
+
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
             try
             {
-                cmd = SqlConnector.getConnection().CreateCommand();
+                /*cmd = SqlConnector.getConnection().CreateCommand();
 
                 string messageBoxText = "all gud";
                 string caption = "Message Box";
@@ -60,7 +70,7 @@ namespace SylDeskForm
                 cmd.CommandText = sqlQueryString;
                 cmd.Parameters.AddWithValue("@nombre", textBoxNombre.Text);
 
-                var results = cmd.ExecuteReader();
+                var results = cmd.ExecuteReader();*/
 
                 /*
                 string textolargo = "";
@@ -71,10 +81,10 @@ namespace SylDeskForm
                 */
 
                 // Configure the message box to be displayed
-                results.Read();
+                /*results.Read();
                 string proyecto_idS = string.Format("{0}", results[0]) + "\n";
                 int proyecto_idI = int.Parse(proyecto_idS);
-
+                */
                 /*
                 string messageBoxText = proyecto_idS;
                 string caption = "Word Processor";
@@ -87,7 +97,7 @@ namespace SylDeskForm
                 this.Hide(); //esconde el form actual
 
 
-                FormRegistro2 obj = new FormRegistro2(proyecto_idI); //objeto declarado para abrir el form2
+                FormRegistro2 obj = new FormRegistro2(0); //objeto declarado para abrir el form2
                 obj.Show(); //abre el form declarado con el objeto
 
             }
@@ -97,32 +107,32 @@ namespace SylDeskForm
             }
         }
 
-        private void labelClose_MouseHover(object sender, EventArgs e)
+        /*private void labelClose_MouseHover(object sender, EventArgs e)
         {
             this.labelClose.ForeColor=Color.Red;
-        }
+        }*/
 
-        private void labelMinimize_Click(object sender, EventArgs e)
+        /*private void labelMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
+        }*/
 
-        private void labelClose_MouseLeave(object sender, EventArgs e)
+        /*private void labelClose_MouseLeave(object sender, EventArgs e)
         {
             this.labelClose.ForeColor = Color.Transparent;
-        }
+        }*/
 
-        private void labelMinimize_MouseHover(object sender, EventArgs e)
+        /*private void labelMinimize_MouseHover(object sender, EventArgs e)
         {
             this.labelMinimize.ForeColor = Color.Gray;
-        }
+        }*/
 
-        private void panelTop_MouseDown(object sender, MouseEventArgs e)
+        /*private void panelTop_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
-        }
+        }*/
 
-        private void panelTop_MouseMove(object sender, MouseEventArgs e)
+        /*private void panelTop_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown)
             {
@@ -131,16 +141,16 @@ namespace SylDeskForm
 
                 this.SetDesktopLocation(mouseX, mouseY);
             }
-        }
+        }*/
 
-        private void panelTop_MouseUp(object sender, MouseEventArgs e)
+        /*private void panelTop_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
-        }
+        }*/
 
-        private void labelMinimize_MouseLeave(object sender, EventArgs e)
+        /*private void labelMinimize_MouseLeave(object sender, EventArgs e)
         {
             this.labelMinimize.ForeColor = Color.Transparent;
-        }
+        }*/
     }
 }

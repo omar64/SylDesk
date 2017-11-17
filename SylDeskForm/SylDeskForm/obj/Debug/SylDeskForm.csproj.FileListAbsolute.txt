@@ -13,8 +13,6 @@ C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\SylDeskForm.exe
 C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\SylDeskForm.exe
 C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\SylDeskForm.pdb
 C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.csprojResolveAssemblyReference.cache
-C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.Form1.resources
-C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.Form2.resources
 C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.Properties.Resources.resources
 C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.csproj.GenerateResource.Cache
 C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.csproj.CoreCompileInputs.cache
@@ -36,3 +34,11 @@ C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDeskForm\SylDeskForm\obj\Debu
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.pdb
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.FormRegistro1.resources
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.FormRegistro2.resources
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.FormRegistro1.resources
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.FormRegistro2.resources
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\MySql.Data.dll
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\MySql.Web.dll
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\MySql.Data.xml
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\MySql.Data.Entity.EF6.xml
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\MySql.Web.xml

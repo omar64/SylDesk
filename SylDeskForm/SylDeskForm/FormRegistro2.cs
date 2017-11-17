@@ -25,7 +25,7 @@ namespace SylDeskForm
             dataGridViewIndividuos.Rows[0].Cells[0].Value = proyecto_id;
         }
 
-        private void labelClose_Click(object sender, EventArgs e)
+        /*private void labelClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -53,7 +53,7 @@ namespace SylDeskForm
         private void labelMinimize_MouseLeave(object sender, EventArgs e)
         {
             this.labelMinimize.ForeColor = Color.Transparent;
-        }
+        }*/
 
         private void dataGridViewIndividuos_Populate()
         {
@@ -94,6 +94,27 @@ namespace SylDeskForm
         {
             dataGridViewIndividuos.Rows[dataGridViewIndividuos.Rows.Count - 1].Cells[1].Value = 1;
             dataGridViewIndividuos.Rows[dataGridViewIndividuos.Rows.Count - 1].Cells[2].Value = 2;
+        }
+
+        
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            this.Hide(); //esconde el form actual
+
+
+            FormRegistro1 objeto = new FormRegistro1(); //objeto declarado para abrir el form2
+            objeto.Show(); //abre el form declarado con el objeto
         }
     }
 }
