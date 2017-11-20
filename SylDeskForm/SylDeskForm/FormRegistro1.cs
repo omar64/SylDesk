@@ -38,6 +38,15 @@ namespace SylDeskForm
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide(); //esconde el form actual
+
+
+            FormRegistro3 objeto = new FormRegistro3(); //objeto declarado para abrir el form3
+            objeto.Show(); //abre el form declarado con el objeto
+        }
+
 
 
         /*private void labelClose_Click(object sender, EventArgs e)

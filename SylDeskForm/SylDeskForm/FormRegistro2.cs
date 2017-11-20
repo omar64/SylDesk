@@ -358,5 +358,14 @@ namespace SylDeskForm
             FormRegistro1 objeto = new FormRegistro1(); //objeto declarado para abrir el form2
             objeto.Show(); //abre el form declarado con el objeto
         }
+
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide(); //esconde el form actual
+
+
+            FormRegistro3 objeto = new FormRegistro3(); //objeto declarado para abrir el form3
+            objeto.Show(); //abre el form declarado con el objeto
+        }
     }
 }
