@@ -499,6 +499,7 @@
             this.Name = "FormRegistro3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRegistro3";
+            this.Load += new System.EventHandler(this.FormRegistro3_Load);
             this.groupBox3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
