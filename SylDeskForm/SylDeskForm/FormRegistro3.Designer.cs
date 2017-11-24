@@ -1,16 +1,16 @@
 ﻿namespace SylDeskForm
 {
-    partial class FormRegistro1
+    partial class FormRegistro3
     {
         /// <summary>
-        /// Variable del diseñador necesaria.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Limpiar los recursos que se estén usando.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,29 +20,15 @@
             base.Dispose(disposing);
         }
 
-        #region Código generado por el Diseñador de Windows Forms
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro1));
-            this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.textBoxSuperficie = new System.Windows.Forms.TextBox();
-            this.textBoxSector = new System.Windows.Forms.TextBox();
-            this.labelNombre = new System.Windows.Forms.Label();
-            this.labelSuperficie = new System.Windows.Forms.Label();
-            this.labelSector = new System.Windows.Forms.Label();
-            this.labelDescripcion = new System.Windows.Forms.Label();
-            this.richTextBoxDescripcion = new System.Windows.Forms.RichTextBox();
-            this.buttonRegistrar = new System.Windows.Forms.Button();
-            this.groupBoxRegistro = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro3));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,16 +38,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelLeft = new System.Windows.Forms.Panel();
-            this.buttonsSitio = new System.Windows.Forms.Button();
-            this.buttonCampo = new System.Windows.Forms.Button();
-            this.buttonGalerias = new System.Windows.Forms.Button();
-            this.buttonProyectos = new System.Windows.Forms.Button();
-            this.buttonHome = new System.Windows.Forms.Button();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.labelMinimize = new System.Windows.Forms.Label();
-            this.labelClose = new System.Windows.Forms.Label();
-            this.labelHectareas = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -75,174 +54,23 @@
             this.button3 = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button11 = new System.Windows.Forms.Button();
-            this.pictureBoxSylvaticaLogo = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.groupBoxRegistro.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonBack = new System.Windows.Forms.Button();
+            this.textBoxBuscar = new System.Windows.Forms.TextBox();
+            this.labelBuscar = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSylvaticaLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBoxNombre
-            // 
-            this.textBoxNombre.Location = new System.Drawing.Point(164, 42);
-            this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(182, 22);
-            this.textBoxNombre.TabIndex = 0;
-            // 
-            // textBoxSuperficie
-            // 
-            this.textBoxSuperficie.Location = new System.Drawing.Point(164, 97);
-            this.textBoxSuperficie.Name = "textBoxSuperficie";
-            this.textBoxSuperficie.Size = new System.Drawing.Size(182, 22);
-            this.textBoxSuperficie.TabIndex = 1;
-            // 
-            // textBoxSector
-            // 
-            this.textBoxSector.Location = new System.Drawing.Point(164, 140);
-            this.textBoxSector.Name = "textBoxSector";
-            this.textBoxSector.Size = new System.Drawing.Size(182, 22);
-            this.textBoxSector.TabIndex = 2;
-            // 
-            // labelNombre
-            // 
-            this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(33, 48);
-            this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(134, 16);
-            this.labelNombre.TabIndex = 3;
-            this.labelNombre.Text = "Nombre del Proyecto:";
-            // 
-            // labelSuperficie
-            // 
-            this.labelSuperficie.AutoSize = true;
-            this.labelSuperficie.Location = new System.Drawing.Point(93, 97);
-            this.labelSuperficie.Name = "labelSuperficie";
-            this.labelSuperficie.Size = new System.Drawing.Size(69, 16);
-            this.labelSuperficie.TabIndex = 4;
-            this.labelSuperficie.Text = "Superficie:";
-            // 
-            // labelSector
-            // 
-            this.labelSector.AutoSize = true;
-            this.labelSector.Location = new System.Drawing.Point(113, 146);
-            this.labelSector.Name = "labelSector";
-            this.labelSector.Size = new System.Drawing.Size(50, 16);
-            this.labelSector.TabIndex = 5;
-            this.labelSector.Text = "Sector:";
-            // 
-            // labelDescripcion
-            // 
-            this.labelDescripcion.AutoSize = true;
-            this.labelDescripcion.Location = new System.Drawing.Point(82, 199);
-            this.labelDescripcion.Name = "labelDescripcion";
-            this.labelDescripcion.Size = new System.Drawing.Size(80, 16);
-            this.labelDescripcion.TabIndex = 6;
-            this.labelDescripcion.Text = "Descripcion:";
-            // 
-            // richTextBoxDescripcion
-            // 
-            this.richTextBoxDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBoxDescripcion.Location = new System.Drawing.Point(164, 200);
-            this.richTextBoxDescripcion.Name = "richTextBoxDescripcion";
-            this.richTextBoxDescripcion.Size = new System.Drawing.Size(389, 132);
-            this.richTextBoxDescripcion.TabIndex = 7;
-            this.richTextBoxDescripcion.Text = "";
-            // 
-            // buttonRegistrar
-            // 
-            this.buttonRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(180)))), ((int)(((byte)(89)))));
-            this.buttonRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRegistrar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRegistrar.ForeColor = System.Drawing.Color.White;
-            this.buttonRegistrar.Location = new System.Drawing.Point(665, 612);
-            this.buttonRegistrar.Name = "buttonRegistrar";
-            this.buttonRegistrar.Size = new System.Drawing.Size(111, 42);
-            this.buttonRegistrar.TabIndex = 8;
-            this.buttonRegistrar.Text = "Registrar";
-            this.buttonRegistrar.UseVisualStyleBackColor = false;
-            this.buttonRegistrar.Click += new System.EventHandler(this.buttonRegistrar_Click);
-            // 
-            // groupBoxRegistro
-            // 
-            this.groupBoxRegistro.BackColor = System.Drawing.Color.Gainsboro;
-            this.groupBoxRegistro.Controls.Add(this.label4);
-            this.groupBoxRegistro.Controls.Add(this.richTextBoxDescripcion);
-            this.groupBoxRegistro.Controls.Add(this.textBoxNombre);
-            this.groupBoxRegistro.Controls.Add(this.textBoxSuperficie);
-            this.groupBoxRegistro.Controls.Add(this.labelDescripcion);
-            this.groupBoxRegistro.Controls.Add(this.textBoxSector);
-            this.groupBoxRegistro.Controls.Add(this.labelSector);
-            this.groupBoxRegistro.Controls.Add(this.labelNombre);
-            this.groupBoxRegistro.Controls.Add(this.labelSuperficie);
-            this.groupBoxRegistro.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxRegistro.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxRegistro.Location = new System.Drawing.Point(38, 207);
-            this.groupBoxRegistro.Name = "groupBoxRegistro";
-            this.groupBoxRegistro.Size = new System.Drawing.Size(787, 381);
-            this.groupBoxRegistro.TabIndex = 9;
-            this.groupBoxRegistro.TabStop = false;
-            this.groupBoxRegistro.Text = "Registro";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 97);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Hectareas";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.ForestGreen;
-            this.panel1.Controls.Add(this.button12);
-            this.panel1.Controls.Add(this.button11);
-            this.panel1.Controls.Add(this.button10);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1100, 36);
-            this.panel1.TabIndex = 10;
-            // 
-            // button12
-            // 
-            this.button12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(995, 3);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(29, 30);
-            this.button12.TabIndex = 2;
-            this.button12.Text = "_";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // button10
-            // 
-            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(1056, 3);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(29, 30);
-            this.button10.TabIndex = 0;
-            this.button10.Text = "X";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // groupBox3
             // 
@@ -256,7 +84,7 @@
             this.groupBox3.Location = new System.Drawing.Point(623, 61);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(278, 93);
-            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabIndex = 41;
             this.groupBox3.TabStop = false;
             // 
             // panel4
@@ -292,7 +120,7 @@
             this.groupBox2.Location = new System.Drawing.Point(348, 61);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(269, 93);
-            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabIndex = 39;
             this.groupBox2.TabStop = false;
             // 
             // panel3
@@ -329,7 +157,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 61);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(330, 93);
-            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
             // 
             // panel2
@@ -353,77 +181,45 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Asignacion";
             // 
-            // panelLeft
+            // panel1
             // 
-            this.panelLeft.Location = new System.Drawing.Point(0, 0);
-            this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(200, 100);
-            this.panelLeft.TabIndex = 0;
+            this.panel1.BackColor = System.Drawing.Color.ForestGreen;
+            this.panel1.Controls.Add(this.button12);
+            this.panel1.Controls.Add(this.button11);
+            this.panel1.Controls.Add(this.button10);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1100, 36);
+            this.panel1.TabIndex = 35;
             // 
-            // buttonsSitio
+            // button12
             // 
-            this.buttonsSitio.Location = new System.Drawing.Point(0, 0);
-            this.buttonsSitio.Name = "buttonsSitio";
-            this.buttonsSitio.Size = new System.Drawing.Size(75, 23);
-            this.buttonsSitio.TabIndex = 0;
+            this.button12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.ForeColor = System.Drawing.Color.White;
+            this.button12.Location = new System.Drawing.Point(995, 3);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(29, 30);
+            this.button12.TabIndex = 2;
+            this.button12.Text = "_";
+            this.button12.UseVisualStyleBackColor = true;
             // 
-            // buttonCampo
+            // button10
             // 
-            this.buttonCampo.Location = new System.Drawing.Point(0, 0);
-            this.buttonCampo.Name = "buttonCampo";
-            this.buttonCampo.Size = new System.Drawing.Size(75, 23);
-            this.buttonCampo.TabIndex = 0;
-            // 
-            // buttonGalerias
-            // 
-            this.buttonGalerias.Location = new System.Drawing.Point(0, 0);
-            this.buttonGalerias.Name = "buttonGalerias";
-            this.buttonGalerias.Size = new System.Drawing.Size(75, 23);
-            this.buttonGalerias.TabIndex = 0;
-            // 
-            // buttonProyectos
-            // 
-            this.buttonProyectos.Location = new System.Drawing.Point(0, 0);
-            this.buttonProyectos.Name = "buttonProyectos";
-            this.buttonProyectos.Size = new System.Drawing.Size(75, 23);
-            this.buttonProyectos.TabIndex = 0;
-            // 
-            // buttonHome
-            // 
-            this.buttonHome.Location = new System.Drawing.Point(0, 0);
-            this.buttonHome.Name = "buttonHome";
-            this.buttonHome.Size = new System.Drawing.Size(75, 23);
-            this.buttonHome.TabIndex = 0;
-            // 
-            // panelTop
-            // 
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(200, 100);
-            this.panelTop.TabIndex = 0;
-            // 
-            // labelMinimize
-            // 
-            this.labelMinimize.Location = new System.Drawing.Point(0, 0);
-            this.labelMinimize.Name = "labelMinimize";
-            this.labelMinimize.Size = new System.Drawing.Size(100, 23);
-            this.labelMinimize.TabIndex = 0;
-            // 
-            // labelClose
-            // 
-            this.labelClose.Location = new System.Drawing.Point(0, 0);
-            this.labelClose.Name = "labelClose";
-            this.labelClose.Size = new System.Drawing.Size(100, 23);
-            this.labelClose.TabIndex = 0;
-            // 
-            // labelHectareas
-            // 
-            this.labelHectareas.AutoSize = true;
-            this.labelHectareas.Location = new System.Drawing.Point(242, 97);
-            this.labelHectareas.Name = "labelHectareas";
-            this.labelHectareas.Size = new System.Drawing.Size(64, 15);
-            this.labelHectareas.TabIndex = 8;
-            this.labelHectareas.Text = "Hectareas";
+            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.Color.White;
+            this.button10.Location = new System.Drawing.Point(1056, 3);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(29, 30);
+            this.button10.TabIndex = 0;
+            this.button10.Text = "X";
+            this.button10.UseVisualStyleBackColor = true;
             // 
             // button13
             // 
@@ -594,7 +390,6 @@
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Buscarbutton.UseVisualStyleBackColor = true;
-            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // button1
             // 
@@ -611,17 +406,6 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(201, 52);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
             // button11
             // 
             this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -636,44 +420,86 @@
             this.button11.TabIndex = 1;
             this.button11.UseVisualStyleBackColor = true;
             // 
-            // pictureBoxSylvaticaLogo
+            // pictureBox1
             // 
-            this.pictureBoxSylvaticaLogo.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxSylvaticaLogo.Name = "pictureBoxSylvaticaLogo";
-            this.pictureBoxSylvaticaLogo.Size = new System.Drawing.Size(100, 50);
-            this.pictureBoxSylvaticaLogo.TabIndex = 0;
-            this.pictureBoxSylvaticaLogo.TabStop = false;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(201, 52);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 55;
+            this.pictureBox1.TabStop = false;
             // 
-            // label5
+            // buttonBack
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(436, 39);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 18);
-            this.label5.TabIndex = 61;
-            this.label5.Text = "Crear Proyecto";
+            this.buttonBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonBack.FlatAppearance.BorderSize = 0;
+            this.buttonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBack.Image = ((System.Drawing.Image)(resources.GetObject("buttonBack.Image")));
+            this.buttonBack.Location = new System.Drawing.Point(25, 181);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(46, 34);
+            this.buttonBack.TabIndex = 56;
+            this.buttonBack.UseVisualStyleBackColor = true;
             // 
-            // FormRegistro1
+            // textBoxBuscar
+            // 
+            this.textBoxBuscar.Location = new System.Drawing.Point(193, 201);
+            this.textBoxBuscar.Name = "textBoxBuscar";
+            this.textBoxBuscar.Size = new System.Drawing.Size(183, 20);
+            this.textBoxBuscar.TabIndex = 57;
+            this.textBoxBuscar.TextChanged += new System.EventHandler(this.textBoxBuscar_TextChanged);
+            this.textBoxBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxBuscar_KeyUp);
+            // 
+            // labelBuscar
+            // 
+            this.labelBuscar.AutoSize = true;
+            this.labelBuscar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBuscar.Location = new System.Drawing.Point(138, 202);
+            this.labelBuscar.Name = "labelBuscar";
+            this.labelBuscar.Size = new System.Drawing.Size(49, 16);
+            this.labelBuscar.TabIndex = 58;
+            this.labelBuscar.Text = "Buscar";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(25, 300);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1031, 297);
+            this.dataGridView1.TabIndex = 59;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(447, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 18);
+            this.label4.TabIndex = 60;
+            this.label4.Text = "Buscar Proyecto";
+            // 
+            // FormRegistro3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 700);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.labelBuscar);
+            this.Controls.Add(this.textBoxBuscar);
+            this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBoxRegistro);
-            this.Controls.Add(this.buttonRegistrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormRegistro1";
+            this.Name = "FormRegistro3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            this.groupBoxRegistro.ResumeLayout(false);
-            this.groupBoxRegistro.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.Text = "FormRegistro3";
+            this.Load += new System.EventHandler(this.FormRegistro3_Load);
             this.groupBox3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -683,31 +509,15 @@
             this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSylvaticaLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBoxNombre;
-        private System.Windows.Forms.TextBox textBoxSuperficie;
-        private System.Windows.Forms.TextBox textBoxSector;
-        private System.Windows.Forms.Label labelNombre;
-        private System.Windows.Forms.Label labelSuperficie;
-        private System.Windows.Forms.Label labelSector;
-        private System.Windows.Forms.Label labelDescripcion;
-        private System.Windows.Forms.RichTextBox richTextBoxDescripcion;
-        private System.Windows.Forms.Button buttonRegistrar;
-        private System.Windows.Forms.GroupBox groupBoxRegistro;
-
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Panel panel4;
@@ -730,20 +540,15 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button Buscarbutton;
         private System.Windows.Forms.Button button1;
-
-        private System.Windows.Forms.Panel panelLeft;
-        private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Button buttonsSitio;
-        private System.Windows.Forms.Button buttonCampo;
-        private System.Windows.Forms.Button buttonGalerias;
-        private System.Windows.Forms.Button buttonProyectos;
-        private System.Windows.Forms.Button buttonHome;
-        private System.Windows.Forms.PictureBox pictureBoxSylvaticaLogo;
-        private System.Windows.Forms.Label labelClose;
-        private System.Windows.Forms.Label labelMinimize;
-        private System.Windows.Forms.Label labelHectareas;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.TextBox textBoxBuscar;
+        private System.Windows.Forms.Label labelBuscar;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
     }
 }
-

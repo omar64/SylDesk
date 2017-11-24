@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormRegistro3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegistro3.Designer.cs">
+      <DependentUpon>FormRegistro3.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlConnector.cs" />
     <Compile Include="FormRegistro1.cs">
       <SubType>Form</SubType>
@@ -69,6 +75,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegistro2.resx">
       <DependentUpon>FormRegistro2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegistro3.resx">
+      <DependentUpon>FormRegistro3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
