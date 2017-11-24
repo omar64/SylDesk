@@ -28,6 +28,8 @@ namespace SylDeskForm
 
             //dataGridViewIndividuos_Populate();
             fillForm();
+
+
         }
 
         /*private void labelClose_Click(object sender, EventArgs e)
