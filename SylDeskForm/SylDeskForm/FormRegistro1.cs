@@ -15,17 +15,13 @@ namespace SylDeskForm
 {
     public partial class FormRegistro1 : System.Windows.Forms.Form
     {
-        //String MyConnectionString = "Server=localhost;Database=syldesk_db;Uid=root;Pwd='';";
         int mouseX = 0, mouseY = 0;
         bool mouseDown;
-        //MySqlConnection connection;
         MySqlCommand cmd;
 
         public FormRegistro1()
         {
             InitializeComponent();
-            //connection = new MySqlConnection(MyConnectionString);
-            //connection.Open();
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -57,8 +53,7 @@ namespace SylDeskForm
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
             try
-
-            {                 
+            {       
                 /*
                 cmd = SqlConnector.getConnection(cmd);                
 

@@ -26,7 +26,7 @@ namespace SylDeskForm
             comboBoxSitios.SelectedIndex = 0;
             comboBoxAreas.SelectedIndex = 0;
 
-            //dataGridViewIndividuos_Populate();
+            dataGridViewIndividuos_Populate();
             fillForm();
         }
 
@@ -150,12 +150,14 @@ namespace SylDeskForm
             if (comboBoxSitios.Items.Count > 1)
             {
                 cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "DELETE FROM individuos WHERE sitio = @sitio";
+                cmd.CommandText = "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio";
+                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
                 cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.Items.Count);
                 cmd.ExecuteNonQuery();
 
                 cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "DELETE FROM sitios WHERE numero_sitio = @numero_sitio";
+                cmd.CommandText = "DELETE FROM sitios WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
+                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
                 cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.Items.Count);
                 cmd.ExecuteNonQuery();
 
@@ -273,6 +275,29 @@ namespace SylDeskForm
             textBoxY.Text = textBoxYText;
             textBoxEstadoSucesional.Text = textBoxEstadoSucesionalText;
 
+
+            cmd = SqlConnector.getConnection(cmd);
+
+            sqlQueryString = "SELECT nombre, superficie, sector, descripcion FROM `proyectos` where id = @proyecto_id";
+            cmd.CommandText = sqlQueryString;
+            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+
+            results = cmd.ExecuteReader();
+
+            results.Read();
+
+            string labelNombreText = results[0].ToString();
+            string labelSuperficieText = results[1].ToString();
+            string labelSectorText = results[2].ToString();
+            string labelDescripcionText = results[3].ToString();
+
+            results.Close();
+            results.Dispose();
+
+            labelNombre.Text = labelNombreText;
+            //labelSuperficie.Text = labelSuperficieText;
+            //labelSector.Text = labelSectorText;
+            //labelDescripcion.Text = labelDescripcionText;
         }
 
         private void comboBoxSitios_Populate()
@@ -366,6 +391,54 @@ namespace SylDeskForm
 
             FormRegistro3 objeto = new FormRegistro3(); //objeto declarado para abrir el form3
             objeto.Show(); //abre el form declarado con el objeto
+        }
+
+        private void buttonAgregarIndividuo_Click(object sender, EventArgs e)
+        {
+            cmd = SqlConnector.getConnection(cmd);
+
+            string sqlQueryString = "SELECT numero_consecutivo FROM `sitios` where id = @proyecto_id AND numero_sitio = @numero_sitio";
+            cmd.CommandText = sqlQueryString;
+            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+            cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
+
+            var results = cmd.ExecuteReader();
+
+            results.Read();
+
+            int numero_consecutivo = (int)results[0];
+
+            results.Close();
+            results.Dispose();
+
+
+            var newRow = dataGridViewIndividuos.Rows[dataGridViewIndividuos.Rows.Add()];
+            newRow.Cells["numero"].Value = numero_consecutivo + 1;
+            if (dataGridViewIndividuos.RowCount > 1)
+            {
+                newRow.Cells["arbolnumeroensitio"].Value = (int)dataGridViewIndividuos.Rows[dataGridViewIndividuos.RowCount - 2].Cells["arbolnumeroensitio"].Value + 1;
+            }
+            else
+            {
+                newRow.Cells["arbolnumeroensitio"].Value = 1;
+            }
+        }
+
+        private void buttonAgregarBifurcacion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEliminarIndividuo_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewIndividuos.RowCount > 0)
+            {
+                if (dataGridViewIndividuos.SelectedRows.Count > 0)
+                {
+                    var row = dataGridViewIndividuos.SelectedRows[0];
+                    dataGridViewIndividuos.Rows.RemoveAt(row.Index);
+                }
+            }
         }
     }
 }
