@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button13 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -504,18 +504,18 @@
             // 
             // numero
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numero.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numero.DefaultCellStyle = dataGridViewCellStyle1;
             this.numero.HeaderText = "Consecutivo";
             this.numero.Name = "numero";
             this.numero.ReadOnly = true;
             // 
             // arbolnumeroensitio
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle2;
             this.arbolnumeroensitio.HeaderText = "NO. EN CAMPO";
             this.arbolnumeroensitio.Name = "arbolnumeroensitio";
             this.arbolnumeroensitio.ReadOnly = true;
@@ -527,26 +527,26 @@
             // 
             // nombrecientifico
             // 
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Silver;
-            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle3;
             this.nombrecientifico.HeaderText = "Nombre Cientifico";
             this.nombrecientifico.Name = "nombrecientifico";
             this.nombrecientifico.ReadOnly = true;
             // 
             // nombrecomun
             // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecomun.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecomun.DefaultCellStyle = dataGridViewCellStyle4;
             this.nombrecomun.HeaderText = "Nombre Comun";
             this.nombrecomun.Name = "nombrecomun";
             this.nombrecomun.ReadOnly = true;
             // 
             // familia
             // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.familia.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.familia.DefaultCellStyle = dataGridViewCellStyle5;
             this.familia.HeaderText = "Familia";
             this.familia.Name = "familia";
             this.familia.ReadOnly = true;
@@ -803,6 +803,7 @@
             this.labelNombre.Size = new System.Drawing.Size(65, 20);
             this.labelNombre.TabIndex = 63;
             this.labelNombre.Text = "Nombre";
+            this.labelNombre.Click += new System.EventHandler(this.labelNombre_Click);
             // 
             // buttonAgregarIndividuo
             // 

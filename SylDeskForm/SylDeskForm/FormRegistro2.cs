@@ -462,5 +462,10 @@ namespace SylDeskForm
                 }
             }
         }
+
+        private void labelNombre_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
