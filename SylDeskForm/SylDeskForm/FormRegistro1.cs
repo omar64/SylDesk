@@ -53,8 +53,7 @@ namespace SylDeskForm
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
             try
-            {       
-                /*
+            {
                 cmd = SqlConnector.getConnection(cmd);                
 
                 cmd.CommandText = "Insert into proyectos(nombre, superficie, sector, descripcion)Values(@nombre,@superficie,@sector,@descripcion)";
@@ -82,10 +81,9 @@ namespace SylDeskForm
                 cmd.Parameters.AddWithValue("@numero_sitio", 1);
                 cmd.Parameters.AddWithValue("@numero_consecutivo", 1);
                 cmd.ExecuteNonQuery();
-                */
 
                 this.Hide(); //esconde el form actual
-                FormRegistro2 obj = new FormRegistro2(1); //objeto declarado para abrir el form2 proyecto_idI
+                FormRegistro2 obj = new FormRegistro2(proyecto_idI); //objeto declarado para abrir el form2 proyecto_idI
 
                 obj.Show(); //abre el form declarado con el objeto
             }

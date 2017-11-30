@@ -400,14 +400,16 @@ namespace SylDeskForm
         {
             cmd = SqlConnector.getConnection(cmd);
 
-            string sqlQueryString = "SELECT numero_consecutivo FROM `sitios` where id = @proyecto_id AND numero_sitio = @numero_sitio";
+            string sqlQueryString = "SELECT numero_consecutivo FROM `sitios` where proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
             cmd.CommandText = sqlQueryString;
             cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
             cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
 
             var results = cmd.ExecuteReader();
 
+            
             results.Read();
+            
 
             int numero_consecutivo = (int)results[0];
 
@@ -453,14 +455,48 @@ namespace SylDeskForm
 
         private void buttonEliminarIndividuo_Click(object sender, EventArgs e)
         {
-            if (dataGridViewIndividuos.RowCount > 0)
+            if (dataGridViewIndividuos.SelectedRows.Count > 0)
             {
-                if (dataGridViewIndividuos.SelectedRows.Count > 0)
+                var row = dataGridViewIndividuos.SelectedRows[0];
+
+                cmd = SqlConnector.getConnection(cmd);
+                cmd.CommandText = "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND numero  = @numero";
+                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+                cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
+                cmd.Parameters.AddWithValue("@numero", dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value);
+                cmd.ExecuteNonQuery();
+
+                cmd = SqlConnector.getConnection(cmd);
+                cmd.CommandText = "UPDATE individuos SET numero = (numero - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND numero > @numero";
+                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+                cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
+                cmd.Parameters.AddWithValue("@numero", dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value);
+                cmd.ExecuteNonQuery();
+
+                cmd = SqlConnector.getConnection(cmd);
+                cmd.CommandText = "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND arbolnumeroensitio > @arbolnumeroensitio";
+                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+                cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
+                cmd.Parameters.AddWithValue("@arbolnumeroensitio", dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value);
+                cmd.ExecuteNonQuery();
+
+                dataGridViewIndividuos_Populate();
+
+                /*
+                if (dataGridViewIndividuos.RowCount > 0)
                 {
-                    var row = dataGridViewIndividuos.SelectedRows[0];
-                    dataGridViewIndividuos.Rows.RemoveAt(row.Index);
+                    if (dataGridViewIndividuos.SelectedRows.Count > 0)
+                    {
+                        dataGridViewIndividuos.Rows.RemoveAt(row.Index);
+                    }
                 }
+                */
             }
+        }
+
+        private void labelNombre_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
