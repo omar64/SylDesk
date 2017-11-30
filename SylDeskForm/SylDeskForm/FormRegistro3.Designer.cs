@@ -60,13 +60,13 @@
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.labelBuscar = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.superficie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sector = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalle = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -397,6 +397,7 @@
             this.button12.TabIndex = 2;
             this.button12.Text = "_";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
@@ -488,16 +489,6 @@
             this.dataGridView1.TabIndex = 59;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(447, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 18);
-            this.label4.TabIndex = 60;
-            this.label4.Text = "Buscar Proyecto";
-            // 
             // id
             // 
             this.id.HeaderText = "id";
@@ -532,7 +523,18 @@
             // 
             this.detalle.HeaderText = "Detalle";
             this.detalle.Name = "detalle";
+            this.detalle.ReadOnly = true;
             this.detalle.Text = "X";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(447, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 18);
+            this.label4.TabIndex = 60;
+            this.label4.Text = "Buscar Proyecto";
             // 
             // FormRegistro3
             // 

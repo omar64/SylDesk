@@ -75,7 +75,7 @@ namespace SylDeskForm
 
         private void button10_Click(object sender, EventArgs e)
         {
-
+            System.Windows.Forms.Application.Exit();
         }
 
         private void sendMessageBox(string message)
@@ -85,6 +85,11 @@ namespace SylDeskForm
             MessageBoxButton button = MessageBoxButton.OK;
             MessageBoxImage icon = MessageBoxImage.Error;
             System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
