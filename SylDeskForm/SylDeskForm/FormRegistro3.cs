@@ -67,6 +67,10 @@ namespace SylDeskForm
             System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ce7b3acaf788416ec90e376f10557b05a5c478c3
         private void dataGridView1_Populate(string text)
         {
             dataGridView1.Rows.Clear();
@@ -92,7 +96,10 @@ namespace SylDeskForm
 
             results.Close();
             results.Dispose();
+<<<<<<< HEAD
 
+=======
+>>>>>>> ce7b3acaf788416ec90e376f10557b05a5c478c3
         }
 
         private void button12_Click(object sender, EventArgs e)
