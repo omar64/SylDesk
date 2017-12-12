@@ -32,9 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Fabric.Plugin, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.10.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.10.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Web, Version=6.10.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -54,6 +54,12 @@
     </Compile>
     <Compile Include="FormRegistro3.Designer.cs">
       <DependentUpon>FormRegistro3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegistroEspecie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegistroEspecie.Designer.cs">
+      <DependentUpon>FormRegistroEspecie.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlConnector.cs" />
     <Compile Include="FormRegistro1.cs">
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegistro3.resx">
       <DependentUpon>FormRegistro3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegistroEspecie.resx">
+      <DependentUpon>FormRegistroEspecie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

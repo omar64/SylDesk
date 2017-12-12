@@ -88,6 +88,7 @@
             this.cuadrante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.arbolnumeroensitio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bifurcados = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.especie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombrecientifico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombrecomun = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,7 +101,6 @@
             this.coberturaancho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formadefuste = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.estadocondicion = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.bifurcados = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -479,6 +479,7 @@
             this.cuadrante,
             this.numero,
             this.arbolnumeroensitio,
+            this.bifurcados,
             this.especie,
             this.nombrecientifico,
             this.nombrecomun,
@@ -490,8 +491,7 @@
             this.coberturalargo,
             this.coberturaancho,
             this.formadefuste,
-            this.estadocondicion,
-            this.bifurcados});
+            this.estadocondicion});
             this.dataGridViewIndividuos.Location = new System.Drawing.Point(38, 306);
             this.dataGridViewIndividuos.Name = "dataGridViewIndividuos";
             this.dataGridViewIndividuos.Size = new System.Drawing.Size(1031, 297);
@@ -751,6 +751,12 @@
             this.arbolnumeroensitio.Name = "arbolnumeroensitio";
             this.arbolnumeroensitio.ReadOnly = true;
             // 
+            // bifurcados
+            // 
+            this.bifurcados.HeaderText = "Bifurcado";
+            this.bifurcados.Name = "bifurcados";
+            this.bifurcados.ReadOnly = true;
+            // 
             // especie
             // 
             this.especie.HeaderText = "Especie";
@@ -836,13 +842,6 @@
             this.estadocondicion.Name = "estadocondicion";
             this.estadocondicion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.estadocondicion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // bifurcados
-            // 
-            this.bifurcados.HeaderText = "Bifurcado";
-            this.bifurcados.Name = "bifurcados";
-            this.bifurcados.ReadOnly = true;
-            this.bifurcados.Visible = false;
             // 
             // FormRegistro2
             // 
@@ -956,6 +955,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cuadrante;
         private System.Windows.Forms.DataGridViewTextBoxColumn numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn arbolnumeroensitio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bifurcados;
         private System.Windows.Forms.DataGridViewTextBoxColumn especie;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombrecientifico;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombrecomun;
@@ -968,6 +968,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn coberturaancho;
         private System.Windows.Forms.DataGridViewComboBoxColumn formadefuste;
         private System.Windows.Forms.DataGridViewComboBoxColumn estadocondicion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bifurcados;
     }
 }
