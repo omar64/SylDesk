@@ -43,6 +43,15 @@ namespace SylDeskForm
             objeto.Show(); //abre el form declarado con el objeto
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide(); //esconde el form actual
+
+
+            FormRegistroEspecie objeto = new FormRegistroEspecie(); //objeto declarado para abrir el form3
+            objeto.Show(); //abre el form declarado con el objeto
+        }
+
 
 
         /*private void labelClose_Click(object sender, EventArgs e)
