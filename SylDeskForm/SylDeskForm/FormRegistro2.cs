@@ -16,6 +16,7 @@ namespace SylDeskForm
     {
         public int proyecto_id;
         MySqlCommand cmd;
+        AutoCompleteStringCollection source = new AutoCompleteStringCollection();
 
         public FormRegistro2(int proyecto_id)
         {
@@ -28,6 +29,36 @@ namespace SylDeskForm
 
             dataGridViewIndividuos_Populate();
             fillForm();
+
+            source.AddRange(new string[]
+            {
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+                "Jxanuary",
+                "Jxxnuary",
+                "Jxxxuary",
+                "Jxxxxary",
+                "Jxxxxxry",
+                "Jxxxxxxy",
+                "Jxxxxxxx",
+                "Jaxuary",
+                "Jaxxuary",
+            });
+            
+
+            textBox1.AutoCompleteCustomSource = source;
+            textBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            textBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         /*private void labelClose_Click(object sender, EventArgs e)
@@ -141,10 +172,9 @@ namespace SylDeskForm
         {
             comboBoxSitios.Items.Add(comboBoxSitios.Items.Count + 1);
             cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "Insert into sitios(proyecto_id, numero_sitio, numero_consecutivo)Values(@proyecto_id, @numero_sitio, @numero_consecutivo)";
+            cmd.CommandText = "Insert into sitios(proyecto_id, numero_sitio)Values(@proyecto_id, @numero_sitio)";
             cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
             cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.Items.Count);
-            cmd.Parameters.AddWithValue("@numero_consecutivo", 1);
             cmd.ExecuteNonQuery();
         }
 
@@ -331,7 +361,7 @@ namespace SylDeskForm
             string sqlQueryString = "SELECT cuadrante, numero, arbolnumeroensitio, bifurcados, especie, nombrecientifico, " +
                 "nombrecomun, familia, perimetro, diametro, alturafl, alturatotal, coberturalargo, coberturaancho, " +
                 "formadefuste, estadocondicion " +
-                " from `individuos` where proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area ORDER BY numero DESC";
+                " from `individuos` where proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area ORDER BY arbolnumeroensitio DESC";
             cmd.CommandText = sqlQueryString;
             cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
             cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem.ToString());
@@ -361,6 +391,10 @@ namespace SylDeskForm
                 lista_individuos.Add(results[15]);
 
                 dataGridViewIndividuos.Rows.Insert(0, lista_individuos.ToArray());
+                if ((bool)dataGridViewIndividuos.Rows[0].Cells["bifurcados"].Value)
+                {
+                    dataGridViewIndividuos.Rows[0].DefaultCellStyle.BackColor = Color.DarkGray;
+                }
             }
 
             results.Close();
@@ -400,8 +434,9 @@ namespace SylDeskForm
         private void buttonAgregarIndividuo_Click(object sender, EventArgs e)
         {
             cmd = SqlConnector.getConnection(cmd);
+            int numero = comboBoxAreas.SelectedIndex + 1;
 
-            string sqlQueryString = "SELECT numero_consecutivo FROM `sitios` where proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
+            string sqlQueryString = "SELECT numero_consecutivo" + numero + " FROM `sitios` where proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
             cmd.CommandText = sqlQueryString;
             cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
             cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
@@ -416,7 +451,7 @@ namespace SylDeskForm
             results.Dispose();
 
             cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "UPDATE sitios SET numero_consecutivo = @numero_consecutivo WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
+            cmd.CommandText = "UPDATE sitios SET numero_consecutivo" + numero + " = @numero_consecutivo WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
             cmd.Parameters.AddWithValue("@numero_consecutivo", numero_consecutivo + 1);
             cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
             cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
@@ -424,7 +459,7 @@ namespace SylDeskForm
 
             var newRow = dataGridViewIndividuos.Rows[dataGridViewIndividuos.Rows.Add()];
             newRow.Cells["numero"].Value = numero_consecutivo;
-            newRow.Cells["bifurcados"].Value = 0;
+            newRow.Cells["bifurcados"].Value = false;
             if (dataGridViewIndividuos.RowCount > 1)
             {
                 newRow.Cells["arbolnumeroensitio"].Value = Convert.ToInt32(dataGridViewIndividuos.Rows[dataGridViewIndividuos.RowCount - 2].Cells["arbolnumeroensitio"].Value) + 1;
@@ -438,7 +473,7 @@ namespace SylDeskForm
 
             cmd = SqlConnector.getConnection(cmd);
             cmd.CommandText = "Insert into individuos(proyecto_id, sitio, area, numero, arbolnumeroensitio, bifurcados)" +
-                "Values(@proyecto_id, @sitio, @area, @numero, @arbolnumeroensitio, 0)";
+                "Values(@proyecto_id, @sitio, @area, @numero, @arbolnumeroensitio, false)";
             cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
             cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
             cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
@@ -457,9 +492,30 @@ namespace SylDeskForm
                 {
                     clonedRow.Cells[index].Value = row.Cells[index].Value;
                 }
-                clonedRow.Cells[3].Value = (int)clonedRow.Cells[3].Value + 1;
+                clonedRow.Cells[2].Value = Convert.ToInt32(row.Cells[2].Value) + 1;
 
                 dataGridViewIndividuos.Rows.Insert(row.Index + 1, clonedRow);
+                clonedRow.DefaultCellStyle.BackColor = Color.Gray;
+
+                cmd = SqlConnector.getConnection(cmd);
+                cmd.CommandText = "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio + 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio";
+                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+                cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
+                cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
+                cmd.Parameters.AddWithValue("@arbolnumeroensitio", dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value);
+                cmd.ExecuteNonQuery();
+
+                cmd = SqlConnector.getConnection(cmd);
+                cmd.CommandText = "Insert into individuos(proyecto_id, sitio, area, numero, arbolnumeroensitio, bifurcados)" +
+                    "Values(@proyecto_id, @sitio, @area, @numero, @arbolnumeroensitio, true)";
+                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+                cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
+                cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
+                cmd.Parameters.AddWithValue("@numero", clonedRow.Cells["numero"].Value);
+                cmd.Parameters.AddWithValue("@arbolnumeroensitio", clonedRow.Cells["arbolnumeroensitio"].Value);
+                cmd.ExecuteNonQuery();
+
+                dataGridViewIndividuos_Populate();
             }
         }
 
@@ -468,32 +524,53 @@ namespace SylDeskForm
             if (dataGridViewIndividuos.SelectedRows.Count > 0)
             {
                 var row = dataGridViewIndividuos.SelectedRows[0];
+                int numero = comboBoxAreas.SelectedIndex + 1;
 
-                if((int)row.Cells["bifurcados"].Value == 0)
+                if (!(bool)row.Cells["bifurcados"].Value)
                 {
                     cmd = SqlConnector.getConnection(cmd);
-                    cmd.CommandText = "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND numero  = @numero";
+                    string sqlQueryString = "SELECT COUNT(id) FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero";
+                    cmd.CommandText = sqlQueryString;
                     cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
                     cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
+                    cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
+                    cmd.Parameters.AddWithValue("@numero", dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value);
+
+                    var results = cmd.ExecuteReader();
+
+                    results.Read();
+
+                    int numero_elementos = Convert.ToInt32(results[0]);
+
+                    results.Close();
+                    results.Dispose();
+
+                    cmd = SqlConnector.getConnection(cmd);
+                    cmd.CommandText = "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero  = @numero";
+                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+                    cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
+                    cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
                     cmd.Parameters.AddWithValue("@numero", dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value);
                     cmd.ExecuteNonQuery();
 
                     cmd = SqlConnector.getConnection(cmd);
-                    cmd.CommandText = "UPDATE individuos SET numero = (numero - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND numero > @numero";
+                    cmd.CommandText = "UPDATE individuos SET numero = (numero - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero > @numero";
                     cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
                     cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
+                    cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
                     cmd.Parameters.AddWithValue("@numero", dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value);
                     cmd.ExecuteNonQuery();
 
                     cmd = SqlConnector.getConnection(cmd);
-                    cmd.CommandText = "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND arbolnumeroensitio > @arbolnumeroensitio";
+                    cmd.CommandText = "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio - " + numero_elementos + ") WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio";
                     cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
                     cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
+                    cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
                     cmd.Parameters.AddWithValue("@arbolnumeroensitio", dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value);
                     cmd.ExecuteNonQuery();
 
                     cmd = SqlConnector.getConnection(cmd);
-                    cmd.CommandText = "UPDATE sitios SET numero_consecutivo = (numero_consecutivo - 1) WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
+                    cmd.CommandText = "UPDATE sitios SET numero_consecutivo" + numero + " = (numero_consecutivo" + numero + " - 1) WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
                     cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
                     cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
                     cmd.ExecuteNonQuery();
@@ -501,19 +578,19 @@ namespace SylDeskForm
                 else
                 {
                     cmd = SqlConnector.getConnection(cmd);
-                    cmd.CommandText = "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND numero  = @numero AND bifurcados = @bifurcados";
+                    cmd.CommandText = "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio = @arbolnumeroensitio";
                     cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
                     cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-                    cmd.Parameters.AddWithValue("@numero", dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value);
-                    cmd.Parameters.AddWithValue("@numero", dataGridViewIndividuos.Rows[row.Index].Cells["bifurcados"].Value);
+                    cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
+                    cmd.Parameters.AddWithValue("@arbolnumeroensitio", dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value);
                     cmd.ExecuteNonQuery();
 
                     cmd = SqlConnector.getConnection(cmd);
-                    cmd.CommandText = "UPDATE individuos SET bifurcados = (bifurcados - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND numero = @numero AND bifurcados > @bifurcados";
+                    cmd.CommandText = "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio";
                     cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
                     cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-                    cmd.Parameters.AddWithValue("@numero", dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value);
-                    cmd.Parameters.AddWithValue("@bifurcados", dataGridViewIndividuos.Rows[row.Index].Cells["bifurcados"].Value);
+                    cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
+                    cmd.Parameters.AddWithValue("@arbolnumeroensitio", dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value);
                     cmd.ExecuteNonQuery();
                 }
 
@@ -535,5 +612,38 @@ namespace SylDeskForm
         {
 
         }
+
+        private void dataGridViewIndividuos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            /*
+            int row_index = dataGridViewIndividuos.CurrentCell.RowIndex;
+            string column_name = dataGridViewIndividuos.Columns[dataGridViewIndividuos.CurrentCell.ColumnIndex].Name;
+
+            var source = new AutoCompleteStringCollection();
+            source.AddRange(new string[]
+            {
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+            });
+
+            
+            dataGridViewIndividuos.Rows[row_index].Cells[0];
+            AutoCompleteCustomSource = source,
+            AutoCompleteMode =
+                AutoCompleteMode.SuggestAppend,
+            AutoCompleteSource =
+            AutoCompleteSource.CustomSource
+            */
+        }        
     }
 }

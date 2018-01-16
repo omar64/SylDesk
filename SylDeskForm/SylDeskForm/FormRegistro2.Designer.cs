@@ -85,6 +85,7 @@
             this.buttonAgregarIndividuo = new System.Windows.Forms.Button();
             this.buttonAgregarBifurcacion = new System.Windows.Forms.Button();
             this.buttonEliminarIndividuo = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.cuadrante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.arbolnumeroensitio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -497,6 +498,7 @@
             this.dataGridViewIndividuos.Size = new System.Drawing.Size(1031, 297);
             this.dataGridViewIndividuos.TabIndex = 16;
             this.dataGridViewIndividuos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIndividuos_CellEndEdit);
+            this.dataGridViewIndividuos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIndividuos_CellValueChanged);
             this.dataGridViewIndividuos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewIndividuos_KeyPress);
             // 
             // comboBoxSitios
@@ -728,6 +730,13 @@
             this.buttonEliminarIndividuo.UseVisualStyleBackColor = true;
             this.buttonEliminarIndividuo.Click += new System.EventHandler(this.buttonEliminarIndividuo_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(38, 274);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 67;
+            // 
             // cuadrante
             // 
             this.cuadrante.HeaderText = "Cuadrante";
@@ -735,19 +744,17 @@
             // 
             // numero
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numero.DefaultCellStyle = dataGridViewCellStyle1;
-            this.numero.HeaderText = "Consecutivo";
+            this.numero.HeaderText = "*Consecutivo";
             this.numero.Name = "numero";
             this.numero.ReadOnly = true;
             // 
             // arbolnumeroensitio
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle2;
-            this.arbolnumeroensitio.HeaderText = "NO. EN CAMPO";
+            this.arbolnumeroensitio.HeaderText = "*NO. EN CAMPO";
             this.arbolnumeroensitio.Name = "arbolnumeroensitio";
             this.arbolnumeroensitio.ReadOnly = true;
             // 
@@ -756,6 +763,7 @@
             this.bifurcados.HeaderText = "Bifurcado";
             this.bifurcados.Name = "bifurcados";
             this.bifurcados.ReadOnly = true;
+            this.bifurcados.Visible = false;
             // 
             // especie
             // 
@@ -764,27 +772,25 @@
             // 
             // nombrecientifico
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle3;
-            this.nombrecientifico.HeaderText = "Nombre Cientifico";
+            this.nombrecientifico.HeaderText = "*Nombre Cientifico";
             this.nombrecientifico.Name = "nombrecientifico";
             this.nombrecientifico.ReadOnly = true;
             // 
             // nombrecomun
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombrecomun.DefaultCellStyle = dataGridViewCellStyle4;
-            this.nombrecomun.HeaderText = "Nombre Comun";
+            this.nombrecomun.HeaderText = "*Nombre Comun";
             this.nombrecomun.Name = "nombrecomun";
             this.nombrecomun.ReadOnly = true;
             // 
             // familia
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.familia.DefaultCellStyle = dataGridViewCellStyle5;
-            this.familia.HeaderText = "Familia";
+            this.familia.HeaderText = "*Familia";
             this.familia.Name = "familia";
             this.familia.ReadOnly = true;
             // 
@@ -848,6 +854,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 700);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonEliminarIndividuo);
             this.Controls.Add(this.buttonAgregarBifurcacion);
             this.Controls.Add(this.buttonAgregarIndividuo);
@@ -952,6 +959,7 @@
         private System.Windows.Forms.Button buttonAgregarIndividuo;
         private System.Windows.Forms.Button buttonAgregarBifurcacion;
         private System.Windows.Forms.Button buttonEliminarIndividuo;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cuadrante;
         private System.Windows.Forms.DataGridViewTextBoxColumn numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn arbolnumeroensitio;
