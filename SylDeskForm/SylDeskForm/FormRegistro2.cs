@@ -15,6 +15,8 @@ namespace SylDeskForm
     public partial class FormRegistro2 : System.Windows.Forms.Form
     {
         public int proyecto_id;
+        public List<Especie> especiesObject;
+        public List<string> especiesString;
         MySqlCommand cmd;
         AutoCompleteStringCollection source = new AutoCompleteStringCollection();
 
@@ -30,6 +32,7 @@ namespace SylDeskForm
             dataGridViewIndividuos_Populate();
             fillForm();
 
+            /*
             source.AddRange(new string[]
             {
                 "January",
@@ -59,6 +62,9 @@ namespace SylDeskForm
             textBox1.AutoCompleteCustomSource = source;
             textBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             textBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            */
+
+            getEspecies();
         }
 
         /*private void labelClose_Click(object sender, EventArgs e)
@@ -394,7 +400,7 @@ namespace SylDeskForm
                 if ((bool)dataGridViewIndividuos.Rows[0].Cells["bifurcados"].Value)
                 {
                     dataGridViewIndividuos.Rows[0].DefaultCellStyle.BackColor = Color.DarkGray;
-                }
+                }                
             }
 
             results.Close();
@@ -613,6 +619,41 @@ namespace SylDeskForm
 
         }
 
+        private void textboxSetAutoComplete(TextBox textbox)
+        {
+            textbox.AutoCompleteCustomSource = source;
+            textbox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            textbox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        private void getEspecies()
+        {
+            especiesObject = new List<Especie>();
+            especiesString = new List<string>();
+            cmd = SqlConnector.getConnection(cmd);
+
+            string sqlQueryString = "SELECT especie, nombrecientifico, nombrecomun, familia FROM especies";
+            cmd.CommandText = sqlQueryString;
+
+            var results = cmd.ExecuteReader();
+
+            while (results.Read())
+            {
+                string labelEspecieText = results[0].ToString();
+                string labelNombreCientificoText = results[1].ToString();
+                string labelNombreComunText = results[2].ToString();
+                string labelFamiliaText = results[3].ToString();
+
+                especiesObject.Add(new Especie(labelEspecieText, labelNombreCientificoText, labelNombreComunText, labelFamiliaText));
+                especiesString.Add(labelEspecieText);            
+            }
+
+            results.Close();
+            results.Dispose();
+
+            source.AddRange(especiesString.ToArray());
+        }
+
         private void dataGridViewIndividuos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             /*
@@ -644,6 +685,26 @@ namespace SylDeskForm
             AutoCompleteSource =
             AutoCompleteSource.CustomSource
             */
-        }        
+        }
+
+        private void dataGridViewIndividuos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            int column = dataGridViewIndividuos.CurrentCell.ColumnIndex;
+            string headerText = dataGridViewIndividuos.Columns[column].HeaderText;
+
+            if (headerText.Equals("Especie"))
+            {
+                TextBox tb = e.Control as TextBox;
+
+                if (tb != null)
+                {
+                    tb.AutoCompleteCustomSource = source;
+                    tb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    tb.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    
+                }
+
+            }
+        }
     }
 }

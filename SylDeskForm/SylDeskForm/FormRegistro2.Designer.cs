@@ -62,6 +62,22 @@
             this.button10 = new System.Windows.Forms.Button();
             this.labelMinimize = new System.Windows.Forms.Label();
             this.dataGridViewIndividuos = new System.Windows.Forms.DataGridView();
+            this.cuadrante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.arbolnumeroensitio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bifurcados = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.especie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecientifico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecomun = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.familia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perimetro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diametro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alturafl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alturatotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coberturalargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coberturaancho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formadefuste = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.estadocondicion = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.comboBoxSitios = new System.Windows.Forms.ComboBox();
             this.comboBoxAreas = new System.Windows.Forms.ComboBox();
             this.buttonAgregarSitio = new System.Windows.Forms.Button();
@@ -86,22 +102,6 @@
             this.buttonAgregarBifurcacion = new System.Windows.Forms.Button();
             this.buttonEliminarIndividuo = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.cuadrante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.arbolnumeroensitio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bifurcados = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.especie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrecientifico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrecomun = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.familia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.perimetro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diametro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.alturafl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.alturatotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coberturalargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coberturaancho = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formadefuste = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.estadocondicion = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupBox3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -499,7 +499,120 @@
             this.dataGridViewIndividuos.TabIndex = 16;
             this.dataGridViewIndividuos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIndividuos_CellEndEdit);
             this.dataGridViewIndividuos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIndividuos_CellValueChanged);
+            this.dataGridViewIndividuos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewIndividuos_EditingControlShowing);
             this.dataGridViewIndividuos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewIndividuos_KeyPress);
+            // 
+            // cuadrante
+            // 
+            this.cuadrante.HeaderText = "Cuadrante";
+            this.cuadrante.Name = "cuadrante";
+            // 
+            // numero
+            // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numero.DefaultCellStyle = dataGridViewCellStyle1;
+            this.numero.HeaderText = "*Consecutivo";
+            this.numero.Name = "numero";
+            this.numero.ReadOnly = true;
+            // 
+            // arbolnumeroensitio
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle2;
+            this.arbolnumeroensitio.HeaderText = "*NO. EN CAMPO";
+            this.arbolnumeroensitio.Name = "arbolnumeroensitio";
+            this.arbolnumeroensitio.ReadOnly = true;
+            // 
+            // bifurcados
+            // 
+            this.bifurcados.HeaderText = "Bifurcado";
+            this.bifurcados.Name = "bifurcados";
+            this.bifurcados.ReadOnly = true;
+            this.bifurcados.Visible = false;
+            // 
+            // especie
+            // 
+            this.especie.HeaderText = "Especie";
+            this.especie.Name = "especie";
+            // 
+            // nombrecientifico
+            // 
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle3;
+            this.nombrecientifico.HeaderText = "*Nombre Cientifico";
+            this.nombrecientifico.Name = "nombrecientifico";
+            this.nombrecientifico.ReadOnly = true;
+            // 
+            // nombrecomun
+            // 
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecomun.DefaultCellStyle = dataGridViewCellStyle4;
+            this.nombrecomun.HeaderText = "*Nombre Comun";
+            this.nombrecomun.Name = "nombrecomun";
+            this.nombrecomun.ReadOnly = true;
+            // 
+            // familia
+            // 
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.familia.DefaultCellStyle = dataGridViewCellStyle5;
+            this.familia.HeaderText = "*Familia";
+            this.familia.Name = "familia";
+            this.familia.ReadOnly = true;
+            // 
+            // perimetro
+            // 
+            this.perimetro.HeaderText = "Perimetro";
+            this.perimetro.Name = "perimetro";
+            // 
+            // diametro
+            // 
+            this.diametro.HeaderText = "Diametro";
+            this.diametro.Name = "diametro";
+            // 
+            // alturafl
+            // 
+            this.alturafl.HeaderText = "Altura F.L";
+            this.alturafl.Name = "alturafl";
+            // 
+            // alturatotal
+            // 
+            this.alturatotal.HeaderText = "Altura Total";
+            this.alturatotal.Name = "alturatotal";
+            // 
+            // coberturalargo
+            // 
+            this.coberturalargo.HeaderText = "Cobertura(Largo)";
+            this.coberturalargo.Name = "coberturalargo";
+            this.coberturalargo.Visible = false;
+            // 
+            // coberturaancho
+            // 
+            this.coberturaancho.HeaderText = "Cobertura(Ancho)";
+            this.coberturaancho.Name = "coberturaancho";
+            this.coberturaancho.Visible = false;
+            // 
+            // formadefuste
+            // 
+            this.formadefuste.HeaderText = "Forma de Fuste";
+            this.formadefuste.Items.AddRange(new object[] {
+            "Curvo",
+            "Curvo Bifurcado",
+            "Recto"});
+            this.formadefuste.Name = "formadefuste";
+            this.formadefuste.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.formadefuste.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // estadocondicion
+            // 
+            this.estadocondicion.HeaderText = "Estado o Condicion";
+            this.estadocondicion.Items.AddRange(new object[] {
+            "Sano",
+            "Sano despuntado",
+            "Samago",
+            "Inclinado"});
+            this.estadocondicion.Name = "estadocondicion";
+            this.estadocondicion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estadocondicion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // comboBoxSitios
             // 
@@ -736,118 +849,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 67;
-            // 
-            // cuadrante
-            // 
-            this.cuadrante.HeaderText = "Cuadrante";
-            this.cuadrante.Name = "cuadrante";
-            // 
-            // numero
-            // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numero.DefaultCellStyle = dataGridViewCellStyle1;
-            this.numero.HeaderText = "*Consecutivo";
-            this.numero.Name = "numero";
-            this.numero.ReadOnly = true;
-            // 
-            // arbolnumeroensitio
-            // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle2;
-            this.arbolnumeroensitio.HeaderText = "*NO. EN CAMPO";
-            this.arbolnumeroensitio.Name = "arbolnumeroensitio";
-            this.arbolnumeroensitio.ReadOnly = true;
-            // 
-            // bifurcados
-            // 
-            this.bifurcados.HeaderText = "Bifurcado";
-            this.bifurcados.Name = "bifurcados";
-            this.bifurcados.ReadOnly = true;
-            this.bifurcados.Visible = false;
-            // 
-            // especie
-            // 
-            this.especie.HeaderText = "Especie";
-            this.especie.Name = "especie";
-            // 
-            // nombrecientifico
-            // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle3;
-            this.nombrecientifico.HeaderText = "*Nombre Cientifico";
-            this.nombrecientifico.Name = "nombrecientifico";
-            this.nombrecientifico.ReadOnly = true;
-            // 
-            // nombrecomun
-            // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecomun.DefaultCellStyle = dataGridViewCellStyle4;
-            this.nombrecomun.HeaderText = "*Nombre Comun";
-            this.nombrecomun.Name = "nombrecomun";
-            this.nombrecomun.ReadOnly = true;
-            // 
-            // familia
-            // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.familia.DefaultCellStyle = dataGridViewCellStyle5;
-            this.familia.HeaderText = "*Familia";
-            this.familia.Name = "familia";
-            this.familia.ReadOnly = true;
-            // 
-            // perimetro
-            // 
-            this.perimetro.HeaderText = "Perimetro";
-            this.perimetro.Name = "perimetro";
-            // 
-            // diametro
-            // 
-            this.diametro.HeaderText = "Diametro";
-            this.diametro.Name = "diametro";
-            // 
-            // alturafl
-            // 
-            this.alturafl.HeaderText = "Altura F.L";
-            this.alturafl.Name = "alturafl";
-            // 
-            // alturatotal
-            // 
-            this.alturatotal.HeaderText = "Altura Total";
-            this.alturatotal.Name = "alturatotal";
-            // 
-            // coberturalargo
-            // 
-            this.coberturalargo.HeaderText = "Cobertura(Largo)";
-            this.coberturalargo.Name = "coberturalargo";
-            this.coberturalargo.Visible = false;
-            // 
-            // coberturaancho
-            // 
-            this.coberturaancho.HeaderText = "Cobertura(Ancho)";
-            this.coberturaancho.Name = "coberturaancho";
-            this.coberturaancho.Visible = false;
-            // 
-            // formadefuste
-            // 
-            this.formadefuste.HeaderText = "Forma de Fuste";
-            this.formadefuste.Items.AddRange(new object[] {
-            "Curvo",
-            "Curvo Bifurcado",
-            "Recto"});
-            this.formadefuste.Name = "formadefuste";
-            this.formadefuste.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.formadefuste.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // estadocondicion
-            // 
-            this.estadocondicion.HeaderText = "Estado o Condicion";
-            this.estadocondicion.Items.AddRange(new object[] {
-            "Sano",
-            "Sano despuntado",
-            "Samago",
-            "Inclinado"});
-            this.estadocondicion.Name = "estadocondicion";
-            this.estadocondicion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estadocondicion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FormRegistro2
             // 

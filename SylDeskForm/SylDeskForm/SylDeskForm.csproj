@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Especie.cs" />
     <Compile Include="FormRegistro3.cs">
       <SubType>Form</SubType>
     </Compile>
