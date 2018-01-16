@@ -82,5 +82,15 @@ namespace SylDeskForm
         {
             dataGridViewEspecies_Populate(textBoxBuscarEspecie.Text);
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

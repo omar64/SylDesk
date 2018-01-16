@@ -86,12 +86,17 @@
             // 
             // buttonRegistrar
             // 
-            this.buttonRegistrar.BackColor = System.Drawing.Color.Blue;
+            this.buttonRegistrar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonRegistrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonRegistrar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.buttonRegistrar.ForeColor = System.Drawing.Color.White;
-            this.buttonRegistrar.Location = new System.Drawing.Point(547, 316);
+            this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRegistrar.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
+            this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRegistrar.Location = new System.Drawing.Point(532, 316);
             this.buttonRegistrar.Name = "buttonRegistrar";
-            this.buttonRegistrar.Size = new System.Drawing.Size(90, 45);
+            this.buttonRegistrar.Size = new System.Drawing.Size(141, 45);
             this.buttonRegistrar.TabIndex = 0;
             this.buttonRegistrar.Text = "Registrar";
             this.buttonRegistrar.UseVisualStyleBackColor = false;
@@ -167,6 +172,7 @@
             // 
             // dataGridViewEspecies
             // 
+            this.dataGridViewEspecies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewEspecies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEspecies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.especie,
@@ -218,7 +224,7 @@
             // 
             this.textBoxBuscarEspecie.Location = new System.Drawing.Point(328, 396);
             this.textBoxBuscarEspecie.Name = "textBoxBuscarEspecie";
-            this.textBoxBuscarEspecie.Size = new System.Drawing.Size(155, 20);
+            this.textBoxBuscarEspecie.Size = new System.Drawing.Size(189, 20);
             this.textBoxBuscarEspecie.TabIndex = 11;
             this.textBoxBuscarEspecie.TextChanged += new System.EventHandler(this.textBoxBuscarEspecie_TextChanged);
             // 
@@ -247,6 +253,7 @@
             this.button12.TabIndex = 2;
             this.button12.Text = "_";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
@@ -275,6 +282,7 @@
             this.button10.TabIndex = 0;
             this.button10.Text = "X";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // groupBox3
             // 
@@ -603,6 +611,7 @@
             this.Controls.Add(this.labelNombreCientifico);
             this.Controls.Add(this.labelEspecie);
             this.Controls.Add(this.buttonRegistrar);
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormRegistroEspecie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
