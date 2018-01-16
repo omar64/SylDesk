@@ -42,5 +42,7 @@ C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\MySql.Data.xml
 C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\MySql.Data.Entity.EF6.xml
 C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.FormRegistro3.resources
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.FormRegistro3.resources
-C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\MySql.Fabric.Plugin.dll
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.FormRegistroEspecie.resources
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.FormRegistroEspecie.resources
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\MySql.Web.dll
+C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\MySql.Web.xml
