@@ -85,10 +85,9 @@ namespace SylDeskForm
                 results.Dispose();
 
                 cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "Insert into sitios(proyecto_id, numero_sitio, numero_consecutivo)Values(@proyecto_id, @numero_sitio, @numero_consecutivo)";
+                cmd.CommandText = "Insert into sitios(proyecto_id, numero_sitio)Values(@proyecto_id, @numero_sitio)";
                 cmd.Parameters.AddWithValue("@proyecto_id", proyecto_idI);
                 cmd.Parameters.AddWithValue("@numero_sitio", 1);
-                cmd.Parameters.AddWithValue("@numero_consecutivo", 1);
                 cmd.ExecuteNonQuery();
 
                 this.Hide(); //esconde el form actual
@@ -98,7 +97,7 @@ namespace SylDeskForm
             }
             catch (Exception)
             {
-
+                
             }
         }
 
@@ -147,5 +146,14 @@ namespace SylDeskForm
         {
             this.labelMinimize.ForeColor = Color.Transparent;
         }*/
+
+        private void sendMessageBox(string message)
+        {
+            string messageBoxText = message;
+            string caption = "Error";
+            MessageBoxButton button = MessageBoxButton.OK;
+            MessageBoxImage icon = MessageBoxImage.Error;
+            System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
+        }
     }
 }
