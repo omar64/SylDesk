@@ -391,7 +391,7 @@ namespace SylDeskForm
                 lista_individuos.Add(results[15]);
 
                 dataGridViewIndividuos.Rows.Insert(0, lista_individuos.ToArray());
-                if ((bool)dataGridViewIndividuos.Rows[0].Cells["bifurcados"].Value)
+                if (Convert.ToBoolean(dataGridViewIndividuos.Rows[0].Cells["bifurcados"].Value))
                 {
                     dataGridViewIndividuos.Rows[0].DefaultCellStyle.BackColor = Color.DarkGray;
                 }

@@ -15,8 +15,8 @@ namespace SylDeskForm
 {
     public partial class FormRegistro1 : System.Windows.Forms.Form
     {
-        int mouseX = 0, mouseY = 0;
-        bool mouseDown;
+        //int mouseX = 0, mouseY = 0;
+        //bool mouseDown;
         MySqlCommand cmd;
 
         public FormRegistro1()

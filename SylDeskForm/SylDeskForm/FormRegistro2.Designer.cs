@@ -101,8 +101,7 @@
             this.buttonAgregarIndividuo = new System.Windows.Forms.Button();
             this.buttonAgregarBifurcacion = new System.Windows.Forms.Button();
             this.buttonEliminarIndividuo = new System.Windows.Forms.Button();
-<<<<<<< HEAD
-=======
+
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cuadrante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -120,7 +119,7 @@
             this.coberturaancho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formadefuste = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.estadocondicion = new System.Windows.Forms.DataGridViewComboBoxColumn();
->>>>>>> 13ecbdce1548db3bb60eb453ba00b824d25088aa
+
             this.groupBox3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -878,8 +877,7 @@
             this.buttonEliminarIndividuo.UseVisualStyleBackColor = true;
             this.buttonEliminarIndividuo.Click += new System.EventHandler(this.buttonEliminarIndividuo_Click);
             // 
-<<<<<<< HEAD
-=======
+
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(38, 274);
@@ -999,7 +997,7 @@
             this.estadocondicion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.estadocondicion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
->>>>>>> 13ecbdce1548db3bb60eb453ba00b824d25088aa
+
             // FormRegistro2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
