@@ -497,13 +497,27 @@ namespace SylDeskForm
                 cmd.ExecuteNonQuery();
 
                 cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "Insert into individuos(proyecto_id, sitio, area, numero, arbolnumeroensitio, bifurcados)" +
-                    "Values(@proyecto_id, @sitio, @area, @numero, @arbolnumeroensitio, true)";
+                cmd.CommandText = "Insert into individuos(proyecto_id, sitio, area, cuadrante, numero, arbolnumeroensitio, bifurcados, nombrecientifico, nombrecomun, familia, genero, perimetro, diametro, alturafl, alturatotal, coberturaancho, coberturalargo, formadefuste, estadocondicion)" +
+                    "Values(@proyecto_id, @sitio, @area, @cuadrante, @numero, @arbolnumeroensitio, true, @nombrecientifico, @nombrecomun, @familia, @genero, @perimetro, @diametro, @alturafl, @alturatotal, @coberturaancho, @coberturalargo, @formadefuste, @estadocondicion)";
                 cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
                 cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
                 cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
+                cmd.Parameters.AddWithValue("@cuadrante", clonedRow.Cells["cuadrante"].Value);
                 cmd.Parameters.AddWithValue("@numero", clonedRow.Cells["numero"].Value);
                 cmd.Parameters.AddWithValue("@arbolnumeroensitio", clonedRow.Cells["arbolnumeroensitio"].Value);
+                cmd.Parameters.AddWithValue("@nombrecientifico", clonedRow.Cells["nombrecientifico"].Value);
+                cmd.Parameters.AddWithValue("@nombrecomun", clonedRow.Cells["nombrecomun"].Value);
+                cmd.Parameters.AddWithValue("@familia", clonedRow.Cells["familia"].Value);
+                cmd.Parameters.AddWithValue("@genero", clonedRow.Cells["genero"].Value);
+                cmd.Parameters.AddWithValue("@perimetro", clonedRow.Cells["perimetro"].Value);
+                cmd.Parameters.AddWithValue("@diametro", clonedRow.Cells["diametro"].Value);
+                cmd.Parameters.AddWithValue("@alturafl", clonedRow.Cells["alturafl"].Value);
+                cmd.Parameters.AddWithValue("@alturatotal", clonedRow.Cells["alturatotal"].Value);
+                cmd.Parameters.AddWithValue("@coberturaancho", clonedRow.Cells["coberturaancho"].Value);
+                cmd.Parameters.AddWithValue("@coberturalargo", clonedRow.Cells["coberturalargo"].Value);
+                cmd.Parameters.AddWithValue("@formadefuste", clonedRow.Cells["formadefuste"].Value);
+                cmd.Parameters.AddWithValue("@estadocondicion", clonedRow.Cells["estadocondicion"].Value);
+
                 cmd.ExecuteNonQuery();
 
                 dataGridViewIndividuos_Populate();
