@@ -8,37 +8,31 @@ namespace SylDeskForm
 {
     public class Especie
     {
-        private string especie;
         private string nombrecientifico;
-        private string nombrecomun;
         private string familia;
+        private string genero;
 
-        public Especie(string especie, string nombrecientifico, string nombrecomun, string familia)
+        public Especie(string nombrecientifico, string familia, string genero)
         {
-            this.especie = especie;
             this.nombrecientifico = nombrecientifico;
-            this.nombrecomun = nombrecomun;
             this.familia = familia;
+            this.genero = genero;
         }
-
-        public string getEspecie()
-        {
-            return especie;
-        }
-
+        
         public string getNombreCientifico()
         {
-            return nombrecomun;
-        }
-
-        public string getNombreComun()
-        {
-            return nombrecomun;
+            return nombrecientifico;
         }
 
         public string getFamilia()
         {
             return familia;
         }
+
+        public string getGenero()
+        {
+            return genero;
+        }
+
     }
 }
