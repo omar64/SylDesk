@@ -24,22 +24,28 @@ namespace SylDeskForm
 
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "Insert into especies(especie, nombrecientifico, nombrecomun, familia)" +
-                "Values(@especie, @nombrecientifico, @nombrecomun, @familia)";
-            cmd.Parameters.AddWithValue("@especie", textBoxEspecie.Text);
-            cmd.Parameters.AddWithValue("@nombrecientifico", textBoxNombreComun.Text);
-            cmd.Parameters.AddWithValue("@nombrecomun", textBoxNombreCientifico.Text);
-            cmd.Parameters.AddWithValue("@familia", textBoxFamilia.Text);
-            cmd.ExecuteNonQuery();
+            if (textBoxNombreCientifico.Text != "" && textBoxNombreComun.Text != "" && textBoxFamilia.Text != "" && textBoxGenero.Text != "" && textBoxFormaDeVida.Text != "" && textBoxCategoriaDeNorma.Text != "")
+            {
+                cmd = SqlConnector.getConnection(cmd);
+                cmd.CommandText = "Insert into especies(nombrecientifico, nombrecomun, familia, genero, formadevida, categoriadenorma)" +
+                    "Values(@nombrecientifico, @nombrecomun, @familia, @genero, @formadevida, @categoriadenorma)";
+                cmd.Parameters.AddWithValue("@nombrecientifico", textBoxNombreCientifico.Text);
+                cmd.Parameters.AddWithValue("@nombrecomun", textBoxNombreComun.Text);
+                cmd.Parameters.AddWithValue("@familia", textBoxFamilia.Text);
+                cmd.Parameters.AddWithValue("@genero", textBoxGenero.Text);
+                cmd.Parameters.AddWithValue("@formadevida", textBoxFormaDeVida.Text);
+                cmd.Parameters.AddWithValue("@categoriadenorma", textBoxCategoriaDeNorma.Text);
+                cmd.ExecuteNonQuery();
 
-            textBoxEspecie.Text = "";
-            textBoxNombreCientifico.Text = "";
-            textBoxNombreComun.Text = "";
-            textBoxFamilia.Text = "";
-            textBoxBuscarEspecie.Text = "";
+                textBoxNombreCientifico.Text = "";
+                textBoxNombreComun.Text = "";
+                textBoxFamilia.Text = "";
+                textBoxGenero.Text = "";
+                textBoxFormaDeVida.Text = "";
+                textBoxCategoriaDeNorma.Text = "";
 
-            dataGridViewEspecies_Populate("");
+                dataGridViewEspecies_Populate("");
+            }
         }
 
         private void dataGridViewEspecies_Populate(string text)
@@ -48,7 +54,7 @@ namespace SylDeskForm
 
             cmd = SqlConnector.getConnection(cmd);
 
-            string sqlQueryString = "SELECT especie, nombrecientifico, nombrecomun, familia from especies where especie like ('%" + text + "%') ORDER BY especie DESC";
+            string sqlQueryString = "SELECT familia, genero, nombrecientifico, nombrecomun, formadevida, categoriadenorma  from especies where nombrecientifico like ('%" + text + "%') ORDER BY nombrecientifico DESC";
             cmd.CommandText = sqlQueryString;
 
             var results = cmd.ExecuteReader();
@@ -61,6 +67,8 @@ namespace SylDeskForm
                 lista_especies.Add(results[1]);
                 lista_especies.Add(results[2]);
                 lista_especies.Add(results[3]);
+                lista_especies.Add(results[4]);
+                lista_especies.Add(results[5]);
 
                 dataGridViewEspecies.Rows.Insert(0, lista_especies.ToArray());
             }
@@ -114,6 +122,26 @@ namespace SylDeskForm
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridViewEspecies_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            var row = dataGridViewEspecies.Rows[e.RowIndex];
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                cmd = SqlConnector.getConnection(cmd);
+                cmd.CommandText = "DELETE FROM especies WHERE familia = @familia AND genero = @genero AND nombrecientifico = @nombrecientifico AND nombrecomun = @nombrecomun";
+                cmd.Parameters.AddWithValue("@familia", row.Cells["familia"].Value);
+                cmd.Parameters.AddWithValue("@genero", row.Cells["genero"].Value);
+                cmd.Parameters.AddWithValue("@nombrecientifico", row.Cells["nombrecientifico"].Value);
+                cmd.Parameters.AddWithValue("@nombrecomun", row.Cells["nombrecomun"].Value);
+                cmd.ExecuteNonQuery();
+
+                dataGridViewEspecies.Rows.RemoveAt(e.RowIndex);
+            }
         }
     }
 }

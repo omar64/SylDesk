@@ -15,6 +15,8 @@ namespace SylDeskForm
     public partial class FormRegistro2 : System.Windows.Forms.Form
     {
         public int proyecto_id;
+        public List<Especie> especiesObject;
+        public List<string> especiesString;
         MySqlCommand cmd;
         AutoCompleteStringCollection source = new AutoCompleteStringCollection();
 
@@ -29,36 +31,8 @@ namespace SylDeskForm
 
             dataGridViewIndividuos_Populate();
             fillForm();
-
-            source.AddRange(new string[]
-            {
-                "January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December",
-                "Jxanuary",
-                "Jxxnuary",
-                "Jxxxuary",
-                "Jxxxxary",
-                "Jxxxxxry",
-                "Jxxxxxxy",
-                "Jxxxxxxx",
-                "Jaxuary",
-                "Jaxxuary",
-            });
             
-
-            textBox1.AutoCompleteCustomSource = source;
-            textBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            textBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            getEspecies();
         }
 
         /*private void labelClose_Click(object sender, EventArgs e)
@@ -96,37 +70,64 @@ namespace SylDeskForm
         {
             int row_index = dataGridViewIndividuos.CurrentCell.RowIndex;
             string column_name = dataGridViewIndividuos.Columns[dataGridViewIndividuos.CurrentCell.ColumnIndex].Name;
-            var row = dataGridViewIndividuos.Rows[dataGridViewIndividuos.CurrentCell.RowIndex];
+            DataGridViewRow row = dataGridViewIndividuos.Rows[dataGridViewIndividuos.CurrentCell.RowIndex];
 
             if (column_name == "diametro")
             {
                 dataGridViewIndividuos.Rows[row_index].Cells["perimetro"].Value = (Convert.ToDouble(dataGridViewIndividuos.CurrentCell.Value) * Math.PI).ToString("F4");
 
-                cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "UPDATE individuos SET perimetro = @perimetro WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero";
-                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-                cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-                cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
-                cmd.Parameters.AddWithValue("@numero", row.Cells["numero"].Value);
-                cmd.Parameters.AddWithValue("@perimetro", row.Cells["perimetro"].Value);
-                cmd.ExecuteNonQuery();
+                updateData("perimetro", row, Convert.ToString(row.Cells["perimetro"].Value));
             }
             else if (column_name == "perimetro")
             {
                 dataGridViewIndividuos.Rows[row_index].Cells["diametro"].Value = (Convert.ToDouble(dataGridViewIndividuos.CurrentCell.Value) / Math.PI).ToString("F4");
 
-                cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "UPDATE individuos SET diametro = @diametro WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero";
-                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-                cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-                cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
-                cmd.Parameters.AddWithValue("@numero", row.Cells["numero"].Value);
-                cmd.Parameters.AddWithValue("@diametro", row.Cells["diametro"].Value);
-                cmd.ExecuteNonQuery();
+                updateData("diametro", row, Convert.ToString(row.Cells["diametro"].Value));                
             }
-            else if(column_name == "banana")
+            else if(column_name == "nombrecientifico")
             {
+                cmd = SqlConnector.getConnection(cmd);
 
+                string sqlQueryString = "SELECT nombrecomun, familia, genero FROM especies where nombrecientifico = @nombrecientifico";
+                cmd.CommandText = sqlQueryString;
+                cmd.Parameters.AddWithValue("@nombrecientifico", row.Cells["nombrecientifico"].Value);
+
+                var results = cmd.ExecuteReader();
+
+                if (results.Read())
+                {
+                    string textBoxNombreComun = results[0].ToString();
+                    string textBoxFamilia = results[1].ToString();
+                    string textBoxGenero = results[2].ToString();
+
+                    results.Close();
+                    results.Dispose();
+                    //sendMessageBox(textBoxNombreCientificoText + " " + textBoxNombreComunText + " " + textBoxFamiliaText);
+
+                    row.Cells["nombrecomun"].Value = textBoxFamilia;
+                    row.Cells["familia"].Value = textBoxFamilia;
+                    row.Cells["genero"].Value = textBoxGenero;
+
+                    updateData("nombrecomun", row, textBoxFamilia);                   
+                    updateData("familia", row, textBoxFamilia);                   
+                    updateData("genero", row, textBoxGenero);
+                }
+                else
+                {
+                    results.Close();
+                    results.Dispose();
+
+                    sendMessageBox("No existe esa especie!");
+                    row.Cells[column_name].Value = "";
+
+                    row.Cells["nombrecomun"].Value = "";
+                    row.Cells["familia"].Value = "";
+                    row.Cells["genero"].Value = "";
+
+                    updateData("nombrecomun", row, "");
+                    updateData("familia", row, "");
+                    updateData("genero", row, "");
+                }
             }
 
             cmd = SqlConnector.getConnection(cmd);
@@ -136,19 +137,7 @@ namespace SylDeskForm
             cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
             cmd.Parameters.AddWithValue("@numero", row.Cells["numero"].Value);
             cmd.Parameters.AddWithValue("@" + column_name, row.Cells[column_name].Value);
-            cmd.ExecuteNonQuery();
-
-            /*
-            string big_black_string = "";
-            big_black_string += "command Text: " + cmd.CommandText;
-            big_black_string += "\n proyecto_id: " + proyecto_id;
-            big_black_string += "\n sitio: " + comboBoxSitios.SelectedItem;
-            big_black_string += "\n area: " + comboBoxAreas.SelectedItem;
-            big_black_string += "\n numero: " + row.Cells["numero"].Value;
-            big_black_string += "\n " + column_name + ": " + row.Cells[column_name].Value;
-
-            sendMessageBox(big_black_string);
-            */
+            cmd.ExecuteNonQuery();            
         }
 
         private void dataGridViewIndividuos_KeyPress(object sender, KeyPressEventArgs e)
@@ -229,6 +218,7 @@ namespace SylDeskForm
                 dataGridViewIndividuos.Columns["coberturalargo"].Visible = false;
                 dataGridViewIndividuos.Columns["coberturaancho"].Visible = false;
                 dataGridViewIndividuos.Columns["formadefuste"].Visible = true;
+                dataGridViewIndividuos.Columns["estadocondicion"].Visible = true;
             }
             else
             {
@@ -237,7 +227,8 @@ namespace SylDeskForm
                 dataGridViewIndividuos.Columns["alturafl"].Visible = false;
                 dataGridViewIndividuos.Columns["coberturalargo"].Visible = true;
                 dataGridViewIndividuos.Columns["coberturaancho"].Visible = true;
-                dataGridViewIndividuos.Columns["formadefuste"].Visible = true;
+                dataGridViewIndividuos.Columns["formadefuste"].Visible = false;
+                dataGridViewIndividuos.Columns["estadocondicion"].Visible = false;
             }
         }
 
@@ -358,8 +349,8 @@ namespace SylDeskForm
 
             cmd = SqlConnector.getConnection(cmd);
 
-            string sqlQueryString = "SELECT cuadrante, numero, arbolnumeroensitio, bifurcados, especie, nombrecientifico, " +
-                "nombrecomun, familia, perimetro, diametro, alturafl, alturatotal, coberturalargo, coberturaancho, " +
+            string sqlQueryString = "SELECT cuadrante, numero, arbolnumeroensitio, bifurcados, nombrecientifico, " +
+                "nombrecomun, familia, genero, perimetro, diametro, alturafl, alturatotal, coberturalargo, coberturaancho, " +
                 "formadefuste, estadocondicion " +
                 " from `individuos` where proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area ORDER BY arbolnumeroensitio DESC";
             cmd.CommandText = sqlQueryString;
@@ -394,7 +385,7 @@ namespace SylDeskForm
                 if (Convert.ToBoolean(dataGridViewIndividuos.Rows[0].Cells["bifurcados"].Value))
                 {
                     dataGridViewIndividuos.Rows[0].DefaultCellStyle.BackColor = Color.DarkGray;
-                }
+                }                
             }
 
             results.Close();
@@ -613,6 +604,52 @@ namespace SylDeskForm
 
         }
 
+        private void textboxSetAutoComplete(TextBox textbox)
+        {
+            textbox.AutoCompleteCustomSource = source;
+            textbox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            textbox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        private void updateData(string name, DataGridViewRow row, string newdata)
+        {
+            cmd = SqlConnector.getConnection(cmd);
+            cmd.CommandText = "UPDATE individuos SET " + name + " = @" + name + " WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero";
+            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+            cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
+            cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
+            cmd.Parameters.AddWithValue("@numero", row.Cells["numero"].Value);
+            cmd.Parameters.AddWithValue("@" + name, newdata);
+            cmd.ExecuteNonQuery();
+        }
+
+        private void getEspecies()
+        {
+            especiesObject = new List<Especie>();
+            especiesString = new List<string>();
+            cmd = SqlConnector.getConnection(cmd);
+
+            string sqlQueryString = "SELECT nombrecientifico, familia, genero FROM especies";
+            cmd.CommandText = sqlQueryString;
+
+            var results = cmd.ExecuteReader();
+
+            while (results.Read())
+            {
+                string labelNombreCientificoText = results[0].ToString();
+                string labelFamiliaText = results[1].ToString();
+                string labelGeneroText = results[2].ToString();
+
+                especiesObject.Add(new Especie(labelNombreCientificoText, labelFamiliaText, labelGeneroText));
+                especiesString.Add(labelNombreCientificoText);            
+            }
+
+            results.Close();
+            results.Dispose();
+
+            source.AddRange(especiesString.ToArray());
+        }
+
         private void dataGridViewIndividuos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             /*
@@ -644,6 +681,26 @@ namespace SylDeskForm
             AutoCompleteSource =
             AutoCompleteSource.CustomSource
             */
-        }        
+        }
+
+        private void dataGridViewIndividuos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            int column = dataGridViewIndividuos.CurrentCell.ColumnIndex;
+            string headerText = dataGridViewIndividuos.Columns[column].HeaderText;
+
+            if (headerText.Equals("Nombre Cientifico"))
+            {
+                TextBox tb = e.Control as TextBox;
+
+                if (tb != null)
+                {
+                    tb.AutoCompleteCustomSource = source;
+                    tb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    tb.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    
+                }
+
+            }
+        }
     }
 }
