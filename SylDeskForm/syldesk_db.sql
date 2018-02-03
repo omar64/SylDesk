@@ -24,13 +24,14 @@ DROP TABLE IF EXISTS `especies`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `especies` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `especie` varchar(40) NOT NULL,
   `nombrecientifico` varchar(40) NOT NULL,
   `nombrecomun` varchar(40) NOT NULL,
   `familia` varchar(40) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `especie` (`especie`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `formadevida` varchar(40) NOT NULL,
+  `genero` varchar(40) NOT NULL,
+  `categoriadenorma` varchar(40) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +40,7 @@ CREATE TABLE `especies` (
 
 LOCK TABLES `especies` WRITE;
 /*!40000 ALTER TABLE `especies` DISABLE KEYS */;
-INSERT INTO `especies` VALUES (1,'bananas','en','pijama','yes'),(2,'chango','rechiflado','chino','quenochinguesalachanga');
+INSERT INTO `especies` VALUES (7,'Lysiloma latisiliquum','Tzalam','Leguminoseae','Arbol','Lysiloma','2'),(9,'a','a','a','a','a','a');
 /*!40000 ALTER TABLE `especies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,10 +60,10 @@ CREATE TABLE `individuos` (
   `numero` int(11) NOT NULL,
   `arbolnumeroensitio` int(11) NOT NULL,
   `bifurcados` tinyint(1) DEFAULT NULL,
-  `especie` varchar(40) DEFAULT NULL,
   `nombrecientifico` varchar(40) DEFAULT NULL,
   `nombrecomun` varchar(40) DEFAULT NULL,
   `familia` varchar(40) DEFAULT NULL,
+  `genero` varchar(40) DEFAULT NULL,
   `perimetro` decimal(10,4) DEFAULT NULL,
   `diametro` decimal(10,4) DEFAULT NULL,
   `alturafl` decimal(10,4) DEFAULT NULL,
@@ -80,7 +81,7 @@ CREATE TABLE `individuos` (
   PRIMARY KEY (`id`),
   KEY `proyecto_id_fk` (`proyecto_id`),
   CONSTRAINT `proyecto_id_fk` FOREIGN KEY (`proyecto_id`) REFERENCES `proyectos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +90,7 @@ CREATE TABLE `individuos` (
 
 LOCK TABLES `individuos` WRITE;
 /*!40000 ALTER TABLE `individuos` DISABLE KEYS */;
-INSERT INTO `individuos` VALUES (93,11,1,500,NULL,1,1,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(94,11,1,500,NULL,2,2,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(95,11,1,500,NULL,2,3,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `individuos` VALUES (101,11,1,500,NULL,1,1,0,'lysiloma latisiliquum','Leguminoseae','Leguminoseae','Lysiloma',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(103,11,1,500,NULL,1,2,1,'lysiloma latisiliquum','Leguminoseae','Leguminoseae','Lysiloma',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `individuos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,7 +152,7 @@ CREATE TABLE `sitios` (
 
 LOCK TABLES `sitios` WRITE;
 /*!40000 ALTER TABLE `sitios` DISABLE KEYS */;
-INSERT INTO `sitios` VALUES (14,11,1,NULL,NULL,NULL,NULL,3,1,1);
+INSERT INTO `sitios` VALUES (14,11,1,NULL,NULL,NULL,NULL,2,1,1);
 /*!40000 ALTER TABLE `sitios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -164,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-17  5:28:45
+-- Dump completed on 2018-01-30  7:09:49
