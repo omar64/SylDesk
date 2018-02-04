@@ -2,17 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 
-namespace SylDeskForm
+
+namespace SylDesk
 {
-    public partial class FormRegistro2 : System.Windows.Forms.Form
+    public partial class FormRegistro2 : UserControl
     {
         public int proyecto_id;
         public List<Especie> especiesObject;
@@ -31,7 +32,7 @@ namespace SylDeskForm
 
             dataGridViewIndividuos_Populate();
             fillForm();
-            
+
             getEspecies();
         }
 
@@ -82,9 +83,9 @@ namespace SylDeskForm
             {
                 dataGridViewIndividuos.Rows[row_index].Cells["diametro"].Value = (Convert.ToDouble(dataGridViewIndividuos.CurrentCell.Value) / Math.PI).ToString("F4");
 
-                updateData("diametro", row, Convert.ToString(row.Cells["diametro"].Value));                
+                updateData("diametro", row, Convert.ToString(row.Cells["diametro"].Value));
             }
-            else if(column_name == "nombrecientifico")
+            else if (column_name == "nombrecientifico")
             {
                 cmd = SqlConnector.getConnection(cmd);
 
@@ -108,8 +109,8 @@ namespace SylDeskForm
                     row.Cells["familia"].Value = textBoxFamilia;
                     row.Cells["genero"].Value = textBoxGenero;
 
-                    updateData("nombrecomun", row, textBoxFamilia);                   
-                    updateData("familia", row, textBoxFamilia);                   
+                    updateData("nombrecomun", row, textBoxFamilia);
+                    updateData("familia", row, textBoxFamilia);
                     updateData("genero", row, textBoxGenero);
                 }
                 else
@@ -137,7 +138,7 @@ namespace SylDeskForm
             cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
             cmd.Parameters.AddWithValue("@numero", row.Cells["numero"].Value);
             cmd.Parameters.AddWithValue("@" + column_name, row.Cells[column_name].Value);
-            cmd.ExecuteNonQuery();            
+            cmd.ExecuteNonQuery();
         }
 
         private void dataGridViewIndividuos_KeyPress(object sender, KeyPressEventArgs e)
@@ -147,14 +148,14 @@ namespace SylDeskForm
                 dataGridViewIndividuos.Rows.Clear();
             }
         }
-        
+
         private void sendMessageBox(string message)
-        {               
-            string messageBoxText = message;
+        {
+            /*string messageBoxText = message;
             string caption = "Error";
             MessageBoxButton button = MessageBoxButton.OK;
             MessageBoxImage icon = MessageBoxImage.Error;
-            System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
+            System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);*/
         }
 
         private void buttonAgregarSitio_Click(object sender, EventArgs e)
@@ -207,7 +208,7 @@ namespace SylDeskForm
         {
             if (comboBoxSitios.SelectedItem != null && comboBoxAreas.SelectedItem != null)
             {
-                    dataGridViewIndividuos_Populate();
+                dataGridViewIndividuos_Populate();
             }
 
             if (comboBoxAreas.SelectedIndex < 2)
@@ -271,8 +272,8 @@ namespace SylDeskForm
             cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
             cmd.ExecuteNonQuery();
         }
-        
-    
+
+
         private void fillForm()
         {
             cmd = SqlConnector.getConnection(cmd);
@@ -333,14 +334,14 @@ namespace SylDeskForm
             cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
 
             var results = cmd.ExecuteReader();
-            
-            while(results.Read())
+
+            while (results.Read())
             {
                 comboBoxSitios.Items.Add(results[0]);
             }
 
             results.Close();
-            results.Dispose();            
+            results.Dispose();
         }
 
         private void dataGridViewIndividuos_Populate()
@@ -360,7 +361,7 @@ namespace SylDeskForm
 
             var results = cmd.ExecuteReader();
 
-            
+
             while (results.Read())
             {
                 List<Object> lista_individuos = new List<Object>();
@@ -385,23 +386,23 @@ namespace SylDeskForm
                 if (Convert.ToBoolean(dataGridViewIndividuos.Rows[0].Cells["bifurcados"].Value))
                 {
                     dataGridViewIndividuos.Rows[0].DefaultCellStyle.BackColor = Color.DarkGray;
-                }                
+                }
             }
 
             results.Close();
             results.Dispose();
         }
 
-        
+
 
         private void button12_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            //this.WindowState = FormWindowState.Minimized;
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            //System.Windows.Forms.Application.Exit();
         }
 
         private void button17_Click(object sender, EventArgs e)
@@ -415,11 +416,11 @@ namespace SylDeskForm
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            this.Hide(); //esconde el form actual
+            /*this.Hide(); //esconde el form actual
 
 
             FormRegistro3 objeto = new FormRegistro3(); //objeto declarado para abrir el form3
-            objeto.Show(); //abre el form declarado con el objeto
+            objeto.Show(); //abre el form declarado con el objeto*/
         }
 
         private void buttonAgregarIndividuo_Click(object sender, EventArgs e)
@@ -433,8 +434,8 @@ namespace SylDeskForm
             cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
 
             var results = cmd.ExecuteReader();
-            
-            results.Read();            
+
+            results.Read();
 
             int numero_consecutivo = (int)results[0];
 
@@ -655,7 +656,7 @@ namespace SylDeskForm
                 string labelGeneroText = results[2].ToString();
 
                 especiesObject.Add(new Especie(labelNombreCientificoText, labelFamiliaText, labelGeneroText));
-                especiesString.Add(labelNombreCientificoText);            
+                especiesString.Add(labelNombreCientificoText);
             }
 
             results.Close();
@@ -711,15 +712,11 @@ namespace SylDeskForm
                     tb.AutoCompleteCustomSource = source;
                     tb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                     tb.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                    
+
                 }
 
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
