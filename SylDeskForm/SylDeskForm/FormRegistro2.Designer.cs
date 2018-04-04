@@ -828,9 +828,6 @@
             this.formadefuste.Items.AddRange(new object[] {
             "Curvo",
             "Curvo Bifurcado",
-            "Recto",
-            "Curvo",
-            "Curvo Bifurcado",
             "Recto"});
             this.formadefuste.Name = "formadefuste";
             this.formadefuste.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -841,10 +838,6 @@
             // 
             this.estadocondicion.HeaderText = "Estado o Condicion";
             this.estadocondicion.Items.AddRange(new object[] {
-            "Sano",
-            "Sano despuntado",
-            "Samago",
-            "Inclinado",
             "Sano",
             "Sano despuntado",
             "Samago",
