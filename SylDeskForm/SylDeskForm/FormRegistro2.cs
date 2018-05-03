@@ -711,7 +711,6 @@ namespace SylDeskForm
                     tb.AutoCompleteCustomSource = source;
                     tb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                     tb.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                    
                 }
 
             }

@@ -46,3 +46,7 @@ C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDeskForm\SylDeskForm\obj\Debu
 C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\obj\Debug\SylDeskForm.FormRegistroEspecie.resources
 C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\MySql.Web.dll
 C:\Users\omarc\Desktop\Syldesk\SylDeskForm\SylDeskForm\bin\Debug\MySql.Web.xml
+C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDeskForm\SylDeskForm\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDeskForm\SylDeskForm\bin\Debug\ExcelDataReader.dll
+C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDeskForm\SylDeskForm\bin\Debug\ExcelDataReader.xml
+C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDeskForm\SylDeskForm\bin\Debug\ExcelDataReader.DataSet.xml

@@ -22,6 +22,8 @@ namespace SylDeskForm
             InitializeComponent();
 
             dataGridView1_Populate("");
+
+            
         }
 
         private void textBoxBuscar_TextChanged(object sender, EventArgs e)

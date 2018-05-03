@@ -37,6 +37,13 @@
             this.textBoxNombreComun = new System.Windows.Forms.TextBox();
             this.textBoxFamilia = new System.Windows.Forms.TextBox();
             this.dataGridViewEspecies = new System.Windows.Forms.DataGridView();
+            this.familia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecientifico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecomun = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formadevida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriadelanorma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.borrar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.labelBuscarEspecie = new System.Windows.Forms.Label();
             this.textBoxBuscarEspecie = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -72,13 +79,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxGenero = new System.Windows.Forms.TextBox();
             this.textBoxCategoriaDeNorma = new System.Windows.Forms.TextBox();
-            this.familia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrecientifico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrecomun = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formadevida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoriadelanorma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.borrar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspecies)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -144,6 +145,7 @@
             this.textBoxNombreCientifico.Name = "textBoxNombreCientifico";
             this.textBoxNombreCientifico.Size = new System.Drawing.Size(234, 20);
             this.textBoxNombreCientifico.TabIndex = 6;
+            this.textBoxNombreCientifico.Leave += new System.EventHandler(this.textBoxNombreCientifico_Leave);
             // 
             // textBoxNombreComun
             // 
@@ -158,6 +160,7 @@
             this.textBoxFamilia.Name = "textBoxFamilia";
             this.textBoxFamilia.Size = new System.Drawing.Size(234, 20);
             this.textBoxFamilia.TabIndex = 8;
+            this.textBoxFamilia.Leave += new System.EventHandler(this.textBoxFamilia_Leave);
             // 
             // dataGridViewEspecies
             // 
@@ -178,6 +181,41 @@
             this.dataGridViewEspecies.Size = new System.Drawing.Size(813, 150);
             this.dataGridViewEspecies.TabIndex = 9;
             this.dataGridViewEspecies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEspecies_CellContentClick);
+            // 
+            // familia
+            // 
+            this.familia.HeaderText = "Familia";
+            this.familia.Name = "familia";
+            // 
+            // genero
+            // 
+            this.genero.HeaderText = "Genero";
+            this.genero.Name = "genero";
+            // 
+            // nombrecientifico
+            // 
+            this.nombrecientifico.HeaderText = "Nombre Cientifico";
+            this.nombrecientifico.Name = "nombrecientifico";
+            // 
+            // nombrecomun
+            // 
+            this.nombrecomun.HeaderText = "Nombre Comun";
+            this.nombrecomun.Name = "nombrecomun";
+            // 
+            // formadevida
+            // 
+            this.formadevida.HeaderText = "Forma de Vida";
+            this.formadevida.Name = "formadevida";
+            // 
+            // categoriadelanorma
+            // 
+            this.categoriadelanorma.HeaderText = "Categoria de la norma";
+            this.categoriadelanorma.Name = "categoriadelanorma";
+            // 
+            // borrar
+            // 
+            this.borrar.HeaderText = "Borrar";
+            this.borrar.Name = "borrar";
             // 
             // labelBuscarEspecie
             // 
@@ -604,6 +642,7 @@
             this.textBoxGenero.Name = "textBoxGenero";
             this.textBoxGenero.Size = new System.Drawing.Size(234, 20);
             this.textBoxGenero.TabIndex = 70;
+            this.textBoxGenero.Leave += new System.EventHandler(this.textBoxGenero_Leave);
             // 
             // textBoxCategoriaDeNorma
             // 
@@ -612,46 +651,22 @@
             this.textBoxCategoriaDeNorma.Size = new System.Drawing.Size(234, 20);
             this.textBoxCategoriaDeNorma.TabIndex = 71;
             // 
-            // familia
+            // button2
             // 
-            this.familia.HeaderText = "Familia";
-            this.familia.Name = "familia";
-            // 
-            // genero
-            // 
-            this.genero.HeaderText = "Genero";
-            this.genero.Name = "genero";
-            // 
-            // nombrecientifico
-            // 
-            this.nombrecientifico.HeaderText = "Nombre Cientifico";
-            this.nombrecientifico.Name = "nombrecientifico";
-            // 
-            // nombrecomun
-            // 
-            this.nombrecomun.HeaderText = "Nombre Comun";
-            this.nombrecomun.Name = "nombrecomun";
-            // 
-            // formadevida
-            // 
-            this.formadevida.HeaderText = "Forma de Vida";
-            this.formadevida.Name = "formadevida";
-            // 
-            // categoriadelanorma
-            // 
-            this.categoriadelanorma.HeaderText = "Categoria de la norma";
-            this.categoriadelanorma.Name = "categoriadelanorma";
-            // 
-            // borrar
-            // 
-            this.borrar.HeaderText = "Borrar";
-            this.borrar.Name = "borrar";
+            this.button2.Location = new System.Drawing.Point(641, 181);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(152, 37);
+            this.button2.TabIndex = 72;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FormRegistroEspecie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 700);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.textBoxCategoriaDeNorma);
             this.Controls.Add(this.textBoxGenero);
             this.Controls.Add(this.label6);
@@ -747,5 +762,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn formadevida;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoriadelanorma;
         private System.Windows.Forms.DataGridViewButtonColumn borrar;
+        private System.Windows.Forms.Button button2;
     }
 }
