@@ -8,21 +8,44 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraMap;
+using MySql.Data.MySqlClient;
 
 namespace SylDeskForm
 {
     public partial class FormKml : Form
     {
+        MySqlCommand cmd;
+        String kml_url = "";
+        String id = "";
         /*const string filePath = "../../kmlFile.kml";*/
         //const string filePath = @"C:\Users\omarc\Desktop\ejemplo.kml";
 
         VectorItemsLayer KmlLayer { get { return (VectorItemsLayer)mapControl1.Layers["KmlLayer"]; } }
 
-        public FormKml()
+        public FormKml(String id)
         {
             InitializeComponent();
+            this.id = id;
             this.mapControl1.CenterPoint = new DevExpress.XtraMap.GeoPoint(21.1588, -86.8999);
             this.mapControl1.ZoomLevel = 10D;
+
+            cmd = SqlConnector.getConnection(cmd);
+
+            string sqlQueryString = "SELECT kml_url from proyectos where id = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.CommandText = sqlQueryString;
+
+            var results = cmd.ExecuteReader();
+
+
+            if (results.Read())
+            {
+                kml_url = results[0].ToString();
+                abrirKml(kml_url);
+            }
+
+            results.Close();
+            results.Dispose();
 
             //#region #KmlFileDataAdapter
             // Create a KML file data adapter.
@@ -49,26 +72,34 @@ namespace SylDeskForm
 
         }
 
-        private void AbrirKml_Click(object sender, EventArgs e)
+        private void abrirKml(String url)
         {
-           #region #KmlFileDataAdapter
+            #region #KmlFileDataAdapter
 
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
-            String kml = "";
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                kml = openFileDialog1.FileName;
-
-            }
             Uri baseUri = new Uri(System.Reflection.Assembly.GetEntryAssembly().Location);
             KmlLayer.Data = new KmlFileDataAdapter()
             {
-                FileUri = new Uri(baseUri, kml)
+                FileUri = new Uri(baseUri, kml_url)
             };
 
-
             #endregion #KmlFileDataAdapter
+        }
+
+        private void AbrirKml_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                kml_url = openFileDialog1.FileName;
+
+                cmd = SqlConnector.getConnection(cmd);
+                cmd.CommandText = "UPDATE proyectos SET kml_url = @kml_url WHERE id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@kml_url", kml_url);
+                cmd.ExecuteNonQuery();
+            }
+            abrirKml(kml_url);
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -76,8 +107,8 @@ namespace SylDeskForm
             this.Hide(); //esconde el form actual
 
 
-            FormKml objeto = new FormKml(); //objeto declarado para abrir el form3
-            objeto.Show(); //abre el form declarado con el objeto
+            //FormKml objeto = new FormKml(); //objeto declarado para abrir el form3
+            //objeto.Show(); //abre el form declarado con el objeto
         }
 
         private void button10_Click(object sender, EventArgs e)

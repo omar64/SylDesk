@@ -720,5 +720,13 @@ namespace SylDeskForm
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            FormKml form_kml = new FormKml("" + proyecto_id);
+            form_kml.Show();
+        }
     }
 }
