@@ -658,7 +658,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(152, 37);
             this.button2.TabIndex = 72;
-            this.button2.Text = "button2";
+            this.button2.Text = "Importar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
