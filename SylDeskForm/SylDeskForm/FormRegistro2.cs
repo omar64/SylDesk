@@ -723,10 +723,11 @@ namespace SylDeskForm
 
         private void button6_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Hide(); //esconde el form actual
 
-            FormKml form_kml = new FormKml("" + proyecto_id);
-            form_kml.Show();
+
+            FormKml objeto = new FormKml("" + proyecto_id); //objeto declarado para abrir el form3
+            objeto.Show(); //abre el form declarado con el objeto
         }
     }
 }

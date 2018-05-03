@@ -121,7 +121,7 @@
             this.groupBox3.Controls.Add(this.button15);
             this.groupBox3.Controls.Add(this.button16);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(623, 61);
+            this.groupBox3.Location = new System.Drawing.Point(566, 61);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(278, 93);
             this.groupBox3.TabIndex = 21;
@@ -210,13 +210,12 @@
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.panel3);
-            this.groupBox2.Controls.Add(this.button6);
             this.groupBox2.Controls.Add(this.button7);
             this.groupBox2.Controls.Add(this.button8);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Location = new System.Drawing.Point(348, 61);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(269, 93);
+            this.groupBox2.Size = new System.Drawing.Size(212, 93);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             // 
@@ -226,7 +225,7 @@
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(198, 0);
+            this.button5.Location = new System.Drawing.Point(139, 3);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(63, 61);
             this.button5.TabIndex = 9;
@@ -241,7 +240,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(3, 67);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(263, 23);
+            this.panel3.Size = new System.Drawing.Size(206, 23);
             this.panel3.TabIndex = 8;
             // 
             // label2
@@ -249,7 +248,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(96, 0);
+            this.label2.Location = new System.Drawing.Point(75, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 1;
@@ -258,15 +257,15 @@
             // button6
             // 
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(129, 0);
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(862, 238);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(63, 61);
+            this.button6.Size = new System.Drawing.Size(141, 45);
             this.button6.TabIndex = 7;
             this.button6.Text = "Ubicacion";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -870,6 +869,7 @@
             this.ClientSize = new System.Drawing.Size(1100, 700);
             this.Controls.Add(this.buttonEliminarIndividuo);
             this.Controls.Add(this.buttonAgregarBifurcacion);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.buttonAgregarIndividuo);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.labelNombreProyecto);

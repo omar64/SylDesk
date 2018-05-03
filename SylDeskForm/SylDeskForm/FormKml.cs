@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraMap;
 using MySql.Data.MySqlClient;
+using System.Windows;
 
 namespace SylDeskForm
 {
@@ -75,12 +76,19 @@ namespace SylDeskForm
         private void abrirKml(String url)
         {
             #region #KmlFileDataAdapter
-
-            Uri baseUri = new Uri(System.Reflection.Assembly.GetEntryAssembly().Location);
-            KmlLayer.Data = new KmlFileDataAdapter()
+            try
             {
-                FileUri = new Uri(baseUri, kml_url)
-            };
+                Uri baseUri = new Uri(System.Reflection.Assembly.GetEntryAssembly().Location);
+                KmlLayer.Data = new KmlFileDataAdapter()
+                {
+                    FileUri = new Uri(baseUri, kml_url)
+                };
+            }
+            catch(Exception e)
+            {
+                sendMessageBox("La ubicacion del archivo ha cambiado: " + kml_url);
+            }
+            
 
             #endregion #KmlFileDataAdapter
         }
@@ -137,6 +145,15 @@ namespace SylDeskForm
 
             FormRegistroEspecie objeto = new FormRegistroEspecie(); //objeto declarado para abrir el form3
             objeto.Show(); //abre el form declarado con el objeto
+        }
+
+        private void sendMessageBox(string message)
+        {
+            string messageBoxText = message;
+            string caption = "Error";
+            MessageBoxButton button = MessageBoxButton.OK;
+            MessageBoxImage icon = MessageBoxImage.Error;
+            System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
         }
     }
 }
