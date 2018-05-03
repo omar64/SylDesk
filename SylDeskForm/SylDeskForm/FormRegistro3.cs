@@ -123,5 +123,14 @@ namespace SylDeskForm
             FormRegistro3 objeto = new FormRegistro3(); //objeto declarado para abrir el form3
             objeto.Show(); //abre el form declarado con el objeto
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Hide(); //esconde el form actual
+
+
+            FormKml objeto = new FormKml(); //objeto declarado para abrir el form3
+            objeto.Show(); //abre el form declarado con el objeto
+        }
     }
 }
