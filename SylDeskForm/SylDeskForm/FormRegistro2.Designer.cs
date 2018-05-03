@@ -855,6 +855,130 @@
             this.buttonEliminarIndividuo.UseVisualStyleBackColor = true;
             this.buttonEliminarIndividuo.Click += new System.EventHandler(this.buttonEliminarIndividuo_Click);
             // 
+/*            
+<<<<<<< HEAD
+*/
+            // cuadrante
+            // 
+            this.cuadrante.HeaderText = "Cuadrante";
+            this.cuadrante.Name = "cuadrante";
+            // 
+            // numero
+            // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numero.DefaultCellStyle = dataGridViewCellStyle1;
+            this.numero.HeaderText = "*Consecutivo";
+            this.numero.Name = "numero";
+            this.numero.ReadOnly = true;
+            // 
+            // arbolnumeroensitio
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle2;
+            this.arbolnumeroensitio.HeaderText = "*NO. EN CAMPO";
+            this.arbolnumeroensitio.Name = "arbolnumeroensitio";
+            this.arbolnumeroensitio.ReadOnly = true;
+            // 
+            // bifurcados
+            // 
+            this.bifurcados.HeaderText = "Bifurcado";
+            this.bifurcados.Name = "bifurcados";
+            this.bifurcados.ReadOnly = true;
+            this.bifurcados.Visible = false;
+            // 
+            // nombrecientifico
+            // 
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle3;
+            this.nombrecientifico.HeaderText = "Nombre Cientifico";
+            this.nombrecientifico.Name = "nombrecientifico";
+            // 
+            // nombrecomun
+            // 
+            this.nombrecomun.HeaderText = "*Nombre Comun";
+            this.nombrecomun.Name = "nombrecomun";
+            // 
+            // familia
+            // 
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.familia.DefaultCellStyle = dataGridViewCellStyle4;
+            this.familia.HeaderText = "*Familia";
+            this.familia.Name = "familia";
+            this.familia.ReadOnly = true;
+            // 
+            // genero
+            // 
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genero.DefaultCellStyle = dataGridViewCellStyle5;
+            this.genero.HeaderText = "*Genero";
+            this.genero.Name = "genero";
+            this.genero.ReadOnly = true;
+            // 
+            // perimetro
+            // 
+            this.perimetro.HeaderText = "Perimetro";
+            this.perimetro.Name = "perimetro";
+            this.perimetro.Width = 70;
+            // 
+            // diametro
+            // 
+            this.diametro.HeaderText = "Diametro";
+            this.diametro.Name = "diametro";
+            this.diametro.Width = 71;
+            // 
+            // alturafl
+            // 
+            this.alturafl.HeaderText = "Altura F.L";
+            this.alturafl.Name = "alturafl";
+            this.alturafl.Width = 70;
+            // 
+            // alturatotal
+            // 
+            this.alturatotal.HeaderText = "Altura Total";
+            this.alturatotal.Name = "alturatotal";
+            this.alturatotal.Width = 71;
+            // 
+            // coberturalargo
+            // 
+            this.coberturalargo.HeaderText = "Cobertura(Largo)";
+            this.coberturalargo.Name = "coberturalargo";
+            this.coberturalargo.Visible = false;
+            // 
+            // coberturaancho
+            // 
+            this.coberturaancho.HeaderText = "Cobertura(Ancho)";
+            this.coberturaancho.Name = "coberturaancho";
+            this.coberturaancho.Visible = false;
+            // 
+            // formadefuste
+            // 
+            this.formadefuste.HeaderText = "Forma de Fuste";
+            this.formadefuste.Items.AddRange(new object[] {
+            "Curvo",
+            "Curvo Bifurcado",
+            "Recto"});
+            this.formadefuste.Name = "formadefuste";
+            this.formadefuste.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.formadefuste.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.formadefuste.Width = 70;
+            // 
+            // estadocondicion
+            // 
+            this.estadocondicion.HeaderText = "Estado o Condicion";
+            this.estadocondicion.Items.AddRange(new object[] {
+            "Sano",
+            "Sano despuntado",
+            "Samago",
+            "Inclinado"});
+            this.estadocondicion.Name = "estadocondicion";
+            this.estadocondicion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estadocondicion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.estadocondicion.Width = 71;
+            // 
+/*
+=======
+>>>>>>> c29e2261c3924d937ac936625aefa14ba97d1726
+*/
             // FormRegistro2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
