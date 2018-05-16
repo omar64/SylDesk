@@ -7,7 +7,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Forms;
 
 
@@ -15,16 +14,23 @@ namespace SylDesk
 {
     public partial class FormRegistro2 : UserControl
     {
-        public int proyecto_id;
+        private Form1 form1;
+        private int proyecto_id;
         public List<Especie> especiesObject;
         public List<string> especiesString;
         MySqlCommand cmd;
         AutoCompleteStringCollection source = new AutoCompleteStringCollection();
 
-        public FormRegistro2(int proyecto_id)
+        public FormRegistro2(Form1 form1)
+        {
+            this.form1 = form1;
+            InitializeComponent();
+            getEspecies();
+        }
+
+        public void Initialize(int proyecto_id)
         {
             this.proyecto_id = proyecto_id;
-            InitializeComponent();
 
             comboBoxSitios_Populate();
             comboBoxSitios.SelectedIndex = 0;
@@ -32,40 +38,15 @@ namespace SylDesk
 
             dataGridViewIndividuos_Populate();
             fillForm();
-
-            getEspecies();
         }
 
-        /*private void labelClose_Click(object sender, EventArgs e)
+        public void Empty()
         {
-            System.Windows.Forms.Application.Exit();
-        }
-
-        private void labelMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void labelClose_MouseHover(object sender, EventArgs e)
-        {
-            this.labelClose.ForeColor = Color.Red;
-        }
-
-        private void labelClose_MouseLeave(object sender, EventArgs e)
-        {
-            this.labelClose.ForeColor = Color.Transparent;
-        }
-
-        private void labelMinimize_MouseHover(object sender, EventArgs e)
-        {
-            this.labelMinimize.ForeColor = Color.Gray;
-        }
-
-        private void labelMinimize_MouseLeave(object sender, EventArgs e)
-        {
-            this.labelMinimize.ForeColor = Color.Transparent;
-        }*/
-
+            comboBoxSitios.Items.Clear();
+            comboBoxAreas.Items.Clear();
+            dataGridViewIndividuos.Rows.Clear();
+            dataGridViewIndividuos.Refresh();
+        }        
 
         private void dataGridViewIndividuos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -105,11 +86,11 @@ namespace SylDesk
                     results.Dispose();
                     //sendMessageBox(textBoxNombreCientificoText + " " + textBoxNombreComunText + " " + textBoxFamiliaText);
 
-                    row.Cells["nombrecomun"].Value = textBoxFamilia;
+                    row.Cells["nombrecomun"].Value = textBoxNombreComun;
                     row.Cells["familia"].Value = textBoxFamilia;
                     row.Cells["genero"].Value = textBoxGenero;
 
-                    updateData("nombrecomun", row, textBoxFamilia);
+                    updateData("nombrecomun", row, textBoxNombreComun);
                     updateData("familia", row, textBoxFamilia);
                     updateData("genero", row, textBoxGenero);
                 }
@@ -151,11 +132,11 @@ namespace SylDesk
 
         private void sendMessageBox(string message)
         {
-            /*string messageBoxText = message;
+            string messageBoxText = message;
             string caption = "Error";
-            MessageBoxButton button = MessageBoxButton.OK;
-            MessageBoxImage icon = MessageBoxImage.Error;
-            System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);*/
+            //MessageBoxButton button = MessageBoxButton.OK;
+            //MessageBoxImage icon = MessageBoxImage.Error;
+            MessageBox.Show(messageBoxText, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void buttonAgregarSitio_Click(object sender, EventArgs e)
@@ -407,11 +388,14 @@ namespace SylDesk
 
         private void button17_Click(object sender, EventArgs e)
         {
-            this.Hide(); //esconde el form actual
+            //this.Hide(); //esconde el form actual
 
 
-            FormRegistro1 objeto = new FormRegistro1(); //objeto declarado para abrir el form2
-            objeto.Show(); //abre el form declarado con el objeto
+            //FormRegistro1 objeto = new FormRegistro1(); //objeto declarado para abrir el form2
+            //objeto.Show(); //abre el form declarado con el objeto
+
+            Empty();
+            form1.formRegistro1ToFront();
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)

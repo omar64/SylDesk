@@ -57,10 +57,12 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.formRegistroEspecie1 = new SylDesk.FormRegistroEspecie();
-            this.formRegistro31 = new SylDesk.FormRegistro3();
-            this.formRegistro21 = new SylDesk.FormRegistro2();
-            this.formRegistro11 = new SylDesk.FormRegistro1();
+            this.formRegistro11 = new SylDesk.FormRegistro1(this);
+            this.formRegistro21 = new FormRegistro2(this);
+            this.formRegistro31 = new FormRegistro3(this);
+            this.formRegistroEspecie1 = new FormRegistroEspecie(this);
+            this.formInicial1 = new FormInicial(this);
+            //this.formKml1. new FormKml(this);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -149,7 +151,7 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(12, 62);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(330, 93);
+            this.groupBox1.Size = new System.Drawing.Size(404, 93);
             this.groupBox1.TabIndex = 69;
             this.groupBox1.TabStop = false;
             // 
@@ -159,7 +161,7 @@
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(251, 0);
+            this.button9.Location = new System.Drawing.Point(346, 0);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(55, 61);
             this.button9.TabIndex = 10;
@@ -173,7 +175,7 @@
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(190, 0);
+            this.button4.Location = new System.Drawing.Point(285, -1);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(55, 61);
             this.button4.TabIndex = 9;
@@ -188,7 +190,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(3, 67);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(324, 23);
+            this.panel2.Size = new System.Drawing.Size(398, 23);
             this.panel2.TabIndex = 8;
             // 
             // label1
@@ -202,19 +204,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Asignacion";
             // 
-            // button3
+            // Registrarespecie
             // 
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(129, 0);
+            this.button3.Location = new System.Drawing.Point(224, 0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(55, 61);
             this.button3.TabIndex = 7;
-            this.button3.Text = "Sitio";
+            this.button3.Text = "Registrar Especie";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Buscarbutton
             // 
@@ -222,11 +225,11 @@
             this.Buscarbutton.FlatAppearance.BorderSize = 0;
             this.Buscarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Buscarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Buscarbutton.Image")));
-            this.Buscarbutton.Location = new System.Drawing.Point(78, 0);
+            this.Buscarbutton.Location = new System.Drawing.Point(118, 0);
             this.Buscarbutton.Name = "Buscarbutton";
-            this.Buscarbutton.Size = new System.Drawing.Size(55, 61);
+            this.Buscarbutton.Size = new System.Drawing.Size(100, 61);
             this.Buscarbutton.TabIndex = 6;
-            this.Buscarbutton.Text = "Buscar";
+            this.Buscarbutton.Text = "Buscar Proyecto";
             this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
@@ -238,11 +241,11 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(26, 0);
+            this.button1.Location = new System.Drawing.Point(15, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 61);
+            this.button1.Size = new System.Drawing.Size(97, 61);
             this.button1.TabIndex = 5;
-            this.button1.Text = "sesion";
+            this.button1.Text = "Crear Proyecto";
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -256,7 +259,7 @@
             this.groupBox3.Controls.Add(this.button15);
             this.groupBox3.Controls.Add(this.button16);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(623, 62);
+            this.groupBox3.Location = new System.Drawing.Point(697, 62);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(278, 93);
             this.groupBox3.TabIndex = 71;
@@ -360,7 +363,7 @@
             this.groupBox2.Controls.Add(this.button7);
             this.groupBox2.Controls.Add(this.button8);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(348, 62);
+            this.groupBox2.Location = new System.Drawing.Point(422, 61);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(269, 93);
             this.groupBox2.TabIndex = 70;
@@ -444,27 +447,6 @@
             this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // formRegistroEspecie1
-            // 
-            this.formRegistroEspecie1.Location = new System.Drawing.Point(3, 161);
-            this.formRegistroEspecie1.Name = "formRegistroEspecie1";
-            this.formRegistroEspecie1.Size = new System.Drawing.Size(1096, 535);
-            this.formRegistroEspecie1.TabIndex = 76;
-            // 
-            // formRegistro31
-            // 
-            this.formRegistro31.Location = new System.Drawing.Point(0, 158);
-            this.formRegistro31.Name = "formRegistro31";
-            this.formRegistro31.Size = new System.Drawing.Size(1096, 538);
-            this.formRegistro31.TabIndex = 75;
-            // 
-            // formRegistro21
-            // 
-            this.formRegistro21.Location = new System.Drawing.Point(3, 171);
-            this.formRegistro21.Name = "formRegistro21";
-            this.formRegistro21.Size = new System.Drawing.Size(1093, 525);
-            this.formRegistro21.TabIndex = 74;
-            // 
             // formRegistro11
             // 
             this.formRegistro11.Location = new System.Drawing.Point(3, 161);
@@ -472,15 +454,44 @@
             this.formRegistro11.Size = new System.Drawing.Size(1085, 527);
             this.formRegistro11.TabIndex = 73;
             // 
+            // formRegistro21
+            // 
+            this.formRegistro21.Location = new System.Drawing.Point(3, 161);
+            this.formRegistro21.Name = "formRegistro21";
+            this.formRegistro21.Size = new System.Drawing.Size(1085, 527);
+            this.formRegistro21.TabIndex = 73;
+            // 
+            // formRegistro31
+            // 
+            this.formRegistro31.Location = new System.Drawing.Point(3, 161);
+            this.formRegistro31.Name = "formRegistro31";
+            this.formRegistro31.Size = new System.Drawing.Size(1085, 527);
+            this.formRegistro31.TabIndex = 73;
+            // 
+            // formRegistroEspecie1
+            // 
+            this.formRegistroEspecie1.Location = new System.Drawing.Point(3, 161);
+            this.formRegistroEspecie1.Name = "formRegistroEspecie1";
+            this.formRegistroEspecie1.Size = new System.Drawing.Size(1085, 527);
+            this.formRegistroEspecie1.TabIndex = 73;
+            // 
+            // formInicial1
+            // 
+            this.formInicial1.Location = new System.Drawing.Point(3, 161);
+            this.formInicial1.Name = "formInicial1";
+            this.formInicial1.Size = new System.Drawing.Size(1100, 700);
+            this.formInicial1.TabIndex = 73;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 700);
-            this.Controls.Add(this.formRegistroEspecie1);
-            this.Controls.Add(this.formRegistro31);
-            this.Controls.Add(this.formRegistro21);
             this.Controls.Add(this.formRegistro11);
+            this.Controls.Add(this.formRegistro21);
+            this.Controls.Add(this.formRegistro31);
+            this.Controls.Add(this.formRegistroEspecie1);
+            this.Controls.Add(this.formInicial1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -540,6 +551,7 @@
         private FormRegistro2 formRegistro21;
         private FormRegistro3 formRegistro31;
         private FormRegistroEspecie formRegistroEspecie1;
+        private FormInicial formInicial1;
     }
 }
 

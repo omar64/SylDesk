@@ -52,6 +52,7 @@
             this.labelNombreComun = new System.Windows.Forms.Label();
             this.labelNombreCientifico = new System.Windows.Forms.Label();
             this.buttonRegistrar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspecies)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,7 +109,7 @@
             // 
             // textBoxBuscarEspecie
             // 
-            this.textBoxBuscarEspecie.Location = new System.Drawing.Point(372, 263);
+            this.textBoxBuscarEspecie.Location = new System.Drawing.Point(367, 235);
             this.textBoxBuscarEspecie.Name = "textBoxBuscarEspecie";
             this.textBoxBuscarEspecie.Size = new System.Drawing.Size(189, 20);
             this.textBoxBuscarEspecie.TabIndex = 81;
@@ -117,7 +118,7 @@
             // 
             this.labelBuscarEspecie.AutoSize = true;
             this.labelBuscarEspecie.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBuscarEspecie.Location = new System.Drawing.Point(269, 265);
+            this.labelBuscarEspecie.Location = new System.Drawing.Point(264, 237);
             this.labelBuscarEspecie.Name = "labelBuscarEspecie";
             this.labelBuscarEspecie.Size = new System.Drawing.Size(97, 15);
             this.labelBuscarEspecie.TabIndex = 80;
@@ -137,9 +138,9 @@
             this.formadevida,
             this.categoriadelanorma,
             this.borrar});
-            this.dataGridViewEspecies.Location = new System.Drawing.Point(161, 313);
+            this.dataGridViewEspecies.Location = new System.Drawing.Point(47, 286);
             this.dataGridViewEspecies.Name = "dataGridViewEspecies";
-            this.dataGridViewEspecies.Size = new System.Drawing.Size(813, 150);
+            this.dataGridViewEspecies.Size = new System.Drawing.Size(1011, 225);
             this.dataGridViewEspecies.TabIndex = 79;
             // 
             // familia
@@ -238,7 +239,7 @@
             this.buttonRegistrar.ForeColor = System.Drawing.Color.DodgerBlue;
             this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
             this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistrar.Location = new System.Drawing.Point(746, 250);
+            this.buttonRegistrar.Location = new System.Drawing.Point(741, 222);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(141, 45);
             this.buttonRegistrar.TabIndex = 72;
@@ -246,10 +247,20 @@
             this.buttonRegistrar.UseVisualStyleBackColor = false;
             this.buttonRegistrar.Click += new System.EventHandler(this.buttonRegistrar_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(689, 48);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(152, 37);
+            this.button2.TabIndex = 88;
+            this.button2.Text = "Importar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // FormRegistroEspecie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.textBoxCategoriaDeNorma);
             this.Controls.Add(this.textBoxGenero);
             this.Controls.Add(this.label6);
@@ -299,5 +310,6 @@
         private System.Windows.Forms.Label labelNombreComun;
         private System.Windows.Forms.Label labelNombreCientifico;
         private System.Windows.Forms.Button buttonRegistrar;
+        private System.Windows.Forms.Button button2;
     }
 }

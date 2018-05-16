@@ -14,6 +14,7 @@ namespace SylDesk
         [STAThread]
         static void Main()
         {
+            SqlConnector.InitializeConnection();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SylDesk
 {
-    class Especie
+    public class Especie
     {
         private string nombrecientifico;
         private string familia;

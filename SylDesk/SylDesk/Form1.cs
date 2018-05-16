@@ -15,19 +15,24 @@ namespace SylDesk
         public Form1()
         {
             InitializeComponent();
-            formRegistro11.BringToFront();
+            //formRegistro1ToFront();
+            formInicialToFront();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            formRegistroEspecie1.BringToFront();
+            formRegistro1ToFront();
+            //formRegistroEspecieToFront();
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            formRegistro31.BringToFront();
+            formRegistro3ToFront();
         }
-
+        private void button3_Click(object sender, EventArgs e)
+        {
+            formRegistroEspecieToFront();
+        }
         private void button10_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
@@ -36,6 +41,30 @@ namespace SylDesk
         private void button12_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        public void formRegistro1ToFront()
+        {
+            formRegistro11.BringToFront();
+        }
+        public void formRegistro2ToFront(int proyecto_id)
+        {
+            formRegistro21.Initialize(proyecto_id);
+            formRegistro21.BringToFront();
+        }
+        public void formRegistro3ToFront()
+        {
+            formRegistro31.Initialize();
+            formRegistro31.BringToFront();
+        }
+        public void formRegistroEspecieToFront()
+        {
+            formRegistroEspecie1.Initialize();
+            formRegistroEspecie1.BringToFront();
+        }
+        public void formInicialToFront()
+        {
+            formInicial1.BringToFront();
         }
     }
 }

@@ -39,6 +39,7 @@
             this.labelBuscar = new System.Windows.Forms.Label();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.buttonBack = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,6 +61,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1031, 297);
             this.dataGridView1.TabIndex = 63;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // id
             // 
@@ -128,16 +130,28 @@
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(457, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(123, 18);
+            this.label5.TabIndex = 73;
+            this.label5.Text = "Buscar Proyecto";
+            // 
             // FormRegistro3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelBuscar);
             this.Controls.Add(this.textBoxBuscar);
             this.Controls.Add(this.buttonBack);
             this.Name = "FormRegistro3";
             this.Size = new System.Drawing.Size(1096, 528);
+            this.Load += new System.EventHandler(this.FormRegistro3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -156,5 +170,6 @@
         private System.Windows.Forms.Label labelBuscar;
         private System.Windows.Forms.TextBox textBoxBuscar;
         private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.Label label5;
     }
 }

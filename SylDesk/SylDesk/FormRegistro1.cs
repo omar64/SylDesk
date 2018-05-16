@@ -15,10 +15,12 @@ namespace SylDesk
 {
     public partial class FormRegistro1 : UserControl
     {
+        private Form1 form1;
         MySqlCommand cmd;
 
-        public FormRegistro1()
+        public FormRegistro1(Form1 form1)
         {
+            this.form1 = form1;
             InitializeComponent();
         }
 
@@ -53,12 +55,14 @@ namespace SylDesk
                 cmd.Parameters.AddWithValue("@numero_sitio", 1);
                 cmd.ExecuteNonQuery();
 
-                
-                
-                this.Hide(); //esconde el form actual
-                FormRegistro2 obj = new FormRegistro2(proyecto_idI); //objeto declarado para abrir el form2 proyecto_idI
 
-                obj.Show(); //abre el form declarado con el objeto
+                /*
+                this.Hide(); //esconde el form actual
+                FormRegistro2 obj = new FormRegistro2(proyecto_idI, this); //objeto declarado para abrir el form2 proyecto_idI
+
+                obj.Show(); //abre el form declarado con el objeto*/
+               
+                form1.formRegistro2ToFront(proyecto_idI);
             }
             catch (Exception)
             {

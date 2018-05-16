@@ -14,11 +14,25 @@ namespace SylDesk
     public partial class FormRegistro3 : UserControl
     {
         MySqlCommand cmd;
+        Form1 form1;
 
-        public FormRegistro3()
+        public FormRegistro3(Form1 form1)
         {
+            this.form1 = form1;
             InitializeComponent();
+            
+            
+        }
+
+        public void Initialize()
+        {
             dataGridView1_Populate("");
+        }
+
+        public void Empty()
+        {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
@@ -35,13 +49,18 @@ namespace SylDesk
         {
             var senderGrid = (DataGridView)sender;
 
+            
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 //TODO - Button Clicked - Execute Code Here
-                this.Hide(); //esconde el form actual
-                FormRegistro2 obj = new FormRegistro2((int)dataGridView1.Rows[e.RowIndex].Cells[0].Value); //objeto declarado para abrir el form2 proyecto_idI
+                //this.Hide(); //esconde el form actual
 
-                obj.Show(); //abre el form declarado con el objeto
+                
+                form1.formRegistro2ToFront((int)dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                Empty();
+                //FormRegistro2 obj = new FormRegistro2((int)dataGridView1.Rows[e.RowIndex].Cells[0].Value); //objeto declarado para abrir el form2 proyecto_idI
+
+                //obj.Show(); //abre el form declarado con el objeto
             }
         }
 
@@ -90,6 +109,9 @@ namespace SylDesk
             objeto.Show(); //abre el form declarado con el objeto*/
         }
 
+        private void FormRegistro3_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonEliminarIndividuo = new System.Windows.Forms.Button();
             this.buttonAgregarBifurcacion = new System.Windows.Forms.Button();
             this.buttonAgregarIndividuo = new System.Windows.Forms.Button();
@@ -72,6 +72,7 @@
             this.coberturaancho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formadefuste = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.estadocondicion = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIndividuos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -303,6 +304,7 @@
             this.dataGridViewIndividuos.Size = new System.Drawing.Size(1031, 297);
             this.dataGridViewIndividuos.TabIndex = 67;
             this.dataGridViewIndividuos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIndividuos_CellEndEdit);
+            this.dataGridViewIndividuos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewIndividuos_EditingControlShowing);
             this.dataGridViewIndividuos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewIndividuos_KeyPress);
             // 
             // cuadrante
@@ -312,16 +314,16 @@
             // 
             // numero
             // 
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numero.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numero.DefaultCellStyle = dataGridViewCellStyle6;
             this.numero.HeaderText = "*Consecutivo";
             this.numero.Name = "numero";
             this.numero.ReadOnly = true;
             // 
             // arbolnumeroensitio
             // 
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle7;
             this.arbolnumeroensitio.HeaderText = "*NO. EN CAMPO";
             this.arbolnumeroensitio.Name = "arbolnumeroensitio";
             this.arbolnumeroensitio.ReadOnly = true;
@@ -335,8 +337,8 @@
             // 
             // nombrecientifico
             // 
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle8;
             this.nombrecientifico.HeaderText = "Nombre Cientifico";
             this.nombrecientifico.Name = "nombrecientifico";
             // 
@@ -347,16 +349,16 @@
             // 
             // familia
             // 
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.familia.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.familia.DefaultCellStyle = dataGridViewCellStyle9;
             this.familia.HeaderText = "*Familia";
             this.familia.Name = "familia";
             this.familia.ReadOnly = true;
             // 
             // genero
             // 
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genero.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genero.DefaultCellStyle = dataGridViewCellStyle10;
             this.genero.HeaderText = "*Genero";
             this.genero.Name = "genero";
             this.genero.ReadOnly = true;
@@ -429,10 +431,25 @@
             this.estadocondicion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.estadocondicion.Width = 71;
             // 
+            // button6
+            // 
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(866, 91);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(141, 45);
+            this.button6.TabIndex = 89;
+            this.button6.Text = "Ubicacion";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
             // FormRegistro2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.buttonEliminarIndividuo);
             this.Controls.Add(this.buttonAgregarBifurcacion);
             this.Controls.Add(this.buttonAgregarIndividuo);
@@ -503,5 +520,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn coberturaancho;
         private System.Windows.Forms.DataGridViewComboBoxColumn formadefuste;
         private System.Windows.Forms.DataGridViewComboBoxColumn estadocondicion;
+        private System.Windows.Forms.Button button6;
     }
 }
