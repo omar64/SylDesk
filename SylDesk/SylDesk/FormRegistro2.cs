@@ -53,18 +53,25 @@ namespace SylDesk
             int row_index = dataGridViewIndividuos.CurrentCell.RowIndex;
             string column_name = dataGridViewIndividuos.Columns[dataGridViewIndividuos.CurrentCell.ColumnIndex].Name;
             DataGridViewRow row = dataGridViewIndividuos.Rows[dataGridViewIndividuos.CurrentCell.RowIndex];
-
+            if (column_name == "alturatotal")
+            {
+                volumen_ecuacion(row);
+            }
             if (column_name == "diametro")
             {
                 dataGridViewIndividuos.Rows[row_index].Cells["perimetro"].Value = (Convert.ToDouble(dataGridViewIndividuos.CurrentCell.Value) * Math.PI).ToString("F4");
 
                 updateData("perimetro", row, Convert.ToString(row.Cells["perimetro"].Value));
+
+                volumen_ecuacion(row);
             }
             else if (column_name == "perimetro")
             {
                 dataGridViewIndividuos.Rows[row_index].Cells["diametro"].Value = (Convert.ToDouble(dataGridViewIndividuos.CurrentCell.Value) / Math.PI).ToString("F4");
 
                 updateData("diametro", row, Convert.ToString(row.Cells["diametro"].Value));
+
+                volumen_ecuacion(row);
             }
             else if (column_name == "nombrecientifico")
             {
@@ -93,6 +100,9 @@ namespace SylDesk
                     updateData("nombrecomun", row, textBoxNombreComun);
                     updateData("familia", row, textBoxFamilia);
                     updateData("genero", row, textBoxGenero);
+
+                    grupo_especie(row);
+                    volumen_ecuacion(row);                    
                 }
                 else
                 {
@@ -109,7 +119,7 @@ namespace SylDesk
                     updateData("nombrecomun", row, "");
                     updateData("familia", row, "");
                     updateData("genero", row, "");
-                }
+                }                
             }
 
             cmd = SqlConnector.getConnection(cmd);
@@ -120,6 +130,93 @@ namespace SylDesk
             cmd.Parameters.AddWithValue("@numero", row.Cells["numero"].Value);
             cmd.Parameters.AddWithValue("@" + column_name, row.Cells[column_name].Value);
             cmd.ExecuteNonQuery();
+        }
+
+        private void grupo_especie(DataGridViewRow row)
+        {
+            cmd = SqlConnector.getConnection(cmd);
+
+            string sqlQueryString = "SELECT grupo FROM grupo_especie where nombrecientifico = @nombrecientifico";
+            cmd.CommandText = sqlQueryString;
+            cmd.Parameters.AddWithValue("@nombrecientifico", row.Cells["nombrecientifico"].Value);
+
+            var results = cmd.ExecuteReader();
+
+            if (results.Read())
+            {
+                string grupo = results[0].ToString();
+                results.Close();
+                results.Dispose();
+
+                row.Cells["grupo"].Value = grupo;
+                updateData("grupo", row, grupo);
+            }
+            else
+            {
+                results.Close();
+                results.Dispose();
+
+                sendMessageBox("No se encontro un grupo adecuado para esta especie");
+                row.Cells["grupo"].Value = "";
+                updateData("grupo", row, "");
+            }            
+        }
+
+        private void volumen_ecuacion(DataGridViewRow row)
+        {
+            try
+            {
+                sendMessageBox(""+comboBoxAreas.SelectedIndex);
+                if (comboBoxAreas.SelectedIndex == 0)
+                {
+                    String sdiametro = row.Cells["diametro"].Value.ToString();
+                    String salturatotal = row.Cells["alturatotal"].Value.ToString();
+                    String sgrupo = row.Cells["grupo"].Value.ToString();
+                    String snombrecientifico = row.Cells["nombrecientifico"].Value.ToString();
+
+                    if (!sdiametro.Equals("") && !salturatotal.Equals("") && !sgrupo.Equals("") && !snombrecientifico.Equals(""))
+                    {
+                        cmd = SqlConnector.getConnection(cmd);
+
+                        String sqlQueryString = "SELECT ecuacion, num1, num2, num3 FROM ecuaciones_volumen where grupo = @grupo";
+                        cmd.CommandText = sqlQueryString;
+                        cmd.Parameters.AddWithValue("@grupo", row.Cells["grupo"].Value);
+
+                        var results = cmd.ExecuteReader();
+
+                        if (results.Read())
+                        {
+                            string ecuacion = results[0].ToString();
+                            double num1 = Convert.ToDouble(results[1].ToString());
+                            double num2 = Convert.ToDouble(results[2].ToString());
+                            double num3 = Convert.ToDouble(results[3].ToString());
+                            double diametro = Convert.ToDouble(row.Cells["diametro"].Value);
+                            double alturatotal = Convert.ToDouble(row.Cells["alturatotal"].Value);
+                            double volumen = Math.Exp(num1 + num2 * Math.Log(diametro) + num3 * Math.Log(alturatotal));
+
+                            results.Close();
+                            results.Dispose();
+
+                            row.Cells["volumen"].Value = volumen;
+                            updateData("volumen", row, "" + volumen);
+                        }
+                        else
+                        {
+                            results.Close();
+                            results.Dispose();
+
+                            row.Cells["volumen"].Value = volumen;
+                            updateData("volumen", row, "" + volumen);
+                        }
+
+                        
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 
         private void dataGridViewIndividuos_KeyPress(object sender, KeyPressEventArgs e)
@@ -333,7 +430,7 @@ namespace SylDesk
 
             string sqlQueryString = "SELECT cuadrante, numero, arbolnumeroensitio, bifurcados, nombrecientifico, " +
                 "nombrecomun, familia, genero, perimetro, diametro, alturafl, alturatotal, coberturalargo, coberturaancho, " +
-                "formadefuste, estadocondicion " +
+                "formadefuste, estadocondicion, grupo, volumenvv " +
                 " from `individuos` where proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area ORDER BY arbolnumeroensitio DESC";
             cmd.CommandText = sqlQueryString;
             cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
@@ -362,6 +459,8 @@ namespace SylDesk
                 lista_individuos.Add(results[13]);
                 lista_individuos.Add(results[14]);
                 lista_individuos.Add(results[15]);
+                lista_individuos.Add(results[16]);
+                lista_individuos.Add(results[17]);
 
                 dataGridViewIndividuos.Rows.Insert(0, lista_individuos.ToArray());
                 if (Convert.ToBoolean(dataGridViewIndividuos.Rows[0].Cells["bifurcados"].Value))
