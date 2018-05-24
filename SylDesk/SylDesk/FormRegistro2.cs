@@ -165,8 +165,7 @@ namespace SylDesk
         private void volumen_ecuacion(DataGridViewRow row)
         {
             try
-            {
-                sendMessageBox(""+comboBoxAreas.SelectedIndex);
+            {                
                 if (comboBoxAreas.SelectedIndex == 0)
                 {
                     String sdiametro = row.Cells["diametro"].Value.ToString();
@@ -187,6 +186,7 @@ namespace SylDesk
                         if (results.Read())
                         {
                             string ecuacion = results[0].ToString();
+                            sendMessageBox("V= " + ecuacion);
                             double num1 = Convert.ToDouble(results[1].ToString());
                             double num2 = Convert.ToDouble(results[2].ToString());
                             double num3 = Convert.ToDouble(results[3].ToString());
@@ -198,7 +198,7 @@ namespace SylDesk
                             results.Dispose();
 
                             row.Cells["volumen"].Value = volumen;
-                            updateData("volumen", row, "" + volumen);
+                            updateData("volumenvv", row, "" + volumen);
                         }
                         else
                         {
@@ -206,7 +206,7 @@ namespace SylDesk
                             results.Dispose();
 
                             row.Cells["volumen"].Value = volumen;
-                            updateData("volumen", row, "" + volumen);
+                            updateData("volumenvv", row, "" + volumen);
                         }
 
                         

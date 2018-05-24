@@ -102,9 +102,9 @@ C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.exe
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.pdb
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.FormInicial.resources
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.csprojResolveAssemblyReference.cache
-<<<<<<< HEAD
+
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.Grafica.resources
-=======
+
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.csprojResolveAssemblyReference.cache
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.Form1.resources
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.FormInicial.resources
@@ -209,3 +209,4 @@ C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\es\Dev
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\ja\DevExpress.Office.v17.2.Core.resources.dll
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\ru\DevExpress.Office.v17.2.Core.resources.dll
 >>>>>>> 057aa22a33783f121032d705c2df836dea9d2f26
+C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.Grafica.resources
