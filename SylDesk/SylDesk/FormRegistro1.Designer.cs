@@ -39,6 +39,7 @@
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelSuperficie = new System.Windows.Forms.Label();
             this.buttonRegistrar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBoxRegistro.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             this.groupBoxRegistro.Controls.Add(this.labelSuperficie);
             this.groupBoxRegistro.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxRegistro.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxRegistro.Location = new System.Drawing.Point(59, 39);
+            this.groupBoxRegistro.Location = new System.Drawing.Point(62, 67);
             this.groupBoxRegistro.Name = "groupBoxRegistro";
             this.groupBoxRegistro.Size = new System.Drawing.Size(787, 381);
             this.groupBoxRegistro.TabIndex = 11;
@@ -145,7 +146,7 @@
             this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRegistrar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegistrar.ForeColor = System.Drawing.Color.White;
-            this.buttonRegistrar.Location = new System.Drawing.Point(686, 444);
+            this.buttonRegistrar.Location = new System.Drawing.Point(714, 465);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(111, 42);
             this.buttonRegistrar.TabIndex = 10;
@@ -153,10 +154,21 @@
             this.buttonRegistrar.UseVisualStyleBackColor = false;
             this.buttonRegistrar.Click += new System.EventHandler(this.buttonRegistrar_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(480, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 24);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Crear Proyecto";
+            // 
             // FormRegistro1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBoxRegistro);
             this.Controls.Add(this.buttonRegistrar);
             this.Name = "FormRegistro1";
@@ -164,6 +176,7 @@
             this.groupBoxRegistro.ResumeLayout(false);
             this.groupBoxRegistro.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -180,5 +193,6 @@
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Label labelSuperficie;
         private System.Windows.Forms.Button buttonRegistrar;
+        private System.Windows.Forms.Label label1;
     }
 }

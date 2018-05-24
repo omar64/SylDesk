@@ -43,7 +43,7 @@ namespace SylDesk
         public void Empty()
         {
             comboBoxSitios.Items.Clear();
-            comboBoxAreas.Items.Clear();
+            //comboBoxAreas.Items.Clear();
             dataGridViewIndividuos.Rows.Clear();
             dataGridViewIndividuos.Refresh();
         }        
@@ -702,5 +702,17 @@ namespace SylDesk
             }
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonGrafica_Click(object sender, EventArgs e)
+        {
+            Empty();
+            //form1.formRegistro1ToFront();
+            form1.graficaToFront();
+            
+        }
     }
 }

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonEliminarIndividuo = new System.Windows.Forms.Button();
             this.buttonAgregarBifurcacion = new System.Windows.Forms.Button();
             this.buttonAgregarIndividuo = new System.Windows.Forms.Button();
@@ -73,6 +73,8 @@
             this.formadefuste = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.estadocondicion = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.button6 = new System.Windows.Forms.Button();
+            this.buttonGrafica = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIndividuos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,7 +110,7 @@
             // 
             this.labelNombre.AutoSize = true;
             this.labelNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.Location = new System.Drawing.Point(909, 20);
+            this.labelNombre.Location = new System.Drawing.Point(910, 38);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(65, 20);
             this.labelNombre.TabIndex = 85;
@@ -118,7 +120,7 @@
             // 
             this.labelNombreProyecto.AutoSize = true;
             this.labelNombreProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreProyecto.Location = new System.Drawing.Point(828, 20);
+            this.labelNombreProyecto.Location = new System.Drawing.Point(829, 38);
             this.labelNombreProyecto.Name = "labelNombreProyecto";
             this.labelNombreProyecto.Size = new System.Drawing.Size(75, 20);
             this.labelNombreProyecto.TabIndex = 84;
@@ -138,14 +140,14 @@
             // 
             // textBoxEstadoSucesional
             // 
-            this.textBoxEstadoSucesional.Location = new System.Drawing.Point(714, 88);
+            this.textBoxEstadoSucesional.Location = new System.Drawing.Point(715, 106);
             this.textBoxEstadoSucesional.Name = "textBoxEstadoSucesional";
             this.textBoxEstadoSucesional.Size = new System.Drawing.Size(100, 20);
             this.textBoxEstadoSucesional.TabIndex = 83;
             // 
             // textBoxMunicipio
             // 
-            this.textBoxMunicipio.Location = new System.Drawing.Point(714, 49);
+            this.textBoxMunicipio.Location = new System.Drawing.Point(715, 67);
             this.textBoxMunicipio.Name = "textBoxMunicipio";
             this.textBoxMunicipio.Size = new System.Drawing.Size(100, 20);
             this.textBoxMunicipio.TabIndex = 82;
@@ -153,7 +155,7 @@
             // labelEstadoSucesional
             // 
             this.labelEstadoSucesional.AutoSize = true;
-            this.labelEstadoSucesional.Location = new System.Drawing.Point(613, 90);
+            this.labelEstadoSucesional.Location = new System.Drawing.Point(614, 108);
             this.labelEstadoSucesional.Name = "labelEstadoSucesional";
             this.labelEstadoSucesional.Size = new System.Drawing.Size(95, 13);
             this.labelEstadoSucesional.TabIndex = 81;
@@ -163,7 +165,7 @@
             // labelMunicipio
             // 
             this.labelMunicipio.AutoSize = true;
-            this.labelMunicipio.Location = new System.Drawing.Point(613, 52);
+            this.labelMunicipio.Location = new System.Drawing.Point(614, 70);
             this.labelMunicipio.Name = "labelMunicipio";
             this.labelMunicipio.Size = new System.Drawing.Size(52, 13);
             this.labelMunicipio.TabIndex = 80;
@@ -171,14 +173,14 @@
             // 
             // textBoxY
             // 
-            this.textBoxY.Location = new System.Drawing.Point(480, 84);
+            this.textBoxY.Location = new System.Drawing.Point(481, 102);
             this.textBoxY.Name = "textBoxY";
             this.textBoxY.Size = new System.Drawing.Size(100, 20);
             this.textBoxY.TabIndex = 79;
             // 
             // textBoxX
             // 
-            this.textBoxX.Location = new System.Drawing.Point(480, 46);
+            this.textBoxX.Location = new System.Drawing.Point(481, 64);
             this.textBoxX.Name = "textBoxX";
             this.textBoxX.Size = new System.Drawing.Size(100, 20);
             this.textBoxX.TabIndex = 78;
@@ -187,7 +189,7 @@
             // labelY
             // 
             this.labelY.AutoSize = true;
-            this.labelY.Location = new System.Drawing.Point(460, 91);
+            this.labelY.Location = new System.Drawing.Point(461, 109);
             this.labelY.Name = "labelY";
             this.labelY.Size = new System.Drawing.Size(14, 13);
             this.labelY.TabIndex = 77;
@@ -196,7 +198,7 @@
             // labelX
             // 
             this.labelX.AutoSize = true;
-            this.labelX.Location = new System.Drawing.Point(460, 51);
+            this.labelX.Location = new System.Drawing.Point(461, 69);
             this.labelX.Name = "labelX";
             this.labelX.Size = new System.Drawing.Size(14, 13);
             this.labelX.TabIndex = 76;
@@ -205,7 +207,7 @@
             // labelCoordenadas
             // 
             this.labelCoordenadas.AutoSize = true;
-            this.labelCoordenadas.Location = new System.Drawing.Point(477, 27);
+            this.labelCoordenadas.Location = new System.Drawing.Point(478, 45);
             this.labelCoordenadas.Name = "labelCoordenadas";
             this.labelCoordenadas.Size = new System.Drawing.Size(70, 13);
             this.labelCoordenadas.TabIndex = 75;
@@ -214,7 +216,7 @@
             // labelAreas
             // 
             this.labelAreas.AutoSize = true;
-            this.labelAreas.Location = new System.Drawing.Point(146, 67);
+            this.labelAreas.Location = new System.Drawing.Point(147, 85);
             this.labelAreas.Name = "labelAreas";
             this.labelAreas.Size = new System.Drawing.Size(34, 13);
             this.labelAreas.TabIndex = 74;
@@ -223,7 +225,7 @@
             // labelSitios
             // 
             this.labelSitios.AutoSize = true;
-            this.labelSitios.Location = new System.Drawing.Point(146, 27);
+            this.labelSitios.Location = new System.Drawing.Point(147, 45);
             this.labelSitios.Name = "labelSitios";
             this.labelSitios.Size = new System.Drawing.Size(32, 13);
             this.labelSitios.TabIndex = 72;
@@ -231,7 +233,7 @@
             // 
             // buttonBorrarSitio
             // 
-            this.buttonBorrarSitio.Location = new System.Drawing.Point(369, 43);
+            this.buttonBorrarSitio.Location = new System.Drawing.Point(370, 61);
             this.buttonBorrarSitio.Name = "buttonBorrarSitio";
             this.buttonBorrarSitio.Size = new System.Drawing.Size(75, 23);
             this.buttonBorrarSitio.TabIndex = 71;
@@ -241,7 +243,7 @@
             // 
             // buttonAgregarSitio
             // 
-            this.buttonAgregarSitio.Location = new System.Drawing.Point(288, 43);
+            this.buttonAgregarSitio.Location = new System.Drawing.Point(289, 61);
             this.buttonAgregarSitio.Name = "buttonAgregarSitio";
             this.buttonAgregarSitio.Size = new System.Drawing.Size(75, 23);
             this.buttonAgregarSitio.TabIndex = 70;
@@ -261,7 +263,7 @@
             "500",
             "100",
             "5"});
-            this.comboBoxAreas.Location = new System.Drawing.Point(146, 83);
+            this.comboBoxAreas.Location = new System.Drawing.Point(147, 101);
             this.comboBoxAreas.Name = "comboBoxAreas";
             this.comboBoxAreas.Size = new System.Drawing.Size(121, 21);
             this.comboBoxAreas.TabIndex = 69;
@@ -271,7 +273,7 @@
             // 
             this.comboBoxSitios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSitios.FormattingEnabled = true;
-            this.comboBoxSitios.Location = new System.Drawing.Point(146, 43);
+            this.comboBoxSitios.Location = new System.Drawing.Point(147, 61);
             this.comboBoxSitios.Name = "comboBoxSitios";
             this.comboBoxSitios.Size = new System.Drawing.Size(121, 21);
             this.comboBoxSitios.TabIndex = 68;
@@ -299,7 +301,7 @@
             this.coberturaancho,
             this.formadefuste,
             this.estadocondicion});
-            this.dataGridViewIndividuos.Location = new System.Drawing.Point(39, 151);
+            this.dataGridViewIndividuos.Location = new System.Drawing.Point(39, 170);
             this.dataGridViewIndividuos.Name = "dataGridViewIndividuos";
             this.dataGridViewIndividuos.Size = new System.Drawing.Size(1031, 297);
             this.dataGridViewIndividuos.TabIndex = 67;
@@ -314,16 +316,16 @@
             // 
             // numero
             // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numero.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numero.DefaultCellStyle = dataGridViewCellStyle31;
             this.numero.HeaderText = "*Consecutivo";
             this.numero.Name = "numero";
             this.numero.ReadOnly = true;
             // 
             // arbolnumeroensitio
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle32;
             this.arbolnumeroensitio.HeaderText = "*NO. EN CAMPO";
             this.arbolnumeroensitio.Name = "arbolnumeroensitio";
             this.arbolnumeroensitio.ReadOnly = true;
@@ -337,8 +339,8 @@
             // 
             // nombrecientifico
             // 
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle33;
             this.nombrecientifico.HeaderText = "Nombre Cientifico";
             this.nombrecientifico.Name = "nombrecientifico";
             // 
@@ -349,16 +351,16 @@
             // 
             // familia
             // 
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.familia.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.familia.DefaultCellStyle = dataGridViewCellStyle34;
             this.familia.HeaderText = "*Familia";
             this.familia.Name = "familia";
             this.familia.ReadOnly = true;
             // 
             // genero
             // 
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genero.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genero.DefaultCellStyle = dataGridViewCellStyle35;
             this.genero.HeaderText = "*Genero";
             this.genero.Name = "genero";
             this.genero.ReadOnly = true;
@@ -438,17 +440,45 @@
             this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(866, 91);
+            this.button6.Location = new System.Drawing.Point(867, 118);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(141, 45);
             this.button6.TabIndex = 89;
             this.button6.Text = "Ubicacion";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // buttonGrafica
+            // 
+            this.buttonGrafica.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonGrafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGrafica.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonGrafica.Image = ((System.Drawing.Image)(resources.GetObject("buttonGrafica.Image")));
+            this.buttonGrafica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGrafica.Location = new System.Drawing.Point(867, 70);
+            this.buttonGrafica.Name = "buttonGrafica";
+            this.buttonGrafica.Size = new System.Drawing.Size(141, 45);
+            this.buttonGrafica.TabIndex = 90;
+            this.buttonGrafica.Text = "Grafica";
+            this.buttonGrafica.UseVisualStyleBackColor = true;
+            this.buttonGrafica.Click += new System.EventHandler(this.buttonGrafica_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(477, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 24);
+            this.label1.TabIndex = 91;
+            this.label1.Text = "Detalles Proyecto";
             // 
             // FormRegistro2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonGrafica);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.buttonEliminarIndividuo);
             this.Controls.Add(this.buttonAgregarBifurcacion);
@@ -521,5 +551,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn formadefuste;
         private System.Windows.Forms.DataGridViewComboBoxColumn estadocondicion;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button buttonGrafica;
+        private System.Windows.Forms.Label label1;
     }
 }

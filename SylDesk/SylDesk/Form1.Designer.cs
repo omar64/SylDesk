@@ -62,6 +62,7 @@
             this.formRegistro31 = new FormRegistro3(this);
             this.formRegistroEspecie1 = new FormRegistroEspecie(this);
             this.formInicial1 = new FormInicial(this);
+            this.grafica1 = new Grafica(this);
             //this.formKml1. new FormKml(this);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -137,7 +138,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(114, 18);
             this.label5.TabIndex = 72;
-            this.label5.Text = "Crear Proyecto";
+            this.label5.Text = "";
             // 
             // groupBox1
             // 
@@ -214,7 +215,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(55, 61);
             this.button3.TabIndex = 7;
-            this.button3.Text = "Registrar Especie";
+            this.button3.Text = "Especie";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -482,6 +483,13 @@
             this.formInicial1.Size = new System.Drawing.Size(1100, 700);
             this.formInicial1.TabIndex = 73;
             // 
+            // Grafica
+            // 
+            this.grafica1.Location = new System.Drawing.Point(3, 161);
+            this.grafica1.Name = "grafica1";
+            this.grafica1.Size = new System.Drawing.Size(1085, 527);
+            this.grafica1.TabIndex = 73;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,6 +500,7 @@
             this.Controls.Add(this.formRegistro31);
             this.Controls.Add(this.formRegistroEspecie1);
             this.Controls.Add(this.formInicial1);
+            this.Controls.Add(this.grafica1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -552,6 +561,7 @@
         private FormRegistro3 formRegistro31;
         private FormRegistroEspecie formRegistroEspecie1;
         private FormInicial formInicial1;
+        private Grafica grafica1;
     }
 }
 

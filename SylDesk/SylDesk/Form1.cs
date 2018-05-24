@@ -66,5 +66,10 @@ namespace SylDesk
         {
             formInicial1.BringToFront();
         }
+        public void graficaToFront()
+        {
+            grafica1.BringToFront();
+        }
+
     }
 }

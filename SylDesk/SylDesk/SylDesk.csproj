@@ -44,6 +44,7 @@
     <Reference Include="MySql.Web, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -98,6 +99,12 @@
     <Compile Include="FormRegistroEspecie.Designer.cs">
       <DependentUpon>FormRegistroEspecie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Grafica.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Grafica.Designer.cs">
+      <DependentUpon>Grafica.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlConnector.cs" />
@@ -121,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegistroEspecie.resx">
       <DependentUpon>FormRegistroEspecie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grafica.resx">
+      <DependentUpon>Grafica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
