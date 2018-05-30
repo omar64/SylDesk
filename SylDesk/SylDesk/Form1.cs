@@ -66,10 +66,10 @@ namespace SylDesk
         {
             formInicial1.BringToFront();
         }
-        public void graficaToFront()
+        public void graficaToFront(int proyecto_id)
         {
+            grafica1.Initialize(proyecto_id);
             grafica1.BringToFront();
         }
-
     }
 }

@@ -810,8 +810,7 @@ namespace SylDesk
         {
             Empty();
             //form1.formRegistro1ToFront();
-            form1.graficaToFront();
-            
+            form1.graficaToFront(proyecto_id);
         }
     }
 }
