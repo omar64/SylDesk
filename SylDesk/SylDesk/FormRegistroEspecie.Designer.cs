@@ -59,7 +59,7 @@
             // 
             // textBoxCategoriaDeNorma
             // 
-            this.textBoxCategoriaDeNorma.Location = new System.Drawing.Point(648, 134);
+            this.textBoxCategoriaDeNorma.Location = new System.Drawing.Point(695, 101);
             this.textBoxCategoriaDeNorma.Name = "textBoxCategoriaDeNorma";
             this.textBoxCategoriaDeNorma.Size = new System.Drawing.Size(234, 20);
             this.textBoxCategoriaDeNorma.TabIndex = 87;
@@ -75,7 +75,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(507, 136);
+            this.label6.Location = new System.Drawing.Point(554, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(135, 15);
             this.label6.TabIndex = 85;
@@ -95,7 +95,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(552, 103);
+            this.label4.Location = new System.Drawing.Point(599, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 15);
             this.label4.TabIndex = 83;
@@ -103,14 +103,14 @@
             // 
             // textBoxFormaDeVida
             // 
-            this.textBoxFormaDeVida.Location = new System.Drawing.Point(648, 101);
+            this.textBoxFormaDeVida.Location = new System.Drawing.Point(695, 68);
             this.textBoxFormaDeVida.Name = "textBoxFormaDeVida";
             this.textBoxFormaDeVida.Size = new System.Drawing.Size(234, 20);
             this.textBoxFormaDeVida.TabIndex = 82;
             // 
             // textBoxBuscarEspecie
             // 
-            this.textBoxBuscarEspecie.Location = new System.Drawing.Point(367, 235);
+            this.textBoxBuscarEspecie.Location = new System.Drawing.Point(436, 224);
             this.textBoxBuscarEspecie.Name = "textBoxBuscarEspecie";
             this.textBoxBuscarEspecie.Size = new System.Drawing.Size(189, 20);
             this.textBoxBuscarEspecie.TabIndex = 81;
@@ -119,7 +119,7 @@
             // 
             this.labelBuscarEspecie.AutoSize = true;
             this.labelBuscarEspecie.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBuscarEspecie.Location = new System.Drawing.Point(264, 237);
+            this.labelBuscarEspecie.Location = new System.Drawing.Point(333, 226);
             this.labelBuscarEspecie.Name = "labelBuscarEspecie";
             this.labelBuscarEspecie.Size = new System.Drawing.Size(97, 15);
             this.labelBuscarEspecie.TabIndex = 80;
@@ -139,9 +139,9 @@
             this.formadevida,
             this.categoriadelanorma,
             this.borrar});
-            this.dataGridViewEspecies.Location = new System.Drawing.Point(47, 286);
+            this.dataGridViewEspecies.Location = new System.Drawing.Point(47, 264);
             this.dataGridViewEspecies.Name = "dataGridViewEspecies";
-            this.dataGridViewEspecies.Size = new System.Drawing.Size(1011, 225);
+            this.dataGridViewEspecies.Size = new System.Drawing.Size(1011, 247);
             this.dataGridViewEspecies.TabIndex = 79;
             // 
             // familia
@@ -237,10 +237,10 @@
             this.buttonRegistrar.Cursor = System.Windows.Forms.Cursors.Default;
             this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRegistrar.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
             this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistrar.Location = new System.Drawing.Point(741, 222);
+            this.buttonRegistrar.Location = new System.Drawing.Point(850, 153);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(141, 45);
             this.buttonRegistrar.TabIndex = 72;
@@ -250,9 +250,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(689, 48);
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(659, 153);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 37);
+            this.button2.Size = new System.Drawing.Size(141, 45);
             this.button2.TabIndex = 88;
             this.button2.Text = "Importar";
             this.button2.UseVisualStyleBackColor = true;

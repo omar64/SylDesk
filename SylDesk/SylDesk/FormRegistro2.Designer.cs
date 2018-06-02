@@ -29,19 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro2));
-
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-
             this.buttonEliminarIndividuo = new System.Windows.Forms.Button();
             this.buttonAgregarBifurcacion = new System.Windows.Forms.Button();
             this.buttonAgregarIndividuo = new System.Windows.Forms.Button();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelNombreProyecto = new System.Windows.Forms.Label();
-            this.button17 = new System.Windows.Forms.Button();
             this.textBoxEstadoSucesional = new System.Windows.Forms.TextBox();
             this.textBoxMunicipio = new System.Windows.Forms.TextBox();
             this.labelEstadoSucesional = new System.Windows.Forms.Label();
@@ -58,7 +55,6 @@
             this.comboBoxAreas = new System.Windows.Forms.ComboBox();
             this.comboBoxSitios = new System.Windows.Forms.ComboBox();
             this.dataGridViewIndividuos = new System.Windows.Forms.DataGridView();
-            this.button6 = new System.Windows.Forms.Button();
             this.cuadrante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.arbolnumeroensitio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,17 +71,11 @@
             this.coberturaancho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formadefuste = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.estadocondicion = new System.Windows.Forms.DataGridViewComboBoxColumn();
-
-
+            this.grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.volumen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button6 = new System.Windows.Forms.Button();
             this.buttonGrafica = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-
-
-            this.grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.volumen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
-
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIndividuos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,18 +127,6 @@
             this.labelNombreProyecto.TabIndex = 84;
             this.labelNombreProyecto.Text = "Proyecto:";
             // 
-            // button17
-            // 
-            this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button17.FlatAppearance.BorderSize = 0;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.Image = ((System.Drawing.Image)(resources.GetObject("button17.Image")));
-            this.button17.Location = new System.Drawing.Point(27, 27);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(46, 34);
-            this.button17.TabIndex = 73;
-            this.button17.UseVisualStyleBackColor = true;
-            // 
             // textBoxEstadoSucesional
             // 
             this.textBoxEstadoSucesional.Location = new System.Drawing.Point(715, 106);
@@ -176,7 +154,7 @@
             // labelMunicipio
             // 
             this.labelMunicipio.AutoSize = true;
-            this.labelMunicipio.Location = new System.Drawing.Point(614, 70);
+            this.labelMunicipio.Location = new System.Drawing.Point(657, 70);
             this.labelMunicipio.Name = "labelMunicipio";
             this.labelMunicipio.Size = new System.Drawing.Size(52, 13);
             this.labelMunicipio.TabIndex = 80;
@@ -184,14 +162,14 @@
             // 
             // textBoxY
             // 
-            this.textBoxY.Location = new System.Drawing.Point(481, 102);
+            this.textBoxY.Location = new System.Drawing.Point(496, 102);
             this.textBoxY.Name = "textBoxY";
             this.textBoxY.Size = new System.Drawing.Size(100, 20);
             this.textBoxY.TabIndex = 79;
             // 
             // textBoxX
             // 
-            this.textBoxX.Location = new System.Drawing.Point(481, 64);
+            this.textBoxX.Location = new System.Drawing.Point(496, 64);
             this.textBoxX.Name = "textBoxX";
             this.textBoxX.Size = new System.Drawing.Size(100, 20);
             this.textBoxX.TabIndex = 78;
@@ -200,7 +178,7 @@
             // labelY
             // 
             this.labelY.AutoSize = true;
-            this.labelY.Location = new System.Drawing.Point(461, 109);
+            this.labelY.Location = new System.Drawing.Point(476, 109);
             this.labelY.Name = "labelY";
             this.labelY.Size = new System.Drawing.Size(14, 13);
             this.labelY.TabIndex = 77;
@@ -209,7 +187,7 @@
             // labelX
             // 
             this.labelX.AutoSize = true;
-            this.labelX.Location = new System.Drawing.Point(461, 69);
+            this.labelX.Location = new System.Drawing.Point(476, 69);
             this.labelX.Name = "labelX";
             this.labelX.Size = new System.Drawing.Size(14, 13);
             this.labelX.TabIndex = 76;
@@ -218,7 +196,7 @@
             // labelCoordenadas
             // 
             this.labelCoordenadas.AutoSize = true;
-            this.labelCoordenadas.Location = new System.Drawing.Point(478, 45);
+            this.labelCoordenadas.Location = new System.Drawing.Point(493, 45);
             this.labelCoordenadas.Name = "labelCoordenadas";
             this.labelCoordenadas.Size = new System.Drawing.Size(70, 13);
             this.labelCoordenadas.TabIndex = 75;
@@ -227,7 +205,7 @@
             // labelAreas
             // 
             this.labelAreas.AutoSize = true;
-            this.labelAreas.Location = new System.Drawing.Point(147, 85);
+            this.labelAreas.Location = new System.Drawing.Point(39, 84);
             this.labelAreas.Name = "labelAreas";
             this.labelAreas.Size = new System.Drawing.Size(34, 13);
             this.labelAreas.TabIndex = 74;
@@ -236,7 +214,7 @@
             // labelSitios
             // 
             this.labelSitios.AutoSize = true;
-            this.labelSitios.Location = new System.Drawing.Point(147, 45);
+            this.labelSitios.Location = new System.Drawing.Point(39, 44);
             this.labelSitios.Name = "labelSitios";
             this.labelSitios.Size = new System.Drawing.Size(32, 13);
             this.labelSitios.TabIndex = 72;
@@ -244,9 +222,13 @@
             // 
             // buttonBorrarSitio
             // 
-            this.buttonBorrarSitio.Location = new System.Drawing.Point(370, 61);
+            this.buttonBorrarSitio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBorrarSitio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonBorrarSitio.Image = ((System.Drawing.Image)(resources.GetObject("buttonBorrarSitio.Image")));
+            this.buttonBorrarSitio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonBorrarSitio.Location = new System.Drawing.Point(326, 60);
             this.buttonBorrarSitio.Name = "buttonBorrarSitio";
-            this.buttonBorrarSitio.Size = new System.Drawing.Size(75, 23);
+            this.buttonBorrarSitio.Size = new System.Drawing.Size(144, 54);
             this.buttonBorrarSitio.TabIndex = 71;
             this.buttonBorrarSitio.Text = "Eliminar Sitio";
             this.buttonBorrarSitio.UseVisualStyleBackColor = true;
@@ -254,9 +236,13 @@
             // 
             // buttonAgregarSitio
             // 
-            this.buttonAgregarSitio.Location = new System.Drawing.Point(289, 61);
+            this.buttonAgregarSitio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAgregarSitio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.buttonAgregarSitio.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarSitio.Image")));
+            this.buttonAgregarSitio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAgregarSitio.Location = new System.Drawing.Point(175, 60);
             this.buttonAgregarSitio.Name = "buttonAgregarSitio";
-            this.buttonAgregarSitio.Size = new System.Drawing.Size(75, 23);
+            this.buttonAgregarSitio.Size = new System.Drawing.Size(145, 54);
             this.buttonAgregarSitio.TabIndex = 70;
             this.buttonAgregarSitio.Text = "Añadir Sitio";
             this.buttonAgregarSitio.UseVisualStyleBackColor = true;
@@ -274,7 +260,7 @@
             "500",
             "100",
             "5"});
-            this.comboBoxAreas.Location = new System.Drawing.Point(147, 101);
+            this.comboBoxAreas.Location = new System.Drawing.Point(39, 100);
             this.comboBoxAreas.Name = "comboBoxAreas";
             this.comboBoxAreas.Size = new System.Drawing.Size(121, 21);
             this.comboBoxAreas.TabIndex = 69;
@@ -284,7 +270,7 @@
             // 
             this.comboBoxSitios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSitios.FormattingEnabled = true;
-            this.comboBoxSitios.Location = new System.Drawing.Point(147, 61);
+            this.comboBoxSitios.Location = new System.Drawing.Point(39, 60);
             this.comboBoxSitios.Name = "comboBoxSitios";
             this.comboBoxSitios.Size = new System.Drawing.Size(121, 21);
             this.comboBoxSitios.TabIndex = 68;
@@ -311,35 +297,16 @@
             this.coberturalargo,
             this.coberturaancho,
             this.formadefuste,
-
-
-
             this.estadocondicion,
             this.grupo,
             this.volumen});
-            this.dataGridViewIndividuos.Location = new System.Drawing.Point(39, 151);
-
-
+            this.dataGridViewIndividuos.Location = new System.Drawing.Point(39, 170);
             this.dataGridViewIndividuos.Name = "dataGridViewIndividuos";
             this.dataGridViewIndividuos.Size = new System.Drawing.Size(1031, 297);
             this.dataGridViewIndividuos.TabIndex = 67;
             this.dataGridViewIndividuos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIndividuos_CellEndEdit);
             this.dataGridViewIndividuos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewIndividuos_EditingControlShowing);
             this.dataGridViewIndividuos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewIndividuos_KeyPress);
-            // 
-            // button6
-            // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(866, 91);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(141, 45);
-            this.button6.TabIndex = 89;
-            this.button6.Text = "Ubicacion";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // cuadrante
             // 
@@ -348,24 +315,16 @@
             // 
             // numero
             // 
-
-
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numero.DefaultCellStyle = dataGridViewCellStyle1;
-
-
             this.numero.HeaderText = "*Consecutivo";
             this.numero.Name = "numero";
             this.numero.ReadOnly = true;
             // 
             // arbolnumeroensitio
             // 
-
-
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle2;
-
-
             this.arbolnumeroensitio.HeaderText = "*NO. EN CAMPO";
             this.arbolnumeroensitio.Name = "arbolnumeroensitio";
             this.arbolnumeroensitio.ReadOnly = true;
@@ -379,12 +338,8 @@
             // 
             // nombrecientifico
             // 
-
-
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle3;
-
-
             this.nombrecientifico.HeaderText = "Nombre Cientifico";
             this.nombrecientifico.Name = "nombrecientifico";
             // 
@@ -396,24 +351,16 @@
             // 
             // familia
             // 
-
-
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.familia.DefaultCellStyle = dataGridViewCellStyle4;
-
-
             this.familia.HeaderText = "*Familia";
             this.familia.Name = "familia";
             this.familia.ReadOnly = true;
             // 
             // genero
             // 
-
-
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genero.DefaultCellStyle = dataGridViewCellStyle5;
-
-
             this.genero.HeaderText = "*Genero";
             this.genero.Name = "genero";
             this.genero.ReadOnly = true;
@@ -488,20 +435,29 @@
             // 
             // grupo
             // 
-
-
+            this.grupo.HeaderText = "Grupo";
+            this.grupo.Name = "grupo";
+            this.grupo.ReadOnly = true;
+            // 
+            // volumen
+            // 
+            this.volumen.HeaderText = "Volumen";
+            this.volumen.Name = "volumen";
+            this.volumen.ReadOnly = true;
+            // 
+            // button6
+            // 
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(867, 118);
+            this.button6.Location = new System.Drawing.Point(867, 119);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(141, 45);
             this.button6.TabIndex = 89;
             this.button6.Text = "Ubicacion";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // buttonGrafica
             // 
@@ -527,19 +483,6 @@
             this.label1.Size = new System.Drawing.Size(155, 24);
             this.label1.TabIndex = 91;
             this.label1.Text = "Detalles Proyecto";
-
-
-            this.grupo.HeaderText = "Grupo";
-            this.grupo.Name = "grupo";
-            this.grupo.ReadOnly = true;
-            // 
-            // volumen
-            // 
-            this.volumen.HeaderText = "Volumen";
-            this.volumen.Name = "volumen";
-            this.volumen.ReadOnly = true;
-
-
             // 
             // FormRegistro2
             // 
@@ -553,7 +496,6 @@
             this.Controls.Add(this.buttonAgregarIndividuo);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.labelNombreProyecto);
-            this.Controls.Add(this.button17);
             this.Controls.Add(this.textBoxEstadoSucesional);
             this.Controls.Add(this.textBoxMunicipio);
             this.Controls.Add(this.labelEstadoSucesional);
@@ -585,7 +527,6 @@
         private System.Windows.Forms.Button buttonAgregarIndividuo;
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Label labelNombreProyecto;
-        private System.Windows.Forms.Button button17;
         private System.Windows.Forms.TextBox textBoxEstadoSucesional;
         private System.Windows.Forms.TextBox textBoxMunicipio;
         private System.Windows.Forms.Label labelEstadoSucesional;

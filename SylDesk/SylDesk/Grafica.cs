@@ -60,5 +60,14 @@ namespace SylDesk
         {
             Grafica_Load();
         }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            //Empty();
+            //form1.formRegistro1ToFront();
+            form1.formRegistro2ToFront(proyecto_id);
+        }
+
+       
     }
 }
