@@ -33,6 +33,5 @@ namespace SylDesk
         {
             return genero;
         }
-
     }
 }

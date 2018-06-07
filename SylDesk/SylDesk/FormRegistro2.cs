@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace SylDesk
 {
     public partial class FormRegistro2 : UserControl
@@ -30,6 +29,7 @@ namespace SylDesk
 
         public void Initialize(int proyecto_id)
         {
+            Empty();
             this.proyecto_id = proyecto_id;
 
             comboBoxSitios_Populate();
@@ -108,18 +108,31 @@ namespace SylDesk
                 {
                     results.Close();
                     results.Dispose();
-
-                    sendMessageBox("No existe esa especie!");
+                    DialogResult dialog_result = MessageBox.Show("No existe esa especie, desea crearla?",
+                        "",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question,
+                        MessageBoxDefaultButton.Button2);
+                    //
+                    // Test the results of the previous three dialogs. [6]
+                    //
+                    if (dialog_result == DialogResult.Yes)
+                    {                        
+                        form1.formRegistroEspecieToFront("" + row.Cells[column_name].Value);
+                    }
                     row.Cells[column_name].Value = "";
 
                     row.Cells["nombrecomun"].Value = "";
                     row.Cells["familia"].Value = "";
                     row.Cells["genero"].Value = "";
+                    row.Cells["volumen"].Value = "0";
 
                     updateData("nombrecomun", row, "");
                     updateData("familia", row, "");
                     updateData("genero", row, "");
-                }                
+                    updateData("volumenvv", row, "");
+
+                }
             }
 
             cmd = SqlConnector.getConnection(cmd);
@@ -186,7 +199,7 @@ namespace SylDesk
                         if (results.Read())
                         {
                             string ecuacion = results[0].ToString();
-                            sendMessageBox("V= " + ecuacion);
+                            //sendMessageBox("V= " + ecuacion);
                             double num1 = Convert.ToDouble(results[1].ToString());
                             double num2 = Convert.ToDouble(results[2].ToString());
                             double num3 = Convert.ToDouble(results[3].ToString());
@@ -492,8 +505,6 @@ namespace SylDesk
 
             //FormRegistro1 objeto = new FormRegistro1(); //objeto declarado para abrir el form2
             //objeto.Show(); //abre el form declarado con el objeto
-
-            Empty();
             form1.formRegistro1ToFront();
         }
 
@@ -808,9 +819,10 @@ namespace SylDesk
 
         private void buttonGrafica_Click(object sender, EventArgs e)
         {
-            Empty();
             //form1.formRegistro1ToFront();
             form1.graficaToFront(proyecto_id);
         }
+
+
     }
 }

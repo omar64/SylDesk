@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using ExcelDataReader;
+using System.Windows;
 
 namespace SylDesk
 {
@@ -22,15 +25,23 @@ namespace SylDesk
             InitializeComponent();
         }
 
-        public void Initialize()
+        public void Initialize(String nombre)
         {
+            Empty();
             dataGridViewEspecies_Populate("");
+            textBoxNombreCientifico.Text = nombre;
         }
 
         public void Empty()
         {
             dataGridViewEspecies.Rows.Clear();
             dataGridViewEspecies.Refresh();
+            textBoxFamilia.Text = "";
+            textBoxGenero.Text = "";
+            textBoxNombreCientifico.Text = "";
+            textBoxNombreComun.Text = "";
+            textBoxFormaDeVida.Text = "";
+            textBoxCategoriaDeNorma.Text = "";
         }
 
         private void buttonRegistrar_Click(object sender, EventArgs e)
@@ -90,11 +101,11 @@ namespace SylDesk
 
         private void sendMessageBox(string message)
         {
-            /*string messageBoxText = message;
+            string messageBoxText = message;
             string caption = "Error";
             MessageBoxButton button = MessageBoxButton.OK;
             MessageBoxImage icon = MessageBoxImage.Error;
-            System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);*/
+            System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
@@ -126,6 +137,88 @@ namespace SylDesk
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            cmd = SqlConnector.getConnection(cmd);
+            cmd.CommandText = "Delete from especies";
+            cmd.ExecuteNonQuery();
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
+            DataSet dataSet = new DataSet();
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                dataSet = ReadXlsx(openFileDialog1.FileName);
+            }
+
+            DataTable dt = new DataTable();
+            dt = dataSet.Tables[0];
+
+            String[] array = new String[4];
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                for (int j = 0; j < dt.Columns.Count; j++)
+                {
+                    var val = dt.Rows[i][j].ToString().Trim();
+                    array[j] = val;
+                }
+
+                int len = array[2].Trim().IndexOf(" ");
+
+                string subString = array[2];
+                try
+                {
+                    subString = array[2].Substring(0, len);
+                }
+                catch (Exception exc)
+                {
+                    
+                    sendMessageBox("|" + array[0] + "|");
+                    sendMessageBox("|" + array[1] + "|");
+                    sendMessageBox("ERROR MAGICOOOOO: |" + i + "|" + array[2] + "|" + len);
+                    sendMessageBox("|" + array[3] + "|");
+                    
+
+                    char aux_char = (char)160;
+                    len = array[2].Trim().IndexOf(aux_char);
+                    subString = array[2].Substring(0, len);
+                }
+
+                cmd = SqlConnector.getConnection(cmd);
+                cmd.CommandText = "Insert into especies(nombrecientifico, nombrecomun, familia, formadevida, genero)" +
+                    "Values(@nombrecientifico, @nombrecomun, @familia, @formadevida, @genero)";
+
+                cmd.Parameters.AddWithValue("@nombrecientifico", array[2]);
+                cmd.Parameters.AddWithValue("@nombrecomun", array[0]);
+                cmd.Parameters.AddWithValue("@familia", array[1]);
+                cmd.Parameters.AddWithValue("@formadevida", array[3]);
+                cmd.Parameters.AddWithValue("@genero", subString);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public DataSet ReadXlsx(string filepath)
+        {
+            try
+            {
+                FileStream stream = File.Open(filepath, FileMode.Open, FileAccess.Read);
+                IExcelDataReader excelReader2 = ExcelReaderFactory.CreateOpenXmlReader(stream);
+
+                var conf = new ExcelDataSetConfiguration
+                {
+                    ConfigureDataTable = _ => new ExcelDataTableConfiguration
+                    {
+                        UseHeaderRow = true
+                    }
+                };
+                DataSet result2 = excelReader2.AsDataSet(conf);
+
+                return result2;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+    
     }
 }

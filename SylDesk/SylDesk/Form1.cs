@@ -31,7 +31,7 @@ namespace SylDesk
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            formRegistroEspecieToFront();
+            formRegistroEspecieToFront("");
         }
         private void button10_Click(object sender, EventArgs e)
         {
@@ -45,6 +45,7 @@ namespace SylDesk
 
         public void formRegistro1ToFront()
         {
+            formRegistro11.Empty();
             formRegistro11.BringToFront();
         }
         public void formRegistro2ToFront(int proyecto_id)
@@ -57,9 +58,9 @@ namespace SylDesk
             formRegistro31.Initialize();
             formRegistro31.BringToFront();
         }
-        public void formRegistroEspecieToFront()
+        public void formRegistroEspecieToFront(String nombre)
         {
-            formRegistroEspecie1.Initialize();
+            formRegistroEspecie1.Initialize(nombre);
             formRegistroEspecie1.BringToFront();
         }
         public void formInicialToFront()

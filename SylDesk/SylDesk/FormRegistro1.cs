@@ -24,6 +24,14 @@ namespace SylDesk
             InitializeComponent();
         }
 
+        public void Empty()
+        {
+            textBoxNombre.Text = "";
+            textBoxSector.Text = "";
+            textBoxSuperficie.Text = "";
+            richTextBoxDescripcion.Text = "";
+        }
+
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
             try

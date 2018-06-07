@@ -88,7 +88,6 @@ C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\de\DevExpress.Office.v1
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\es\DevExpress.Office.v17.2.Core.resources.dll
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\ja\DevExpress.Office.v17.2.Core.resources.dll
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\ru\DevExpress.Office.v17.2.Core.resources.dll
-C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.csprojResolveAssemblyReference.cache
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.Form1.resources
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.FormInicial.resources
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.FormKml.resources
@@ -103,3 +102,17 @@ C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.exe.licenses
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.csproj.CoreCompileInputs.cache
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.exe
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.pdb
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\LiveCharts.dll
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\LiveCharts.pdb
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\LiveCharts.xml
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.csprojResolveAssemblyReference.cache
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\ExcelDataReader.dll
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\ExcelDataReader.xml
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\ExcelDataReader.DataSet.xml

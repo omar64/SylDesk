@@ -19,18 +19,18 @@ namespace SylDesk
         public FormRegistro3(Form1 form1)
         {
             this.form1 = form1;
-            InitializeComponent();
-            
-            
+            InitializeComponent();            
         }
 
         public void Initialize()
         {
+            Empty();
             dataGridView1_Populate("");
         }
 
         public void Empty()
         {
+            textBoxBuscar.Text = "";
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
         }

@@ -7,6 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LiveCharts; //Core of the library
+using LiveCharts.Wpf; //The WPF controls
+using LiveCharts.WinForms; //the WinForm wrappers
+using kawaii_lolis = System.Windows.Forms.DataVisualization.Charting;
+using MySql.Data.MySqlClient;
 
 namespace SylDesk
 {
@@ -14,60 +19,93 @@ namespace SylDesk
     {
         int proyecto_id;
         Form1 form1;
+        MySqlCommand cmd;
+
         public Grafica(Form1 form1)
         {
             this.form1 = form1;
             InitializeComponent();
+            //series1 = chart1.Series[0];
         }
 
         public void Initialize(int proyecto_id)
         {
+            Empty();
             this.proyecto_id = proyecto_id;
-
+            get_volumen();
             //comboBoxSitios_Populate();
-
         }
 
         public void Empty()
         {
             chart1.Series.Clear();
-            chartPie.Series.Clear();
+            //chartPie.Series.Clear();
         }
 
-        private void Grafica_Load()
-        {
-            
-            chart1.Series["Volumen"].Points.AddXY("Arbol", 1000);
-            chart1.Series["Volumen"].Points.AddXY("Rama", 100);
-            chart1.Series["Volumen"].Points.AddXY("Arbusto", 400);
-            chart1.Series["Volumen"].Points.AddXY("Cactus", 2000);
-            chart1.Series["Volumen"].Points.AddXY("Ardilla", 300);
-            chart1.Series["Volumen"].Points.AddXY("Pepino", 450);
-            chart1.Series["Volumen"].Points.AddXY("Ceiba", 100);
-            chart1.Series["Volumen"].Points.AddXY("Espinas", 500);
-
-            chartPie.Series["VolumenPie"].Points.AddXY("Arbol", 1000);
-            chartPie.Series["VolumenPie"].Points.AddXY("Rama", 100);
-            chartPie.Series["VolumenPie"].Points.AddXY("Arbusto", 400);
-            chartPie.Series["VolumenPie"].Points.AddXY("Cactus", 2000);
-            chartPie.Series["VolumenPie"].Points.AddXY("Ardilla", 300);
-            chartPie.Series["VolumenPie"].Points.AddXY("Pepino", 450);
-            chartPie.Series["VolumenPie"].Points.AddXY("Ceiba", 100);
-            chartPie.Series["VolumenPie"].Points.AddXY("Espinas", 500);        
-        }
-
-        private void Grafica_Load(object sender, EventArgs e)
-        {
-            Grafica_Load();
-        }
 
         private void button17_Click(object sender, EventArgs e)
         {
-            //Empty();
-            //form1.formRegistro1ToFront();
+
             form1.formRegistro2ToFront(proyecto_id);
         }
 
-       
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {            
+            if(checkBox1.Checked)
+            {
+
+                chart1.Series[0].Enabled = true;
+            }
+            else
+            {
+
+                chart1.Series[0].Enabled = false;
+            }
+
+        }
+
+
+        private void get_volumen()
+        {
+            cmd = SqlConnector.getConnection(cmd);
+
+            string sqlQueryString = "SELECT nombrecientifico, Sum(volumenvv) as volumen " +
+                " from individuos where proyecto_id = @proyecto_id AND area = 500 AND volumenvv > 0 Group By nombrecientifico ORDER BY volumen DESC";
+            cmd.CommandText = sqlQueryString;
+            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+
+            var results = cmd.ExecuteReader();
+
+            for (int i = 0; i < 5; i++)
+            {
+                if (results.Read())
+                {
+                    List<Object> lista_individuos = new List<Object>();
+                    lista_individuos.Add(results[0]);
+                    lista_individuos.Add(results[1]);
+                    //lista_individuos.Add(results[2]);
+
+                   
+                    chart1.Series.Add(new kawaii_lolis.Series("" + results[0]));
+                    chart1.Series[i].Points.AddXY("" + results[0], results[1]);
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            results.Close();
+            results.Dispose();
+        }
+
+        private void sendMessageBox(string message)
+        {
+            string messageBoxText = message;
+            string caption = "Error";
+            //MessageBoxButton button = MessageBoxButton.OK;
+            //MessageBoxImage icon = MessageBoxImage.Error;
+            MessageBox.Show(messageBoxText, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }
