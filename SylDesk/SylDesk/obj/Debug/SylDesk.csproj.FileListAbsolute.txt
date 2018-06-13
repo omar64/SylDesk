@@ -111,8 +111,8 @@ C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\LiveCharts.Wpf.xml
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\LiveCharts.WinForms.dll
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\LiveCharts.WinForms.pdb
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\LiveCharts.WinForms.xml
-C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.csprojResolveAssemblyReference.cache
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\ExcelDataReader.DataSet.dll
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\ExcelDataReader.dll
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\ExcelDataReader.xml
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.csprojResolveAssemblyReference.cache

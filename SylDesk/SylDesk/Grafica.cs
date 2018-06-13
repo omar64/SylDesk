@@ -26,7 +26,12 @@ namespace SylDesk
             this.form1 = form1;
             InitializeComponent();
             //series1 = chart1.Series[0];
+
         }
+        /*private void Grafica_Load(object sender, EventArgs e)
+        {
+           
+        }*/
 
         public void Initialize(int proyecto_id)
         {
@@ -76,6 +81,10 @@ namespace SylDesk
 
             var results = cmd.ExecuteReader();
 
+
+            chart1.Titles.Add("Detalles de Volumen");   //titulo de la Grafica
+            
+
             for (int i = 0; i < 5; i++)
             {
                 if (results.Read())
@@ -85,9 +94,16 @@ namespace SylDesk
                     lista_individuos.Add(results[1]);
                     //lista_individuos.Add(results[2]);
 
+                    
+
                    
                     chart1.Series.Add(new kawaii_lolis.Series("" + results[0]));
                     chart1.Series[i].Points.AddXY("" + results[0], results[1]);
+
+
+                    //chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+                    
+                    chart1.Series[i].ToolTip = "#VALX\nVolumen: #VALY ";          //Tooltips para cada barra
                 }
                 else
                 {
@@ -98,6 +114,7 @@ namespace SylDesk
             results.Close();
             results.Dispose();
         }
+        
 
         private void sendMessageBox(string message)
         {

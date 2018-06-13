@@ -145,7 +145,7 @@
             this.buttonRegistrar.BackColor = System.Drawing.SystemColors.Control;
             this.buttonRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRegistrar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
             this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistroEspecie));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistroEspecie));
             this.textBoxCategoriaDeNorma = new System.Windows.Forms.TextBox();
             this.textBoxGenero = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -39,6 +39,13 @@
             this.textBoxBuscarEspecie = new System.Windows.Forms.TextBox();
             this.labelBuscarEspecie = new System.Windows.Forms.Label();
             this.dataGridViewEspecies = new System.Windows.Forms.DataGridView();
+            this.familia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecientifico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecomun = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formadevida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriadelanorma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.borrar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.textBoxFamilia = new System.Windows.Forms.TextBox();
             this.textBoxNombreComun = new System.Windows.Forms.TextBox();
             this.textBoxNombreCientifico = new System.Windows.Forms.TextBox();
@@ -48,13 +55,6 @@
             this.buttonRegistrar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.familia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrecientifico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrecomun = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formadevida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoriadelanorma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.borrar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspecies)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,6 +145,52 @@
             this.dataGridViewEspecies.Size = new System.Drawing.Size(1011, 247);
             this.dataGridViewEspecies.TabIndex = 79;
             // 
+            // familia
+            // 
+            this.familia.HeaderText = "Familia";
+            this.familia.Name = "familia";
+            // 
+            // genero
+            // 
+            this.genero.HeaderText = "Genero";
+            this.genero.Name = "genero";
+            // 
+            // nombrecientifico
+            // 
+            this.nombrecientifico.HeaderText = "Nombre Cientifico";
+            this.nombrecientifico.Name = "nombrecientifico";
+            // 
+            // nombrecomun
+            // 
+            this.nombrecomun.HeaderText = "Nombre Comun";
+            this.nombrecomun.Name = "nombrecomun";
+            // 
+            // formadevida
+            // 
+            this.formadevida.HeaderText = "Forma de Vida";
+            this.formadevida.Name = "formadevida";
+            // 
+            // categoriadelanorma
+            // 
+            this.categoriadelanorma.HeaderText = "Categoria de la norma";
+            this.categoriadelanorma.Name = "categoriadelanorma";
+            // 
+            // borrar
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.borrar.DefaultCellStyle = dataGridViewCellStyle1;
+            this.borrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.borrar.HeaderText = "Borrar";
+            this.borrar.Name = "borrar";
+            this.borrar.Text = "Borrar";
+            this.borrar.ToolTipText = "Se Borrara un elemento";
+            this.borrar.UseColumnTextForButtonValue = true;
+            // 
             // textBoxFamilia
             // 
             this.textBoxFamilia.Location = new System.Drawing.Point(237, 65);
@@ -200,9 +246,9 @@
             // 
             this.buttonRegistrar.BackColor = System.Drawing.SystemColors.Control;
             this.buttonRegistrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonRegistrar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
             this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -216,6 +262,7 @@
             // 
             // button2
             // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.DodgerBlue;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
@@ -237,51 +284,6 @@
             this.label1.Size = new System.Drawing.Size(167, 24);
             this.label1.TabIndex = 89;
             this.label1.Text = "Registrar Especies";
-            // 
-            // familia
-            // 
-            this.familia.HeaderText = "Familia";
-            this.familia.Name = "familia";
-            // 
-            // genero
-            // 
-            this.genero.HeaderText = "Genero";
-            this.genero.Name = "genero";
-            // 
-            // nombrecientifico
-            // 
-            this.nombrecientifico.HeaderText = "Nombre Cientifico";
-            this.nombrecientifico.Name = "nombrecientifico";
-            // 
-            // nombrecomun
-            // 
-            this.nombrecomun.HeaderText = "Nombre Comun";
-            this.nombrecomun.Name = "nombrecomun";
-            // 
-            // formadevida
-            // 
-            this.formadevida.HeaderText = "Forma de Vida";
-            this.formadevida.Name = "formadevida";
-            // 
-            // categoriadelanorma
-            // 
-            this.categoriadelanorma.HeaderText = "Categoria de la norma";
-            this.categoriadelanorma.Name = "categoriadelanorma";
-            // 
-            // borrar
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.borrar.DefaultCellStyle = dataGridViewCellStyle1;
-            this.borrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.borrar.HeaderText = "Borrar";
-            this.borrar.Name = "borrar";
-            this.borrar.Text = "X";
-            this.borrar.ToolTipText = "Se Borrara un elemento";
             // 
             // FormRegistroEspecie
             // 

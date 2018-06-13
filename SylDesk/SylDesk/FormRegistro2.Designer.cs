@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonEliminarIndividuo = new System.Windows.Forms.Button();
             this.buttonAgregarBifurcacion = new System.Windows.Forms.Button();
             this.buttonAgregarIndividuo = new System.Windows.Forms.Button();
@@ -58,9 +58,6 @@
             this.comboBoxAreas = new System.Windows.Forms.ComboBox();
             this.comboBoxSitios = new System.Windows.Forms.ComboBox();
             this.dataGridViewIndividuos = new System.Windows.Forms.DataGridView();
-            this.button6 = new System.Windows.Forms.Button();
-            this.buttonGrafica = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.cuadrante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.arbolnumeroensitio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,11 +76,17 @@
             this.estadocondicion = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.volumen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button6 = new System.Windows.Forms.Button();
+            this.buttonGrafica = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIndividuos)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonEliminarIndividuo
             // 
+            this.buttonEliminarIndividuo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonEliminarIndividuo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEliminarIndividuo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonEliminarIndividuo.Location = new System.Drawing.Point(264, 473);
             this.buttonEliminarIndividuo.Name = "buttonEliminarIndividuo";
             this.buttonEliminarIndividuo.Size = new System.Drawing.Size(75, 36);
@@ -94,6 +97,9 @@
             // 
             // buttonAgregarBifurcacion
             // 
+            this.buttonAgregarBifurcacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAgregarBifurcacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAgregarBifurcacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonAgregarBifurcacion.Location = new System.Drawing.Point(149, 473);
             this.buttonAgregarBifurcacion.Name = "buttonAgregarBifurcacion";
             this.buttonAgregarBifurcacion.Size = new System.Drawing.Size(75, 36);
@@ -104,6 +110,9 @@
             // 
             // buttonAgregarIndividuo
             // 
+            this.buttonAgregarIndividuo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAgregarIndividuo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAgregarIndividuo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonAgregarIndividuo.Location = new System.Drawing.Point(39, 473);
             this.buttonAgregarIndividuo.Name = "buttonAgregarIndividuo";
             this.buttonAgregarIndividuo.Size = new System.Drawing.Size(75, 36);
@@ -227,6 +236,7 @@
             // 
             // buttonBorrarSitio
             // 
+            this.buttonBorrarSitio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBorrarSitio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBorrarSitio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonBorrarSitio.Image = ((System.Drawing.Image)(resources.GetObject("buttonBorrarSitio.Image")));
@@ -241,7 +251,9 @@
             // 
             // buttonAgregarSitio
             // 
+            this.buttonAgregarSitio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAgregarSitio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAgregarSitio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAgregarSitio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonAgregarSitio.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarSitio.Image")));
             this.buttonAgregarSitio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -305,52 +317,13 @@
             this.estadocondicion,
             this.grupo,
             this.volumen});
-            this.dataGridViewIndividuos.Location = new System.Drawing.Point(39, 170);
+            this.dataGridViewIndividuos.Location = new System.Drawing.Point(13, 170);
             this.dataGridViewIndividuos.Name = "dataGridViewIndividuos";
-            this.dataGridViewIndividuos.Size = new System.Drawing.Size(1031, 297);
+            this.dataGridViewIndividuos.Size = new System.Drawing.Size(1069, 297);
             this.dataGridViewIndividuos.TabIndex = 67;
             this.dataGridViewIndividuos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIndividuos_CellEndEdit);
             this.dataGridViewIndividuos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewIndividuos_EditingControlShowing);
             this.dataGridViewIndividuos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewIndividuos_KeyPress);
-            // 
-            // button6
-            // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(867, 119);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(141, 45);
-            this.button6.TabIndex = 89;
-            this.button6.Text = "Ubicacion";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // buttonGrafica
-            // 
-            this.buttonGrafica.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonGrafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGrafica.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.buttonGrafica.Image = ((System.Drawing.Image)(resources.GetObject("buttonGrafica.Image")));
-            this.buttonGrafica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGrafica.Location = new System.Drawing.Point(867, 70);
-            this.buttonGrafica.Name = "buttonGrafica";
-            this.buttonGrafica.Size = new System.Drawing.Size(141, 45);
-            this.buttonGrafica.TabIndex = 90;
-            this.buttonGrafica.Text = "Grafica";
-            this.buttonGrafica.UseVisualStyleBackColor = true;
-            this.buttonGrafica.Click += new System.EventHandler(this.buttonGrafica_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(477, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 24);
-            this.label1.TabIndex = 91;
-            this.label1.Text = "Detalles Proyecto";
             // 
             // cuadrante
             // 
@@ -359,16 +332,16 @@
             // 
             // numero
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numero.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numero.DefaultCellStyle = dataGridViewCellStyle9;
             this.numero.HeaderText = "*Consecutivo";
             this.numero.Name = "numero";
             this.numero.ReadOnly = true;
             // 
             // arbolnumeroensitio
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle10;
             this.arbolnumeroensitio.HeaderText = "*NO. EN CAMPO";
             this.arbolnumeroensitio.Name = "arbolnumeroensitio";
             this.arbolnumeroensitio.ReadOnly = true;
@@ -382,31 +355,31 @@
             // 
             // nombrecientifico
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle11;
             this.nombrecientifico.HeaderText = "Nombre Cientifico";
             this.nombrecientifico.Name = "nombrecientifico";
             // 
             // nombrecomun
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecomun.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecomun.DefaultCellStyle = dataGridViewCellStyle12;
             this.nombrecomun.HeaderText = "*Nombre Comun";
             this.nombrecomun.Name = "nombrecomun";
             this.nombrecomun.ReadOnly = true;
             // 
             // familia
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.familia.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.familia.DefaultCellStyle = dataGridViewCellStyle13;
             this.familia.HeaderText = "*Familia";
             this.familia.Name = "familia";
             this.familia.ReadOnly = true;
             // 
             // genero
             // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genero.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genero.DefaultCellStyle = dataGridViewCellStyle14;
             this.genero.HeaderText = "*Genero";
             this.genero.Name = "genero";
             this.genero.ReadOnly = true;
@@ -481,19 +454,58 @@
             // 
             // grupo
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grupo.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grupo.DefaultCellStyle = dataGridViewCellStyle15;
             this.grupo.HeaderText = "Grupo";
             this.grupo.Name = "grupo";
             this.grupo.ReadOnly = true;
             // 
             // volumen
             // 
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.volumen.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.volumen.DefaultCellStyle = dataGridViewCellStyle16;
             this.volumen.HeaderText = "Volumen";
             this.volumen.Name = "volumen";
             this.volumen.ReadOnly = true;
+            // 
+            // button6
+            // 
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(867, 119);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(141, 45);
+            this.button6.TabIndex = 89;
+            this.button6.Text = "Ubicacion";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // buttonGrafica
+            // 
+            this.buttonGrafica.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonGrafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGrafica.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonGrafica.Image = ((System.Drawing.Image)(resources.GetObject("buttonGrafica.Image")));
+            this.buttonGrafica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGrafica.Location = new System.Drawing.Point(867, 70);
+            this.buttonGrafica.Name = "buttonGrafica";
+            this.buttonGrafica.Size = new System.Drawing.Size(141, 45);
+            this.buttonGrafica.TabIndex = 90;
+            this.buttonGrafica.Text = "Grafica";
+            this.buttonGrafica.UseVisualStyleBackColor = true;
+            this.buttonGrafica.Click += new System.EventHandler(this.buttonGrafica_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(477, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 24);
+            this.label1.TabIndex = 91;
+            this.label1.Text = "Detalles Proyecto";
             // 
             // FormRegistro2
             // 
