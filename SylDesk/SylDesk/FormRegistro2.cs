@@ -6,8 +6,10 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
+using ExcelDataReader;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SylDesk
 {
@@ -823,6 +825,104 @@ namespace SylDesk
             form1.graficaToFront(proyecto_id);
         }
 
+        private void buttonImportar_Click(object sender, EventArgs e)
+        {
+            cmd = SqlConnector.getConnection(cmd);
+            cmd.CommandText = "Delete from individuos where proyecto_id = " + proyecto_id;
+            cmd.ExecuteNonQuery();
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
+            DataSet dataSet = new DataSet();
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                dataSet = ReadXlsx(openFileDialog1.FileName);
+            }
+
+            DataTable dt = new DataTable();
+            dt = dataSet.Tables[0];
+
+            //Cuadrante, NoenCampo, Consecutivo, Familia, nombrecientifico, nombrecomun, perimetro, diametro, altura fuste, altura total, cobertura, forma fuste, estado condicion, bifurcado, ALT CAT, DN CAT, Grupo, Ecuacion Volumen, Volumen
+            String[] array;
+            int sitio_max = 0;
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                array = new String[50];
+                for (int j = 0; j < dt.Columns.Count; j++)
+                {
+                    var val = dt.Rows[i][j].ToString().Trim();
+                    array[j] = val;
+                    //sendMessageBox(val);
+                }                
+              
+                cmd = SqlConnector.getConnection(cmd);
+                cmd.CommandText = "Insert into individuos(proyecto_id, sitio, area, cuadrante, numero, arbolnumeroensitio, familia, nombrecientifico, nombrecomun, perimetro, diametro, alturafl, alturatotal, coberturalargo, coberturaancho, formadefuste, estadocondicion, bifurcados, atcategorias, dncategorias, volumenvv)" +
+                    "Values(@proyecto_id, @sitio, @area, @cuadrante, @numero, @arbolnumeroensitio, @familia, @nombrecientifico, @nombrecomun, @perimetro, @diametro, @alturafl, @alturatotal, @coberturalargo, @coberturaancho, @formadefuste, @estadocondicion, @bifurcados, @atcategorias, @dncategorias, @volumenvv)";
+                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+                cmd.Parameters.AddWithValue("@sitio", array[0]);
+                cmd.Parameters.AddWithValue("@area", array[1]);
+                cmd.Parameters.AddWithValue("@cuadrante", array[2]);
+                cmd.Parameters.AddWithValue("@numero", array[3]);
+                cmd.Parameters.AddWithValue("@arbolnumeroensitio", array[4]);
+                cmd.Parameters.AddWithValue("@familia", array[5]);
+                cmd.Parameters.AddWithValue("@nombrecientifico", array[6]);
+                cmd.Parameters.AddWithValue("@nombrecomun", array[7]);
+                cmd.Parameters.AddWithValue("@perimetro", array[8]);
+                cmd.Parameters.AddWithValue("@diametro", array[9]);
+                cmd.Parameters.AddWithValue("@alturafl", array[10]);
+                cmd.Parameters.AddWithValue("@alturatotal", array[11]);
+                cmd.Parameters.AddWithValue("@coberturalargo", array[12]);
+                cmd.Parameters.AddWithValue("@coberturaancho", array[12]);
+                cmd.Parameters.AddWithValue("@formadefuste", "");  // array[13]);
+                cmd.Parameters.AddWithValue("@estadocondicion", ""); //array[14]);
+                cmd.Parameters.AddWithValue("@bifurcados", 0); // array[15]);
+                cmd.Parameters.AddWithValue("@atcategorias", array[16]);
+                cmd.Parameters.AddWithValue("@dncategorias", array[17]);
+                cmd.Parameters.AddWithValue("@grupo", array[18]);
+                cmd.Parameters.AddWithValue("@volumenvv", array[20]);
+                cmd.ExecuteNonQuery();
+
+                
+
+                int sitio_aux = Convert.ToInt32(array[0]);
+                if (sitio_max < sitio_aux)
+                {
+                    sitio_max = sitio_aux;
+                }
+            }
+
+            sendMessageBox("Importacion Completa");
+            for (int i = 1; i <= sitio_max; i++)
+            {
+                cmd = SqlConnector.getConnection(cmd);
+                cmd.CommandText = "Insert into sitios(proyecto_id, numero_sitio)" +
+                    "Values(@proyecto_id, @numero_sitio)";
+                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+                cmd.Parameters.AddWithValue("@numero_sitio", i);
+            }
+        }
+
+        public DataSet ReadXlsx(string filepath)
+        {
+            try
+            {
+                FileStream stream = File.Open(filepath, FileMode.Open, FileAccess.Read);
+                IExcelDataReader excelReader2 = ExcelReaderFactory.CreateOpenXmlReader(stream);
+
+                var conf = new ExcelDataSetConfiguration
+                {
+                    ConfigureDataTable = _ => new ExcelDataTableConfiguration
+                    {
+                        UseHeaderRow = true
+                    }
+                };
+                DataSet result2 = excelReader2.AsDataSet(conf);
+
+                return result2;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }

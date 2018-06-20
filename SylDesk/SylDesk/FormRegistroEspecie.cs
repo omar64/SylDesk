@@ -171,12 +171,12 @@ namespace SylDesk
                 }
                 catch (Exception exc)
                 {
-                    
+                    /*
                     sendMessageBox("|" + array[0] + "|");
                     sendMessageBox("|" + array[1] + "|");
                     sendMessageBox("ERROR MAGICOOOOO: |" + i + "|" + array[2] + "|" + len);
                     sendMessageBox("|" + array[3] + "|");
-                    
+                    */
 
                     char aux_char = (char)160;
                     len = array[2].Trim().IndexOf(aux_char);
