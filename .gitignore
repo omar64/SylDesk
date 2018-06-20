@@ -2,6 +2,8 @@
 bin/
 bin-debug/
 bin-release/
+Syldesk/Syldesk/obj/
+Syldesk/Syldesk/bin/
 [Oo]bj/ # FlashDevelop obj
 [Bb]in/ # FlashDevelop bin
 
