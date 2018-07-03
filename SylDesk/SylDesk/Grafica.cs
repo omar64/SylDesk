@@ -26,7 +26,7 @@ namespace SylDesk
         public Grafica(Form1 form1)
         {
             this.form1 = form1;
-            InitializeComponent();         
+            InitializeComponent();            
         }
 
         public void Initialize(int proyecto_id)
@@ -34,6 +34,8 @@ namespace SylDesk
             Empty();
             this.proyecto_id = proyecto_id;
             numericUpDown1.Visible = false;
+            comboBox1.Visible = true;
+            comboBox1.SelectedIndex = 0;
 
             string sqlQueryString = "SELECT superficie " +
                 " from proyectos where id = @id";
@@ -68,7 +70,7 @@ namespace SylDesk
             Empty();
             chart1.Titles.Add("Detalles de Categorias de AlTura");   //titulo de la Grafica
             chart1.ChartAreas[0].AxisX.Title = "Categorías de altura (m)";
-            chart1.ChartAreas[0].AxisY.Title = "Número de individuos";
+            chart1.ChartAreas[0].AxisY.Title = "Número de individuos";            
             dataGridView1.Columns.Add("cat", "categoria de altura");
             dataGridView1.Columns.Add("conteo", "conteo");
 
@@ -137,6 +139,7 @@ namespace SylDesk
                 chart1.Series.Add(new kawaii_lolis.Series("" + current_rango));
                 chart1.Series[i].Points.AddXY("" + current_rango, results[0]);
                 chart1.Series[i].ToolTip = "CAT: #VALX\nConteo: #VALY ";          //Tooltips para cada barra
+                //chart1.Series[i].LegendText = "BANANA";
 
                 dataGridView1.Rows.Add(current_rango, results[0]);
 
@@ -165,7 +168,6 @@ namespace SylDesk
             
 
             chart1.ChartAreas[0].RecalculateAxesScale();
-
             /*
             chart1.Series.Add(new kawaii_lolis.Series("Min"));
             chart1.Series[chart1.Series.Count - 1].Points.AddXY("" + min, min);
@@ -445,7 +447,144 @@ namespace SylDesk
             results.Close();
             results.Dispose();
         }
-        
+
+        private void get_IVI(int area)
+        {
+            Empty();
+
+            String area_str = "";
+            if (area == 500)
+            {
+                area_str = "arboreo";
+            }
+            else if (area == 100)
+            {
+                area_str = "arbustivo";
+            }
+            else if (area == 5)
+            {
+                area_str = "herbaceo";
+            }
+
+            chart1.Titles.Add("IVI " + area_str);   //titulo de la Grafica
+            chart1.ChartAreas[0].AxisX.Title = "Valor de Importancia";
+            chart1.ChartAreas[0].AxisY.Title = "Especies del estrato arbóreo con el Índice de Valor de Importancia más alto";
+            dataGridView1.Columns.Add("especie", "especie");
+            dataGridView1.Columns.Add("frecuencia_absoluta", "Frecuencia absoluta");
+            dataGridView1.Columns.Add("frecuencia_relativa", "Frecuencia relativa");
+            dataGridView1.Columns.Add("densidad_absoluta", "Densidad absoluta");
+            dataGridView1.Columns.Add("densidad_relativa", "Densidad relativa");
+            dataGridView1.Columns.Add("dominancia_absoluta", "Dominancia absoluta");
+            dataGridView1.Columns.Add("dominancia_relativa", "Dominancia relativa");
+
+            int num_sitios = 0;
+            List<double> frec_abs = new List<double>();
+            List<double> frec_rel = new List<double>();
+            List<double> den_abs = new List<double>();
+            List<double> den_rel = new List<double>();
+            List<double> dom_abs = new List<double>();
+            List<double> dom_rel = new List<double>();
+
+            cmd = SqlConnector.getConnection(cmd);
+            string sqlQueryString = "SELECT Count(*)" +
+                " from sitios where proyecto_id = @proyecto_id";
+            cmd.CommandText = sqlQueryString;
+            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+            
+            var results = cmd.ExecuteReader();
+            if(results.Read())
+            {
+                num_sitios = Convert.ToInt32(results[0]);
+            }
+            results.Close();
+            results.Dispose();            
+
+            List<Object> lista_individuos = new List<Object>();
+            cmd = SqlConnector.getConnection(cmd);
+            sqlQueryString = "SELECT nombrecientifico" +
+                " from individuos where proyecto_id = @proyecto_id AND area =  " + area + " Group By nombrecientifico ORDER BY nombrecientifico ASC";
+            cmd.CommandText = sqlQueryString;
+            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+            results = cmd.ExecuteReader();
+            while(results.Read())
+            {
+                lista_individuos.Add(results[0]);                    
+            }
+            results.Close();
+            results.Dispose();
+
+            for (int i = 0; i < lista_individuos.Count; i++)
+            {
+                frec_abs.Add(0);
+                frec_rel.Add(0);
+                den_abs.Add(0);
+                den_rel.Add(0);
+                dom_abs.Add(0);
+                dom_rel.Add(0);
+            }
+
+            double frec_total = 0, den_total = 0, dom_total = 0;
+            for (int i = 0; i < lista_individuos.Count; i++)
+            {
+                double frec_aux = 0;
+                double dens_aux = 0;
+                double dom_aux = 0;
+                for (int j = 1; j <= num_sitios; j++)
+                {
+                    cmd = SqlConnector.getConnection(cmd);
+
+                    sqlQueryString = "SELECT Count(nombrecientifico), areabasal" +
+                        " from individuos where proyecto_id = @proyecto_id AND area =  " + area + " AND sitio = " + j + " AND nombrecientifico = \"" + lista_individuos[i] + "\"";
+                    cmd.CommandText = sqlQueryString;
+                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+                    results = cmd.ExecuteReader();
+                    if (results.Read())
+                    {
+                        int aux = Convert.ToInt32(results[0]);
+                        //sendMessageBox("" + aux + " - " + lista_individuos[i] + " - " + j);
+                        if (aux > 0)
+                        {
+                            frec_aux += 1;
+                            dens_aux += aux;
+                            dom_aux += Convert.ToDouble(results[1]);
+                            //sendMessageBox("pls tell me" + lista_individuos[i] + " - " + j + " - " + frec_aux + " - " + dens_aux + " - " + dom_aux);
+                        }
+                    }
+                    results.Close();
+                    results.Dispose();
+                }
+
+                int area_muestreada = area * num_sitios;
+                frec_abs[i] = frec_aux / num_sitios;
+                den_abs[i] = dens_aux / area_muestreada;
+                dom_abs[i] = dom_aux / area_muestreada;
+                frec_total += frec_abs[i];
+                den_total += den_abs[i];
+                dom_total += dom_abs[i];
+
+                /*
+                sendMessageBox("UGH");
+                sendMessageBox(frec_aux + " - " + dens_aux + " - " + dom_aux);
+                sendMessageBox(frec_abs[i] + " - " + den_abs[i] + " - " + dom_abs[i]);
+                */
+            }
+
+            for (int i = 0; i < lista_individuos.Count; i++)
+            {
+                frec_rel[i] = frec_abs[i] / frec_total;
+                den_rel[i] = den_abs[i] / den_total;
+                dom_rel[i] = dom_abs[i] / dom_total;
+
+                chart1.Series.Add(new kawaii_lolis.Series("" + lista_individuos[i]));
+                chart1.Series[i].Points.AddXY("" + lista_individuos[i], frec_rel[i] + den_rel[i] + dom_rel[i]);
+
+                dataGridView1.Rows.Add(lista_individuos[i], frec_abs[i], frec_rel[i], den_abs[i], den_rel[i], dom_abs[i], dom_rel[i]);
+                //chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+
+                chart1.Series[i].ToolTip = "#VALX\nIVI: #VALY ";          //Tooltips para cada barra
+            }
+            chart1.ChartAreas[0].RecalculateAxesScale();
+        }
 
         private void sendMessageBox(string message)
         {
@@ -490,6 +629,24 @@ namespace SylDesk
             get_volumen();
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            numericUpDown1.Visible = false;
+            get_IVI(500);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            numericUpDown1.Visible = false;
+            get_IVI(100);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            numericUpDown1.Visible = false;
+            get_IVI(5);
+        }
+
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             if (flag)
@@ -501,5 +658,7 @@ namespace SylDesk
                 get_numero_individuos();
             }
         }
+
+        
     }
 }

@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Grafica));
+
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+
             this.label1 = new System.Windows.Forms.Label();
             this.button17 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -41,6 +43,10 @@
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -71,10 +77,12 @@
             // 
             // chart1
             // 
+
             chartArea2.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart1.Legends.Add(legend2);
+
             this.chart1.Location = new System.Drawing.Point(19, 94);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(545, 417);
@@ -85,7 +93,9 @@
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.DodgerBlue;
+
             this.button1.Location = new System.Drawing.Point(87, 37);
+
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 51);
             this.button1.TabIndex = 83;
@@ -97,7 +107,9 @@
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.DodgerBlue;
+
             this.button2.Location = new System.Drawing.Point(168, 37);
+
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 51);
             this.button2.TabIndex = 84;
@@ -109,7 +121,9 @@
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.DodgerBlue;
+
             this.button3.Location = new System.Drawing.Point(249, 37);
+
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 51);
             this.button3.TabIndex = 85;
@@ -121,7 +135,9 @@
             // 
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.DodgerBlue;
+
             this.button4.Location = new System.Drawing.Point(330, 37);
+
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 51);
             this.button4.TabIndex = 86;
@@ -133,7 +149,9 @@
             // 
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.DodgerBlue;
+
             this.button5.Location = new System.Drawing.Point(411, 37);
+
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 51);
             this.button5.TabIndex = 87;
@@ -176,10 +194,66 @@
             this.numericUpDown1.Visible = false;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.comboBox1.AllowDrop = true;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "500",
+            "100",
+            "5"});
+            this.comboBox1.Location = new System.Drawing.Point(947, 41);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 90;
+            this.comboBox1.Visible = false;
+            // 
+            // button6
+            // 
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button6.Location = new System.Drawing.Point(476, 37);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 51);
+            this.button6.TabIndex = 91;
+            this.button6.Text = "IVI   Arboreo";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button7.Location = new System.Drawing.Point(557, 37);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 51);
+            this.button7.TabIndex = 92;
+            this.button7.Text = "IVI Arbustivo";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button8.Location = new System.Drawing.Point(638, 37);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 51);
+            this.button8.TabIndex = 93;
+            this.button8.Text = "IVI Herbaceo";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // Grafica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button5);
@@ -212,5 +286,9 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }
