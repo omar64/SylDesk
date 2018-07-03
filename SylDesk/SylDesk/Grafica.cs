@@ -144,7 +144,26 @@ namespace SylDesk
                 results.Dispose();
 
                 current_rango += rango_cat;
+
+                //chart1.Series[i].ChartType = kawaii_lolis.SeriesChartType.FastLine;
+                //chart1.Series[i].BorderWidth = 2;
+                //chart1.ChartAreas[0].InnerPlotPosition.X = 0;
+
+
+                chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
+
+                chart1.AlignDataPointsByAxisLabel();
+
+                chart1.Series[i]["PixelPointWidth"] = "75";
+
+                chart1.Series[0]["PointWidth"] = "0.3";  //grosor de las barras
+                
+
+
             }
+            
+            
+
             chart1.ChartAreas[0].RecalculateAxesScale();
 
             /*
@@ -238,7 +257,16 @@ namespace SylDesk
                 results.Dispose();
 
                 current_rango += rango_cad;
+
+                chart1.AlignDataPointsByAxisLabel();
+
+                chart1.Series[i]["PixelPointWidth"] = "75";
+
+                //chart1.Series[0]["PointWidth"] = "0";  //grosor de las barras
+
             }
+
+
             chart1.ChartAreas[0].RecalculateAxesScale();
             /*
             chart1.Series.Add(new kawaii_lolis.Series("Min"));
@@ -284,6 +312,12 @@ namespace SylDesk
                     dataGridView1.Rows.Add(results[0], results[1]);
 
                     //chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+
+                    chart1.AlignDataPointsByAxisLabel();
+
+                    chart1.Series[i]["PixelPointWidth"] = "75";
+
+                    chart1.Series[i]["PointWidth"] = "0.3";  //grosor de las barras
 
                     chart1.Series[i].ToolTip = "#VALX\nConteo: #VALY ";          //Tooltips para cada barra
                 }
@@ -334,6 +368,12 @@ namespace SylDesk
                     double ha2 = Convert.ToDouble(results[1]) / (0.6 / superficie);
                     dataGridView1.Rows.Add(results[0], results[1], ha, ha2);
                     //chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+
+                    chart1.AlignDataPointsByAxisLabel();
+
+                    chart1.Series[i]["PixelPointWidth"] = "75";
+
+                    chart1.Series[i]["PointWidth"] = "0.3";  //grosor de las barras
 
                     chart1.Series[i].ToolTip = "#VALX\nArea Basal: #VALY ";          //Tooltips para cada barra
                 }
@@ -386,6 +426,12 @@ namespace SylDesk
                     double ha2 = Convert.ToDouble(results[1]) / (0.6 / superficie);
                     dataGridView1.Rows.Add(results[0], results[1], ha, ha2);
                     //chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+
+                    chart1.AlignDataPointsByAxisLabel();
+
+                    chart1.Series[i]["PixelPointWidth"] = "75";
+
+                    chart1.Series[i]["PointWidth"] = "0.3";  //grosor de las barras
 
                     chart1.Series[i].ToolTip = "#VALX\nVolumen: #VALY ";          //Tooltips para cada barra
                 }

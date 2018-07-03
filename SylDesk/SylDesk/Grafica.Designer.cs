@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Grafica));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.label1 = new System.Windows.Forms.Label();
             this.button17 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -71,10 +71,10 @@
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(19, 94);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(545, 417);
@@ -83,7 +83,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(100, 37);
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button1.Location = new System.Drawing.Point(87, 37);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 51);
             this.button1.TabIndex = 83;
@@ -93,7 +95,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(242, 37);
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button2.Location = new System.Drawing.Point(168, 37);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 51);
             this.button2.TabIndex = 84;
@@ -103,7 +107,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(365, 37);
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button3.Location = new System.Drawing.Point(249, 37);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 51);
             this.button3.TabIndex = 85;
@@ -113,7 +119,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(476, 37);
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button4.Location = new System.Drawing.Point(330, 37);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 51);
             this.button4.TabIndex = 86;
@@ -123,7 +131,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(580, 37);
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button5.Location = new System.Drawing.Point(411, 37);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 51);
             this.button5.TabIndex = 87;
@@ -144,7 +154,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(688, 68);
+            this.numericUpDown1.Location = new System.Drawing.Point(948, 68);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             20,
             0,
