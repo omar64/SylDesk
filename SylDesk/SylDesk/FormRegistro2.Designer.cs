@@ -58,6 +58,10 @@
             this.comboBoxAreas = new System.Windows.Forms.ComboBox();
             this.comboBoxSitios = new System.Windows.Forms.ComboBox();
             this.dataGridViewIndividuos = new System.Windows.Forms.DataGridView();
+            this.button6 = new System.Windows.Forms.Button();
+            this.buttonGrafica = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonImportar = new System.Windows.Forms.Button();
             this.cuadrante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.arbolnumeroensitio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,10 +80,7 @@
             this.estadocondicion = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.volumen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button6 = new System.Windows.Forms.Button();
-            this.buttonGrafica = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonImportar = new System.Windows.Forms.Button();
+            this.areabasal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIndividuos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -317,7 +318,8 @@
             this.formadefuste,
             this.estadocondicion,
             this.grupo,
-            this.volumen});
+            this.volumen,
+            this.areabasal});
             this.dataGridViewIndividuos.Location = new System.Drawing.Point(13, 170);
             this.dataGridViewIndividuos.Name = "dataGridViewIndividuos";
             this.dataGridViewIndividuos.Size = new System.Drawing.Size(1069, 297);
@@ -325,6 +327,55 @@
             this.dataGridViewIndividuos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIndividuos_CellEndEdit);
             this.dataGridViewIndividuos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewIndividuos_EditingControlShowing);
             this.dataGridViewIndividuos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewIndividuos_KeyPress);
+            // 
+            // button6
+            // 
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(867, 119);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(141, 45);
+            this.button6.TabIndex = 89;
+            this.button6.Text = "Ubicacion";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // buttonGrafica
+            // 
+            this.buttonGrafica.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonGrafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGrafica.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonGrafica.Image = ((System.Drawing.Image)(resources.GetObject("buttonGrafica.Image")));
+            this.buttonGrafica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGrafica.Location = new System.Drawing.Point(867, 70);
+            this.buttonGrafica.Name = "buttonGrafica";
+            this.buttonGrafica.Size = new System.Drawing.Size(141, 45);
+            this.buttonGrafica.TabIndex = 90;
+            this.buttonGrafica.Text = "Grafica";
+            this.buttonGrafica.UseVisualStyleBackColor = true;
+            this.buttonGrafica.Click += new System.EventHandler(this.buttonGrafica_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(477, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 24);
+            this.label1.TabIndex = 91;
+            this.label1.Text = "Detalles Proyecto";
+            // 
+            // buttonImportar
+            // 
+            this.buttonImportar.Location = new System.Drawing.Point(833, 485);
+            this.buttonImportar.Name = "buttonImportar";
+            this.buttonImportar.Size = new System.Drawing.Size(75, 23);
+            this.buttonImportar.TabIndex = 92;
+            this.buttonImportar.Text = "Importar";
+            this.buttonImportar.UseVisualStyleBackColor = true;
+            this.buttonImportar.Click += new System.EventHandler(this.buttonImportar_Click);
             // 
             // cuadrante
             // 
@@ -469,54 +520,11 @@
             this.volumen.Name = "volumen";
             this.volumen.ReadOnly = true;
             // 
-            // button6
+            // areabasal
             // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(867, 119);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(141, 45);
-            this.button6.TabIndex = 89;
-            this.button6.Text = "Ubicacion";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // buttonGrafica
-            // 
-            this.buttonGrafica.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonGrafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGrafica.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.buttonGrafica.Image = ((System.Drawing.Image)(resources.GetObject("buttonGrafica.Image")));
-            this.buttonGrafica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGrafica.Location = new System.Drawing.Point(867, 70);
-            this.buttonGrafica.Name = "buttonGrafica";
-            this.buttonGrafica.Size = new System.Drawing.Size(141, 45);
-            this.buttonGrafica.TabIndex = 90;
-            this.buttonGrafica.Text = "Grafica";
-            this.buttonGrafica.UseVisualStyleBackColor = true;
-            this.buttonGrafica.Click += new System.EventHandler(this.buttonGrafica_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(477, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 24);
-            this.label1.TabIndex = 91;
-            this.label1.Text = "Detalles Proyecto";
-            // 
-            // buttonImportar
-            // 
-            this.buttonImportar.Location = new System.Drawing.Point(833, 485);
-            this.buttonImportar.Name = "buttonImportar";
-            this.buttonImportar.Size = new System.Drawing.Size(75, 23);
-            this.buttonImportar.TabIndex = 92;
-            this.buttonImportar.Text = "Importar";
-            this.buttonImportar.UseVisualStyleBackColor = true;
-            this.buttonImportar.Click += new System.EventHandler(this.buttonImportar_Click);
+            this.areabasal.HeaderText = "Area Basal";
+            this.areabasal.Name = "areabasal";
+            this.areabasal.Visible = false;
             // 
             // FormRegistro2
             // 
@@ -583,6 +591,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button buttonGrafica;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonImportar;
         private System.Windows.Forms.DataGridViewTextBoxColumn cuadrante;
         private System.Windows.Forms.DataGridViewTextBoxColumn numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn arbolnumeroensitio;
@@ -601,6 +610,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn estadocondicion;
         private System.Windows.Forms.DataGridViewTextBoxColumn grupo;
         private System.Windows.Forms.DataGridViewTextBoxColumn volumen;
-        private System.Windows.Forms.Button buttonImportar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn areabasal;
     }
 }

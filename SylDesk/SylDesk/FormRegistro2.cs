@@ -56,14 +56,16 @@ namespace SylDesk
             string column_name = dataGridViewIndividuos.Columns[dataGridViewIndividuos.CurrentCell.ColumnIndex].Name;
             DataGridViewRow row = dataGridViewIndividuos.Rows[dataGridViewIndividuos.CurrentCell.RowIndex];
             if (column_name == "alturatotal")
-            {
+            {               
                 volumen_ecuacion(row);
             }
             if (column_name == "diametro")
             {
                 dataGridViewIndividuos.Rows[row_index].Cells["perimetro"].Value = (Convert.ToDouble(dataGridViewIndividuos.CurrentCell.Value) * Math.PI).ToString("F4");
+                dataGridViewIndividuos.Rows[row_index].Cells["areabasal"].Value = (Math.PI * Math.Pow(Convert.ToDouble(dataGridViewIndividuos.CurrentCell.Value) / 2, 2)) / 10000;
 
                 updateData("perimetro", row, Convert.ToString(row.Cells["perimetro"].Value));
+                updateData("areabasal", row, Convert.ToString(row.Cells["areabasal"].Value));
 
                 volumen_ecuacion(row);
             }
@@ -852,11 +854,11 @@ namespace SylDesk
                     var val = dt.Rows[i][j].ToString().Trim();
                     array[j] = val;
                     //sendMessageBox(val);
-                }                
-              
+                }
+
                 cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "Insert into individuos(proyecto_id, sitio, area, cuadrante, numero, arbolnumeroensitio, familia, nombrecientifico, nombrecomun, perimetro, diametro, alturafl, alturatotal, coberturalargo, coberturaancho, formadefuste, estadocondicion, bifurcados, atcategorias, dncategorias, volumenvv)" +
-                    "Values(@proyecto_id, @sitio, @area, @cuadrante, @numero, @arbolnumeroensitio, @familia, @nombrecientifico, @nombrecomun, @perimetro, @diametro, @alturafl, @alturatotal, @coberturalargo, @coberturaancho, @formadefuste, @estadocondicion, @bifurcados, @atcategorias, @dncategorias, @volumenvv)";
+                cmd.CommandText = "Insert into individuos(proyecto_id, sitio, area, cuadrante, numero, arbolnumeroensitio, familia, nombrecientifico, nombrecomun, perimetro, diametro, alturafl, alturatotal, coberturalargo, coberturaancho, formadefuste, estadocondicion, bifurcados, atcategorias, dncategorias, volumenvv, areabasal)" +
+                    "Values(@proyecto_id, @sitio, @area, @cuadrante, @numero, @arbolnumeroensitio, @familia, @nombrecientifico, @nombrecomun, @perimetro, @diametro, @alturafl, @alturatotal, @coberturalargo, @coberturaancho, @formadefuste, @estadocondicion, @bifurcados, @atcategorias, @dncategorias, @volumenvv, @areabasal)";
                 cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
                 cmd.Parameters.AddWithValue("@sitio", array[0]);
                 cmd.Parameters.AddWithValue("@area", array[1]);
@@ -874,11 +876,30 @@ namespace SylDesk
                 cmd.Parameters.AddWithValue("@coberturaancho", array[12]);
                 cmd.Parameters.AddWithValue("@formadefuste", "");  // array[13]);
                 cmd.Parameters.AddWithValue("@estadocondicion", ""); //array[14]);
-                cmd.Parameters.AddWithValue("@bifurcados", 0); // array[15]);
+                //sendMessageBox(array[3] + " - " + array[6] + ": " + array[15]);
+                if (array[15] == "un fuste")
+                {
+                    cmd.Parameters.AddWithValue("@bifurcados", 0); // array[15]);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@bifurcados", 1); // array[15]);
+                }
                 cmd.Parameters.AddWithValue("@atcategorias", array[16]);
                 cmd.Parameters.AddWithValue("@dncategorias", array[17]);
                 cmd.Parameters.AddWithValue("@grupo", array[18]);
                 cmd.Parameters.AddWithValue("@volumenvv", array[20]);
+                double areabasal = 0;
+                try
+                {
+                    double aux = Convert.ToDouble(array[9]) / 2;
+                    double aux2 = Math.Pow(aux, 2);
+                    areabasal = (Math.PI * aux) / 10000;
+                }
+                catch (Exception ex)
+                {
+                }
+                cmd.Parameters.AddWithValue("@areabasal", "" + areabasal);
                 cmd.ExecuteNonQuery();
 
                 
