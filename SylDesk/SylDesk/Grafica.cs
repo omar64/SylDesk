@@ -13,6 +13,7 @@ using LiveCharts.WinForms; //the WinForm wrappers
 using kawaii_lolis = System.Windows.Forms.DataVisualization.Charting;
 using MySql.Data.MySqlClient;
 
+
 namespace SylDesk
 {
     public partial class Grafica : UserControl
@@ -68,11 +69,11 @@ namespace SylDesk
         private void get_cat() //individuos por categorias de altura
         {
             Empty();
-            chart1.Titles.Add("Detalles de Categorias de AlTura");   //titulo de la Grafica
-            chart1.ChartAreas[0].AxisX.Title = "Categorías de altura (m)";
+            //chart1.Titles.Add("Detalles de Categorías de Altura");   //titulo de la Grafica
+            //chart1.ChartAreas[0].AxisX.Title = "Categorías de altura (m)";  //pie de grafica
             chart1.ChartAreas[0].AxisY.Title = "Número de individuos";            
-            dataGridView1.Columns.Add("cat", "categoria de altura");
-            dataGridView1.Columns.Add("conteo", "conteo");
+            dataGridView1.Columns.Add("cat", "Categoría de Altura");
+            dataGridView1.Columns.Add("conteo", "Conteo");
 
 
             cmd = SqlConnector.getConnection(cmd);
@@ -153,14 +154,34 @@ namespace SylDesk
                 //chart1.ChartAreas[0].InnerPlotPosition.X = 0;
 
 
-                chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
+                //chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
 
                 chart1.AlignDataPointsByAxisLabel();
 
-                chart1.Series[i]["PixelPointWidth"] = "75";
+                //chart1.Series[i]["PixelPointWidth"] = "75";
 
-                chart1.Series[0]["PointWidth"] = "0.3";  //grosor de las barras
-                
+                //chart1.Series[i]["PointWidth"] = "0.3";  //grosor de las barras
+
+                //chart1.Series[0].BorderWidth = 10;
+                //chart1.ChartAreas[0].AxisX.Interval = 0;
+
+                chart1.Series[i]["LabelStyle"] = "Center";
+                chart1.Series[i]["LabelStyle"] = "Top";
+                chart1.Series[i].IsValueShownAsLabel = true;
+                chart1.Series[i].ChartType = kawaii_lolis.SeriesChartType.Column;
+                chart1.Series[i].LabelBackColor = Color.LightCyan;
+                chart1.Series[i].Font = new Font("Arial", 9);
+
+
+                chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
+                //chart1.Series[i].Points[i].Label = "#VALY";  //Valor position top
+
+
+                chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Arial", 9);  //Font grafica
+
+
+
+
 
 
             }
@@ -182,11 +203,11 @@ namespace SylDesk
         private void get_cad() //individuos categoria diametricas
         {
             Empty();
-            chart1.Titles.Add("Detalles de Categorias Diametricas");   //titulo de la Grafica
-            chart1.ChartAreas[0].AxisX.Title = "Clases diamétricas (cm)";
+            //chart1.Titles.Add("Detalles de Categorías Diametricas");   //titulo de la Grafica
+            //chart1.ChartAreas[0].AxisX.Title = "Clases diamétricas (cm)";  //pie de grafica
             chart1.ChartAreas[0].AxisY.Title = "Número de individuos";
-            dataGridView1.Columns.Add("cad", "categoria de diametro");
-            dataGridView1.Columns.Add("conteo", "conteo");
+            dataGridView1.Columns.Add("cad", "Categoría de Diámetro");
+            dataGridView1.Columns.Add("conteo", "Conteo");
 
             cmd = SqlConnector.getConnection(cmd);
 
@@ -265,6 +286,18 @@ namespace SylDesk
                 chart1.Series[i]["PixelPointWidth"] = "75";
 
                 //chart1.Series[0]["PointWidth"] = "0";  //grosor de las barras
+                //chart1.Series[0].Font = new Font("Gothic", 7, FontStyle.Bold);
+
+                chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
+
+                chart1.Series[i]["LabelStyle"] = "Center";
+                chart1.Series[i]["LabelStyle"] = "Top";
+                chart1.Series[i].IsValueShownAsLabel = true;
+                chart1.Series[i].ChartType = kawaii_lolis.SeriesChartType.Column;
+                chart1.Series[i].LabelBackColor = Color.LightCyan;
+                chart1.Series[i].Font = new Font("Arial", 9);
+                //chart1.Series[i].Points[i].Label = "#VALY"; //Valor position top
+                chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Arial", 9); //Font grafica
 
             }
 
@@ -284,11 +317,12 @@ namespace SylDesk
         private void get_numero_individuos() // Mayor numero de individuos en el predio
         {
             Empty();
-            chart1.Titles.Add("Detalles de Conteo");   //titulo de la Grafica
-            chart1.ChartAreas[0].AxisX.Title = "Especies con el mayor número de individuos registrados en el predio";
+            //chart1.Titles.Add("Detalles de Conteo");   //titulo de la Grafica
+            //chart1.ChartAreas[0].AxisX.Title = "Especies con el mayor número de individuos registrados en el predio"; //pie de grafica
             chart1.ChartAreas[0].AxisY.Title = "Densidad (Ind/ha)";
-            dataGridView1.Columns.Add("numero_individuos", "numero de individuos");
-            dataGridView1.Columns.Add("conteo", "conteo");
+            dataGridView1.Columns.Add("numero_individuos", "Número de Individuos");
+            dataGridView1.Columns[0].DefaultCellStyle.Font = new Font("Palace Script MT", 22);  //font Cursiva columna Nom. Cient. 
+            dataGridView1.Columns.Add("conteo", "Conteo");
 
             cmd = SqlConnector.getConnection(cmd);  
 
@@ -317,11 +351,24 @@ namespace SylDesk
 
                     chart1.AlignDataPointsByAxisLabel();
 
+                    
                     chart1.Series[i]["PixelPointWidth"] = "75";
-
                     chart1.Series[i]["PointWidth"] = "0.3";  //grosor de las barras
 
+                    /*chart1.Series[i]["LabelStyle"] = "Center";
+                    chart1.Series[i]["LabelStyle"] = "Top";
+                    chart1.Series[i].IsValueShownAsLabel = true;
+                    chart1.Series[i].ChartType = kawaii_lolis.SeriesChartType.Column;
+                    chart1.Series[i].LabelBackColor = Color.LightCyan;
+                    chart1.Series[i].Font = new Font("Arial", 12);*/
+                    //chart1.ChartAreas[i].AxisX.Interval = 1;
+
                     chart1.Series[i].ToolTip = "#VALX\nConteo: #VALY ";          //Tooltips para cada barra
+
+                    chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
+                    //chart1.Series[i].Points[i].Label = "#VALY"; //Valor position top
+
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Palace Script MT", 20);
                 }
                 else
                 {
@@ -337,12 +384,13 @@ namespace SylDesk
         private void get_area_basal() // area basal por especie (m^2 / ha)
         {
             Empty();
-            chart1.Titles.Add("Detalles de Area Basal");   //titulo de la Grafica
-            chart1.ChartAreas[0].AxisX.Title = "Especies con mayor área basal en el predio";
+            //chart1.Titles.Add("Detalles de Área Basal");   //titulo de la Grafica
+            //chart1.ChartAreas[0].AxisX.Title = "Especies con mayor área basal en el predio";  //pie de grafica
             chart1.ChartAreas[0].AxisY.Title = "Area basal (m^2/ha)";
-            dataGridView1.Columns.Add("especie", "especie");
-            dataGridView1.Columns.Add("suma_ab", "AB m^2 (muestreo)");
-            dataGridView1.Columns.Add("ab_ha", "AB m^2 (hectarea)");
+            dataGridView1.Columns.Add("especie", "Especie");
+            dataGridView1.Columns[0].DefaultCellStyle.Font = new Font("Palace Script MT", 22);  //font Cursiva columna Nom. Cient.
+            dataGridView1.Columns.Add("suma_ab", "AB m^2 (Muestreo)");
+            dataGridView1.Columns.Add("ab_ha", "AB m^2 (Hectarea)");
             dataGridView1.Columns.Add("ab_ha2", "AB m^2  (SCUSTF)");
 
             cmd = SqlConnector.getConnection(cmd);
@@ -373,11 +421,19 @@ namespace SylDesk
 
                     chart1.AlignDataPointsByAxisLabel();
 
+                    //chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
+
                     chart1.Series[i]["PixelPointWidth"] = "75";
 
                     chart1.Series[i]["PointWidth"] = "0.3";  //grosor de las barras
 
                     chart1.Series[i].ToolTip = "#VALX\nArea Basal: #VALY ";          //Tooltips para cada barra
+
+                    chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
+                    //chart1.Series[i].Points[i].Label = "#VALY"; //Valor position top
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Palace Script MT", 20);
+
+
                 }
                 else
                 {
@@ -395,13 +451,14 @@ namespace SylDesk
         {
             Empty();
 
-            chart1.Titles.Add("Detalles de Volumen");   //titulo de la Grafica
-            chart1.ChartAreas[0].AxisX.Title = "Especies con mayor volumen en el predio";
+            //chart1.Titles.Add("Detalles de Volumen");   //titulo de la Grafica
+            //chart1.ChartAreas[0].AxisX.Title = "Especies con mayor volumen en el predio";  //pie de grafica
             chart1.ChartAreas[0].AxisY.Title = "Volumen (m^3/ha)";
-            dataGridView1.Columns.Add("especie", "especie");
-            dataGridView1.Columns.Add("suma_volumen", "vol m^3 (muestreo)");
-            dataGridView1.Columns.Add("volumen_ha", "vol m^3 (hectareo)");
-            dataGridView1.Columns.Add("volumen_ha2", "vol m^3 (SCUSTF)");
+            dataGridView1.Columns.Add("especie", "Especie");
+            dataGridView1.Columns[0].DefaultCellStyle.Font = new Font("Palace Script MT", 22);  //font Cursiva columna Nom. Cient.
+            dataGridView1.Columns.Add("suma_volumen", "Vol m^3 (Muestreo)");
+            dataGridView1.Columns.Add("volumen_ha", "Vol m^3 (Hectareo)");
+            dataGridView1.Columns.Add("volumen_ha2", "Vol m^3 (SCUSTF)");
 
             cmd = SqlConnector.getConnection(cmd);
 
@@ -431,11 +488,18 @@ namespace SylDesk
 
                     chart1.AlignDataPointsByAxisLabel();
 
+                    //chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
+
                     chart1.Series[i]["PixelPointWidth"] = "75";
 
                     chart1.Series[i]["PointWidth"] = "0.3";  //grosor de las barras
 
                     chart1.Series[i].ToolTip = "#VALX\nVolumen: #VALY ";          //Tooltips para cada barra
+
+                    chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
+                    //chart1.Series[i].Points[i].Label = "#VALY"; //Valor position top
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Palace Script MT", 20);
+
                 }
                 else
                 {
@@ -466,10 +530,11 @@ namespace SylDesk
                 area_str = "herbaceo";
             }
 
-            chart1.Titles.Add("IVI " + area_str);   //titulo de la Grafica
-            chart1.ChartAreas[0].AxisX.Title = "Valor de Importancia";
-            chart1.ChartAreas[0].AxisY.Title = "Especies del estrato arbóreo con el Índice de Valor de Importancia más alto";
-            dataGridView1.Columns.Add("especie", "especie");
+            //chart1.Titles.Add("IVI " + area_str);   //titulo de la Grafica
+            //chart1.ChartAreas[0].AxisX.Title = "Valor de Importancia";  //pie de grafica
+            chart1.ChartAreas[0].AxisY.Title = "Especies del estrato arbóreo con el I.V.I";
+            dataGridView1.Columns.Add("especie", "Especie");
+            dataGridView1.Columns[0].DefaultCellStyle.Font = new Font("Palace Script MT", 22);  //font Cursiva columna Nom. Cient.
             dataGridView1.Columns.Add("frecuencia_absoluta", "Frecuencia absoluta");
             dataGridView1.Columns.Add("frecuencia_relativa", "Frecuencia relativa");
             dataGridView1.Columns.Add("densidad_absoluta", "Densidad absoluta");
@@ -581,7 +646,21 @@ namespace SylDesk
                 dataGridView1.Rows.Add(lista_individuos[i], frec_abs[i], frec_rel[i], den_abs[i], den_rel[i], dom_abs[i], dom_rel[i]);
                 //chart1.Dock = System.Windows.Forms.DockStyle.Fill;
 
+                chart1.AlignDataPointsByAxisLabel();
+
+                //chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
+
+                chart1.Series[i]["PixelPointWidth"] = "75";
+
+                chart1.Series[i]["PointWidth"] = "0.3";  //grosor de las barras
+
                 chart1.Series[i].ToolTip = "#VALX\nIVI: #VALY ";          //Tooltips para cada barra
+
+                chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
+                //chart1.Series[i].Points[i].Label = "#VALY";  //Valor position top
+                chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Palace Script MT", 20);
+
+
             }
             chart1.ChartAreas[0].RecalculateAxesScale();
         }
