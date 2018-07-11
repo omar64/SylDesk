@@ -21,7 +21,7 @@ namespace SylDesk
         private int proyecto_id;
         private Form1 form1;
         private MySqlCommand cmd;
-        private Boolean flag = false;
+        private int flag = 0;
         private double superficie = 0;
 
         public Grafica(Form1 form1)
@@ -140,7 +140,6 @@ namespace SylDesk
                 chart1.Series.Add(new kawaii_lolis.Series("" + current_rango));
                 chart1.Series[i].Points.AddXY("" + current_rango, results[0]);
                 chart1.Series[i].ToolTip = "CAT: #VALX\nConteo: #VALY ";          //Tooltips para cada barra
-                //chart1.Series[i].LegendText = "BANANA";
 
                 dataGridView1.Rows.Add(current_rango, results[0]);
 
@@ -178,26 +177,9 @@ namespace SylDesk
 
 
                 chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Arial", 9);  //Font grafica
-
-
-
-
-
-
             }
-            
-            
-
+                       
             chart1.ChartAreas[0].RecalculateAxesScale();
-            /*
-            chart1.Series.Add(new kawaii_lolis.Series("Min"));
-            chart1.Series[chart1.Series.Count - 1].Points.AddXY("" + min, min);
-            chart1.Series[chart1.Series.Count - 1].ToolTip = "#VALX\nConteo: #VALY ";          //Tooltips para cada barra
-
-            chart1.Series.Add(new kawaii_lolis.Series("Max"));
-            chart1.Series[chart1.Series.Count - 1].Points.AddXY("" + max, max);
-            chart1.Series[chart1.Series.Count - 1].ToolTip = "#VALX\nConteo: #VALY ";          //Tooltips para cada barra
-            */
         }
 
         private void get_cad() //individuos categoria diametricas
@@ -303,15 +285,6 @@ namespace SylDesk
 
 
             chart1.ChartAreas[0].RecalculateAxesScale();
-            /*
-            chart1.Series.Add(new kawaii_lolis.Series("Min"));
-            chart1.Series[chart1.Series.Count - 1].Points.AddXY("" + min, min);
-            chart1.Series[chart1.Series.Count - 1].ToolTip = "#VALX\nConteo: #VALY ";          //Tooltips para cada barra
-
-            chart1.Series.Add(new kawaii_lolis.Series("Max"));
-            chart1.Series[chart1.Series.Count - 1].Points.AddXY("" + max, max);
-            chart1.Series[chart1.Series.Count - 1].ToolTip = "#VALX\nConteo: #VALY ";          //Tooltips para cada barra
-            */
         }
 
         private void get_numero_individuos() // Mayor numero de individuos en el predio
@@ -416,7 +389,7 @@ namespace SylDesk
 
                     double ha = Convert.ToDouble(results[1]) / 0.6;
                     double ha2 = Convert.ToDouble(results[1]) / (0.6 / superficie);
-                    dataGridView1.Rows.Add(results[0], results[1], ha, ha2);
+                    dataGridView1.Rows.Add(results[0], results[1], ha.ToString("F4"), ha2.ToString("F4"));
                     //chart1.Dock = System.Windows.Forms.DockStyle.Fill;
 
                     chart1.AlignDataPointsByAxisLabel();
@@ -482,8 +455,8 @@ namespace SylDesk
                     chart1.Series[i].Points.AddXY("" + results[0], results[1]);
 
                     double ha = Convert.ToDouble(results[1]) / 0.6;
-                    double ha2 = Convert.ToDouble(results[1]) / (0.6 / superficie);
-                    dataGridView1.Rows.Add(results[0], results[1], ha, ha2);
+                    double ha2 =  Convert.ToDouble(results[1]) / (0.6 / superficie);
+                    dataGridView1.Rows.Add(results[0], results[1], ha.ToString("F4"), ha2.ToString("F4"));
                     //chart1.Dock = System.Windows.Forms.DockStyle.Fill;
 
                     chart1.AlignDataPointsByAxisLabel();
@@ -515,21 +488,7 @@ namespace SylDesk
         private void get_IVI(int area)
         {
             Empty();
-
-            String area_str = "";
-            if (area == 500)
-            {
-                area_str = "arboreo";
-            }
-            else if (area == 100)
-            {
-                area_str = "arbustivo";
-            }
-            else if (area == 5)
-            {
-                area_str = "herbaceo";
-            }
-
+            
             //chart1.Titles.Add("IVI " + area_str);   //titulo de la Grafica
             //chart1.ChartAreas[0].AxisX.Title = "Valor de Importancia";  //pie de grafica
             chart1.ChartAreas[0].AxisY.Title = "Especies del estrato arbóreo con el I.V.I";
@@ -541,6 +500,11 @@ namespace SylDesk
             dataGridView1.Columns.Add("densidad_relativa", "Densidad relativa");
             dataGridView1.Columns.Add("dominancia_absoluta", "Dominancia absoluta");
             dataGridView1.Columns.Add("dominancia_relativa", "Dominancia relativa");
+            dataGridView1.Columns.Add("ivi", "IVI");
+
+            chart1.Series.Add(new kawaii_lolis.Series("frecuencia"));
+            chart1.Series.Add(new kawaii_lolis.Series("densidad"));
+            chart1.Series.Add(new kawaii_lolis.Series("dominancia"));
 
             int num_sitios = 0;
             List<double> frec_abs = new List<double>();
@@ -565,6 +529,7 @@ namespace SylDesk
             results.Dispose();            
 
             List<Object> lista_individuos = new List<Object>();
+            List<IVI> list_ivis = new List<IVI>();
             cmd = SqlConnector.getConnection(cmd);
             sqlQueryString = "SELECT nombrecientifico" +
                 " from individuos where proyecto_id = @proyecto_id AND area =  " + area + " Group By nombrecientifico ORDER BY nombrecientifico ASC";
@@ -620,9 +585,9 @@ namespace SylDesk
                 }
 
                 int area_muestreada = area * num_sitios;
-                frec_abs[i] = frec_aux / num_sitios;
-                den_abs[i] = dens_aux / area_muestreada;
-                dom_abs[i] = dom_aux / area_muestreada;
+                frec_abs[i] = (frec_aux / num_sitios) * 100;
+                den_abs[i] = (dens_aux / area_muestreada) * 100;
+                dom_abs[i] = (dom_aux / area_muestreada) * 100;
                 frec_total += frec_abs[i];
                 den_total += den_abs[i];
                 dom_total += dom_abs[i];
@@ -636,33 +601,37 @@ namespace SylDesk
 
             for (int i = 0; i < lista_individuos.Count; i++)
             {
-                frec_rel[i] = frec_abs[i] / frec_total;
-                den_rel[i] = den_abs[i] / den_total;
-                dom_rel[i] = dom_abs[i] / dom_total;
+                frec_rel[i] = (frec_abs[i] / frec_total) * 100;
+                den_rel[i] = (den_abs[i] / den_total) * 100;
+                dom_rel[i] = (dom_abs[i] / dom_total) * 100;
+                list_ivis.Add(new IVI(lista_individuos[i].ToString(), frec_abs[i], frec_rel[i], den_abs[i], den_rel[i], dom_abs[i], dom_rel[i]));
 
-                chart1.Series.Add(new kawaii_lolis.Series("" + lista_individuos[i]));
-                chart1.Series[i].Points.AddXY("" + lista_individuos[i], frec_rel[i] + den_rel[i] + dom_rel[i]);
+                //chart1.Series.Add(new kawaii_lolis.Series("" + lista_individuos[i]));
 
-                dataGridView1.Rows.Add(lista_individuos[i], frec_abs[i], frec_rel[i], den_abs[i], den_rel[i], dom_abs[i], dom_rel[i]);
-                //chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-
-                chart1.AlignDataPointsByAxisLabel();
+                dataGridView1.Rows.Add(lista_individuos[i], frec_abs[i].ToString("F4"), frec_rel[i].ToString("F4"), den_abs[i].ToString("F4"), den_rel[i].ToString("F4"), dom_abs[i].ToString("F5"), dom_rel[i].ToString("F4"), ((frec_rel[i] + den_rel[i] + dom_rel[i])).ToString("F4")); 
+                //chart1.Dock = System.Windows.Forms.DockStyle.Fill;                
 
                 //chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
 
-                chart1.Series[i]["PixelPointWidth"] = "75";
-
-                chart1.Series[i]["PointWidth"] = "0.3";  //grosor de las barras
-
-                chart1.Series[i].ToolTip = "#VALX\nIVI: #VALY ";          //Tooltips para cada barra
-
-                chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
+               
                 //chart1.Series[i].Points[i].Label = "#VALY";  //Valor position top
                 chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Palace Script MT", 20);
-
-
             }
+            List<IVI> list_ivis2 = list_ivis.OrderByDescending((x) => x.ivi).ToList();
+            for(int i = 0; i < numericUpDown1.Value; i++)
+            {
+                chart1.Series["frecuencia"].Points.AddXY("" + list_ivis2[i].get_nombrecientifico(), ((list_ivis2[i].get_frec_rel())).ToString("F4"));
+                chart1.Series["densidad"].Points.AddXY("" + list_ivis2[i].get_nombrecientifico(), ((list_ivis2[i].get_den_rel())).ToString("F4"));
+                chart1.Series["dominancia"].Points.AddXY("" + list_ivis2[i].get_nombrecientifico(), ((list_ivis2[i].get_dom_rel())).ToString("F4"));
+                chart1.Series["frecuencia"].Points[i].ToolTip = "#VALX\nIVI: " + ((list_ivis2[i].get_frec_rel() + list_ivis2[i].get_den_rel() + list_ivis2[i].get_dom_rel())).ToString("F4");  //Valor position top
+                chart1.Series["densidad"].Points[i].ToolTip = "#VALX\nIVI: " + ((list_ivis2[i].get_frec_rel() + list_ivis2[i].get_den_rel() + list_ivis2[i].get_dom_rel())).ToString("F4");  //Valor position top
+                chart1.Series["dominancia"].Points[i].ToolTip = "#VALX\nIVI: " + ((list_ivis2[i].get_frec_rel() + list_ivis2[i].get_den_rel() + list_ivis2[i].get_dom_rel())).ToString("F4");  //Valor position top
+            }
+
             chart1.ChartAreas[0].RecalculateAxesScale();
+            chart1.Series["frecuencia"].ChartType = kawaii_lolis.SeriesChartType.StackedColumn;
+            chart1.Series["densidad"].ChartType = kawaii_lolis.SeriesChartType.StackedColumn;
+            chart1.Series["dominancia"].ChartType = kawaii_lolis.SeriesChartType.StackedColumn;
         }
 
         private void sendMessageBox(string message)
@@ -690,13 +659,15 @@ namespace SylDesk
         {
             numericUpDown1.Visible = true;
             numericUpDown1.Value = 5;
-            flag = false;
+            flag = 0;
             get_numero_individuos();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            numericUpDown1.Visible = false;
+            numericUpDown1.Visible = true;
+            numericUpDown1.Value = 5;
+            flag = 1;
             get_area_basal();
         }
 
@@ -704,40 +675,62 @@ namespace SylDesk
         {
             numericUpDown1.Visible = true;
             numericUpDown1.Value = 5;
-            flag = true; ;
+            flag = 2;
             get_volumen();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            numericUpDown1.Visible = false;
+            numericUpDown1.Visible = true;
+            numericUpDown1.Value = 5;
+            flag = 3;
             get_IVI(500);
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            numericUpDown1.Visible = false;
+            numericUpDown1.Visible = true;
+            numericUpDown1.Value = 5;
+            flag = 4;
             get_IVI(100);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            numericUpDown1.Visible = false;
+            numericUpDown1.Visible = true;
+            numericUpDown1.Value = 5;
+            flag = 5;
             get_IVI(5);
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            if (flag)
-            {
-                get_volumen();
-            }
-            else
+            if (flag == 0)
             {
                 get_numero_individuos();
             }
+            else if (flag == 1)
+            {
+                get_area_basal();
+            }
+            else if (flag == 2)
+            {
+                get_volumen();
+            }
+            else if (flag == 3)
+            {
+                get_IVI(500);
+            }
+            else if (flag == 4)
+            {
+                get_IVI(100);
+            }
+            else if (flag == 5)
+            {
+                get_IVI(5);
+            }
         }
 
-        
+
     }
 }
