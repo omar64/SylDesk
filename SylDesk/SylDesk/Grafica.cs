@@ -12,7 +12,7 @@ using LiveCharts.Wpf; //The WPF controls
 using LiveCharts.WinForms; //the WinForm wrappers
 using kawaii_lolis = System.Windows.Forms.DataVisualization.Charting;
 using MySql.Data.MySqlClient;
-
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SylDesk
 {
@@ -35,9 +35,7 @@ namespace SylDesk
             Empty();
             this.proyecto_id = proyecto_id;
             numericUpDown1.Visible = false;
-            comboBox1.Visible = true;
-            comboBox1.SelectedIndex = 0;
-
+            
             string sqlQueryString = "SELECT superficie " +
                 " from proyectos where id = @id";
             cmd = SqlConnector.getConnection(cmd);
@@ -71,9 +69,10 @@ namespace SylDesk
             Empty();
             //chart1.Titles.Add("Detalles de Categorías de Altura");   //titulo de la Grafica
             //chart1.ChartAreas[0].AxisX.Title = "Categorías de altura (m)";  //pie de grafica
-            chart1.ChartAreas[0].AxisY.Title = "Número de individuos";            
+            chart1.ChartAreas[0].AxisY.Title = "No. Individuos";
+            chart1.Legends[0].Enabled = false;
             dataGridView1.Columns.Add("cat", "Categoría de Altura");
-            dataGridView1.Columns.Add("conteo", "Conteo");
+            dataGridView1.Columns.Add("no_individuos", "No. Individuos");
 
 
             cmd = SqlConnector.getConnection(cmd);
@@ -187,9 +186,10 @@ namespace SylDesk
             Empty();
             //chart1.Titles.Add("Detalles de Categorías Diametricas");   //titulo de la Grafica
             //chart1.ChartAreas[0].AxisX.Title = "Clases diamétricas (cm)";  //pie de grafica
-            chart1.ChartAreas[0].AxisY.Title = "Número de individuos";
+            chart1.ChartAreas[0].AxisY.Title = "No. Individuos";
+            chart1.Legends[0].Enabled = false;
             dataGridView1.Columns.Add("cad", "Categoría de Diámetro");
-            dataGridView1.Columns.Add("conteo", "Conteo");
+            dataGridView1.Columns.Add("no_individuos", "No. Individuos");
 
             cmd = SqlConnector.getConnection(cmd);
 
@@ -293,9 +293,12 @@ namespace SylDesk
             //chart1.Titles.Add("Detalles de Conteo");   //titulo de la Grafica
             //chart1.ChartAreas[0].AxisX.Title = "Especies con el mayor número de individuos registrados en el predio"; //pie de grafica
             chart1.ChartAreas[0].AxisY.Title = "Densidad (Ind/ha)";
-            dataGridView1.Columns.Add("numero_individuos", "Número de Individuos");
-            dataGridView1.Columns[0].DefaultCellStyle.Font = new Font("Palace Script MT", 22);  //font Cursiva columna Nom. Cient. 
-            dataGridView1.Columns.Add("conteo", "Conteo");
+            chart1.Legends[0].Enabled = false;
+            dataGridView1.Columns.Add("especie", "Especie");
+            dataGridView1.Columns[0].DefaultCellStyle.Font = new Font("arial", 11);  //font Cursiva columna Nom. Cient. 
+            dataGridView1.Columns.Add("no_individuos", "No. Individuos");
+            dataGridView1.Columns.Add("individuos_ha", "Individuos (Hectarea)");
+            dataGridView1.Columns.Add("individuos_scustf", "Individuos (SCUSTF)");
 
             cmd = SqlConnector.getConnection(cmd);  
 
@@ -339,9 +342,9 @@ namespace SylDesk
                     chart1.Series[i].ToolTip = "#VALX\nConteo: #VALY ";          //Tooltips para cada barra
 
                     chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
-                    //chart1.Series[i].Points[i].Label = "#VALY"; //Valor position top
+                                                                           //chart1.Series[i].Points[i].Label = "#VALY"; //Valor position top
 
-                    chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Palace Script MT", 20);
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
                 }
                 else
                 {
@@ -359,11 +362,12 @@ namespace SylDesk
             Empty();
             //chart1.Titles.Add("Detalles de Área Basal");   //titulo de la Grafica
             //chart1.ChartAreas[0].AxisX.Title = "Especies con mayor área basal en el predio";  //pie de grafica
-            chart1.ChartAreas[0].AxisY.Title = "Area basal (m^2/ha)";
+            chart1.ChartAreas[0].AxisY.Title = "m^2/ha";
+            chart1.Legends[0].Enabled = false;
             dataGridView1.Columns.Add("especie", "Especie");
-            dataGridView1.Columns[0].DefaultCellStyle.Font = new Font("Palace Script MT", 22);  //font Cursiva columna Nom. Cient.
+            dataGridView1.Columns[0].DefaultCellStyle.Font = new Font("arial", 11);  //font Cursiva columna Nom. Cient.
             dataGridView1.Columns.Add("suma_ab", "AB m^2 (Muestreo)");
-            dataGridView1.Columns.Add("ab_ha", "AB m^2 (Hectarea)");
+            dataGridView1.Columns.Add("ab_ha", "AB m^2 (Hectárea)");
             dataGridView1.Columns.Add("ab_ha2", "AB m^2  (SCUSTF)");
 
             cmd = SqlConnector.getConnection(cmd);
@@ -384,12 +388,12 @@ namespace SylDesk
                     lista_individuos.Add(results[1]);
                     //lista_individuos.Add(results[2]);
 
-                    chart1.Series.Add(new kawaii_lolis.Series("" + results[0]));
-                    chart1.Series[i].Points.AddXY("" + results[0], results[1]);
-
                     double ha = Convert.ToDouble(results[1]) / 0.6;
                     double ha2 = Convert.ToDouble(results[1]) / (0.6 / superficie);
                     dataGridView1.Rows.Add(results[0], results[1], ha.ToString("F4"), ha2.ToString("F4"));
+
+                    chart1.Series.Add(new kawaii_lolis.Series("" + results[0]));
+                    chart1.Series[i].Points.AddXY("" + results[0], ha);
                     //chart1.Dock = System.Windows.Forms.DockStyle.Fill;
 
                     chart1.AlignDataPointsByAxisLabel();
@@ -404,7 +408,7 @@ namespace SylDesk
 
                     chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
                     //chart1.Series[i].Points[i].Label = "#VALY"; //Valor position top
-                    chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Palace Script MT", 20);
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
 
 
                 }
@@ -426,11 +430,12 @@ namespace SylDesk
 
             //chart1.Titles.Add("Detalles de Volumen");   //titulo de la Grafica
             //chart1.ChartAreas[0].AxisX.Title = "Especies con mayor volumen en el predio";  //pie de grafica
-            chart1.ChartAreas[0].AxisY.Title = "Volumen (m^3/ha)";
+            chart1.ChartAreas[0].AxisY.Title = "m^3/ha";
+            chart1.Legends[0].Enabled = false;
             dataGridView1.Columns.Add("especie", "Especie");
-            dataGridView1.Columns[0].DefaultCellStyle.Font = new Font("Palace Script MT", 22);  //font Cursiva columna Nom. Cient.
+            dataGridView1.Columns[0].DefaultCellStyle.Font = new Font("arial", 11);  //font Cursiva columna Nom. Cient.
             dataGridView1.Columns.Add("suma_volumen", "Vol m^3 (Muestreo)");
-            dataGridView1.Columns.Add("volumen_ha", "Vol m^3 (Hectareo)");
+            dataGridView1.Columns.Add("volumen_ha", "Vol m^3 (Hectárea)");
             dataGridView1.Columns.Add("volumen_ha2", "Vol m^3 (SCUSTF)");
 
             cmd = SqlConnector.getConnection(cmd);
@@ -451,12 +456,12 @@ namespace SylDesk
                     lista_individuos.Add(results[1]);
                     //lista_individuos.Add(results[2]);
 
-                    chart1.Series.Add(new kawaii_lolis.Series("" + results[0]));
-                    chart1.Series[i].Points.AddXY("" + results[0], results[1]);
-
                     double ha = Convert.ToDouble(results[1]) / 0.6;
                     double ha2 =  Convert.ToDouble(results[1]) / (0.6 / superficie);
                     dataGridView1.Rows.Add(results[0], results[1], ha.ToString("F4"), ha2.ToString("F4"));
+
+                    chart1.Series.Add(new kawaii_lolis.Series("" + results[0]));
+                    chart1.Series[i].Points.AddXY("" + results[0], ha);
                     //chart1.Dock = System.Windows.Forms.DockStyle.Fill;
 
                     chart1.AlignDataPointsByAxisLabel();
@@ -470,9 +475,8 @@ namespace SylDesk
                     chart1.Series[i].ToolTip = "#VALX\nVolumen: #VALY ";          //Tooltips para cada barra
 
                     chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
-                    //chart1.Series[i].Points[i].Label = "#VALY"; //Valor position top
-                    chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Palace Script MT", 20);
-
+                                                                           //chart1.Series[i].Points[i].Label = "#VALY"; //Valor position top
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
                 }
                 else
                 {
@@ -491,9 +495,9 @@ namespace SylDesk
             
             //chart1.Titles.Add("IVI " + area_str);   //titulo de la Grafica
             //chart1.ChartAreas[0].AxisX.Title = "Valor de Importancia";  //pie de grafica
-            chart1.ChartAreas[0].AxisY.Title = "Especies del estrato arbóreo con el I.V.I";
+            chart1.ChartAreas[0].AxisY.Title = "I.V.I";
             dataGridView1.Columns.Add("especie", "Especie");
-            dataGridView1.Columns[0].DefaultCellStyle.Font = new Font("Palace Script MT", 22);  //font Cursiva columna Nom. Cient.
+            dataGridView1.Columns[0].DefaultCellStyle.Font = new Font("arial", 11);  //font Cursiva columna Nom. Cient.
             dataGridView1.Columns.Add("frecuencia_absoluta", "Frecuencia absoluta");
             dataGridView1.Columns.Add("frecuencia_relativa", "Frecuencia relativa");
             dataGridView1.Columns.Add("densidad_absoluta", "Densidad absoluta");
@@ -502,9 +506,13 @@ namespace SylDesk
             dataGridView1.Columns.Add("dominancia_relativa", "Dominancia relativa");
             dataGridView1.Columns.Add("ivi", "IVI");
 
+            chart1.Legends[0].Enabled = true;
             chart1.Series.Add(new kawaii_lolis.Series("frecuencia"));
             chart1.Series.Add(new kawaii_lolis.Series("densidad"));
             chart1.Series.Add(new kawaii_lolis.Series("dominancia"));
+            chart1.Series[0].LegendText = "Frecuencia";
+            chart1.Series[1].LegendText = "Densidad";
+            chart1.Series[2].LegendText = "Dominancia";
 
             int num_sitios = 0;
             List<double> frec_abs = new List<double>();
@@ -608,14 +616,14 @@ namespace SylDesk
 
                 //chart1.Series.Add(new kawaii_lolis.Series("" + lista_individuos[i]));
 
-                dataGridView1.Rows.Add(lista_individuos[i], frec_abs[i].ToString("F4"), frec_rel[i].ToString("F4"), den_abs[i].ToString("F4"), den_rel[i].ToString("F4"), dom_abs[i].ToString("F5"), dom_rel[i].ToString("F4"), ((frec_rel[i] + den_rel[i] + dom_rel[i])).ToString("F4")); 
+                dataGridView1.Rows.Add(lista_individuos[i], frec_abs[i].ToString("F4"), frec_rel[i].ToString("F4"), den_abs[i].ToString("F4"), den_rel[i].ToString("F4"), dom_abs[i].ToString("F5"), dom_rel[i].ToString("F4"), ((frec_rel[i] + den_rel[i] + dom_rel[i])).ToString("F4"));
                 //chart1.Dock = System.Windows.Forms.DockStyle.Fill;                
 
                 //chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
 
-               
+
                 //chart1.Series[i].Points[i].Label = "#VALY";  //Valor position top
-                chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Palace Script MT", 20);
+                chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
             }
             List<IVI> list_ivis2 = list_ivis.OrderByDescending((x) => x.ivi).ToList();
             for(int i = 0; i < numericUpDown1.Value; i++)
