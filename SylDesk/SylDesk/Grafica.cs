@@ -318,10 +318,12 @@ namespace SylDesk
                     lista_individuos.Add(results[1]);
                     //lista_individuos.Add(results[2]);
 
+                    double ha = Convert.ToDouble(results[1]) / 0.6;
+                    double ha2 = Convert.ToDouble(results[1]) / (0.6 / superficie);
                     chart1.Series.Add(new kawaii_lolis.Series("" + results[0]));
-                    chart1.Series[i].Points.AddXY("" + results[0], results[1]);
+                    chart1.Series[i].Points.AddXY("" + results[0], ha);
                     
-                    dataGridView1.Rows.Add(results[0], results[1]);
+                    dataGridView1.Rows.Add(results[0], results[1], ha.ToString("F4"), ha2.ToString("F4"));
 
                     //chart1.Dock = System.Windows.Forms.DockStyle.Fill;
 
