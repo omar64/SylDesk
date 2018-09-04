@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Grafica));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.label1 = new System.Windows.Forms.Label();
             this.button17 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -44,6 +44,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.ReportButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -74,12 +75,12 @@
             // 
             // chart1
             // 
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea4.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Enabled = false;
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(19, 94);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(565, 417);
@@ -90,7 +91,7 @@
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button1.Location = new System.Drawing.Point(87, 37);
+            this.button1.Location = new System.Drawing.Point(71, 37);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 51);
             this.button1.TabIndex = 83;
@@ -102,7 +103,7 @@
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button2.Location = new System.Drawing.Point(168, 37);
+            this.button2.Location = new System.Drawing.Point(152, 37);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 51);
             this.button2.TabIndex = 84;
@@ -114,7 +115,7 @@
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button3.Location = new System.Drawing.Point(249, 37);
+            this.button3.Location = new System.Drawing.Point(233, 37);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 51);
             this.button3.TabIndex = 85;
@@ -126,7 +127,7 @@
             // 
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button4.Location = new System.Drawing.Point(330, 37);
+            this.button4.Location = new System.Drawing.Point(314, 37);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 51);
             this.button4.TabIndex = 86;
@@ -138,7 +139,7 @@
             // 
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button5.Location = new System.Drawing.Point(411, 37);
+            this.button5.Location = new System.Drawing.Point(395, 37);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 51);
             this.button5.TabIndex = 87;
@@ -160,7 +161,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(948, 68);
+            this.numericUpDown1.Location = new System.Drawing.Point(809, 68);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             20,
             0,
@@ -186,7 +187,7 @@
             // 
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button6.Location = new System.Drawing.Point(489, 37);
+            this.button6.Location = new System.Drawing.Point(476, 37);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 51);
             this.button6.TabIndex = 91;
@@ -198,7 +199,7 @@
             // 
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button7.Location = new System.Drawing.Point(573, 37);
+            this.button7.Location = new System.Drawing.Point(557, 37);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 51);
             this.button7.TabIndex = 92;
@@ -210,7 +211,7 @@
             // 
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button8.Location = new System.Drawing.Point(654, 37);
+            this.button8.Location = new System.Drawing.Point(638, 37);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 51);
             this.button8.TabIndex = 93;
@@ -218,10 +219,25 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // ReportButton
+            // 
+            this.ReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReportButton.ForeColor = System.Drawing.Color.Turquoise;
+            this.ReportButton.Image = ((System.Drawing.Image)(resources.GetObject("ReportButton.Image")));
+            this.ReportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ReportButton.Location = new System.Drawing.Point(954, 37);
+            this.ReportButton.Name = "ReportButton";
+            this.ReportButton.Size = new System.Drawing.Size(124, 51);
+            this.ReportButton.TabIndex = 94;
+            this.ReportButton.Text = "Reporte";
+            this.ReportButton.UseVisualStyleBackColor = true;
+            this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
+            // 
             // Grafica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ReportButton);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -260,5 +276,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button ReportButton;
     }
 }

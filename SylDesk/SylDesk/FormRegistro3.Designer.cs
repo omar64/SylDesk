@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro3));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.labelBuscar = new System.Windows.Forms.Label();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
@@ -129,16 +129,16 @@
             // 
             // descripcion
             // 
-            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.HeaderText = "Descripción";
             this.descripcion.Name = "descripcion";
             this.descripcion.ReadOnly = true;
             // 
             // detalle
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            this.detalle.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            this.detalle.DefaultCellStyle = dataGridViewCellStyle1;
             this.detalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.detalle.HeaderText = "Detalle";
             this.detalle.Name = "detalle";

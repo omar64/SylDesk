@@ -197,4 +197,36 @@
         HrwCbw4n6mdNTuUAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="buttonImportar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAYwAAAGMAbOUdMMAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAACWUlEQVRYR8WWsWsUQRTGFwQLLVREBUGwsohoYTA3uyqkSCEkYmUh/gEWYiHaiCkUUbSwUzHJzBxJ
+        ucVlZzcKKtgKgsE/wEIFJUK0jkhufS/nHLOzX24v3LkWP9j93vvem52dndkgz/P/ChTrBIp1AsU6gWI/
+        nEz0odDIsyJVV8NUXhaJboxmMztQbi+g2IsoU2GY6jRMVZvIPdbDTL0eez57BHkRUNwMetI7oCliTaT6
+        1oU43obquEAREaVyDjTqCQ3iAarlAkUfkalLqEEftCMjJ1FNCxTHF5u7RSbP0ZTf+Nt81Su8FX4cf7mw
+        E/VhSgItsCkyrXhFBkRP+X0shZswaR4jw69ygQEx6rHbx6VwQ1OewAKbQIvsLYNiHp/EYvOw28tSuKFv
+        +BswQyKjHlkfX6Mcjzatpze0YU24PbsXDCV990yQKJMPXR/DGsoFrNOsXbO+boHReGYXLZbPwFAgStU9
+        6/HhGPJAMnWFPRtG/uxIfFdK8sn0fbchgnOgt4T+Odaa3xvwAULC+3JCmUaiR1BTF85BXoQw+i5Nmz6P
+        ggia4i/CqFka/TO/MWsc4xzkRVDvVwEdp09QsIryAHBeBSv0zuRHEKhkSAP4uqVv32UYA6B/C8MDWELB
+        Kk4vPd1jm/M1yqmC9o5p3sWuo2AfLPPC68DXMKcXq1FrYX9wNI6300L8ABL+Mfoiz17n/XVOwb624SHw
+        m3/t7OvrLqIzL/Q+OjZbwDBMlkWmT9iehQFYThl1cONvyMibtD5uD0qnjpxsmLkDfi+mJNQNFOsEinUC
+        xfrIgz+ckLvJn9qpbQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="bifurcados.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="nombrecomun.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="grupo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="volumen.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="areabasal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

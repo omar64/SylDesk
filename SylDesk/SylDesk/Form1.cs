@@ -72,5 +72,12 @@ namespace SylDesk
             grafica1.Initialize(proyecto_id);
             grafica1.BringToFront();
         }
+       public void reportToFront()
+        {
+            
+            report.InitializeLifetimeService();
+            report.BringToFront();
+        }
+        
     }
 }

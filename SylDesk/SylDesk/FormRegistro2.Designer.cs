@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonEliminarIndividuo = new System.Windows.Forms.Button();
             this.buttonAgregarBifurcacion = new System.Windows.Forms.Button();
             this.buttonAgregarIndividuo = new System.Windows.Forms.Button();
@@ -106,7 +106,7 @@
             this.buttonAgregarBifurcacion.Name = "buttonAgregarBifurcacion";
             this.buttonAgregarBifurcacion.Size = new System.Drawing.Size(75, 36);
             this.buttonAgregarBifurcacion.TabIndex = 87;
-            this.buttonAgregarBifurcacion.Text = "Agregar\r\nBifurcacion";
+            this.buttonAgregarBifurcacion.Text = "Agregar\r\nBifurcación";
             this.buttonAgregarBifurcacion.UseVisualStyleBackColor = true;
             this.buttonAgregarBifurcacion.Click += new System.EventHandler(this.buttonAgregarBifurcacion_Click);
             // 
@@ -225,7 +225,7 @@
             this.labelAreas.Name = "labelAreas";
             this.labelAreas.Size = new System.Drawing.Size(34, 13);
             this.labelAreas.TabIndex = 74;
-            this.labelAreas.Text = "Areas";
+            this.labelAreas.Text = "Áreas";
             // 
             // labelSitios
             // 
@@ -339,7 +339,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(141, 45);
             this.button6.TabIndex = 89;
-            this.button6.Text = "Ubicacion";
+            this.button6.Text = "Ubicación";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // buttonGrafica
@@ -369,9 +369,13 @@
             // 
             // buttonImportar
             // 
-            this.buttonImportar.Location = new System.Drawing.Point(833, 485);
+            this.buttonImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImportar.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonImportar.Image = ((System.Drawing.Image)(resources.GetObject("buttonImportar.Image")));
+            this.buttonImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonImportar.Location = new System.Drawing.Point(783, 473);
             this.buttonImportar.Name = "buttonImportar";
-            this.buttonImportar.Size = new System.Drawing.Size(75, 23);
+            this.buttonImportar.Size = new System.Drawing.Size(131, 36);
             this.buttonImportar.TabIndex = 92;
             this.buttonImportar.Text = "Importar";
             this.buttonImportar.UseVisualStyleBackColor = true;
@@ -384,16 +388,16 @@
             // 
             // numero
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numero.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numero.DefaultCellStyle = dataGridViewCellStyle9;
             this.numero.HeaderText = "*Consecutivo";
             this.numero.Name = "numero";
             this.numero.ReadOnly = true;
             // 
             // arbolnumeroensitio
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle10;
             this.arbolnumeroensitio.HeaderText = "*NO. EN CAMPO";
             this.arbolnumeroensitio.Name = "arbolnumeroensitio";
             this.arbolnumeroensitio.ReadOnly = true;
@@ -407,44 +411,44 @@
             // 
             // nombrecientifico
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle3;
-            this.nombrecientifico.HeaderText = "Nombre Cientifico";
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle11;
+            this.nombrecientifico.HeaderText = "Nombre Científico";
             this.nombrecientifico.Name = "nombrecientifico";
             // 
             // nombrecomun
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecomun.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecomun.DefaultCellStyle = dataGridViewCellStyle12;
             this.nombrecomun.HeaderText = "*Nombre Comun";
             this.nombrecomun.Name = "nombrecomun";
             this.nombrecomun.ReadOnly = true;
             // 
             // familia
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.familia.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.familia.DefaultCellStyle = dataGridViewCellStyle13;
             this.familia.HeaderText = "*Familia";
             this.familia.Name = "familia";
             this.familia.ReadOnly = true;
             // 
             // genero
             // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genero.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genero.DefaultCellStyle = dataGridViewCellStyle14;
             this.genero.HeaderText = "*Genero";
             this.genero.Name = "genero";
             this.genero.ReadOnly = true;
             // 
             // perimetro
             // 
-            this.perimetro.HeaderText = "Perimetro";
+            this.perimetro.HeaderText = "Perímetro";
             this.perimetro.Name = "perimetro";
             this.perimetro.Width = 70;
             // 
             // diametro
             // 
-            this.diametro.HeaderText = "Diametro";
+            this.diametro.HeaderText = "Diámetro";
             this.diametro.Name = "diametro";
             this.diametro.Width = 71;
             // 
@@ -506,16 +510,16 @@
             // 
             // grupo
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grupo.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grupo.DefaultCellStyle = dataGridViewCellStyle15;
             this.grupo.HeaderText = "Grupo";
             this.grupo.Name = "grupo";
             this.grupo.ReadOnly = true;
             // 
             // volumen
             // 
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.volumen.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.volumen.DefaultCellStyle = dataGridViewCellStyle16;
             this.volumen.HeaderText = "Volumen";
             this.volumen.Name = "volumen";
             this.volumen.ReadOnly = true;

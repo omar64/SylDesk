@@ -63,6 +63,7 @@
             this.formRegistroEspecie1 = new FormRegistroEspecie(this);
             this.formInicial1 = new FormInicial(this);
             this.grafica1 = new Grafica(this);
+            this.report = new Report(this);
             //this.formKml1. new FormKml(this);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -490,6 +491,13 @@
             this.grafica1.Size = new System.Drawing.Size(1085, 527);
             this.grafica1.TabIndex = 73;
             // 
+            // Reporte
+            // 
+            this.report.Location = new System.Drawing.Point(3, 161);
+            this.report.Name = "report";
+            this.report.Size = new System.Drawing.Size(1085, 527);
+            this.report.TabIndex = 73;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -501,6 +509,7 @@
             this.Controls.Add(this.formRegistroEspecie1);
             this.Controls.Add(this.formInicial1);
             this.Controls.Add(this.grafica1);
+            this.Controls.Add(this.report);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -562,6 +571,7 @@
         private FormRegistroEspecie formRegistroEspecie1;
         private FormInicial formInicial1;
         private Grafica grafica1;
+        private Report report;
     }
 }
 

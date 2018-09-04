@@ -104,7 +104,7 @@
             this.labelDescripcion.Name = "labelDescripcion";
             this.labelDescripcion.Size = new System.Drawing.Size(80, 16);
             this.labelDescripcion.TabIndex = 6;
-            this.labelDescripcion.Text = "Descripcion:";
+            this.labelDescripcion.Text = "Descripción:";
             // 
             // textBoxSector
             // 
