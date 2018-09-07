@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            //this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            /*
             // 
             // reportViewer1
             // 
@@ -60,12 +61,13 @@
             this.Size = new System.Drawing.Size(1096, 528);
             this.ResumeLayout(false);
             this.PerformLayout();
+            */
 
         }
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        //private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.Label label1;
     }
 }

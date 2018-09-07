@@ -58,12 +58,12 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.formRegistro11 = new SylDesk.FormRegistro1(this);
-            this.formRegistro21 = new FormRegistro2(this);
-            this.formRegistro31 = new FormRegistro3(this);
-            this.formRegistroEspecie1 = new FormRegistroEspecie(this);
-            this.formInicial1 = new FormInicial(this);
-            this.grafica1 = new Grafica(this);
-            this.report = new Report(this);
+            this.formRegistro21 = new SylDesk.FormRegistro2(this);
+            this.formRegistro31 = new SylDesk.FormRegistro3(this);
+            this.formRegistroEspecie1 = new SylDesk.FormRegistroEspecie(this);
+            this.formInicial1 = new SylDesk.FormInicial(this);
+            this.grafica1 = new SylDesk.Grafica(this);
+            this.report = new SylDesk.Report(this);
             //this.formKml1. new FormKml(this);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();

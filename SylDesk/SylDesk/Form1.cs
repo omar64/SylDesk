@@ -73,8 +73,7 @@ namespace SylDesk
             grafica1.BringToFront();
         }
        public void reportToFront()
-        {
-            
+        {            
             report.InitializeLifetimeService();
             report.BringToFront();
         }
