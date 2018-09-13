@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 //using kawaii_lolis = System.Windows.Forms.DataVisualization.Charting;
 //using MySql.Data.MySqlClient;
 
@@ -15,6 +16,7 @@ namespace SylDesk
     public partial class CalculadoraEcu : UserControl
     {
         private Form1 form1;
+        MySqlCommand cmd;
         public CalculadoraEcu(Form1 form1)
         {
             this.form1 = form1;
@@ -25,7 +27,17 @@ namespace SylDesk
 
         public void Initialize()
         {
+            Empty();
+            listBoxEcuacion_Populate();
+        }
 
+        public void Empty()
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            Ecuaciontext.Text = "";
+            listView2.Items.Clear();
         }
 
         private void num1_Click(object sender, EventArgs e)
@@ -381,6 +393,58 @@ namespace SylDesk
             string s2 = s.Substring(s.IndexOf("-") + 1).Trim();
             textBox2.Text = s2;
             textBox3.Text = s1;
+
+            cmd = SqlConnector.getConnection(cmd);
+
+            string sqlQueryString = "SELECT inventario FROM `ecuaciones_volumen` where especie = @especie AND umafor = @umafor ";
+            cmd.CommandText = sqlQueryString;
+            cmd.Parameters.AddWithValue("@especie", textBox3.Text);
+            cmd.Parameters.AddWithValue("@umafor", textBox2.Text);
+
+            var results = cmd.ExecuteReader();
+
+            if (results.Read())
+            {
+                textBox1.Text = results[0].ToString();
+            }
+
+            results.Close();
+            results.Dispose();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && Ecuaciontext.Text != "")
+            {
+                cmd = SqlConnector.getConnection(cmd);
+                cmd.CommandText = "Insert into ecuaciones_volumen(inventario, umafor, especie, ecuacion)Values(@inventario, @umafor, @especie, @ecuacion)";
+                cmd.Parameters.AddWithValue("@inventario", textBox1.Text);
+                cmd.Parameters.AddWithValue("@umafor", textBox2.Text);
+                cmd.Parameters.AddWithValue("@especie", textBox3.Text);
+                cmd.Parameters.AddWithValue("@ecuacion", Ecuaciontext.Text);
+                cmd.ExecuteNonQuery();
+
+                Initialize();
+            }
+        }
+
+        private void listBoxEcuacion_Populate()
+        {
+            listView2.Items.Clear();
+            cmd = SqlConnector.getConnection(cmd);
+
+            string sqlQueryString = "SELECT especie, umafor FROM `ecuaciones_volumen` Order By especie";
+            cmd.CommandText = sqlQueryString;
+
+            var results = cmd.ExecuteReader();
+
+            while (results.Read())
+            {
+                listView2.Items.Add(results[0].ToString() + " - " + results[1].ToString());
+            }
+
+            results.Close();
+            results.Dispose();
         }
     }
 }

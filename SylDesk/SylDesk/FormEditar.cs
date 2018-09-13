@@ -23,8 +23,7 @@ namespace SylDesk
         }
 
         public void Initialize(int proyecto_id)
-        {
-            
+        {          
             this.proyecto_id = proyecto_id;
         }
 

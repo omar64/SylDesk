@@ -184,7 +184,8 @@ namespace SylDesk
         private void volumen_ecuacion(DataGridViewRow row)
         {
             try
-            {   if (comboBoxUmafor.SelectedItem != null)
+            {
+                if (comboBoxUmafor.SelectedItem != null)
                 {
                     if (comboBoxAreas.SelectedIndex == 0)
                     {
@@ -218,6 +219,9 @@ namespace SylDesk
                                 double alturatotal = Convert.ToDouble(row.Cells["alturatotal"].Value);
                                 double perimetro = Convert.ToDouble(row.Cells["perimetro"].Value);
                                 double areabasal = Convert.ToDouble(row.Cells["areabasal"].Value);
+                                double alturafl = Convert.ToDouble(row.Cells["alturafl"].Value);
+                                double coberturalargo = Convert.ToDouble(row.Cells["coberturalargo"].Value);
+                                double coberturaancho = Convert.ToDouble(row.Cells["coberturaancho"].Value);
 
                                 //double volumen = Math.Exp(num1 + num2 * Math.Log(diametro) + num3 * Math.Log(alturatotal));
                                 MathParser parser = new MathParser();
@@ -231,6 +235,15 @@ namespace SylDesk
                                 replace = "" + perimetro;
                                 result = Regex.Replace(result, pattern, replace);
                                 pattern = @"\bAREABASAL\b";
+                                replace = "" + areabasal;
+                                result = Regex.Replace(result, pattern, replace);
+                                pattern = @"\bALTURAFL\b";
+                                replace = "" + areabasal;
+                                result = Regex.Replace(result, pattern, replace);
+                                pattern = @"\bCOBERTURAANCHO\b";
+                                replace = "" + areabasal;
+                                result = Regex.Replace(result, pattern, replace);
+                                pattern = @"\bCOBERTURALARGO\b";
                                 replace = "" + areabasal;
                                 result = Regex.Replace(result, pattern, replace);
 
