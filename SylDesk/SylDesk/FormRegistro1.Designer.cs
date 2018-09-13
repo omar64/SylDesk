@@ -87,14 +87,14 @@
             // 
             this.textBoxNombre.Location = new System.Drawing.Point(164, 42);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(182, 22);
+            this.textBoxNombre.Size = new System.Drawing.Size(305, 22);
             this.textBoxNombre.TabIndex = 0;
             // 
             // textBoxSuperficie
             // 
             this.textBoxSuperficie.Location = new System.Drawing.Point(164, 97);
             this.textBoxSuperficie.Name = "textBoxSuperficie";
-            this.textBoxSuperficie.Size = new System.Drawing.Size(182, 22);
+            this.textBoxSuperficie.Size = new System.Drawing.Size(305, 22);
             this.textBoxSuperficie.TabIndex = 1;
             // 
             // labelDescripcion
@@ -110,7 +110,7 @@
             // 
             this.textBoxSector.Location = new System.Drawing.Point(164, 140);
             this.textBoxSector.Name = "textBoxSector";
-            this.textBoxSector.Size = new System.Drawing.Size(182, 22);
+            this.textBoxSector.Size = new System.Drawing.Size(305, 22);
             this.textBoxSector.TabIndex = 2;
             // 
             // labelSector

@@ -57,11 +57,14 @@ namespace SylDesk
 
                 
                 form1.formRegistro2ToFront((int)dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                
                 Empty();
                 //FormRegistro2 obj = new FormRegistro2((int)dataGridView1.Rows[e.RowIndex].Cells[0].Value); //objeto declarado para abrir el form2 proyecto_idI
 
                 //obj.Show(); //abre el form declarado con el objeto
             }
+            
+
         }
 
         private void sendMessageBox(string message)
@@ -112,6 +115,22 @@ namespace SylDesk
         private void FormRegistro3_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == this.detalle.Index)
+                {
+                    form1.formRegistro2ToFront((int)dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                }
+                else if (e.ColumnIndex == this.editar.Index)
+                {
+                    form1.formEditarToFront((int)dataGridView1.Rows[e.RowIndex].Cells[1].Value);
+                    // etc.
+                }
+            }
         }
     }
 }

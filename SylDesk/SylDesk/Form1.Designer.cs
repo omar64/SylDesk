@@ -64,6 +64,8 @@
             this.formInicial1 = new SylDesk.FormInicial(this);
             this.grafica1 = new SylDesk.Grafica(this);
             this.report = new SylDesk.Report(this);
+            this.calculadoraEcu = new SylDesk.CalculadoraEcu(this);
+            this.formEditar = new SylDesk.FormEditar(this);
             //this.formKml1. new FormKml(this);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -181,9 +183,10 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(55, 61);
             this.button4.TabIndex = 9;
-            this.button4.Text = "Campo";
+            this.button4.Text = "Calcul.";
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // panel2
             // 
@@ -498,6 +501,20 @@
             this.report.Size = new System.Drawing.Size(1085, 527);
             this.report.TabIndex = 73;
             // 
+            // CalculadoraEcu
+            // 
+            this.calculadoraEcu.Location = new System.Drawing.Point(3, 161);
+            this.calculadoraEcu.Name = "calculadoraEcu";
+            this.calculadoraEcu.Size = new System.Drawing.Size(1085, 527);
+            this.calculadoraEcu.TabIndex = 73;
+            // 
+            // FormEditar
+            // 
+            this.formEditar.Location = new System.Drawing.Point(3, 161);
+            this.formEditar.Name = "formEditar";
+            this.formEditar.Size = new System.Drawing.Size(1085, 527);
+            this.formEditar.TabIndex = 73;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,6 +527,8 @@
             this.Controls.Add(this.formInicial1);
             this.Controls.Add(this.grafica1);
             this.Controls.Add(this.report);
+            this.Controls.Add(this.calculadoraEcu);
+            this.Controls.Add(this.formEditar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -572,6 +591,8 @@
         private FormInicial formInicial1;
         private Grafica grafica1;
         private Report report;
+        private CalculadoraEcu calculadoraEcu;
+        private FormEditar formEditar;
     }
 }
 

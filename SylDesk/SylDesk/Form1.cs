@@ -43,11 +43,17 @@ namespace SylDesk
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            calculadoraEcuToFront();
+        }
+
         public void formRegistro1ToFront()
         {
             formRegistro11.Empty();
             formRegistro11.BringToFront();
         }
+        
         public void formRegistro2ToFront(int proyecto_id)
         {
             formRegistro21.Initialize(proyecto_id);
@@ -77,6 +83,16 @@ namespace SylDesk
             report.InitializeLifetimeService();
             report.BringToFront();
         }
-        
+        public void calculadoraEcuToFront()
+        {
+            calculadoraEcu.Initialize();
+            calculadoraEcu.BringToFront();
+        }
+        public void formEditarToFront()
+        {
+            formEditar.Initialize();
+            formEditar.BringToFront();
+        }
+
     }
 }
