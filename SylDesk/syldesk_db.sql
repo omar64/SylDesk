@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-09-2018 a las 00:21:15
+-- Tiempo de generación: 13-09-2018 a las 22:59:15
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -29,51 +29,48 @@ SET time_zone = "+00:00";
 CREATE TABLE `ecuaciones_volumen` (
   `id` int(11) NOT NULL,
   `grupo` int(11) NOT NULL,
+  `inventario` varchar(30) NOT NULL,
+  `umafor` varchar(30) NOT NULL,
+  `especie` varchar(30) NOT NULL,
   `ecuacion` varchar(100) NOT NULL,
   `num1` decimal(10,8) NOT NULL,
   `num2` decimal(10,8) NOT NULL,
-  `num3` decimal(10,8) NOT NULL,
-  `umafor` varchar(30) NOT NULL,
-  `especie` varchar(30) NOT NULL
+  `num3` decimal(10,8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `ecuaciones_volumen`
 --
 
-INSERT INTO `ecuaciones_volumen` (`id`, `grupo`, `ecuacion`, `num1`, `num2`, `num3`, `umafor`, `especie`) VALUES
-(1, 3, 'Exp(-10.07810188+1.92989964*LN(DIAMETRO)+1.07701930*LN(ALTURATOTAL))', '-10.07810188', '1.92989964', '1.07701930', 'norte', 'Lysiloma latisiliquum'),
-(2, 4, 'Exp(-9.67348922+1.86887607*LN(DIAMETRO)+1.01858126*LN(ALTURATOTAL))', '-9.67348922', '1.86887607', '1.01858126', 'norte', 'Swartzia cubensis'),
-(3, 5, 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))', '-9.52087090', '1.85580925', '0.96207943', 'norte', 'Lonchocarpus rugosus'),
-(4, 6, 'Exp(-9.75894522+1.90722681*LN(DIAMETRO)+1.01257027*LN(ALTURATOTAL))', '-9.75894522', '1.90722681', '1.01257027', 'norte', 'Annona squamosa'),
-(5, 9, 'Exp(-9.45811109+1.82568462*LN(DIAMETRO)+1.00281859*LN(ALTURATOTAL))', '-9.45811109', '1.82568462', '1.00281859', 'norte', 'Nectandra coriacea'),
-(6, 11, 'Exp(-9.88332368+1.9131735*LN(DIAMETRO)+1.07391062*LN(ALTURATOTAL))', '-9.88332368', '1.91317350', '1.07391062', 'norte', 'Pouteria campechiana'),
-(7, 12, 'Exp(-9.63573531+1.90246451*LN(DIAMETRO)+0.97875991*LN(ALTURATOTAL))', '-9.63573531', '1.90246451', '0.97875991', 'norte', 'Bursera simaruba'),
-(8, 13, 'Exp(-9.84052491+1.92716537*LN(DIAMETRO)+1.00282618*LN(ALTURATOTAL))', '-9.84052491', '1.92716537', '1.00282618', 'norte', 'Simarouba amara'),
-(9, 14, 'Exp(-9.84052491+1.92716537*LN(DIAMETRO)+1.00282618*LN(ALTURATOTAL))', '-9.84052491', '1.92716537', '1.00282618', 'norte', 'Spondias mombin'),
-(10, 15, 'Exp(-9.45441486+1.86841300*LN(DIAMETRO)+0.93163520*LN(ALTURATOTAL))', '-9.45441486', '1.86841300', '0.93163520', 'norte', 'Metopium brownei'),
-(11, 16, 'Exp(-9.63519924+1.83658572*LN(DIAMETRO)+1.02444663*LN(ALTURATOTAL))', '-9.63519924', '1.83658572', '1.02444663', 'norte', 'Sebastiania adenophora'),
-(12, 17, 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))', '-9.52375084', '1.81551953', '1.03039019', 'norte', 'Allophylus cominia'),
-(13, 1, 'Exp(-9.74143096+1.95019123*LN(DIAMETRO)+0.95525758*LN(ALTURATOTAL))', '-9.74143096', '1.95019123', '0.95525758', 'norte', ''),
-(14, 2, 'Exp(-9.6873264+1.87777278*LN(DIAMETRO)+1.01495306*LN(ALTURATOTAL))', '-9.68732640', '1.87777278', '1.01495306', 'norte', ''),
-(15, 7, 'Exp(-9.89061571+1.924447818*LN(DIAMETRO)+1.04545276*LN(ALTURATOTAL))', '-9.89061571', '1.92444782', '1.04545276', 'norte', ''),
-(16, 8, 'Exp(-9.68220947+1.89488929*LN(DIAMETRO)+1.01453225*LN(ALTURATOTAL))', '-9.68220947', '1.89488929', '1.01453225', 'norte', ''),
-(17, 10, 'Exp(-9.71122198+1.8428147*LN(DIAMETRO)+1.05795417*LN(ALTURATOTAL))', '-9.71122198', '1.84281470', '1.05795417', 'norte', ''),
-(18, 5, 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))', '-9.52087090', '1.85580925', '0.96207943', 'norte', 'Caesalpinia gaumeri'),
-(19, 5, 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))', '-9.52087090', '1.85580925', '0.96207943', 'norte', 'Lonchocarpus guatemalensis 	'),
-(20, 5, 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))', '-9.52087090', '1.85580925', '0.96207943', 'norte', 'Piscidia piscipula'),
-(21, 6, 'Exp(-9.75894522+1.90722681*LN(DIAMETRO)+1.01257027*LN(ALTURATOTAL))', '-9.75894522', '1.90722681', '1.01257027', 'norte', 'Ficus cotinifolia'),
-(22, 9, 'Exp(-9.45811109+1.82568462*LN(DIAMETRO)+1.00281859*LN(ALTURATOTAL))', '-9.45811109', '1.82568462', '1.00281859', 'norte', 'Chrysophyllum mexicanum'),
-(23, 9, 'Exp(-9.45811109+1.82568462*LN(DIAMETRO)+1.00281859*LN(ALTURATOTAL))', '-9.45811109', '1.82568462', '1.00281859', 'norte', 'Diospyros yucatanensis'),
-(24, 16, 'Exp(-9.63519924+1.83658572*LN(DIAMETRO)+1.02444663*LN(ALTURATOTAL))', '-9.63519924', '1.83658572', '1.02444663', 'norte', 'Coccoloba spicata'),
-(25, 17, 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))', '-9.52375084', '1.81551953', '1.03039019', 'norte', 'Allophyllus cominia'),
-(26, 17, 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))', '-9.52375084', '1.81551953', '1.03039019', 'norte', 'Luehea speciosa'),
-(27, 17, 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))', '-9.52375084', '1.81551953', '1.03039019', 'norte', 'Sabal yapa'),
-(28, 17, 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))', '-9.52375084', '1.81551953', '1.03039019', 'norte', 'Vitex gaumeri'),
-(29, 17, 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))', '-9.52375084', '1.81551953', '1.03039019', 'norte', 'Ficus maxima'),
-(30, 17, 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))', '-9.52375084', '1.81551953', '1.03039019', 'norte', 'Zuelania guidoniai'),
-(31, 0, 'sqrt(pi*ALTURATOTAL*DIAMETRO)', '1.00000000', '2.00000000', '3.00000000', 'sur', 'Lysiloma latisiliquum'),
-(32, 0, 'ln((1/DIAMETRO)^2)', '1.00000000', '2.00000000', '3.00000000', 'centro', 'Lysiloma latisiliquum');
+INSERT INTO `ecuaciones_volumen` (`id`, `grupo`, `inventario`, `umafor`, `especie`, `ecuacion`, `num1`, `num2`, `num3`) VALUES
+(1, 3, '', 'norte', 'Lysiloma latisiliquum', 'Exp(-10.07810188+1.92989964*LN(DIAMETRO)+1.07701930*LN(ALTURATOTAL))', '-10.07810188', '1.92989964', '1.07701930'),
+(2, 4, '', 'norte', 'Swartzia cubensis', 'Exp(-9.67348922+1.86887607*LN(DIAMETRO)+1.01858126*LN(ALTURATOTAL))', '-9.67348922', '1.86887607', '1.01858126'),
+(3, 5, '', 'norte', 'Lonchocarpus rugosus', 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))', '-9.52087090', '1.85580925', '0.96207943'),
+(4, 6, '', 'norte', 'Annona squamosa', 'Exp(-9.75894522+1.90722681*LN(DIAMETRO)+1.01257027*LN(ALTURATOTAL))', '-9.75894522', '1.90722681', '1.01257027'),
+(5, 9, '', 'norte', 'Nectandra coriacea', 'Exp(-9.45811109+1.82568462*LN(DIAMETRO)+1.00281859*LN(ALTURATOTAL))', '-9.45811109', '1.82568462', '1.00281859'),
+(6, 11, '', 'norte', 'Pouteria campechiana', 'Exp(-9.88332368+1.9131735*LN(DIAMETRO)+1.07391062*LN(ALTURATOTAL))', '-9.88332368', '1.91317350', '1.07391062'),
+(7, 12, '', 'norte', 'Bursera simaruba', 'Exp(-9.63573531+1.90246451*LN(DIAMETRO)+0.97875991*LN(ALTURATOTAL))', '-9.63573531', '1.90246451', '0.97875991'),
+(8, 13, '', 'norte', 'Simarouba amara', 'Exp(-9.84052491+1.92716537*LN(DIAMETRO)+1.00282618*LN(ALTURATOTAL))', '-9.84052491', '1.92716537', '1.00282618'),
+(9, 14, '', 'norte', 'Spondias mombin', 'Exp(-9.84052491+1.92716537*LN(DIAMETRO)+1.00282618*LN(ALTURATOTAL))', '-9.84052491', '1.92716537', '1.00282618'),
+(10, 15, '', 'norte', 'Metopium brownei', 'Exp(-9.45441486+1.86841300*LN(DIAMETRO)+0.93163520*LN(ALTURATOTAL))', '-9.45441486', '1.86841300', '0.93163520'),
+(11, 16, '', 'norte', 'Sebastiania adenophora', 'Exp(-9.63519924+1.83658572*LN(DIAMETRO)+1.02444663*LN(ALTURATOTAL))', '-9.63519924', '1.83658572', '1.02444663'),
+(12, 17, '', 'norte', 'Allophylus cominia', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))', '-9.52375084', '1.81551953', '1.03039019'),
+(18, 5, '', 'norte', 'Caesalpinia gaumeri', 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))', '-9.52087090', '1.85580925', '0.96207943'),
+(19, 5, '', 'norte', 'Lonchocarpus guatemalensis 	', 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))', '-9.52087090', '1.85580925', '0.96207943'),
+(20, 5, '', 'norte', 'Piscidia piscipula', 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))', '-9.52087090', '1.85580925', '0.96207943'),
+(21, 6, '', 'norte', 'Ficus cotinifolia', 'Exp(-9.75894522+1.90722681*LN(DIAMETRO)+1.01257027*LN(ALTURATOTAL))', '-9.75894522', '1.90722681', '1.01257027'),
+(22, 9, '', 'norte', 'Chrysophyllum mexicanum', 'Exp(-9.45811109+1.82568462*LN(DIAMETRO)+1.00281859*LN(ALTURATOTAL))', '-9.45811109', '1.82568462', '1.00281859'),
+(23, 9, '', 'norte', 'Diospyros yucatanensis', 'Exp(-9.45811109+1.82568462*LN(DIAMETRO)+1.00281859*LN(ALTURATOTAL))', '-9.45811109', '1.82568462', '1.00281859'),
+(24, 16, '', 'norte', 'Coccoloba spicata', 'Exp(-9.63519924+1.83658572*LN(DIAMETRO)+1.02444663*LN(ALTURATOTAL))', '-9.63519924', '1.83658572', '1.02444663'),
+(25, 17, '', 'norte', 'Allophyllus cominia', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))', '-9.52375084', '1.81551953', '1.03039019'),
+(26, 17, '', 'norte', 'Luehea speciosa', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))', '-9.52375084', '1.81551953', '1.03039019'),
+(27, 17, '', 'norte', 'Sabal yapa', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))', '-9.52375084', '1.81551953', '1.03039019'),
+(28, 17, '', 'norte', 'Vitex gaumeri', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))', '-9.52375084', '1.81551953', '1.03039019'),
+(29, 17, '', 'norte', 'Ficus maxima', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))', '-9.52375084', '1.81551953', '1.03039019'),
+(30, 17, '', 'norte', 'Zuelania guidoniai', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))', '-9.52375084', '1.81551953', '1.03039019'),
+(31, 0, '', 'sur', 'Lysiloma latisiliquum', 'sqrt(pi*ALTURATOTAL*DIAMETRO)', '1.00000000', '2.00000000', '3.00000000'),
+(32, 0, '', 'centro', 'Lysiloma latisiliquum', 'ln((1/DIAMETRO)^2)', '1.00000000', '2.00000000', '3.00000000'),
+(33, 0, 'p1', 'p1', 'p1', '(PERIMETRO*DIAMETRO)^2', '0.00000000', '0.00000000', '0.00000000');
 
 -- --------------------------------------------------------
 
@@ -2951,6 +2948,18 @@ INSERT INTO `proyectos` (`id`, `nombre`, `superficie`, `sector`, `descripcion`, 
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `proyecto_ecuaciones`
+--
+
+CREATE TABLE `proyecto_ecuaciones` (
+  `id` int(11) NOT NULL,
+  `proyecto_id` int(11) NOT NULL,
+  `ecuaciones_volumen_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `sitios`
 --
 
@@ -3049,6 +3058,12 @@ ALTER TABLE `proyectos`
   ADD UNIQUE KEY `nombre` (`nombre`);
 
 --
+-- Indices de la tabla `proyecto_ecuaciones`
+--
+ALTER TABLE `proyecto_ecuaciones`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `sitios`
 --
 ALTER TABLE `sitios`
@@ -3063,7 +3078,7 @@ ALTER TABLE `sitios`
 -- AUTO_INCREMENT de la tabla `ecuaciones_volumen`
 --
 ALTER TABLE `ecuaciones_volumen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT de la tabla `especies`
 --
@@ -3094,6 +3109,11 @@ ALTER TABLE `individuos`
 --
 ALTER TABLE `proyectos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT de la tabla `proyecto_ecuaciones`
+--
+ALTER TABLE `proyecto_ecuaciones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `sitios`
 --

@@ -31,16 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEditar));
             this.label1 = new System.Windows.Forms.Label();
             this.textNombre = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textSuperficie = new System.Windows.Forms.TextBox();
+            this.textSector = new System.Windows.Forms.TextBox();
+            this.textDescr = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelNombre = new System.Windows.Forms.Label();
             this.buttonRegistrar = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -60,28 +64,28 @@
             this.textNombre.Size = new System.Drawing.Size(303, 21);
             this.textNombre.TabIndex = 93;
             // 
-            // textBox2
+            // textSuperficie
             // 
-            this.textBox2.Location = new System.Drawing.Point(153, 99);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(303, 21);
-            this.textBox2.TabIndex = 95;
+            this.textSuperficie.Location = new System.Drawing.Point(153, 99);
+            this.textSuperficie.Name = "textSuperficie";
+            this.textSuperficie.Size = new System.Drawing.Size(303, 21);
+            this.textSuperficie.TabIndex = 95;
             // 
-            // textBox3
+            // textSector
             // 
-            this.textBox3.Location = new System.Drawing.Point(153, 150);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(303, 21);
-            this.textBox3.TabIndex = 96;
+            this.textSector.Location = new System.Drawing.Point(153, 150);
+            this.textSector.Name = "textSector";
+            this.textSector.Size = new System.Drawing.Size(303, 21);
+            this.textSector.TabIndex = 96;
             // 
-            // textBox4
+            // textDescr
             // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Location = new System.Drawing.Point(153, 212);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(409, 160);
-            this.textBox4.TabIndex = 97;
+            this.textDescr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textDescr.Location = new System.Drawing.Point(153, 212);
+            this.textDescr.Multiline = true;
+            this.textDescr.Name = "textDescr";
+            this.textDescr.Size = new System.Drawing.Size(409, 160);
+            this.textDescr.TabIndex = 97;
             // 
             // label3
             // 
@@ -115,19 +119,20 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.groupBox1.Controls.Add(this.labelNombre);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.textDescr);
+            this.groupBox1.Controls.Add(this.buttonRegistrar);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.textSector);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textNombre);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textSuperficie);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(68, 58);
+            this.groupBox1.Location = new System.Drawing.Point(26, 39);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(814, 388);
+            this.groupBox1.Size = new System.Drawing.Size(771, 477);
             this.groupBox1.TabIndex = 101;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Editar";
@@ -151,24 +156,54 @@
             this.buttonRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
             this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistrar.Location = new System.Drawing.Point(748, 466);
+            this.buttonRegistrar.Location = new System.Drawing.Point(541, 378);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(152, 48);
             this.buttonRegistrar.TabIndex = 102;
             this.buttonRegistrar.Text = "Registrar";
             this.buttonRegistrar.UseVisualStyleBackColor = false;
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(33, 57);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(216, 380);
+            this.listView1.TabIndex = 102;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(106, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.TabIndex = 103;
+            this.label2.Text = "Ecuaciones";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox2.Controls.Add(this.listView1);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Location = new System.Drawing.Point(815, 39);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(266, 477);
+            this.groupBox2.TabIndex = 104;
+            this.groupBox2.TabStop = false;
+            // 
             // FormEditar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.buttonRegistrar);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "FormEditar";
             this.Size = new System.Drawing.Size(1096, 528);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,14 +213,17 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textNombre;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textSuperficie;
+        private System.Windows.Forms.TextBox textSector;
+        private System.Windows.Forms.TextBox textDescr;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Button buttonRegistrar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

@@ -23,13 +23,33 @@ namespace SylDesk
         }
 
         public void Initialize(int proyecto_id)
-        {          
+        {            
             this.proyecto_id = proyecto_id;
+            cmd = SqlConnector.getConnection(cmd);
+
+            string sqlQueryString = "SELECT nombre,superficie, sector, descripcion FROM `proyectos` where id = @proyecto_id";
+            cmd.CommandText = sqlQueryString;
+            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+
+            var results = cmd.ExecuteReader();
+
+            if (results.Read())
+            {
+                textNombre.Text = results[0].ToString();
+                textSuperficie.Text = results[1].ToString();
+                textSector.Text = results[2].ToString();
+                textDescr.Text = results[3].ToString();
+            }
+
+            results.Close();
+            results.Dispose();
         }
 
         public void Empty()
         {
 
         }
+
+        
     }
 }
