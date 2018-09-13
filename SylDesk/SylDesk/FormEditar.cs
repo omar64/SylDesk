@@ -28,5 +28,9 @@ namespace SylDesk
             this.proyecto_id = proyecto_id;
         }
 
+        public void Empty()
+        {
+
+        }
     }
 }

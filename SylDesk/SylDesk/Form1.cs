@@ -88,9 +88,9 @@ namespace SylDesk
             calculadoraEcu.Initialize();
             calculadoraEcu.BringToFront();
         }
-        public void formEditarToFront()
+        public void formEditarToFront(int proyecto_id)
         {
-            formEditar.Initialize();
+            formEditar.Initialize(proyecto_id);
             formEditar.BringToFront();
         }
 

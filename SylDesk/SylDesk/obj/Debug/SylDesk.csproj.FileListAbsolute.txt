@@ -243,3 +243,5 @@ C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDes
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.CalculadoraEcu.resources
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.FormEditar.resources
+C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.CalculadoraEcu.resources
+C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.FormEditar.resources

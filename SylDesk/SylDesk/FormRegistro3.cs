@@ -45,6 +45,7 @@ namespace SylDesk
             dataGridView1_Populate(textBoxBuscar.Text);
         }
 
+        /*
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
@@ -62,18 +63,16 @@ namespace SylDesk
                 //FormRegistro2 obj = new FormRegistro2((int)dataGridView1.Rows[e.RowIndex].Cells[0].Value); //objeto declarado para abrir el form2 proyecto_idI
 
                 //obj.Show(); //abre el form declarado con el objeto
-            }
-            
-
+            }            
         }
+        */
+
 
         private void sendMessageBox(string message)
         {
-            /*string messageBoxText = message;
+            string messageBoxText = message;
             string caption = "Error";
-            MessageBoxButton button = MessageBoxButton.OK;
-            MessageBoxImage icon = MessageBoxImage.Error;
-            System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);*/
+            MessageBox.Show(messageBoxText, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void dataGridView1_Populate(string text)
@@ -127,7 +126,7 @@ namespace SylDesk
                 }
                 else if (e.ColumnIndex == this.editar.Index)
                 {
-                    form1.formEditarToFront((int)dataGridView1.Rows[e.RowIndex].Cells[1].Value);
+                    form1.formEditarToFront((int)dataGridView1.Rows[e.RowIndex].Cells[0].Value);
                     // etc.
                 }
             }
