@@ -37,7 +37,7 @@ namespace SylDesk
             textBox2.Text = "";
             textBox3.Text = "";
             Ecuaciontext.Text = "";
-            listView2.Items.Clear();
+            //listView2.Items.Clear();
         }
 
         private void num1_Click(object sender, EventArgs e)
@@ -396,7 +396,7 @@ namespace SylDesk
 
             cmd = SqlConnector.getConnection(cmd);
 
-            string sqlQueryString = "SELECT inventario FROM `ecuaciones_volumen` where especie = @especie AND umafor = @umafor ";
+            string sqlQueryString = "SELECT inventario, ecuacion FROM `ecuaciones_volumen` where especie = @especie AND umafor = @umafor ";
             cmd.CommandText = sqlQueryString;
             cmd.Parameters.AddWithValue("@especie", textBox3.Text);
             cmd.Parameters.AddWithValue("@umafor", textBox2.Text);
@@ -406,6 +406,7 @@ namespace SylDesk
             if (results.Read())
             {
                 textBox1.Text = results[0].ToString();
+                Ecuaciontext.Text = results[1].ToString();
             }
 
             results.Close();
@@ -414,7 +415,7 @@ namespace SylDesk
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && Ecuaciontext.Text != "")
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && Ecuaciontext.Text != "")
             {
                 cmd = SqlConnector.getConnection(cmd);
                 cmd.CommandText = "Insert into ecuaciones_volumen(inventario, umafor, especie, ecuacion)Values(@inventario, @umafor, @especie, @ecuacion)";
@@ -425,6 +426,10 @@ namespace SylDesk
                 cmd.ExecuteNonQuery();
 
                 Initialize();
+            }
+            else
+            {
+                sendMessageBox()
             }
         }
 
@@ -445,6 +450,20 @@ namespace SylDesk
 
             results.Close();
             results.Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Empty();
+        }
+
+        private void sendMessageBox(string message)
+        {
+            string messageBoxText = message;
+            string caption = "Error";
+            //MessageBoxButton button = MessageBoxButton.OK;
+            //MessageBoxImage icon = MessageBoxImage.Error;
+            MessageBox.Show(messageBoxText, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

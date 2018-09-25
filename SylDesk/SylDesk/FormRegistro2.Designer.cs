@@ -81,8 +81,6 @@
             this.buttonGrafica = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonImportar = new System.Windows.Forms.Button();
-            this.labelUmafor = new System.Windows.Forms.Label();
-            this.comboBoxUmafor = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIndividuos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -532,30 +530,10 @@
             this.buttonImportar.UseVisualStyleBackColor = true;
             this.buttonImportar.Click += new System.EventHandler(this.buttonImportar_Click);
             // 
-            // labelUmafor
-            // 
-            this.labelUmafor.AutoSize = true;
-            this.labelUmafor.Location = new System.Drawing.Point(449, 135);
-            this.labelUmafor.Name = "labelUmafor";
-            this.labelUmafor.Size = new System.Drawing.Size(41, 13);
-            this.labelUmafor.TabIndex = 93;
-            this.labelUmafor.Text = "Umafor";
-            // 
-            // comboBoxUmafor
-            // 
-            this.comboBoxUmafor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxUmafor.FormattingEnabled = true;
-            this.comboBoxUmafor.Location = new System.Drawing.Point(496, 132);
-            this.comboBoxUmafor.Name = "comboBoxUmafor";
-            this.comboBoxUmafor.Size = new System.Drawing.Size(319, 21);
-            this.comboBoxUmafor.TabIndex = 94;
-            // 
             // FormRegistro2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.comboBoxUmafor);
-            this.Controls.Add(this.labelUmafor);
             this.Controls.Add(this.buttonImportar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonGrafica);
@@ -637,7 +615,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn grupo;
         private System.Windows.Forms.DataGridViewTextBoxColumn volumen;
         private System.Windows.Forms.DataGridViewTextBoxColumn areabasal;
-        private System.Windows.Forms.Label labelUmafor;
-        private System.Windows.Forms.ComboBox comboBoxUmafor;
     }
 }

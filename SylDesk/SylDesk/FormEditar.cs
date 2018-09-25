@@ -52,6 +52,22 @@ namespace SylDesk
 
         }
 
+        public void listview1_Populate()
+        {
+            cmd = SqlConnector.getConnection(cmd);
+
+            string sqlQueryString = "SELECT umafor_region FROM `proyecto_ecuaciones` Where proyecto_id = @proyecto_id";
+            cmd.CommandText = sqlQueryString;
+            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+
+            var results = cmd.ExecuteReader();
+
+            while (results.Read())
+            {
+                listView1.Items.Add(results[0].ToString());
+            }
+        }
+
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
             cmd = SqlConnector.getConnection(cmd);

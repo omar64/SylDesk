@@ -28,7 +28,6 @@ namespace SylDesk
             this.form1 = form1;
             InitializeComponent();
             getEspecies();
-            comboBoxUmafor_Populate();
         }
 
         public void Initialize(int proyecto_id)
@@ -185,43 +184,54 @@ namespace SylDesk
         {
             try
             {
-                if (comboBoxUmafor.SelectedItem != null)
+                if (comboBoxAreas.SelectedIndex == 0)
                 {
-                    if (comboBoxAreas.SelectedIndex == 0)
-                    {
-                        String sdiametro = row.Cells["diametro"].Value.ToString();
-                        String salturatotal = row.Cells["alturatotal"].Value.ToString();
-                        String sgrupo = row.Cells["grupo"].Value.ToString();
-                        String snombrecientifico = row.Cells["nombrecientifico"].Value.ToString();
+                    String sdiametro = row.Cells["diametro"].Value.ToString();
+                    String salturatotal = row.Cells["alturatotal"].Value.ToString();
+                    //String sgrupo = row.Cells["grupo"].Value.ToString();
+                    String snombrecientifico = row.Cells["nombrecientifico"].Value.ToString();
 
-                        if (!sdiametro.Equals("") && !salturatotal.Equals("") && !sgrupo.Equals("") && !snombrecientifico.Equals(""))
+                    double diametro = Convert.ToDouble(row.Cells["diametro"].Value);
+                    double alturatotal = Convert.ToDouble(row.Cells["alturatotal"].Value);
+                    double perimetro = Convert.ToDouble(row.Cells["perimetro"].Value);
+                    double areabasal = Convert.ToDouble(row.Cells["areabasal"].Value);
+                    double alturafl = Convert.ToDouble(row.Cells["alturafl"].Value);
+                    double coberturalargo = Convert.ToDouble(row.Cells["coberturalargo"].Value);
+                    double coberturaancho = Convert.ToDouble(row.Cells["coberturaancho"].Value);
+
+
+                    if (!sdiametro.Equals("") && !salturatotal.Equals("") && !snombrecientifico.Equals("")) // && !sgrupo.Equals("")
+                    {
+
+                        cmd = SqlConnector.getConnection(cmd);
+
+                        string sqlQueryString = "SELECT umafor_region FROM `proyecto_ecuaciones` Where proyecto_id = @proyecto_id";
+                        cmd.CommandText = sqlQueryString;
+                        cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+
+                        var results = cmd.ExecuteReader();
+
+                        while (results.Read())
                         {
                             cmd = SqlConnector.getConnection(cmd);
 
                             //String sqlQueryString = "SELECT ecuacion, num1, num2, num3 FROM ecuaciones_volumen where grupo = @grupo";
-                            String sqlQueryString = "SELECT ecuacion FROM ecuaciones_volumen where umafor = @umafor AND especie = @especie";
+                            sqlQueryString = "SELECT ecuacion FROM ecuaciones_volumen where umafor = @umafor AND especie = @especie";
                             cmd.CommandText = sqlQueryString;
 
-                            cmd.Parameters.AddWithValue("@umafor", comboBoxUmafor.SelectedItem.ToString());
+                            cmd.Parameters.AddWithValue("@umafor", results[0].ToString());
                             cmd.Parameters.AddWithValue("@especie", snombrecientifico);
                             //cmd.Parameters.AddWithValue("@grupo", row.Cells["grupo"].Value);
 
 
-                            var results = cmd.ExecuteReader();
-                            if (results.Read())
+                            var results2 = cmd.ExecuteReader();
+                            if (results2.Read())
                             {
-                                string ecuacion = results[0].ToString();
+                                string ecuacion = results2[0].ToString();
                                 //sendMessageBox("V= " + ecuacion);
                                 //double num1 = Convert.ToDouble(results[1].ToString());
                                 //double num2 = Convert.ToDouble(results[2].ToString());
                                 //double num3 = Convert.ToDouble(results[3].ToString());
-                                double diametro = Convert.ToDouble(row.Cells["diametro"].Value);
-                                double alturatotal = Convert.ToDouble(row.Cells["alturatotal"].Value);
-                                double perimetro = Convert.ToDouble(row.Cells["perimetro"].Value);
-                                double areabasal = Convert.ToDouble(row.Cells["areabasal"].Value);
-                                double alturafl = Convert.ToDouble(row.Cells["alturafl"].Value);
-                                double coberturalargo = Convert.ToDouble(row.Cells["coberturalargo"].Value);
-                                double coberturaancho = Convert.ToDouble(row.Cells["coberturaancho"].Value);
 
                                 //double volumen = Math.Exp(num1 + num2 * Math.Log(diametro) + num3 * Math.Log(alturatotal));
                                 MathParser parser = new MathParser();
@@ -251,49 +261,24 @@ namespace SylDesk
 
                                 sendMessageBox("" + result + " ---- " + volumen);
 
-                                /*
-                                if (Convert.ToString(row.Cells["grupo"].Value) == "5")
-                                {
-
-                                    string ecuacion2 = "ln(1)";
-                                    sendMessageBox(result);
-                                
-                                
-                                    try
-                                    {
-                                        double x1 = parser.Parse(result, false);
-                                        sendMessageBox("x1 = " + x1);
-                                    }
-                                    catch (Exception e)
-                                    {
-                                        sendMessageBox("" + e);
-                                    }
-                                }                            
-                                */
-
-                                results.Close();
-                                results.Dispose();
+                                results2.Close();
+                                results2.Dispose();
 
                                 row.Cells["volumen"].Value = volumen;
                                 updateData("volumenvv", row, "" + volumen);
+                                break;
                             }
                             else
-                            {
-                                sendMessageBox("oh ok");
+                            {                                
                                 results.Close();
                                 results.Dispose();
 
                                 row.Cells["volumen"].Value = volumen;
                                 updateData("volumenvv", row, "" + volumen);
                             }
-
-
                         }
+                        sendMessageBox("No existe ecuacion para esta especie con la lista dada al proyecto, por favor introduzcala");
                     }
-                }
-                else
-                {
-                    sendMessageBox("Este sitio no tiene seleccionado Umafor");
                 }
             }
             catch (Exception e)
@@ -486,24 +471,6 @@ namespace SylDesk
             //labelDescripcion.Text = labelDescripcionText;
         }
 
-        private void comboBoxUmafor_Populate()
-        {
-            cmd = SqlConnector.getConnection(cmd);
-
-            string sqlQueryString = "SELECT umafor FROM `ecuaciones_volumen` Group By umafor";
-            cmd.CommandText = sqlQueryString;
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-
-            var results = cmd.ExecuteReader();
-
-            while (results.Read())
-            {
-                comboBoxUmafor.Items.Add(results[0]);
-            }
-
-            results.Close();
-            results.Dispose();
-        }
 
         private void comboBoxSitios_Populate()
         {

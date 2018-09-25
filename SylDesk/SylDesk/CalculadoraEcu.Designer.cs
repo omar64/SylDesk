@@ -77,11 +77,11 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonBorrar = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.buttonBorrar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -476,6 +476,7 @@
             this.button2.TabIndex = 12;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label5
             // 
@@ -537,6 +538,15 @@
             this.panel2.Size = new System.Drawing.Size(210, 461);
             this.panel2.TabIndex = 1;
             // 
+            // buttonBorrar
+            // 
+            this.buttonBorrar.Location = new System.Drawing.Point(122, 426);
+            this.buttonBorrar.Name = "buttonBorrar";
+            this.buttonBorrar.Size = new System.Drawing.Size(75, 23);
+            this.buttonBorrar.TabIndex = 54;
+            this.buttonBorrar.Text = "Borrar";
+            this.buttonBorrar.UseVisualStyleBackColor = true;
+            // 
             // listView2
             // 
             this.listView2.Activation = System.Windows.Forms.ItemActivation.OneClick;
@@ -579,15 +589,6 @@
             this.label8.Size = new System.Drawing.Size(191, 24);
             this.label8.TabIndex = 13;
             this.label8.Text = "Editor de Ecuaciones";
-            // 
-            // buttonBorrar
-            // 
-            this.buttonBorrar.Location = new System.Drawing.Point(122, 426);
-            this.buttonBorrar.Name = "buttonBorrar";
-            this.buttonBorrar.Size = new System.Drawing.Size(75, 23);
-            this.buttonBorrar.TabIndex = 54;
-            this.buttonBorrar.Text = "Borrar";
-            this.buttonBorrar.UseVisualStyleBackColor = true;
             // 
             // CalculadoraEcu
             // 
