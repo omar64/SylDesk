@@ -446,5 +446,24 @@ namespace SylDesk
             results.Close();
             results.Dispose();
         }
+
+        private void buttonBorrar_Click(object sender, EventArgs e)
+        {
+            int i = listView2.SelectedIndices[0];
+            string s = listView2.Items[i].Text;
+            
+            string s1 = s.Substring(0, s.IndexOf("-")).Trim();
+            string s2 = s.Substring(s.IndexOf("-") + 1).Trim();
+
+            cmd = SqlConnector.getConnection(cmd);
+            cmd.CommandText = "DELETE FROM ecuaciones_volumen WHERE umafor = @umafor AND especie = @especie";
+            cmd.Parameters.AddWithValue("@umafor", s1);
+            cmd.Parameters.AddWithValue("@especie", s2);
+            //cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
+            //cmd.Parameters.AddWithValue("@numero", dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value);
+            cmd.ExecuteNonQuery();
+
+            listBoxEcuacion_Populate();
+        }
     }
 }
