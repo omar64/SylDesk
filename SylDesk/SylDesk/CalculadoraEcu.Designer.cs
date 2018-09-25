@@ -81,6 +81,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.buttonBorrar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -469,7 +470,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(604, 426);
+            this.button2.Location = new System.Drawing.Point(544, 426);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 12;
@@ -528,6 +529,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.buttonBorrar);
             this.panel2.Controls.Add(this.listView2);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Location = new System.Drawing.Point(835, 48);
@@ -544,7 +546,7 @@
             listViewItem10});
             this.listView2.Location = new System.Drawing.Point(6, 38);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(191, 398);
+            this.listView2.Size = new System.Drawing.Size(191, 376);
             this.listView2.TabIndex = 15;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Tile;
@@ -577,6 +579,15 @@
             this.label8.Size = new System.Drawing.Size(191, 24);
             this.label8.TabIndex = 13;
             this.label8.Text = "Editor de Ecuaciones";
+            // 
+            // buttonBorrar
+            // 
+            this.buttonBorrar.Location = new System.Drawing.Point(122, 426);
+            this.buttonBorrar.Name = "buttonBorrar";
+            this.buttonBorrar.Size = new System.Drawing.Size(75, 23);
+            this.buttonBorrar.TabIndex = 54;
+            this.buttonBorrar.Text = "Borrar";
+            this.buttonBorrar.UseVisualStyleBackColor = true;
             // 
             // CalculadoraEcu
             // 
@@ -643,5 +654,6 @@
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button buttonBorrar;
     }
 }

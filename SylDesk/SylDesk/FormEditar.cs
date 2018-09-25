@@ -43,6 +43,8 @@ namespace SylDesk
 
             results.Close();
             results.Dispose();
+
+
         }
 
         public void Empty()
@@ -50,6 +52,29 @@ namespace SylDesk
 
         }
 
-        
+        private void buttonGuardar_Click(object sender, EventArgs e)
+        {
+            cmd = SqlConnector.getConnection(cmd);
+            cmd.CommandText = "UPDATE proyectos SET nombre = @nombre AND superficie = @superficie AND sector = @sector AND descripcion = @descripcion WHERE id = @id";
+            //cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+            cmd.Parameters.AddWithValue("@nombre", textNombre.Text);
+            cmd.Parameters.AddWithValue("@superficie", textSuperficie.Text);
+            cmd.Parameters.AddWithValue("@sector", textSector.Text);
+            cmd.Parameters.AddWithValue("@descripcion", textDescr.Text);
+            cmd.Parameters.AddWithValue("@id", proyecto_id);
+            cmd.ExecuteNonQuery();
+
+            /*cmd = SqlConnector.getConnection(cmd);
+            cmd.CommandText = "Insert into individuos(proyecto_id, sitio, area, numero, arbolnumeroensitio, bifurcados)" +
+                "Values(@proyecto_id, @sitio, @area, @numero, @arbolnumeroensitio, false)";
+            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+            cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
+            cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
+            cmd.Parameters.AddWithValue("@numero", row.Cells["numero"].Value);
+            cmd.Parameters.AddWithValue("@arbolnumeroensitio", row.Cells["arbolnumeroensitio"].Value);
+            cmd.ExecuteNonQuery();*/
+
+
+        }
     }
 }
