@@ -44,7 +44,7 @@ namespace SylDesk
             results.Close();
             results.Dispose();
 
-
+            listview1_Populate();
         }
 
         public void Empty()

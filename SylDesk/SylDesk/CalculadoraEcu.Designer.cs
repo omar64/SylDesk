@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("perimetro");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("diametro");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("altura fuste limpio");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("altura total");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("cobertura largo");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("cobertura ancho");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("area basal");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Manikara sapota-Zona Chunjujub");
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Bursera Simaruba-Norte de Quintana Roo");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Bursera Simaruba-Zona Chunjujub");
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("perimetro");
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("diametro");
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("altura fuste limpio");
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("altura total");
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("cobertura largo");
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("cobertura ancho");
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("area basal");
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("Manikara sapota-Zona Chunjujub");
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("Bursera Simaruba-Norte de Quintana Roo");
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("Bursera Simaruba-Zona Chunjujub");
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -150,21 +150,21 @@
             // 
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            listViewItem1.Tag = "PERIMETRO";
-            listViewItem2.Tag = "DIAMETRO";
-            listViewItem3.Tag = "ALTURAFL";
-            listViewItem4.Tag = "ALTURATOTAL";
-            listViewItem5.Tag = "COBERTURALARGO";
-            listViewItem6.Tag = "COBERTURAANCHO";
-            listViewItem7.Tag = "AREABASAL";
+            listViewItem11.Tag = "PERIMETRO";
+            listViewItem12.Tag = "DIAMETRO";
+            listViewItem13.Tag = "ALTURAFL";
+            listViewItem14.Tag = "ALTURATOTAL";
+            listViewItem15.Tag = "COBERTURALARGO";
+            listViewItem16.Tag = "COBERTURAANCHO";
+            listViewItem17.Tag = "AREABASAL";
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7});
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16,
+            listViewItem17});
             this.listView1.LabelWrap = false;
             this.listView1.Location = new System.Drawing.Point(14, 218);
             this.listView1.MultiSelect = false;
@@ -551,9 +551,9 @@
             // 
             this.listView2.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem8,
-            listViewItem9,
-            listViewItem10});
+            listViewItem18,
+            listViewItem19,
+            listViewItem20});
             this.listView2.Location = new System.Drawing.Point(6, 38);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(191, 376);
@@ -589,6 +589,16 @@
             this.label8.Size = new System.Drawing.Size(191, 24);
             this.label8.TabIndex = 13;
             this.label8.Text = "Editor de Ecuaciones";
+            // 
+            // buttonBorrar
+            // 
+            this.buttonBorrar.Location = new System.Drawing.Point(122, 426);
+            this.buttonBorrar.Name = "buttonBorrar";
+            this.buttonBorrar.Size = new System.Drawing.Size(75, 23);
+            this.buttonBorrar.TabIndex = 54;
+            this.buttonBorrar.Text = "Borrar";
+            this.buttonBorrar.UseVisualStyleBackColor = true;
+            this.buttonBorrar.Click += new System.EventHandler(this.buttonBorrar_Click);
             // 
             // CalculadoraEcu
             // 
