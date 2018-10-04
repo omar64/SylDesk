@@ -106,7 +106,7 @@ namespace SylDesk
                     updateData("familia", row, textBoxFamilia);
                     updateData("genero", row, textBoxGenero);
 
-                    grupo_especie(row);
+                    //grupo_especie(row);
                     volumen_ecuacion(row);                    
                 }
                 else
@@ -199,6 +199,7 @@ namespace SylDesk
                     double coberturalargo = Convert.ToDouble(row.Cells["coberturalargo"].Value);
                     double coberturaancho = Convert.ToDouble(row.Cells["coberturaancho"].Value);
 
+                    bool found_flag = false;
 
                     if (!sdiametro.Equals("") && !salturatotal.Equals("") && !snombrecientifico.Equals("")) // && !sgrupo.Equals("")
                     {
@@ -210,8 +211,19 @@ namespace SylDesk
                         cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
 
                         var results = cmd.ExecuteReader();
+                        List<String> umafor_region_list = new List<String>();
 
                         while (results.Read())
+                        {
+                            umafor_region_list.Add(results[0].ToString());
+                            SqlConnector.sendMessageBox("H" + results[0].ToString());
+
+                        }
+                        results.Close();
+                        results.Dispose();
+
+
+                        foreach(String umafor_region in umafor_region_list)
                         {
                             cmd = SqlConnector.getConnection(cmd);
 
@@ -219,15 +231,16 @@ namespace SylDesk
                             sqlQueryString = "SELECT ecuacion FROM ecuaciones_volumen where umafor = @umafor AND especie = @especie";
                             cmd.CommandText = sqlQueryString;
 
-                            cmd.Parameters.AddWithValue("@umafor", results[0].ToString());
+                            cmd.Parameters.AddWithValue("@umafor", umafor_region);
                             cmd.Parameters.AddWithValue("@especie", snombrecientifico);
                             //cmd.Parameters.AddWithValue("@grupo", row.Cells["grupo"].Value);
 
-
-                            var results2 = cmd.ExecuteReader();
-                            if (results2.Read())
+                            results = cmd.ExecuteReader();
+                            if (results.Read())
                             {
-                                string ecuacion = results2[0].ToString();
+                                SqlConnector.sendMessageBox("Z" + umafor_region);
+
+                                string ecuacion = results[0].ToString();
                                 //sendMessageBox("V= " + ecuacion);
                                 //double num1 = Convert.ToDouble(results[1].ToString());
                                 //double num2 = Convert.ToDouble(results[2].ToString());
@@ -259,25 +272,26 @@ namespace SylDesk
 
                                 double volumen = parser.Parse(result, false);
 
-                                sendMessageBox("" + result + " ---- " + volumen);
-
-                                results2.Close();
-                                results2.Dispose();
-
+                                SqlConnector.sendMessageBox("" + result + " ---- " + volumen);
+                                
                                 row.Cells["volumen"].Value = volumen;
                                 updateData("volumenvv", row, "" + volumen);
+                                found_flag = true;
                                 break;
                             }
-                            else
-                            {                                
-                                results.Close();
-                                results.Dispose();
-
-                                row.Cells["volumen"].Value = volumen;
-                                updateData("volumenvv", row, "" + volumen);
-                            }
+                            results.Close();
+                            results.Dispose();
                         }
-                        sendMessageBox("No existe ecuacion para esta especie con la lista dada al proyecto, por favor introduzcala");
+                        SqlConnector.sendMessageBox("A");
+
+                        results.Close();
+                        results.Dispose();
+                        SqlConnector.sendMessageBox("B");
+                        if (!found_flag)
+                        {
+                            SqlConnector.sendMessageBox("Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.");
+                            form1.calculadoraEcuToFront(1, proyecto_id);
+                        }
                     }
                 }
             }

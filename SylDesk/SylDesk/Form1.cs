@@ -45,7 +45,7 @@ namespace SylDesk
 
         private void button4_Click(object sender, EventArgs e)
         {
-            calculadoraEcuToFront();
+            calculadoraEcuToFront(0, -1);
         }
 
         public void formRegistro1ToFront()
@@ -83,9 +83,9 @@ namespace SylDesk
             report.InitializeLifetimeService();
             report.BringToFront();
         }
-        public void calculadoraEcuToFront()
+        public void calculadoraEcuToFront(int status, int proyecto_id)
         {
-            calculadoraEcu.Initialize();
+            calculadoraEcu.Initialize(status, proyecto_id);
             calculadoraEcu.BringToFront();
         }
         public void formEditarToFront(int proyecto_id)

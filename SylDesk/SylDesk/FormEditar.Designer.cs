@@ -119,7 +119,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox1.BackColor = System.Drawing.Color.Gainsboro;
             this.groupBox1.Controls.Add(this.labelNombre);
             this.groupBox1.Controls.Add(this.textDescr);
             this.groupBox1.Controls.Add(this.buttonGuardar);
@@ -132,7 +132,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(26, 39);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(771, 477);
+            this.groupBox1.Size = new System.Drawing.Size(784, 477);
             this.groupBox1.TabIndex = 101;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Editar";
@@ -149,7 +149,7 @@
             // 
             // buttonGuardar
             // 
-            this.buttonGuardar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGuardar.BackColor = System.Drawing.Color.White;
             this.buttonGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -166,7 +166,7 @@
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(33, 57);
+            this.listView1.Location = new System.Drawing.Point(18, 55);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(216, 380);
             this.listView1.TabIndex = 102;
@@ -176,20 +176,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(106, 35);
+            this.label2.Location = new System.Drawing.Point(15, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(80, 13);
             this.label2.TabIndex = 103;
-            this.label2.Text = "Ecuaciones";
+            this.label2.Text = "Umafor/Region";
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox2.BackColor = System.Drawing.Color.Gainsboro;
             this.groupBox2.Controls.Add(this.listView1);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(815, 39);
+            this.groupBox2.Location = new System.Drawing.Point(827, 39);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(266, 477);
+            this.groupBox2.Size = new System.Drawing.Size(254, 477);
             this.groupBox2.TabIndex = 104;
             this.groupBox2.TabStop = false;
             // 

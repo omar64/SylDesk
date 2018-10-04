@@ -67,6 +67,11 @@ namespace SylDesk
                 textBoxCategoriaDeNorma.Text = "";
 
                 dataGridViewEspecies_Populate("");
+                SqlConnector.sendMessageBox("Especie agregada!");
+            }
+            else
+            {
+                SqlConnector.sendMessageBox("Ingrese todos los datos");
             }
         }
 
