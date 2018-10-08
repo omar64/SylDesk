@@ -819,7 +819,7 @@ namespace SylDesk
                 string labelFamiliaText = results[1].ToString();
                 string labelGeneroText = results[2].ToString();
 
-                especiesObject.Add(new Especie(labelNombreCientificoText, labelFamiliaText, labelGeneroText));
+                //especiesObject.Add(new Especie(labelNombreCientificoText, labelFamiliaText, labelGeneroText));
                 especiesString.Add(labelNombreCientificoText);
             }
 

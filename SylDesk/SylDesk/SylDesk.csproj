@@ -92,7 +92,9 @@
     <Compile Include="CalculadoraEcu.Designer.cs">
       <DependentUpon>CalculadoraEcu.cs</DependentUpon>
     </Compile>
+    <Compile Include="EcuacionVolumen.cs" />
     <Compile Include="Especie.cs" />
+    <Compile Include="Familia.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,22 +143,27 @@
     <Compile Include="FormRegistroEspecie.Designer.cs">
       <DependentUpon>FormRegistroEspecie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Genero.cs" />
     <Compile Include="Grafica.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Grafica.Designer.cs">
       <DependentUpon>Grafica.cs</DependentUpon>
     </Compile>
+    <Compile Include="Individuo.cs" />
     <Compile Include="IVI.cs" />
     <Compile Include="MathParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proyecto.cs" />
+    <Compile Include="ProyectoEcuacion.cs" />
     <Compile Include="Report.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Report.Designer.cs">
       <DependentUpon>Report.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sitio.cs" />
     <Compile Include="SqlConnector.cs" />
     <EmbeddedResource Include="CalculadoraEcu.resx">
       <DependentUpon>CalculadoraEcu.cs</DependentUpon>
