@@ -23,11 +23,15 @@ namespace SylDesk
         MySqlCommand cmd;
         AutoCompleteStringCollection source = new AutoCompleteStringCollection();
 
-        public FormRegistro2(Form1 form1)
+        public FormRegistro2()
         {
-            this.form1 = form1;
             InitializeComponent();
             getEspecies();
+        }
+
+        public void setForm(Form1 form1)
+        {
+            this.form1 = form1;
         }
 
         public void Initialize(int proyecto_id)
@@ -123,7 +127,7 @@ namespace SylDesk
                     //
                     if (dialog_result == DialogResult.Yes)
                     {                        
-                        form1.formRegistroEspecieToFront("" + row.Cells[column_name].Value);
+                        form1.formRegistroEspecieToFront(proyecto_id, 1, "" + row.Cells[column_name].Value);
                     }
                     row.Cells[column_name].Value = "";
 
@@ -135,11 +139,12 @@ namespace SylDesk
                     updateData("nombrecomun", row, "");
                     updateData("familia", row, "");
                     updateData("genero", row, "");
-                    updateData("volumenvv", row, "");
+                    updateData("volumen", row, "");
 
                 }
             }
 
+            /*
             cmd = SqlConnector.getConnection(cmd);
             cmd.CommandText = "UPDATE individuos SET " + column_name + " = @" + column_name + " WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero";
             cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
@@ -148,6 +153,7 @@ namespace SylDesk
             cmd.Parameters.AddWithValue("@numero", row.Cells["numero"].Value);
             cmd.Parameters.AddWithValue("@" + column_name, row.Cells[column_name].Value);
             cmd.ExecuteNonQuery();
+            */
         }
 
         private void grupo_especie(DataGridViewRow row)
@@ -188,8 +194,7 @@ namespace SylDesk
                 {
                     String sdiametro = row.Cells["diametro"].Value.ToString();
                     String salturatotal = row.Cells["alturatotal"].Value.ToString();
-                    //String sgrupo = row.Cells["grupo"].Value.ToString();
-                    String snombrecientifico = row.Cells["nombrecientifico"].Value.ToString();
+                    String nombrecientifico = row.Cells["nombrecientifico"].Value.ToString();
 
                     double diametro = Convert.ToDouble(row.Cells["diametro"].Value);
                     double alturatotal = Convert.ToDouble(row.Cells["alturatotal"].Value);
@@ -201,7 +206,7 @@ namespace SylDesk
 
                     bool found_flag = false;
 
-                    if (!sdiametro.Equals("") && !salturatotal.Equals("") && !snombrecientifico.Equals("")) // && !sgrupo.Equals("")
+                    if (!sdiametro.Equals("") && !salturatotal.Equals("") && !nombrecientifico.Equals("")) // && !sgrupo.Equals("")
                     {
 
                         cmd = SqlConnector.getConnection(cmd);
@@ -216,8 +221,6 @@ namespace SylDesk
                         while (results.Read())
                         {
                             umafor_region_list.Add(results[0].ToString());
-                            SqlConnector.sendMessageBox("H" + results[0].ToString());
-
                         }
                         results.Close();
                         results.Dispose();
@@ -232,13 +235,12 @@ namespace SylDesk
                             cmd.CommandText = sqlQueryString;
 
                             cmd.Parameters.AddWithValue("@umafor", umafor_region);
-                            cmd.Parameters.AddWithValue("@especie", snombrecientifico);
+                            cmd.Parameters.AddWithValue("@especie", nombrecientifico);
                             //cmd.Parameters.AddWithValue("@grupo", row.Cells["grupo"].Value);
 
                             results = cmd.ExecuteReader();
                             if (results.Read())
                             {
-                                SqlConnector.sendMessageBox("Z" + umafor_region);
 
                                 string ecuacion = results[0].ToString();
                                 //sendMessageBox("V= " + ecuacion);
@@ -275,22 +277,20 @@ namespace SylDesk
                                 SqlConnector.sendMessageBox("" + result + " ---- " + volumen);
                                 
                                 row.Cells["volumen"].Value = volumen;
-                                updateData("volumenvv", row, "" + volumen);
+                                updateData("volumen", row, "" + volumen);
                                 found_flag = true;
                                 break;
                             }
                             results.Close();
                             results.Dispose();
                         }
-                        SqlConnector.sendMessageBox("A");
 
                         results.Close();
                         results.Dispose();
-                        SqlConnector.sendMessageBox("B");
                         if (!found_flag)
                         {
                             SqlConnector.sendMessageBox("Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.");
-                            form1.calculadoraEcuToFront(1, proyecto_id);
+                            form1.calculadoraEcuToFront(proyecto_id, 1, nombrecientifico);
                         }
                     }
                 }
@@ -513,7 +513,7 @@ namespace SylDesk
 
             string sqlQueryString = "SELECT cuadrante, numero, arbolnumeroensitio, bifurcados, nombrecientifico, " +
                 "nombrecomun, familia, genero, perimetro, diametro, alturafl, alturatotal, coberturalargo, coberturaancho, " +
-                "formadefuste, estadocondicion, grupo, volumenvv " +
+                "formadefuste, estadocondicion, grupo, volumen " +
                 " from `individuos` where proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area ORDER BY arbolnumeroensitio DESC";
             cmd.CommandText = sqlQueryString;
             cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
@@ -923,8 +923,8 @@ namespace SylDesk
                 }
 
                 cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "Insert into individuos(proyecto_id, sitio, area, cuadrante, numero, arbolnumeroensitio, familia, nombrecientifico, nombrecomun, perimetro, diametro, alturafl, alturatotal, coberturalargo, coberturaancho, formadefuste, estadocondicion, bifurcados, atcategorias, dncategorias, volumenvv, areabasal)" +
-                    "Values(@proyecto_id, @sitio, @area, @cuadrante, @numero, @arbolnumeroensitio, @familia, @nombrecientifico, @nombrecomun, @perimetro, @diametro, @alturafl, @alturatotal, @coberturalargo, @coberturaancho, @formadefuste, @estadocondicion, @bifurcados, @atcategorias, @dncategorias, @volumenvv, @areabasal)";
+                cmd.CommandText = "Insert into individuos(proyecto_id, sitio, area, cuadrante, numero, arbolnumeroensitio, familia, nombrecientifico, nombrecomun, perimetro, diametro, alturafl, alturatotal, coberturalargo, coberturaancho, formadefuste, estadocondicion, bifurcados, atcategorias, dncategorias, volumen, areabasal)" +
+                    "Values(@proyecto_id, @sitio, @area, @cuadrante, @numero, @arbolnumeroensitio, @familia, @nombrecientifico, @nombrecomun, @perimetro, @diametro, @alturafl, @alturatotal, @coberturalargo, @coberturaancho, @formadefuste, @estadocondicion, @bifurcados, @atcategorias, @dncategorias, @volumen, @areabasal)";
                 cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
                 cmd.Parameters.AddWithValue("@sitio", array[0]);
                 cmd.Parameters.AddWithValue("@area", array[1]);
@@ -954,7 +954,7 @@ namespace SylDesk
                 cmd.Parameters.AddWithValue("@atcategorias", array[16]);
                 cmd.Parameters.AddWithValue("@dncategorias", array[17]);
                 cmd.Parameters.AddWithValue("@grupo", array[18]);
-                cmd.Parameters.AddWithValue("@volumenvv", array[20]);
+                cmd.Parameters.AddWithValue("@volumenv", array[20]);
                 double areabasal = 0;
                 try
                 {

@@ -36,16 +36,90 @@ namespace SylDesk
         public static void sendMessageBox(string message)
         {
             string messageBoxText = message;
-            string caption = "Notice";
-            System.Windows.Forms.MessageBox.Show(messageBoxText, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string caption = "Aviso";
+            System.Windows.Forms.MessageBox.Show(messageBoxText, caption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         public static DialogResult sendYNMessageBox(string message)
         {
             string messageBoxText = message;
-            string caption = "Question";
+            string caption = "Decision";
             DialogResult dr = System.Windows.Forms.MessageBox.Show(messageBoxText, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             return dr;
+        }
+
+        ////////////////////////////// any especific value /////////////////////////////////////////////
+        public static List<String> anyEspecificValueGet(String query, String[] var_names, String[] var_values)
+        {
+            List<String> list_values = new List<String>();
+            cmd = SqlConnector.getConnection(cmd);
+            string sqlQueryString = query;
+            cmd.CommandText = sqlQueryString;
+            for (int i = 0; i < var_names.Length; i++)
+            {
+                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
+            }
+
+            var results = cmd.ExecuteReader();
+            if(results.Read())
+            {
+                int j = 0;
+                while(true)
+                {
+                    try
+                    {
+                        //sendMessageBox("" + results[j]);
+                        list_values.Add("" + results[j]);
+                        j++;
+                    }
+                    catch (Exception ex)
+                    {
+                        break;
+                    }                
+                }
+            }
+
+            results.Close();
+            results.Dispose();
+            return list_values;
+        }
+
+        public static List<List<String>> anyEspecificValuesGet(String query, String[] var_names, String[] var_values)
+        {
+            List<List<String>> list_list_values = new List<List<String>>();
+            cmd = SqlConnector.getConnection(cmd);
+            string sqlQueryString = query;
+            cmd.CommandText = sqlQueryString;
+            for (int i = 0; i < var_names.Length; i++)
+            {
+                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
+            }
+
+            var results = cmd.ExecuteReader();
+            while (results.Read())
+            {
+                //list_list_values.Add(new List<String>());
+                int j = 0;
+                List<String> aux = new List<String>();
+                while (true)
+                {
+                    try
+                    {
+                        //sendMessageBox("" + results[k]);
+                        aux.Add("" + results[j]);
+                        j++;
+                    }
+                    catch (Exception ex)
+                    {
+                        break;
+                    }
+                }
+                list_list_values.Add(aux);
+            }
+
+            results.Close();
+            results.Dispose();
+            return list_list_values;
         }
 
         ////////////////////////////// Proyectos /////////////////////////////////////////////
@@ -78,61 +152,20 @@ namespace SylDesk
             cmd = SqlConnector.getConnection(cmd);
             string sqlQueryString = query;
             cmd.CommandText = sqlQueryString;
-            sendMessageBox("" + var_names.Length);
             for (int i = 0; i < var_names.Length; i++)
             {
                 cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
             }
 
-            sendMessageBox("k");
             var results = cmd.ExecuteReader();
-            sendMessageBox("hoo yu");
             if (results.Read())
             {
-                sendMessageBox("resultsss" + results[0]);
                 proyecto = new Proyecto("" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4], "" + results[5], "" + results[6]);
             }
-            sendMessageBox("y no onsuer");
             results.Close();
             results.Dispose();
-            sendMessageBox("pls");
 
             return proyecto;
-        }
-
-
-        public static void proyectoPost(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
-        }
-
-        public static void proyectoPut(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
-        }
-
-        public static void proyectoDelete(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
         }
 
         ////////////////////////////// Proyecto Ecuaciones /////////////////////////////////////////////
@@ -158,26 +191,25 @@ namespace SylDesk
             return list_proyecto_ecuaciones;
         }
 
-        public static void proyectoEcuacionPost(String query, String[] var_names, String[] var_values)
+        public static ProyectoEcuacion proyectoEcuacionGet(String query, String[] var_names, String[] var_values)
         {
+            ProyectoEcuacion proyecto_ecuacion = null;
             cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
+            string sqlQueryString = query;
+            cmd.CommandText = sqlQueryString;
             for (int i = 0; i < var_names.Length; i++)
             {
                 cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
             }
-            cmd.ExecuteNonQuery();
-        }
 
-        public static void proyectoEcuacionDelete(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
+            var results = cmd.ExecuteReader();
+            while (results.Read())
             {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
+                proyecto_ecuacion = new ProyectoEcuacion("" + results[0], "" + results[1], "" + results[2]);
             }
-            cmd.ExecuteNonQuery();
+            results.Close();
+            results.Dispose();
+            return proyecto_ecuacion;
         }
 
         ////////////////////////////// Sitios /////////////////////////////////////////////
@@ -224,28 +256,6 @@ namespace SylDesk
             return sitio;
         }
 
-        public static void sitioPost(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
-        }
-
-        public static void sitioDelete(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
-        }
-
         ////////////////////////////// Individuos /////////////////////////////////////////////
 
         public static List<Individuo> individuosGet(String query, String[] var_names, String[] var_values)
@@ -288,39 +298,6 @@ namespace SylDesk
             results.Close();
             results.Dispose();
             return individuo;
-        }
-
-        public static void individuoPost(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
-        }
-
-        public static void individuoPut(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
-        }
-
-        public static void individuoDelete(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
         }
 
         ////////////////////////////// Familias /////////////////////////////////////////////
@@ -367,28 +344,6 @@ namespace SylDesk
             return familia;
         }
 
-        public static void familiaPost(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
-        }
-
-        public static void familiaDelete(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
-        }
-
         ////////////////////////////// Generos /////////////////////////////////////////////
 
         public static List<Genero> generosGet(String query, String[] var_names, String[] var_values)
@@ -431,28 +386,6 @@ namespace SylDesk
             results.Close();
             results.Dispose();
             return genero;
-        }
-
-        public static void generoPost(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
-        }
-
-        public static void generoDelete(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
         }
 
         ////////////////////////////// Especies /////////////////////////////////////////////
@@ -499,39 +432,6 @@ namespace SylDesk
             return especie;
         }
 
-        public static void especiePost(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
-        }
-
-        public static void especiePut(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
-        }
-
-        public static void especieDelete(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
-        }
-
         ////////////////////////////// Ecuaciones Volumen /////////////////////////////////////////////
 
         public static List<EcuacionVolumen> ecuacionesVolumenGet(String query, String[] var_names, String[] var_values)
@@ -540,15 +440,19 @@ namespace SylDesk
             cmd = SqlConnector.getConnection(cmd);
             string sqlQueryString = query;
             cmd.CommandText = sqlQueryString;
-            for (int i = 0; i < var_names.Length; i++)
+
+            if (var_names != null)
             {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
+                for (int i = 0; i < var_names.Length; i++)
+                {
+                    cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
+                }
             }
 
             var results = cmd.ExecuteReader();
             while (results.Read())
             {
-                list_ecuaciones_volumen.Add(new EcuacionVolumen("" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4], "" + results[5]));
+                list_ecuaciones_volumen.Add(new EcuacionVolumen("" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4]));
             }
             results.Close();
             results.Dispose();
@@ -569,36 +473,16 @@ namespace SylDesk
             var results = cmd.ExecuteReader();
             while (results.Read())
             {
-                ecuacion_volumen = new EcuacionVolumen("" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4], "" + results[5]);
+                ecuacion_volumen = new EcuacionVolumen("" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4]);
             }
             results.Close();
             results.Dispose();
             return ecuacion_volumen;
         }
 
-        public static void ecuacionVolumenPost(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
-        }
+        ////////////////////////////// Post Put Delete Generico /////////////////////////////////////////////
 
-        public static void ecuacionVolumenPut(String query, String[] var_names, String[] var_values)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = query;
-            for (int i = 0; i < var_names.Length; i++)
-            {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
-            }
-            cmd.ExecuteNonQuery();
-        }
-
-        public static void ecuacionVolumenDelete(String query, String[] var_names, String[] var_values)
+        public static void postPutDeleteGenerico(String query, String[] var_names, String[] var_values)
         {
             cmd = SqlConnector.getConnection(cmd);
             cmd.CommandText = query;

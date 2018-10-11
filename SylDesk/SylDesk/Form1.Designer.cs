@@ -19,7 +19,7 @@
             }
             base.Dispose(disposing);
         }
-
+                
         #region Código generado por el Diseñador de Windows Forms
 
         /// <summary>
@@ -57,15 +57,17 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.formRegistro11 = new SylDesk.FormRegistro1(this);
-            this.formRegistro21 = new SylDesk.FormRegistro2(this);
-            this.formRegistro31 = new SylDesk.FormRegistro3(this);
-            this.formRegistroEspecie1 = new SylDesk.FormRegistroEspecie(this);
-            this.formInicial1 = new SylDesk.FormInicial(this);
-            this.grafica1 = new SylDesk.Grafica(this);
-            this.report = new SylDesk.Report(this);
-            this.calculadoraEcu = new SylDesk.CalculadoraEcu(this);
-            this.formEditar = new SylDesk.FormEditar(this);
+
+            this.formRegistro1 = new SylDesk.FormRegistro1();
+            this.formRegistro2 = new SylDesk.FormRegistro2();
+            this.formRegistro3 = new SylDesk.FormRegistro3();
+            this.formRegistroEspecie = new SylDesk.FormRegistroEspecie();
+            this.formInicial = new SylDesk.FormInicial();
+            this.grafica = new SylDesk.Grafica();
+            this.report = new SylDesk.Report();
+            this.calculadoraEcu = new SylDesk.CalculadoraEcu();
+            this.formEditar = new SylDesk.FormEditar();
+
             //this.formKml1. new FormKml(this);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -454,45 +456,45 @@
             // 
             // formRegistro11
             // 
-            this.formRegistro11.Location = new System.Drawing.Point(3, 161);
-            this.formRegistro11.Name = "formRegistro11";
-            this.formRegistro11.Size = new System.Drawing.Size(1085, 527);
-            this.formRegistro11.TabIndex = 73;
+            this.formRegistro1.Location = new System.Drawing.Point(3, 161);
+            this.formRegistro1.Name = "formRegistro11";
+            this.formRegistro1.Size = new System.Drawing.Size(1085, 527);
+            this.formRegistro1.TabIndex = 73;
             // 
             // formRegistro21
             // 
-            this.formRegistro21.Location = new System.Drawing.Point(3, 161);
-            this.formRegistro21.Name = "formRegistro21";
-            this.formRegistro21.Size = new System.Drawing.Size(1085, 527);
-            this.formRegistro21.TabIndex = 73;
+            this.formRegistro2.Location = new System.Drawing.Point(3, 161);
+            this.formRegistro2.Name = "formRegistro21";
+            this.formRegistro2.Size = new System.Drawing.Size(1085, 527);
+            this.formRegistro2.TabIndex = 73;
             // 
             // formRegistro31
             // 
-            this.formRegistro31.Location = new System.Drawing.Point(3, 161);
-            this.formRegistro31.Name = "formRegistro31";
-            this.formRegistro31.Size = new System.Drawing.Size(1085, 527);
-            this.formRegistro31.TabIndex = 73;
+            this.formRegistro3.Location = new System.Drawing.Point(3, 161);
+            this.formRegistro3.Name = "formRegistro31";
+            this.formRegistro3.Size = new System.Drawing.Size(1085, 527);
+            this.formRegistro3.TabIndex = 73;
             // 
             // formRegistroEspecie1
             // 
-            this.formRegistroEspecie1.Location = new System.Drawing.Point(3, 161);
-            this.formRegistroEspecie1.Name = "formRegistroEspecie1";
-            this.formRegistroEspecie1.Size = new System.Drawing.Size(1085, 527);
-            this.formRegistroEspecie1.TabIndex = 73;
+            this.formRegistroEspecie.Location = new System.Drawing.Point(3, 161);
+            this.formRegistroEspecie.Name = "formRegistroEspecie1";
+            this.formRegistroEspecie.Size = new System.Drawing.Size(1085, 527);
+            this.formRegistroEspecie.TabIndex = 73;
             // 
             // formInicial1
             // 
-            this.formInicial1.Location = new System.Drawing.Point(3, 161);
-            this.formInicial1.Name = "formInicial1";
-            this.formInicial1.Size = new System.Drawing.Size(1100, 700);
-            this.formInicial1.TabIndex = 73;
+            this.formInicial.Location = new System.Drawing.Point(3, 161);
+            this.formInicial.Name = "formInicial1";
+            this.formInicial.Size = new System.Drawing.Size(1100, 700);
+            this.formInicial.TabIndex = 73;
             // 
             // Grafica
             // 
-            this.grafica1.Location = new System.Drawing.Point(3, 161);
-            this.grafica1.Name = "grafica1";
-            this.grafica1.Size = new System.Drawing.Size(1085, 527);
-            this.grafica1.TabIndex = 73;
+            this.grafica.Location = new System.Drawing.Point(3, 161);
+            this.grafica.Name = "grafica1";
+            this.grafica.Size = new System.Drawing.Size(1085, 527);
+            this.grafica.TabIndex = 73;
             // 
             // Reporte
             // 
@@ -520,12 +522,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 700);
-            this.Controls.Add(this.formRegistro11);
-            this.Controls.Add(this.formRegistro21);
-            this.Controls.Add(this.formRegistro31);
-            this.Controls.Add(this.formRegistroEspecie1);
-            this.Controls.Add(this.formInicial1);
-            this.Controls.Add(this.grafica1);
+            this.Controls.Add(this.formRegistro1);
+            this.Controls.Add(this.formRegistro2);
+            this.Controls.Add(this.formRegistro3);
+            this.Controls.Add(this.formRegistroEspecie);
+            this.Controls.Add(this.formInicial);
+            this.Controls.Add(this.grafica);
             this.Controls.Add(this.report);
             this.Controls.Add(this.calculadoraEcu);
             this.Controls.Add(this.formEditar);
@@ -552,6 +554,7 @@
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
 
         }
 
@@ -584,15 +587,15 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private FormRegistro1 formRegistro11;
-        private FormRegistro2 formRegistro21;
-        private FormRegistro3 formRegistro31;
-        private FormRegistroEspecie formRegistroEspecie1;
-        private FormInicial formInicial1;
-        private Grafica grafica1;
-        private Report report;
-        private CalculadoraEcu calculadoraEcu;
-        private FormEditar formEditar;
+        private FormRegistro1 formRegistro1 = null;
+        private FormRegistro2 formRegistro2 = null;
+        private FormRegistro3 formRegistro3 = null;
+        private FormRegistroEspecie formRegistroEspecie = null;
+        private FormInicial formInicial = null;
+        private Grafica grafica = null;
+        private Report report = null;
+        private CalculadoraEcu calculadoraEcu = null;
+        private FormEditar formEditar = null;
     }
 }
 

@@ -14,10 +14,14 @@ namespace SylDesk
     {
         Form1 form1;
 
-        public FormInicial(Form1 form1)
+        public FormInicial()
+        {
+            InitializeComponent();
+        }
+
+        public void setForm(Form1 form1)
         {
             this.form1 = form1;
-            InitializeComponent();
         }
     }
 }

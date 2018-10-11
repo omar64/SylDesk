@@ -33,14 +33,14 @@ namespace SylDesk
         private string dncategorias;
         private string ab;
         private string grupo;
-        private string volumenvv;
+        private string volumen;
         private string areabasal;
 
         public Individuo(string id, string proyecto_id, string sitio, string area, string cuadrante, 
             string numero, string numeroarbolensitio, string bifurcados, string nombrecientifico, string nombrecomun,
             string familia, string genero, string perimetro, string diametro, string alturafl, string alturatotal,
             string coberturalargo, string coberturaancho, string formafuste, string estadocondicion, string rad,
-            string atcategorias, string dncategorias, string ab, string grupo, string volumenvv, string areabasal)
+            string atcategorias, string dncategorias, string ab, string grupo, string volumen, string areabasal)
         {
             this.id = id;
             this.proyecto_id = proyecto_id;
@@ -67,7 +67,7 @@ namespace SylDesk
             this.dncategorias = dncategorias;
             this.ab = ab;
             this.grupo = grupo;
-            this.volumenvv = volumenvv;
+            this.volumen = volumen;
             this.areabasal = areabasal;
     }
 
@@ -195,9 +195,9 @@ namespace SylDesk
             return grupo;
         }
 
-        public string getVolumenvv()
+        public string getVolumen()
         {
-            return volumenvv;
+            return volumen;
         }
 
         public string getAreaBasal()

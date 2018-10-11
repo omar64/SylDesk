@@ -1,12 +1,5 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SylDesk
@@ -15,34 +8,32 @@ namespace SylDesk
     {
         private Form1 form1;
         private int proyecto_id;
-        MySqlCommand cmd;
-        public FormEditar(Form1 form1)
+        public FormEditar()
+        {
+            InitializeComponent();
+        }
+
+        public void setForm(Form1 form1)
         {
             this.form1 = form1;
-            InitializeComponent();
         }
 
         public void Initialize(int proyecto_id)
         {            
             this.proyecto_id = proyecto_id;
-            cmd = SqlConnector.getConnection(cmd);
 
-            string sqlQueryString = "SELECT nombre,superficie, sector, descripcion FROM `proyectos` where id = @proyecto_id";
-            cmd.CommandText = sqlQueryString;
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-
-            var results = cmd.ExecuteReader();
-
-            if (results.Read())
+            Proyecto proyecto = SqlConnector.proyectoGet(
+                "SELECT * FROM `proyectos` where id = @proyecto_id",
+                new String[] { "proyecto_id" },
+                new String[] { "" + proyecto_id }
+            );
+            if (proyecto != null)
             {
-                textNombre.Text = results[0].ToString();
-                textSuperficie.Text = results[1].ToString();
-                textSector.Text = results[2].ToString();
-                textDescr.Text = results[3].ToString();
+                textNombre.Text = proyecto.getNombre();
+                textSuperficie.Text = proyecto.getSuperficie();
+                textSector.Text = proyecto.getSector();
+                textDescr.Text = proyecto.getDescripcion();
             }
-
-            results.Close();
-            results.Dispose();
 
             listview1_Populate();
         }
@@ -54,43 +45,36 @@ namespace SylDesk
 
         public void listview1_Populate()
         {
-            cmd = SqlConnector.getConnection(cmd);
-
-            string sqlQueryString = "SELECT umafor_region FROM `proyecto_ecuaciones` Where proyecto_id = @proyecto_id";
-            cmd.CommandText = sqlQueryString;
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-
-            var results = cmd.ExecuteReader();
-
-            while (results.Read())
+            listView1.Items.Clear();
+            List<ProyectoEcuacion> list_proyecto_ecuaciones = SqlConnector.proyectoEcuacionesGet(
+                "SELECT * FROM `proyecto_ecuaciones` Where proyecto_id = @proyecto_id",
+                new String[] { "proyecto_id" },
+                new String[] { "" + proyecto_id }
+            );
+            foreach (ProyectoEcuacion proyecto_ecuacion in list_proyecto_ecuaciones)
             {
-                listView1.Items.Add(results[0].ToString());
+                listView1.Items.Add(proyecto_ecuacion.getUmaforRegion());
             }
         }
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "UPDATE proyectos SET nombre = @nombre AND superficie = @superficie AND sector = @sector AND descripcion = @descripcion WHERE id = @id";
-            //cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@nombre", textNombre.Text);
-            cmd.Parameters.AddWithValue("@superficie", textSuperficie.Text);
-            cmd.Parameters.AddWithValue("@sector", textSector.Text);
-            cmd.Parameters.AddWithValue("@descripcion", textDescr.Text);
-            cmd.Parameters.AddWithValue("@id", proyecto_id);
-            cmd.ExecuteNonQuery();
-
-            /*cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "Insert into individuos(proyecto_id, sitio, area, numero, arbolnumeroensitio, bifurcados)" +
-                "Values(@proyecto_id, @sitio, @area, @numero, @arbolnumeroensitio, false)";
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-            cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
-            cmd.Parameters.AddWithValue("@numero", row.Cells["numero"].Value);
-            cmd.Parameters.AddWithValue("@arbolnumeroensitio", row.Cells["arbolnumeroensitio"].Value);
-            cmd.ExecuteNonQuery();*/
-
-
+            if (textNombre.Text != "" && textSuperficie.Text != "" && textSector.Text != "" && textDescr.Text != "")
+            {
+                SqlConnector.postPutDeleteGenerico(
+                    "UPDATE `proyectos` SET nombre = @nombre, superficie = @superficie, sector = @sector, descripcion = @descripcion WHERE id = @id",
+                    new String[] { "nombre", "superficie", "sector", "descripcion", "id" },
+                    new String[] { textNombre.Text, textSuperficie.Text, textSector.Text, textDescr.Text, "" + proyecto_id }
+                );
+                SqlConnector.sendMessageBox("Se han guardado los cambios");
+                form1.formRegistro3ToFront();
+            }
+            else
+            {
+                SqlConnector.sendMessageBox("Faltan Datos");
+            }
         }
+
+        //FALTA MANERA DE AGREGAR ECUACIONES
     }
 }

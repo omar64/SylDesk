@@ -15,14 +15,23 @@ namespace SylDesk
         public Form1()
         {
             InitializeComponent();
-            //formRegistro1ToFront();
+
+            this.formRegistro1.setForm(this);
+            this.formRegistro2.setForm(this);
+            this.formRegistro3.setForm(this);
+            this.formRegistroEspecie.setForm(this);
+            this.formInicial.setForm(this);
+            this.grafica.setForm(this);
+            this.report.setForm(this);
+            this.calculadoraEcu.setForm(this);
+            this.formEditar.setForm(this);
+
             formInicialToFront();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             formRegistro1ToFront();
-            //formRegistroEspecieToFront();
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
@@ -31,7 +40,7 @@ namespace SylDesk
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            formRegistroEspecieToFront("");
+            formRegistroEspecieToFront(-1, 0, "");
         }
         private void button10_Click(object sender, EventArgs e)
         {
@@ -45,47 +54,47 @@ namespace SylDesk
 
         private void button4_Click(object sender, EventArgs e)
         {
-            calculadoraEcuToFront(0, -1);
+            calculadoraEcuToFront(-1, 0, "");
         }
 
         public void formRegistro1ToFront()
         {
-            formRegistro11.Empty();
-            formRegistro11.BringToFront();
+            formRegistro1.Empty();
+            formRegistro1.BringToFront();
         }
         
         public void formRegistro2ToFront(int proyecto_id)
         {
-            formRegistro21.Initialize(proyecto_id);
-            formRegistro21.BringToFront();
+            formRegistro2.Initialize(proyecto_id);
+            formRegistro2.BringToFront();
         }
         public void formRegistro3ToFront()
         {
-            formRegistro31.Initialize();
-            formRegistro31.BringToFront();
+            formRegistro3.Initialize();
+            formRegistro3.BringToFront();
         }
-        public void formRegistroEspecieToFront(String nombre)
+        public void formRegistroEspecieToFront(int proyecto_id, int status, String nombre)
         {
-            formRegistroEspecie1.Initialize(nombre);
-            formRegistroEspecie1.BringToFront();
+            formRegistroEspecie.Initialize(proyecto_id, status, nombre);
+            formRegistroEspecie.BringToFront();
         }
         public void formInicialToFront()
         {
-            formInicial1.BringToFront();
+            formInicial.BringToFront();
         }
         public void graficaToFront(int proyecto_id)
         {
-            grafica1.Initialize(proyecto_id);
-            grafica1.BringToFront();
+            grafica.Initialize(proyecto_id);
+            grafica.BringToFront();
         }
        public void reportToFront()
         {            
             report.InitializeLifetimeService();
             report.BringToFront();
         }
-        public void calculadoraEcuToFront(int status, int proyecto_id)
+        public void calculadoraEcuToFront(int proyecto_id , int status, String especie)
         {
-            calculadoraEcu.Initialize(status, proyecto_id);
+            calculadoraEcu.Initialize(proyecto_id, status, especie);
             calculadoraEcu.BringToFront();
         }
         public void formEditarToFront(int proyecto_id)

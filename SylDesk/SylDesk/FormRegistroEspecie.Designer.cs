@@ -30,12 +30,10 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistroEspecie));
-            this.textBoxCategoriaDeNorma = new System.Windows.Forms.TextBox();
             this.textBoxGenero = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBoxFormaDeVida = new System.Windows.Forms.TextBox();
             this.textBoxBuscarEspecie = new System.Windows.Forms.TextBox();
             this.labelBuscarEspecie = new System.Windows.Forms.Label();
             this.dataGridViewEspecies = new System.Windows.Forms.DataGridView();
@@ -55,15 +53,10 @@
             this.buttonRegistrar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxFormaDeVida = new System.Windows.Forms.ComboBox();
+            this.comboBoxCategoriaDeNorma = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspecies)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBoxCategoriaDeNorma
-            // 
-            this.textBoxCategoriaDeNorma.Location = new System.Drawing.Point(693, 85);
-            this.textBoxCategoriaDeNorma.Name = "textBoxCategoriaDeNorma";
-            this.textBoxCategoriaDeNorma.Size = new System.Drawing.Size(234, 20);
-            this.textBoxCategoriaDeNorma.TabIndex = 87;
             // 
             // textBoxGenero
             // 
@@ -102,19 +95,13 @@
             this.label4.TabIndex = 83;
             this.label4.Text = "Forma de Vida:";
             // 
-            // textBoxFormaDeVida
-            // 
-            this.textBoxFormaDeVida.Location = new System.Drawing.Point(693, 52);
-            this.textBoxFormaDeVida.Name = "textBoxFormaDeVida";
-            this.textBoxFormaDeVida.Size = new System.Drawing.Size(234, 20);
-            this.textBoxFormaDeVida.TabIndex = 82;
-            // 
             // textBoxBuscarEspecie
             // 
             this.textBoxBuscarEspecie.Location = new System.Drawing.Point(495, 198);
             this.textBoxBuscarEspecie.Name = "textBoxBuscarEspecie";
             this.textBoxBuscarEspecie.Size = new System.Drawing.Size(242, 20);
             this.textBoxBuscarEspecie.TabIndex = 81;
+            this.textBoxBuscarEspecie.TextChanged += new System.EventHandler(this.textBoxBuscarEspecie_TextChanged);
             // 
             // labelBuscarEspecie
             // 
@@ -285,18 +272,56 @@
             this.label1.TabIndex = 89;
             this.label1.Text = "Registrar Especies";
             // 
+            // comboBoxFormaDeVida
+            // 
+            this.comboBoxFormaDeVida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFormaDeVida.FormattingEnabled = true;
+            this.comboBoxFormaDeVida.Items.AddRange(new object[] {
+            "Acaulescente",
+            "Acuatica",
+            "Árbol",
+            "Árbol o arbusto",
+            "Arbusto",
+            "Bejuco",
+            "Cactus",
+            "dqwad",
+            "Ejemplo",
+            "Epífita",
+            "Helecho",
+            "Herbácea",
+            "Palma",
+            "Trepadora"});
+            this.comboBoxFormaDeVida.Location = new System.Drawing.Point(694, 54);
+            this.comboBoxFormaDeVida.Name = "comboBoxFormaDeVida";
+            this.comboBoxFormaDeVida.Size = new System.Drawing.Size(202, 21);
+            this.comboBoxFormaDeVida.TabIndex = 90;
+            // 
+            // comboBoxCategoriaDeNorma
+            // 
+            this.comboBoxCategoriaDeNorma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCategoriaDeNorma.FormattingEnabled = true;
+            this.comboBoxCategoriaDeNorma.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
+            this.comboBoxCategoriaDeNorma.Location = new System.Drawing.Point(694, 87);
+            this.comboBoxCategoriaDeNorma.Name = "comboBoxCategoriaDeNorma";
+            this.comboBoxCategoriaDeNorma.Size = new System.Drawing.Size(202, 21);
+            this.comboBoxCategoriaDeNorma.TabIndex = 91;
+            // 
             // FormRegistroEspecie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.comboBoxCategoriaDeNorma);
+            this.Controls.Add(this.comboBoxFormaDeVida);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBoxCategoriaDeNorma);
             this.Controls.Add(this.textBoxGenero);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBoxFormaDeVida);
             this.Controls.Add(this.textBoxBuscarEspecie);
             this.Controls.Add(this.labelBuscarEspecie);
             this.Controls.Add(this.dataGridViewEspecies);
@@ -316,13 +341,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBoxCategoriaDeNorma;
         private System.Windows.Forms.TextBox textBoxGenero;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxFormaDeVida;
         private System.Windows.Forms.TextBox textBoxBuscarEspecie;
         private System.Windows.Forms.Label labelBuscarEspecie;
         private System.Windows.Forms.DataGridView dataGridViewEspecies;
@@ -342,5 +364,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn formadevida;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoriadelanorma;
         private System.Windows.Forms.DataGridViewButtonColumn borrar;
+        private System.Windows.Forms.ComboBox comboBoxFormaDeVida;
+        private System.Windows.Forms.ComboBox comboBoxCategoriaDeNorma;
     }
 }
