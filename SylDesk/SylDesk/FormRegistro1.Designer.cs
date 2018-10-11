@@ -32,6 +32,7 @@
             this.groupBoxRegistro = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBoxDescripcion = new System.Windows.Forms.RichTextBox();
+            this.buttonRegistrar = new System.Windows.Forms.Button();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.textBoxSuperficie = new System.Windows.Forms.TextBox();
             this.labelDescripcion = new System.Windows.Forms.Label();
@@ -39,14 +40,15 @@
             this.labelSector = new System.Windows.Forms.Label();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelSuperficie = new System.Windows.Forms.Label();
-            this.buttonRegistrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxRegistro.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxRegistro
             // 
             this.groupBoxRegistro.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBoxRegistro.Controls.Add(this.button1);
             this.groupBoxRegistro.Controls.Add(this.label4);
             this.groupBoxRegistro.Controls.Add(this.richTextBoxDescripcion);
             this.groupBoxRegistro.Controls.Add(this.buttonRegistrar);
@@ -83,6 +85,23 @@
             this.richTextBoxDescripcion.Size = new System.Drawing.Size(389, 132);
             this.richTextBoxDescripcion.TabIndex = 7;
             this.richTextBoxDescripcion.Text = "";
+            // 
+            // buttonRegistrar
+            // 
+            this.buttonRegistrar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
+            this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRegistrar.Location = new System.Drawing.Point(689, 376);
+            this.buttonRegistrar.Name = "buttonRegistrar";
+            this.buttonRegistrar.Size = new System.Drawing.Size(152, 48);
+            this.buttonRegistrar.TabIndex = 10;
+            this.buttonRegistrar.Text = "Registrar";
+            this.buttonRegistrar.UseVisualStyleBackColor = false;
+            this.buttonRegistrar.Click += new System.EventHandler(this.buttonRegistrar_Click);
             // 
             // textBoxNombre
             // 
@@ -141,23 +160,6 @@
             this.labelSuperficie.TabIndex = 4;
             this.labelSuperficie.Text = "Superficie:";
             // 
-            // buttonRegistrar
-            // 
-            this.buttonRegistrar.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
-            this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistrar.Location = new System.Drawing.Point(689, 376);
-            this.buttonRegistrar.Name = "buttonRegistrar";
-            this.buttonRegistrar.Size = new System.Drawing.Size(152, 48);
-            this.buttonRegistrar.TabIndex = 10;
-            this.buttonRegistrar.Text = "Registrar";
-            this.buttonRegistrar.UseVisualStyleBackColor = false;
-            this.buttonRegistrar.Click += new System.EventHandler(this.buttonRegistrar_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -167,6 +169,16 @@
             this.label1.Size = new System.Drawing.Size(135, 24);
             this.label1.TabIndex = 12;
             this.label1.Text = "Crear Proyecto";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(725, 55);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormRegistro1
             // 
@@ -197,5 +209,6 @@
         private System.Windows.Forms.Label labelSuperficie;
         private System.Windows.Forms.Button buttonRegistrar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

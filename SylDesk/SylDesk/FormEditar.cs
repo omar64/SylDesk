@@ -66,6 +66,8 @@ namespace SylDesk
             {
                 listView1.Items.Add(results[0].ToString());
             }
+            results.Close();
+            results.Dispose();
         }
 
         private void buttonGuardar_Click(object sender, EventArgs e)

@@ -62,5 +62,14 @@ namespace SylDesk
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+
+            FormEmergente settingsForm = new FormEmergente();
+
+            settingsForm.Show();
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace SylDesk
 {
@@ -38,6 +39,20 @@ namespace SylDesk
             System.Windows.Forms.Application.Exit();
         }
 
+        
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (WindowState.ToString() == "Normal")
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            
+        }
+
         private void button12_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -47,6 +62,21 @@ namespace SylDesk
         {
             calculadoraEcuToFront(0, -1);
         }
+
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+
 
         public void formRegistro1ToFront()
         {
