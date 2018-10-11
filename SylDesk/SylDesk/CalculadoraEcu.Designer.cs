@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("perimetro");
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("diametro");
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("altura fuste limpio");
@@ -39,6 +40,7 @@
             System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Manikara sapota-Zona Chunjujub");
             System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Bursera Simaruba-Norte de Quintana Roo");
             System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Bursera Simaruba-Zona Chunjujub");
+
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -77,8 +79,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonBorrar = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
@@ -129,8 +129,6 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Location = new System.Drawing.Point(15, 48);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(845, 477);
@@ -139,21 +137,23 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(704, 40);
+
+            this.comboBox2.Location = new System.Drawing.Point(466, 40);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.Size = new System.Drawing.Size(359, 21);
             this.comboBox2.TabIndex = 55;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            this.comboBox2.Leave += new System.EventHandler(this.comboBox2_Leave);
+            this.comboBox2.TextUpdate += new System.EventHandler(this.comboBox2_SomethingChanged);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(295, 37);
+
+            this.comboBox1.Location = new System.Drawing.Point(27, 33);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(262, 21);
             this.comboBox1.TabIndex = 54;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_SomethingChanged);
+
             // 
             // label3
             // 
@@ -175,6 +175,7 @@
             // 
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+
             listViewItem1.Tag = "PERIMETRO";
             listViewItem2.Tag = "DIAMETRO";
             listViewItem3.Tag = "ALTURAFL";
@@ -190,6 +191,7 @@
             listViewItem5,
             listViewItem6,
             listViewItem7});
+
             this.listView1.LabelWrap = false;
             this.listView1.Location = new System.Drawing.Point(14, 218);
             this.listView1.MultiSelect = false;
@@ -209,6 +211,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(45, 35);
             this.button8.TabIndex = 50;
+            this.button8.Tag = "e";
             this.button8.Text = "e";
             this.button8.UseVisualStyleBackColor = false;
             // 
@@ -221,9 +224,10 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(45, 35);
             this.button7.TabIndex = 46;
+            this.button7.Tag = "pi";
             this.button7.Text = "𝜋";
             this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // button6
             // 
@@ -234,9 +238,10 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(45, 35);
             this.button6.TabIndex = 45;
+            this.button6.Tag = "^";
             this.button6.Text = "xⁿ";
             this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // button5
             // 
@@ -247,9 +252,10 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(45, 35);
             this.button5.TabIndex = 44;
+            this.button5.Tag = "/";
             this.button5.Text = "÷";
             this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // button4
             // 
@@ -260,9 +266,10 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(45, 35);
             this.button4.TabIndex = 43;
+            this.button4.Tag = "*";
             this.button4.Text = "x";
             this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // Ecuaciontext
             // 
@@ -282,9 +289,10 @@
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(45, 35);
             this.button30.TabIndex = 40;
+            this.button30.Tag = "abs()";
             this.button30.Text = "Abs";
             this.button30.UseVisualStyleBackColor = false;
-            this.button30.Click += new System.EventHandler(this.button30_Click);
+            this.button30.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // button29
             // 
@@ -295,9 +303,10 @@
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(45, 35);
             this.button29.TabIndex = 39;
+            this.button29.Tag = "-";
             this.button29.Text = "-";
             this.button29.UseVisualStyleBackColor = false;
-            this.button29.Click += new System.EventHandler(this.button29_Click);
+            this.button29.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // button27
             // 
@@ -308,9 +317,10 @@
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(45, 35);
             this.button27.TabIndex = 37;
+            this.button27.Tag = ")";
             this.button27.Text = ")";
             this.button27.UseVisualStyleBackColor = false;
-            this.button27.Click += new System.EventHandler(this.button27_Click);
+            this.button27.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // button15
             // 
@@ -321,9 +331,10 @@
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(45, 35);
             this.button15.TabIndex = 35;
+            this.button15.Tag = "(";
             this.button15.Text = "(";
             this.button15.UseVisualStyleBackColor = false;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.button15.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // button16
             // 
@@ -334,9 +345,10 @@
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(45, 35);
             this.button16.TabIndex = 34;
+            this.button16.Tag = "exp()";
             this.button16.Text = "Exp";
             this.button16.UseVisualStyleBackColor = false;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.button16.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // button17
             // 
@@ -347,9 +359,10 @@
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(45, 77);
             this.button17.TabIndex = 33;
+            this.button17.Tag = "+";
             this.button17.Text = "+";
             this.button17.UseVisualStyleBackColor = false;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.button17.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // button18
             // 
@@ -360,9 +373,10 @@
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(45, 35);
             this.button18.TabIndex = 32;
+            this.button18.Tag = "ln()";
             this.button18.Text = "Ln";
             this.button18.UseVisualStyleBackColor = false;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.button18.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // button19
             // 
@@ -373,9 +387,10 @@
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(45, 35);
             this.button19.TabIndex = 31;
+            this.button19.Tag = "()log()";
             this.button19.Text = "Log";
             this.button19.UseVisualStyleBackColor = false;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
+            this.button19.Click += new System.EventHandler(this.logButtonEvent);
             // 
             // button25
             // 
@@ -386,9 +401,10 @@
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(45, 35);
             this.button25.TabIndex = 25;
+            this.button25.Tag = "sqrt()";
             this.button25.Text = "sqrt";
             this.button25.UseVisualStyleBackColor = false;
-            this.button25.Click += new System.EventHandler(this.button25_Click);
+            this.button25.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // button14
             // 
@@ -399,9 +415,10 @@
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(45, 35);
             this.button14.TabIndex = 24;
+            this.button14.Tag = ".";
             this.button14.Text = ".";
             this.button14.UseVisualStyleBackColor = false;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
+            this.button14.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // button13
             // 
@@ -412,9 +429,10 @@
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(96, 34);
             this.button13.TabIndex = 23;
+            this.button13.Tag = "0";
             this.button13.Text = "0";
             this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.button13.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // num3
             // 
@@ -425,9 +443,10 @@
             this.num3.Name = "num3";
             this.num3.Size = new System.Drawing.Size(45, 35);
             this.num3.TabIndex = 22;
+            this.num3.Tag = "3";
             this.num3.Text = "3";
             this.num3.UseVisualStyleBackColor = false;
-            this.num3.Click += new System.EventHandler(this.num3_Click);
+            this.num3.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // num2
             // 
@@ -438,9 +457,10 @@
             this.num2.Name = "num2";
             this.num2.Size = new System.Drawing.Size(45, 35);
             this.num2.TabIndex = 21;
+            this.num2.Tag = "2";
             this.num2.Text = "2";
             this.num2.UseVisualStyleBackColor = false;
-            this.num2.Click += new System.EventHandler(this.num2_Click);
+            this.num2.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // num1
             // 
@@ -451,9 +471,10 @@
             this.num1.Name = "num1";
             this.num1.Size = new System.Drawing.Size(45, 35);
             this.num1.TabIndex = 20;
+            this.num1.Tag = "1";
             this.num1.Text = "1";
             this.num1.UseVisualStyleBackColor = false;
-            this.num1.Click += new System.EventHandler(this.num1_Click);
+            this.num1.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // num6
             // 
@@ -464,9 +485,10 @@
             this.num6.Name = "num6";
             this.num6.Size = new System.Drawing.Size(45, 35);
             this.num6.TabIndex = 19;
+            this.num6.Tag = "6";
             this.num6.Text = "6";
             this.num6.UseVisualStyleBackColor = false;
-            this.num6.Click += new System.EventHandler(this.num6_Click);
+            this.num6.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // num5
             // 
@@ -477,9 +499,10 @@
             this.num5.Name = "num5";
             this.num5.Size = new System.Drawing.Size(45, 35);
             this.num5.TabIndex = 18;
+            this.num5.Tag = "5";
             this.num5.Text = "5";
             this.num5.UseVisualStyleBackColor = false;
-            this.num5.Click += new System.EventHandler(this.num5_Click);
+            this.num5.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // num9
             // 
@@ -490,9 +513,10 @@
             this.num9.Name = "num9";
             this.num9.Size = new System.Drawing.Size(45, 35);
             this.num9.TabIndex = 17;
+            this.num9.Tag = "9";
             this.num9.Text = "9";
             this.num9.UseVisualStyleBackColor = false;
-            this.num9.Click += new System.EventHandler(this.num9_Click);
+            this.num9.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // num8
             // 
@@ -503,9 +527,10 @@
             this.num8.Name = "num8";
             this.num8.Size = new System.Drawing.Size(45, 35);
             this.num8.TabIndex = 16;
+            this.num8.Tag = "8";
             this.num8.Text = "8";
             this.num8.UseVisualStyleBackColor = false;
-            this.num8.Click += new System.EventHandler(this.num8_Click);
+            this.num8.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // num4
             // 
@@ -516,9 +541,10 @@
             this.num4.Name = "num4";
             this.num4.Size = new System.Drawing.Size(45, 37);
             this.num4.TabIndex = 15;
+            this.num4.Tag = "4";
             this.num4.Text = "4";
             this.num4.UseVisualStyleBackColor = false;
-            this.num4.Click += new System.EventHandler(this.num4_Click);
+            this.num4.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // num7
             // 
@@ -529,9 +555,10 @@
             this.num7.Name = "num7";
             this.num7.Size = new System.Drawing.Size(45, 33);
             this.num7.TabIndex = 14;
+            this.num7.Tag = "7";
             this.num7.Text = "7";
             this.num7.UseVisualStyleBackColor = false;
-            this.num7.Click += new System.EventHandler(this.num7_Click);
+            this.num7.Click += new System.EventHandler(this.genericOperatorVariableButtonEvent);
             // 
             // button3
             // 
@@ -599,21 +626,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "UMAFOR/Region:";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(466, 41);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(206, 20);
-            this.textBox2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(28, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(261, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
@@ -643,9 +655,11 @@
             // 
             this.listView2.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+
             listViewItem8,
             listViewItem9,
             listViewItem10});
+
             this.listView2.Location = new System.Drawing.Point(6, 37);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(191, 361);
@@ -732,8 +746,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;

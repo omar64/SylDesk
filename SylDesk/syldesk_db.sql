@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2018 a las 23:02:11
+-- Tiempo de generación: 11-10-2018 a las 21:54:41
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -28,7 +28,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `ecuaciones_volumen` (
   `id` int(11) NOT NULL,
-  `grupo` int(11) NOT NULL,
   `inventario` varchar(30) NOT NULL,
   `umafor` varchar(30) NOT NULL,
   `especie` varchar(30) NOT NULL,
@@ -39,37 +38,38 @@ CREATE TABLE `ecuaciones_volumen` (
 -- Volcado de datos para la tabla `ecuaciones_volumen`
 --
 
-INSERT INTO `ecuaciones_volumen` (`id`, `grupo`, `inventario`, `umafor`, `especie`, `ecuacion`) VALUES
-(1, 3, 'sin inventario', 'norte', 'Lysiloma latisiliquum', 'Exp(-10.07810188+1.92989964*LN(DIAMETRO)+1.07701930*LN(ALTURATOTAL))'),
-(2, 4, 'sin inventario', 'norte', 'Swartzia cubensis', 'Exp(-9.67348922+1.86887607*LN(DIAMETRO)+1.01858126*LN(ALTURATOTAL))'),
-(3, 5, 'sin inventario', 'norte', 'Lonchocarpus rugosus', 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))'),
-(4, 6, 'sin inventario', 'norte', 'Annona squamosa', 'Exp(-9.75894522+1.90722681*LN(DIAMETRO)+1.01257027*LN(ALTURATOTAL))'),
-(5, 9, 'sin inventario', 'norte', 'Nectandra coriacea', 'Exp(-9.45811109+1.82568462*LN(DIAMETRO)+1.00281859*LN(ALTURATOTAL))'),
-(6, 11, 'sin inventario', 'norte', 'Pouteria campechiana', 'Exp(-9.88332368+1.9131735*LN(DIAMETRO)+1.07391062*LN(ALTURATOTAL))'),
-(7, 12, 'sin inventario', 'norte', 'Bursera simaruba', 'Exp(-9.63573531+1.90246451*LN(DIAMETRO)+0.97875991*LN(ALTURATOTAL))'),
-(8, 13, 'sin inventario', 'norte', 'Simarouba amara', 'Exp(-9.84052491+1.92716537*LN(DIAMETRO)+1.00282618*LN(ALTURATOTAL))'),
-(9, 14, 'sin inventario', 'norte', 'Spondias mombin', 'Exp(-9.84052491+1.92716537*LN(DIAMETRO)+1.00282618*LN(ALTURATOTAL))'),
-(10, 15, 'sin inventario', 'norte', 'Metopium brownei', 'Exp(-9.45441486+1.86841300*LN(DIAMETRO)+0.93163520*LN(ALTURATOTAL))'),
-(11, 16, 'sin inventario', 'norte', 'Sebastiania adenophora', 'Exp(-9.63519924+1.83658572*LN(DIAMETRO)+1.02444663*LN(ALTURATOTAL))'),
-(12, 17, 'sin inventario', 'norte', 'Allophylus cominia', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
-(18, 5, 'sin inventario', 'norte', 'Caesalpinia gaumeri', 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))'),
-(19, 5, 'sin inventario', 'norte', 'Lonchocarpus guatemalensis 	', 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))'),
-(20, 5, 'sin inventario', 'norte', 'Piscidia piscipula', 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))'),
-(21, 6, 'sin inventario', 'norte', 'Ficus cotinifolia', 'Exp(-9.75894522+1.90722681*LN(DIAMETRO)+1.01257027*LN(ALTURATOTAL))'),
-(22, 9, 'sin inventario', 'norte', 'Chrysophyllum mexicanum', 'Exp(-9.45811109+1.82568462*LN(DIAMETRO)+1.00281859*LN(ALTURATOTAL))'),
-(23, 9, 'sin inventario', 'norte', 'Diospyros yucatanensis', 'Exp(-9.45811109+1.82568462*LN(DIAMETRO)+1.00281859*LN(ALTURATOTAL))'),
-(24, 16, 'sin inventario', 'norte', 'Coccoloba spicata', 'Exp(-9.63519924+1.83658572*LN(DIAMETRO)+1.02444663*LN(ALTURATOTAL))'),
-(25, 17, 'sin inventario', 'norte', 'Allophyllus cominia', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
-(26, 17, 'sin inventario', 'norte', 'Luehea speciosa', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
-(27, 17, 'sin inventario', 'norte', 'Sabal yapa', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
-(28, 17, 'sin inventario', 'norte', 'Vitex gaumeri', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
-(29, 17, 'sin inventario', 'norte', 'Ficus maxima', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
-(30, 17, 'sin inventario', 'norte', 'Zuelania guidoniai', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
-(31, 0, 'sin inventario', 'sur', 'Lysiloma latisiliquum', 'sqrt(pi*ALTURATOTAL*DIAMETRO)'),
-(32, 0, 'sin inventario', 'centro', 'Lysiloma latisiliquum', 'ln((1/DIAMETRO)^2)'),
-(38, 0, 'Ejemplo 1', 'Ejemplo 2', 'Ejemplo 1', 'DIAMETRO*DIAMETRO'),
-(40, 0, 'e2', 'norte', 'e2', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
-(41, 0, 'Ejemplo 1', 'Ejemplo 2', 'Ejemplo 3', 'DIAMETRO*DIAMETRO');
+INSERT INTO `ecuaciones_volumen` (`id`, `inventario`, `umafor`, `especie`, `ecuacion`) VALUES
+(1, 'sin inventario', 'norte', 'Lysiloma latisiliquum', 'Exp(-10.07810188+1.92989964*LN(DIAMETRO)+1.07701930*LN(ALTURATOTAL))'),
+(2, 'sin inventario', 'norte', 'Swartzia cubensis', 'Exp(-9.67348922+1.86887607*LN(DIAMETRO)+1.01858126*LN(ALTURATOTAL))'),
+(3, 'sin inventario', 'norte', 'Lonchocarpus rugosus', 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))'),
+(4, 'sin inventario', 'norte', 'Annona squamosa', 'Exp(-9.75894522+1.90722681*LN(DIAMETRO)+1.01257027*LN(ALTURATOTAL))'),
+(5, 'sin inventario', 'norte', 'Nectandra coriacea', 'Exp(-9.45811109+1.82568462*LN(DIAMETRO)+1.00281859*LN(ALTURATOTAL))'),
+(6, 'sin inventario', 'norte', 'Pouteria campechiana', 'Exp(-9.88332368+1.9131735*LN(DIAMETRO)+1.07391062*LN(ALTURATOTAL))'),
+(7, 'sin inventario', 'norte', 'Bursera simaruba', 'Exp(-9.63573531+1.90246451*LN(DIAMETRO)+0.97875991*LN(ALTURATOTAL))'),
+(8, 'sin inventario', 'norte', 'Simarouba amara', 'Exp(-9.84052491+1.92716537*LN(DIAMETRO)+1.00282618*LN(ALTURATOTAL))'),
+(9, 'sin inventario', 'norte', 'Spondias mombin', 'Exp(-9.84052491+1.92716537*LN(DIAMETRO)+1.00282618*LN(ALTURATOTAL))'),
+(10, 'sin inventario', 'norte', 'Metopium brownei', 'Exp(-9.45441486+1.86841300*LN(DIAMETRO)+0.93163520*LN(ALTURATOTAL))'),
+(11, 'sin inventario', 'norte', 'Sebastiania adenophora', 'Exp(-9.63519924+1.83658572*LN(DIAMETRO)+1.02444663*LN(ALTURATOTAL))'),
+(12, 'sin inventario', 'norte', 'Allophylus cominia', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
+(18, 'sin inventario', 'norte', 'Caesalpinia gaumeri', 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))'),
+(19, 'sin inventario', 'norte', 'Lonchocarpus guatemalensis 	', 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))'),
+(20, 'sin inventario', 'norte', 'Piscidia piscipula', 'exp(-9.5208709+1.85580925*ln(DIAMETRO)+0.96207943*ln(ALTURATOTAL))'),
+(21, 'sin inventario', 'norte', 'Ficus cotinifolia', 'Exp(-9.75894522+1.90722681*LN(DIAMETRO)+1.01257027*LN(ALTURATOTAL))'),
+(22, 'sin inventario', 'norte', 'Chrysophyllum mexicanum', 'Exp(-9.45811109+1.82568462*LN(DIAMETRO)+1.00281859*LN(ALTURATOTAL))'),
+(23, 'sin inventario', 'norte', 'Diospyros yucatanensis', 'Exp(-9.45811109+1.82568462*LN(DIAMETRO)+1.00281859*LN(ALTURATOTAL))'),
+(24, 'sin inventario', 'norte', 'Coccoloba spicata', 'Exp(-9.63519924+1.83658572*LN(DIAMETRO)+1.02444663*LN(ALTURATOTAL))'),
+(25, 'sin inventario', 'norte', 'Allophyllus cominia', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
+(26, 'sin inventario', 'norte', 'Luehea speciosa', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
+(27, 'sin inventario', 'norte', 'Sabal yapa', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
+(28, 'sin inventario', 'norte', 'Vitex gaumeri', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
+(29, 'sin inventario', 'norte', 'Ficus maxima', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
+(30, 'sin inventario', 'norte', 'Zuelania guidoniai', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
+(31, 'sin inventario', 'sur', 'Lysiloma latisiliquum', 'sqrt(pi*ALTURATOTAL*DIAMETRO)'),
+(32, 'sin inventario', 'centro', 'Lysiloma latisiliquum', 'ln((1/DIAMETRO)^2)'),
+(38, 'Ejemplo 1', 'Ejemplo 2', 'Ejemplo 1', 'DIAMETRO*DIAMETRO'),
+(40, 'e2', 'ez', 'e2', 'Exp(-9.52375084+1.81551953*LN(DIAMETRO)+1.03039019*LN(ALTURATOTAL))'),
+(41, 'Ejemplo 1', 'Ejemplo 2', 'Ejemplo 3', 'DIAMETRO*DIAMETRO'),
+(50, 'yucatam', 'sabe', 'ejemplo', '1');
 
 -- --------------------------------------------------------
 
@@ -508,67 +508,6 @@ INSERT INTO `generos` (`id`, `familia_id`, `genero`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `grupo_especie`
---
-
-CREATE TABLE `grupo_especie` (
-  `id` int(11) NOT NULL,
-  `nombrecientifico` varchar(40) NOT NULL,
-  `grupo` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `grupo_especie`
---
-
-INSERT INTO `grupo_especie` (`id`, `nombrecientifico`, `grupo`) VALUES
-(1, 'Swartzia cubensis', 4),
-(2, 'Lonchocarpus rugosus', 5),
-(3, 'Lonchocarpus guatemalensis', 5),
-(4, 'Lysiloma latisiliquum', 3),
-(5, 'Caesalpinia gaumeri', 5),
-(6, 'Piscidia piscipula', 5),
-(7, 'Ficus cotinifolia', 6),
-(8, 'Ficus pertusa', 17),
-(9, 'Ficus maxima', 17),
-(10, 'Nectandra coriacea', 9),
-(11, 'Chrysophyllum mexicanum', 9),
-(12, 'Pouteria campechiana', 11),
-(13, 'Diospyros yucatanensis', 9),
-(14, 'Bursera simaruba', 12),
-(15, 'Simarouba amara', 13),
-(16, 'Spondias mombin', 14),
-(17, 'Sebastiania adenophora', 16),
-(18, 'Coccoloba spicata', 16),
-(19, 'Zuelania guidoniai', 17),
-(20, 'Metopium brownei', 15),
-(21, 'Vitex gaumeri', 17),
-(22, 'Sabal yapa', 17),
-(23, 'Luehea speciosa', 17),
-(24, 'Allophyllus cominia', 17),
-(25, 'Allophylus cominia', 17),
-(26, 'Andira inermis ', 17),
-(27, 'Casimiroa sapota', 17),
-(28, 'Cascabela gaumeri', 17),
-(29, 'Dalbergia glabra', 17),
-(30, 'Dendropanax arboreus', 17),
-(31, 'Ottoschulzia pallidas', 17),
-(32, 'Protium confusum', 17),
-(33, 'Sideroxylon salicifolium', 17),
-(34, 'Zygia cognata', 17),
-(35, 'Semialarium mexicanum', 17),
-(36, 'Cynophalla verrucosa', 17),
-(37, 'Guettarda combsii', 17),
-(38, 'Mosannona depressa', 17),
-(39, 'Cupania dentata', 17),
-(40, 'Hampea trilobata', 17),
-(41, 'Neea psychotrioides', 17),
-(42, 'Diphysa carthagenensis', 17),
-(43, 'Annona squamosa', 6);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `individuos`
 --
 
@@ -598,7 +537,7 @@ CREATE TABLE `individuos` (
   `dncategorias` int(11) DEFAULT NULL,
   `ab` decimal(10,4) DEFAULT NULL,
   `grupo` int(11) DEFAULT NULL,
-  `volumenvv` decimal(10,4) DEFAULT NULL,
+  `volumen` decimal(10,4) DEFAULT NULL,
   `areabasal` decimal(11,4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
@@ -606,7 +545,7 @@ CREATE TABLE `individuos` (
 -- Volcado de datos para la tabla `individuos`
 --
 
-INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumenvv`, `areabasal`) VALUES
+INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumen`, `areabasal`) VALUES
 (107, 11, 1, 500, NULL, 1, 1, 0, 'Lysiloma latisiliquum', 'Tzalam', 'Leguminosae', 'Lysiloma', '75.9951', '24.1900', NULL, '10.0000', NULL, NULL, 'Curvo Bifurcado', 'Sano despuntado', NULL, NULL, NULL, NULL, 3, '0.2347', '0.0000'),
 (108, 11, 1, 500, NULL, 2, 2, 0, 'Swartzia cubensis', 'Katalox', 'Leguminosae', 'Swartzia', '12.5664', '4.0000', NULL, '3.1000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, '0.0027', '0.0000'),
 (4681, 13, 6, 100, 1, 1, 1, 0, 'Nectandra coriacea', 'Aguacatillo', 'Lauraceae', NULL, '22.0000', '7.0028', '3.5000', '7.5000', '0.0000', '0.0000', '', '', NULL, '7.5000', 5, NULL, NULL, '0.0000', '0.0011'),
@@ -849,7 +788,7 @@ INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `nu
 (4918, 13, 11, 500, 2, 6, 7, 0, 'Coccoloba spicata', 'Boob', 'Polygonaceae', NULL, '45.5000', '14.4831', '7.0000', '10.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 15, NULL, NULL, '0.0937', '0.0023'),
 (4919, 13, 11, 100, 1, 7, 7, 0, 'Coccoloba spicata', 'Boob', 'Polygonaceae', NULL, '19.0000', '6.0479', '8.0000', '10.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 5, NULL, NULL, '0.0000', '0.0009'),
 (4920, 13, 6, 5, 0, 7, 7, 0, 'Dendropanax arboreus', 'Sak chacaj', 'Araliaceae', NULL, '0.0000', '0.0000', '0.0000', '3.0000', '6.0000', '14.0000', '', '', NULL, '2.5000', 5, NULL, NULL, '0.0000', '0.0000');
-INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumenvv`, `areabasal`) VALUES
+INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumen`, `areabasal`) VALUES
 (4921, 13, 6, 500, 2, 7, 8, 0, 'Coccoloba spicata', 'Boob', 'Polygonaceae', NULL, '33.0000', '10.5042', '7.0000', '12.0000', '0.0000', '0.0000', '', '', NULL, '12.5000', 10, NULL, NULL, '0.0626', '0.0017'),
 (4922, 13, 11, 500, 2, 7, 8, 0, 'Coccoloba spicata', 'Boob', 'Polygonaceae', NULL, '36.0000', '11.4592', '6.0000', '11.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 10, NULL, NULL, '0.0672', '0.0018'),
 (4923, 13, 2, 100, 2, 8, 8, 0, 'Coccoloba spicata', 'Boob', 'Polygonaceae', NULL, '16.0000', '5.0930', '3.5000', '7.0000', '0.0000', '0.0000', '', '', NULL, '7.5000', 5, NULL, NULL, '0.0000', '0.0008'),
@@ -1091,7 +1030,7 @@ INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `nu
 (5159, 13, 5, 100, 4, 27, 29, 0, 'Bursera simaruba', 'Chacah', 'Burseraceae', NULL, '18.0000', '5.7296', '4.0000', '6.0000', '0.0000', '0.0000', '', '', NULL, '5.0000', 5, NULL, NULL, '0.0000', '0.0009'),
 (5160, 13, 9, 100, 3, 29, 29, 0, 'Bursera simaruba', 'Chacah', 'Burseraceae', NULL, '17.0000', '5.4113', '6.0000', '8.5000', '0.0000', '0.0000', '', '', NULL, '7.5000', 5, NULL, NULL, '0.0000', '0.0009'),
 (5161, 13, 2, 500, 2, 29, 30, 0, 'Bursera simaruba', 'Chacah', 'Burseraceae', NULL, '48.5000', '15.4380', '8.0000', '13.0000', '0.0000', '0.0000', '', '', NULL, '12.5000', 15, NULL, NULL, '0.1468', '0.0024');
-INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumenvv`, `areabasal`) VALUES
+INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumen`, `areabasal`) VALUES
 (5162, 13, 1, 500, 4, 28, 31, 0, 'Bursera simaruba', 'Chacah', 'Burseraceae', NULL, '34.0000', '10.8225', '6.0000', '9.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 10, NULL, NULL, '0.0521', '0.0017'),
 (5163, 13, 9, 100, 3, 31, 31, 0, 'Bursera simaruba', 'Chacah', 'Burseraceae', NULL, '16.5000', '5.2521', '4.0000', '8.0000', '0.0000', '0.0000', '', '', NULL, '7.5000', 5, NULL, NULL, '0.0000', '0.0008'),
 (5164, 13, 7, 500, 3, 30, 33, 0, 'Bursera simaruba', 'Chacah', 'Burseraceae', NULL, '45.5000', '14.4831', '7.0000', '14.0000', '0.0000', '0.0000', '', '', NULL, '15.0000', 15, NULL, NULL, '0.1398', '0.0023'),
@@ -1285,7 +1224,7 @@ INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `nu
 (5352, 13, 10, 100, 4, 40, 40, 0, 'Hampea trilobata', 'Ho\'ol', 'Malvaceae', NULL, '17.0000', '5.4113', '6.0000', '11.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 5, NULL, NULL, '0.0000', '0.0009'),
 (5353, 13, 10, 100, 4, 41, 41, 0, 'Hampea trilobata', 'Ho\'ol', 'Malvaceae', NULL, '17.5000', '5.5704', '4.0000', '10.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 5, NULL, NULL, '0.0000', '0.0009'),
 (5354, 13, 10, 100, 4, 42, 42, 0, 'Hampea trilobata', 'Ho\'ol', 'Malvaceae', NULL, '18.0000', '5.7296', '8.0000', '10.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 5, NULL, NULL, '0.0000', '0.0009'),
-(5355, 13, 1, 500, 1, 1, 1, 0, 'Ejemplo', 'Ejemplo', 'Ejemplo', 'Ejemplo', '44.0000', '14.0056', '6.0000', '12.0000', '0.0000', '0.0000', '', '', NULL, '12.5000', 15, NULL, 0, '0.1073', '0.0022'),
+(5355, 13, 1, 500, 1, 1, 1, 0, 'ejemplo', '', '', '', '44.0000', '14.0056', '6.0000', '12.0000', '0.0000', '0.0000', '', '', NULL, '12.5000', 15, NULL, 0, '0.0000', '0.0022'),
 (5356, 13, 11, 500, 2, 8, 9, 0, 'Piscidia piscipula', 'Jabín', 'Leguminosae', NULL, '33.5000', '10.6634', '6.0000', '11.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 10, NULL, NULL, '0.0595', '0.0017'),
 (5357, 13, 1, 100, 3, 15, 15, 0, 'Piscidia piscipula', 'Jabín', 'Leguminosae', NULL, '28.0000', '8.9127', '2.5000', '4.0000', '0.0000', '0.0000', '', '', NULL, '5.0000', 10, NULL, NULL, '0.0000', '0.0014'),
 (5358, 13, 10, 5, 0, 1, 1, 0, 'Nectandra coriacea', 'Aguacatillo', 'Lauraceae', NULL, '0.0000', '0.0000', '0.0000', '6.0000', '8.0000', '8.0000', '', '', NULL, '5.0000', 5, NULL, NULL, '0.0000', '0.0000'),
@@ -1331,7 +1270,7 @@ INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `nu
 (5398, 13, 11, 100, 2, 19, 19, 0, 'Lonchocarpus rugosus', 'Kanasin', 'Leguminosae', NULL, '21.0000', '6.6845', '7.0000', '9.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 5, NULL, NULL, '0.0000', '0.0011'),
 (5399, 13, 4, 100, 3, 19, 20, 0, 'Lonchocarpus rugosus', 'Kanasin', 'Leguminosae', NULL, '19.5000', '6.2070', '6.0000', '10.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 5, NULL, NULL, '0.0000', '0.0010'),
 (5400, 13, 4, 100, 3, 20, 21, 0, 'Lonchocarpus rugosus', 'Kanasin', 'Leguminosae', NULL, '19.0000', '6.0479', '7.0000', '9.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 5, NULL, NULL, '0.0000', '0.0009');
-INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumenvv`, `areabasal`) VALUES
+INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumen`, `areabasal`) VALUES
 (5401, 13, 5, 100, 3, 20, 21, 0, 'Lonchocarpus rugosus', 'Kanasin', 'Leguminosae', NULL, '16.5000', '5.2521', '6.0000', '8.0000', '0.0000', '0.0000', '', '', NULL, '7.5000', 5, NULL, NULL, '0.0000', '0.0008'),
 (5402, 13, 10, 5, 0, 14, 14, 0, 'Nectandra coriacea', 'Aguacatillo', 'Lauraceae', NULL, '0.0000', '0.0000', '0.0000', '0.1200', '13.0000', '14.0000', '', '', NULL, '2.5000', 5, NULL, NULL, '0.0000', '0.0000'),
 (5403, 13, 10, 5, 0, 15, 15, 0, 'Mosannona depressa', 'Ek elemuy', 'Annonaceae', NULL, '0.0000', '0.0000', '0.0000', '0.6000', '13.0000', '7.0000', '', '', NULL, '2.5000', 5, NULL, NULL, '0.0000', '0.0000'),
@@ -1569,7 +1508,7 @@ INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `nu
 (5635, 13, 8, 500, 1, 9, 10, 0, 'Lysiloma latisiliquum', 'Tzalam', 'Leguminosae', NULL, '48.0000', '15.2789', '5.5000', '12.0000', '0.0000', '0.0000', '', '', NULL, '12.5000', 15, NULL, NULL, '0.1177', '0.0024'),
 (5636, 13, 9, 500, 2, 10, 10, 0, 'Lysiloma latisiliquum', 'Tzalam', 'Leguminosae', NULL, '41.0000', '13.0507', '7.5000', '11.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 15, NULL, NULL, '0.0790', '0.0021'),
 (5637, 13, 11, 500, 2, 9, 10, 0, 'Lysiloma latisiliquum', 'Tzalam', 'Leguminosae', NULL, '42.5000', '13.5282', '3.5000', '9.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 15, NULL, NULL, '0.0682', '0.0021');
-INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumenvv`, `areabasal`) VALUES
+INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumen`, `areabasal`) VALUES
 (5638, 13, 12, 100, 2, 9, 10, 0, 'Lysiloma latisiliquum', 'Tzalam', 'Leguminosae', NULL, '22.5000', '7.1620', '2.0000', '10.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 5, NULL, NULL, '0.0000', '0.0011'),
 (5639, 13, 7, 500, 2, 8, 11, 0, 'Lysiloma latisiliquum', 'Tzalam', 'Leguminosae', NULL, '95.0000', '30.2394', '7.0000', '14.0000', '0.0000', '0.0000', '', '', NULL, '15.0000', 30, NULL, NULL, '0.5187', '0.0048'),
 (5640, 13, 12, 100, 2, 10, 11, 0, 'Lysiloma latisiliquum', 'Tzalam', 'Leguminosae', NULL, '21.5000', '6.8437', '2.2000', '8.0000', '0.0000', '0.0000', '', '', NULL, '7.5000', 5, NULL, NULL, '0.0000', '0.0011'),
@@ -1809,7 +1748,7 @@ INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `nu
 (5893, 12, 2, 5, 0, 10, 10, 0, 'Randia aculeata', 'Cruceta', 'Rubiaceae', NULL, '0.0000', '0.0000', '0.0000', '2.3000', '12.0000', '13.0000', '', '', NULL, '2.5000', 5, NULL, NULL, '0.0000', '0.0000'),
 (5894, 12, 2, 5, 0, 11, 11, 0, 'Zygia cognata', 'Cacao che', 'Leguminosae', NULL, '0.0000', '0.0000', '0.0000', '1.0000', '8.0000', '8.0000', '', '', NULL, '2.5000', 5, NULL, NULL, '0.0000', '0.0000'),
 (5895, 12, 2, 5, 0, 12, 12, 0, 'Paullinia pinnata', 'Salatxiw', 'Sapindaceae', NULL, '0.0000', '0.0000', '0.0000', '1.7000', '7.0000', '13.0000', '', '', NULL, '2.5000', 5, NULL, NULL, '0.0000', '0.0000');
-INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumenvv`, `areabasal`) VALUES
+INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumen`, `areabasal`) VALUES
 (5896, 12, 2, 5, 0, 13, 13, 0, 'Paullinia pinnata', 'Salatxiw', 'Sapindaceae', NULL, '0.0000', '0.0000', '0.0000', '7.0000', '9.0000', '9.0000', '', '', NULL, '7.5000', 5, NULL, NULL, '0.0000', '0.0000'),
 (5897, 12, 2, 100, 4, 12, 12, 0, 'Nectandra coriacea', 'Aguacatillo', 'Lauraceae', NULL, '21.0000', '6.6845', '4.0000', '9.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 5, NULL, NULL, '0.0000', '0.0011'),
 (5898, 12, 2, 5, 0, 14, 14, 0, 'Myrcianthes fragrans', 'Guayabillo', 'Myrtaceae', NULL, '0.0000', '0.0000', '0.0000', '0.6000', '9.0000', '10.0000', '', '', NULL, '2.5000', 5, NULL, NULL, '0.0000', '0.0000'),
@@ -2052,7 +1991,7 @@ INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `nu
 (6135, 12, 5, 500, 2, 22, 24, 0, 'Coccoloba spicata', 'Boob', 'Polygonaceae', NULL, '35.0000', '11.1408', '6.0000', '11.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 10, NULL, NULL, '0.0638', '0.0018'),
 (6136, 12, 9, 100, 2, 24, 24, 0, 'Coccoloba spicata', 'Boob', 'Polygonaceae', NULL, '21.0000', '6.6845', '3.0000', '9.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 5, NULL, NULL, '0.0000', '0.0011'),
 (6137, 12, 1, 500, 4, 22, 25, 0, 'Coccoloba spicata', 'Boob', 'Polygonaceae', NULL, '54.5000', '17.3479', '8.0000', '15.0000', '0.0000', '0.0000', '', '', NULL, '15.0000', 15, NULL, NULL, '0.1978', '0.0027');
-INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumenvv`, `areabasal`) VALUES
+INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumen`, `areabasal`) VALUES
 (6138, 12, 9, 100, 2, 25, 25, 0, 'Coccoloba spicata', 'Boob', 'Polygonaceae', NULL, '25.0000', '7.9577', '5.0000', '9.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 10, NULL, NULL, '0.0000', '0.0013'),
 (6139, 12, 11, 100, 3, 25, 25, 0, 'Coccoloba spicata', 'Boob', 'Polygonaceae', NULL, '18.0000', '5.7296', '5.5000', '5.5000', '0.0000', '0.0000', '', '', NULL, '5.0000', 5, NULL, NULL, '0.0000', '0.0009'),
 (6140, 12, 9, 500, 4, 23, 26, 0, 'Coccoloba spicata', 'Boob', 'Polygonaceae', NULL, '35.5000', '11.3000', '2.2000', '9.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 10, NULL, NULL, '0.0533', '0.0018'),
@@ -2294,7 +2233,7 @@ INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `nu
 (6376, 12, 2, 500, 1, 13, 13, 0, 'Metopium brownei', 'Chechem', 'Anacardiaceae', NULL, '42.5000', '13.5282', '4.0000', '12.0000', '0.0000', '0.0000', '', '', NULL, '12.5000', 15, NULL, NULL, '0.1030', '0.0021'),
 (6377, 12, 3, 500, 1, 14, 14, 0, 'Metopium brownei', 'Chechem', 'Anacardiaceae', NULL, '37.5400', '11.9494', '3.0000', '9.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 10, NULL, NULL, '0.0625', '0.0019'),
 (6378, 12, 5, 100, 2, 13, 14, 0, 'Metopium brownei', 'Chechem', 'Anacardiaceae', NULL, '21.0000', '6.6845', '3.0000', '8.0000', '0.0000', '0.0000', '', '', NULL, '7.5000', 5, NULL, NULL, '0.0000', '0.0011');
-INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumenvv`, `areabasal`) VALUES
+INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumen`, `areabasal`) VALUES
 (6379, 12, 1, 500, 2, 12, 15, 0, 'Metopium brownei', 'Chechem', 'Anacardiaceae', NULL, '32.0000', '10.1859', '3.0000', '9.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 10, NULL, NULL, '0.0464', '0.0016'),
 (6380, 12, 8, 500, 1, 14, 15, 0, 'Metopium brownei', 'Chechem', 'Anacardiaceae', NULL, '41.0000', '13.0507', '5.0000', '12.0000', '0.0000', '0.0000', '', '', NULL, '12.5000', 15, NULL, NULL, '0.0964', '0.0021'),
 (6381, 12, 6, 100, 3, 15, 15, 0, 'Metopium brownei', 'Chechem', 'Anacardiaceae', NULL, '26.0000', '8.2761', '5.0000', '10.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 10, NULL, NULL, '0.0000', '0.0013'),
@@ -2534,7 +2473,7 @@ INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `nu
 (6615, 12, 6, 500, 4, 17, 18, 0, 'Bourreria pulchra', 'Bakal che\'', 'Boraginaceae', NULL, '33.5000', '10.6634', '3.5000', '10.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 10, NULL, NULL, '0.0576', '0.0017'),
 (6616, 12, 1, 100, 4, 25, 25, 0, 'Bauhinia divaricata', 'Maay wakax', 'Leguminosae', NULL, '17.0000', '5.4113', '3.0000', '9.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 5, NULL, NULL, '0.0000', '0.0009'),
 (6617, 12, 8, 500, 1, 8, 9, 0, 'Thrinax radiata', 'Palma chit', 'Arecaceae', NULL, '40.0000', '12.7324', '1.9000', '5.0000', '0.0000', '0.0000', '', '', NULL, '5.0000', 15, NULL, NULL, '0.0000', '0.0020');
-INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumenvv`, `areabasal`) VALUES
+INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumen`, `areabasal`) VALUES
 (6618, 12, 10, 5, 0, 18, 18, 0, 'Cissus verticillata', 'Bejuco Cissus', 'Vitaceae', NULL, '0.0000', '0.0000', '0.0000', '0.1000', '10.0000', '14.0000', '', '', NULL, '2.5000', 5, NULL, NULL, '0.0000', '0.0000'),
 (6619, 12, 10, 5, 0, 19, 19, 0, 'Cissus verticillata', 'Bejuco Cissus', 'Vitaceae', NULL, '0.0000', '0.0000', '0.0000', '0.6000', '15.0000', '13.0000', '', '', NULL, '2.5000', 5, NULL, NULL, '0.0000', '0.0000'),
 (6620, 12, 8, 500, 1, 3, 3, 0, 'Simarouba amara', 'Pasak', 'Simaroubaceae', NULL, '49.0000', '15.5972', '8.0000', '10.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 15, NULL, NULL, '0.1067', '0.0024'),
@@ -2771,7 +2710,7 @@ INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `nu
 (6851, 12, 7, 500, 3, 26, 29, 0, 'Lysiloma latisiliquum', 'Tzalam', 'Leguminosae', NULL, '103.0000', '32.7859', '7.0000', '14.0000', '0.0000', '0.0000', '', '', NULL, '15.0000', 35, NULL, NULL, '0.6063', '0.0051'),
 (6852, 12, 8, 500, 2, 27, 29, 0, 'Lysiloma latisiliquum', 'Tzalam', 'Leguminosae', NULL, '59.0000', '18.7803', '5.0000', '13.0000', '0.0000', '0.0000', '', '', NULL, '12.5000', 20, NULL, NULL, '0.1910', '0.0030'),
 (6853, 12, 12, 100, 3, 18, 29, 1, 'Lysiloma latisiliquum', 'Tzalam', 'Leguminosae', NULL, '26.5000', '8.4352', '2.0000', '9.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 10, NULL, NULL, '0.0000', '0.0013');
-INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumenvv`, `areabasal`) VALUES
+INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `numero`, `arbolnumeroensitio`, `bifurcados`, `nombrecientifico`, `nombrecomun`, `familia`, `genero`, `perimetro`, `diametro`, `alturafl`, `alturatotal`, `coberturalargo`, `coberturaancho`, `formadefuste`, `estadocondicion`, `rad`, `atcategorias`, `dncategorias`, `ab`, `grupo`, `volumen`, `areabasal`) VALUES
 (6854, 12, 7, 500, 3, 27, 30, 0, 'Lysiloma latisiliquum', 'Tzalam', 'Leguminosae', NULL, '77.5000', '24.6690', '7.0000', '14.0000', '0.0000', '0.0000', '', '', NULL, '15.0000', 25, NULL, NULL, '0.3501', '0.0039'),
 (6855, 12, 8, 500, 2, 27, 30, 1, 'Lysiloma latisiliquum', 'Tzalam', 'Leguminosae', NULL, '53.0000', '16.8704', '7.0000', '12.0000', '0.0000', '0.0000', '', '', NULL, '12.5000', 15, NULL, NULL, '0.1425', '0.0027'),
 (6856, 12, 12, 100, 3, 19, 30, 0, 'Lysiloma latisiliquum', 'Tzalam', 'Leguminosae', NULL, '22.5000', '7.1620', '6.0000', '10.0000', '0.0000', '0.0000', '', '', NULL, '10.0000', 5, NULL, NULL, '0.0000', '0.0011'),
@@ -2965,7 +2904,8 @@ CREATE TABLE `proyecto_ecuaciones` (
 INSERT INTO `proyecto_ecuaciones` (`id`, `proyecto_id`, `umafor_region`) VALUES
 (1, 13, 'norte'),
 (2, 13, 'centro'),
-(4, 13, 'Ejemplo 1');
+(4, 13, 'Ejemplo 1'),
+(6, 13, 'sabe');
 
 -- --------------------------------------------------------
 
@@ -3047,13 +2987,6 @@ ALTER TABLE `generos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `grupo_especie`
---
-ALTER TABLE `grupo_especie`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nombrecientifico` (`nombrecientifico`);
-
---
 -- Indices de la tabla `individuos`
 --
 ALTER TABLE `individuos`
@@ -3088,7 +3021,7 @@ ALTER TABLE `sitios`
 -- AUTO_INCREMENT de la tabla `ecuaciones_volumen`
 --
 ALTER TABLE `ecuaciones_volumen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT de la tabla `especies`
 --
@@ -3105,11 +3038,6 @@ ALTER TABLE `familias`
 ALTER TABLE `generos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT de la tabla `grupo_especie`
---
-ALTER TABLE `grupo_especie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
---
 -- AUTO_INCREMENT de la tabla `individuos`
 --
 ALTER TABLE `individuos`
@@ -3118,33 +3046,17 @@ ALTER TABLE `individuos`
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT de la tabla `proyecto_ecuaciones`
 --
 ALTER TABLE `proyecto_ecuaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `sitios`
 --
 ALTER TABLE `sitios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `individuos`
---
-ALTER TABLE `individuos`
-  ADD CONSTRAINT `proyecto_id_fk` FOREIGN KEY (`proyecto_id`) REFERENCES `proyectos` (`id`);
-
---
--- Filtros para la tabla `sitios`
---
-ALTER TABLE `sitios`
-  ADD CONSTRAINT `proyecto_id_fk2` FOREIGN KEY (`proyecto_id`) REFERENCES `proyectos` (`id`);
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

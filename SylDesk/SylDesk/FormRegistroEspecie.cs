@@ -1,34 +1,36 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using ExcelDataReader;
-using System.Windows;
 
 namespace SylDesk
 {
     public partial class FormRegistroEspecie : UserControl
     {
         private Form1 form1;
-        MySqlCommand cmd;
+        private int proyecto_id = -1;
+        private int status = 0;
+        private string nombre = "";
 
-        public FormRegistroEspecie(Form1 form1)
+        public FormRegistroEspecie()
         {
-            this.form1 = form1;
             InitializeComponent();
         }
 
-        public void Initialize(String nombre)
+        public void setForm(Form1 form1)
+        {
+            this.form1 = form1;
+        }
+
+        public void Initialize(int proyecto_id, int status, String nombre)
         {
             Empty();
             dataGridViewEspecies_Populate("");
+            this.proyecto_id = proyecto_id;
+            this.status = status;
+            this.nombre = nombre;
             textBoxNombreCientifico.Text = nombre;
         }
 
@@ -38,36 +40,31 @@ namespace SylDesk
             dataGridViewEspecies.Refresh();
             textBoxFamilia.Text = "";
             textBoxGenero.Text = "";
-            textBoxNombreCientifico.Text = "";
+            textBoxNombreCientifico.Text = nombre;
             textBoxNombreComun.Text = "";
-            textBoxFormaDeVida.Text = "";
-            textBoxCategoriaDeNorma.Text = "";
+            comboBoxFormaDeVida.SelectedIndex = 0;
+            comboBoxCategoriaDeNorma.SelectedIndex = 0;
         }
 
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
-            if (textBoxNombreCientifico.Text != "" && textBoxNombreComun.Text != "" && textBoxFamilia.Text != "" && textBoxGenero.Text != "" && textBoxFormaDeVida.Text != "" && textBoxCategoriaDeNorma.Text != "")
+            if (textBoxNombreCientifico.Text != "" && textBoxNombreComun.Text != "" && textBoxFamilia.Text != "" && textBoxGenero.Text != "" && comboBoxFormaDeVida.Text != "" && comboBoxCategoriaDeNorma.Text != "")
             {
-                cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "Insert into especies(nombrecientifico, nombrecomun, familia, genero, formadevida, categoriadenorma)" +
-                    "Values(@nombrecientifico, @nombrecomun, @familia, @genero, @formadevida, @categoriadenorma)";
-                cmd.Parameters.AddWithValue("@nombrecientifico", textBoxNombreCientifico.Text);
-                cmd.Parameters.AddWithValue("@nombrecomun", textBoxNombreComun.Text);
-                cmd.Parameters.AddWithValue("@familia", textBoxFamilia.Text);
-                cmd.Parameters.AddWithValue("@genero", textBoxGenero.Text);
-                cmd.Parameters.AddWithValue("@formadevida", textBoxFormaDeVida.Text);
-                cmd.Parameters.AddWithValue("@categoriadenorma", textBoxCategoriaDeNorma.Text);
-                cmd.ExecuteNonQuery();
+                SqlConnector.postPutDeleteGenerico(
+                    "Insert into especies(nombrecientifico, nombrecomun, familia, genero, formadevida, categoriadenorma)" +
+                    "Values(@nombrecientifico, @nombrecomun, @familia, @genero, @formadevida, @categoriadenorma)",
+                    new String[] { "nombrecientifico", "nombrecomun", "familia", "genero", "formadevida", "categoriadenorma" },
+                    new String[] { textBoxNombreCientifico.Text, textBoxNombreComun.Text, textBoxFamilia.Text, textBoxGenero.Text, comboBoxFormaDeVida.Text, comboBoxCategoriaDeNorma.Text }
+                );
 
-                textBoxNombreCientifico.Text = "";
-                textBoxNombreComun.Text = "";
-                textBoxFamilia.Text = "";
-                textBoxGenero.Text = "";
-                textBoxFormaDeVida.Text = "";
-                textBoxCategoriaDeNorma.Text = "";
+                Empty();
 
                 dataGridViewEspecies_Populate("");
                 SqlConnector.sendMessageBox("Especie agregada!");
+                if (status == 1)
+                {
+                    form1.formRegistro2ToFront(proyecto_id);
+                }
             }
             else
             {
@@ -79,47 +76,17 @@ namespace SylDesk
         {
             dataGridViewEspecies.Rows.Clear();
 
-            cmd = SqlConnector.getConnection(cmd);
+            List<Especie> list_especies = SqlConnector.especiesGet(
+                "SELECT * from especies where nombrecientifico like \"%" + text + "%\" ORDER BY nombrecientifico DESC",
+                new String[] { },
+                new String[] { }
+            );
 
-            string sqlQueryString = "SELECT familia, genero, nombrecientifico, nombrecomun, formadevida, categoriadenorma  from especies where nombrecientifico like ('%" + text + "%') ORDER BY nombrecientifico DESC";
-            cmd.CommandText = sqlQueryString;
-
-            var results = cmd.ExecuteReader();
-
-
-            while (results.Read())
+            foreach (Especie especie in list_especies)
             {
-                List<Object> lista_especies = new List<Object>();
-                lista_especies.Add(results[0]);
-                lista_especies.Add(results[1]);
-                lista_especies.Add(results[2]);
-                lista_especies.Add(results[3]);
-                lista_especies.Add(results[4]);
-                lista_especies.Add(results[5]);
-
-                dataGridViewEspecies.Rows.Insert(0, lista_especies.ToArray());
+                
+                dataGridViewEspecies.Rows.Insert(0, new String[] { especie.getFamilia(), especie.getGenero(), especie.getNombreCientifico(), especie.getNombreComun(), especie.getFormaDeVida(), especie.getCategoriaDeNorma() });
             }
-
-            results.Close();
-            results.Dispose();
-        }
-
-        private void sendMessageBox(string message)
-        {
-            string messageBoxText = message;
-            string caption = "Error";
-            MessageBoxButton button = MessageBoxButton.OK;
-            MessageBoxImage icon = MessageBoxImage.Error;
-            System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
-        }
-
-        private void Buscarbutton_Click(object sender, EventArgs e)
-        {
-            //this.Hide(); //esconde el form actual
-
-
-            //FormRegistro3 objeto = new FormRegistro3(); //objeto declarado para abrir el form3
-            //objeto.Show(); //abre el form declarado con el objeto
         }
 
         private void dataGridViewEspecies_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -130,33 +97,55 @@ namespace SylDesk
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "DELETE FROM especies WHERE familia = @familia AND genero = @genero AND nombrecientifico = @nombrecientifico AND nombrecomun = @nombrecomun";
-                cmd.Parameters.AddWithValue("@familia", row.Cells["familia"].Value);
-                cmd.Parameters.AddWithValue("@genero", row.Cells["genero"].Value);
-                cmd.Parameters.AddWithValue("@nombrecientifico", row.Cells["nombrecientifico"].Value);
-                cmd.Parameters.AddWithValue("@nombrecomun", row.Cells["nombrecomun"].Value);
-                cmd.ExecuteNonQuery();
+                SqlConnector.postPutDeleteGenerico(
+                    "DELETE FROM especies WHERE familia = @familia AND genero = @genero AND nombrecientifico = @nombrecientifico AND nombrecomun = @nombrecomun",
+                    new String[] { "familia", "genero", "nombrecientifico", "nombrecomun" },
+                    new String[] { row.Cells["familia"].Value.ToString() , row.Cells["genero"].Value.ToString(), row.Cells["nombrecientifico"].Value.ToString(), row.Cells["nombrecomun"].Value.ToString() }
+                );
 
-                dataGridViewEspecies.Rows.RemoveAt(e.RowIndex);
+                dataGridViewEspecies_Populate("");
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "Delete from especies";
-            cmd.ExecuteNonQuery();
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
             DataSet dataSet = new DataSet();
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            DataTable dt = new DataTable();
+            try
             {
-                dataSet = ReadXlsx(openFileDialog1.FileName);
+                OpenFileDialog openFileDialog1 = new OpenFileDialog();
+                
+                if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    if (openFileDialog1.FileName != "")
+                    {
+                        dataSet = ReadXlsx(openFileDialog1.FileName);
+                    }
+                    else
+                    {
+                        SqlConnector.sendMessageBox("No se selecciono archivo o no ese archivo no es compatible.");
+                        return;
+                    }
+                }
+
+                dt = dataSet.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                SqlConnector.sendMessageBox("Error inesperado.");
+                return;
             }
 
-            DataTable dt = new DataTable();
-            dt = dataSet.Tables[0];
+            if (dataSet == null)
+            {
+                
+            }
+
+            SqlConnector.postPutDeleteGenerico(
+            "Delete from especies",
+            new String[] { },
+            new String[] { }
+            );
 
             String[] array = new String[4];
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -170,34 +159,25 @@ namespace SylDesk
                 int len = array[2].Trim().IndexOf(" ");
 
                 string subString = array[2];
+
                 try
                 {
                     subString = array[2].Substring(0, len);
                 }
                 catch (Exception exc)
                 {
-                    /*
-                    sendMessageBox("|" + array[0] + "|");
-                    sendMessageBox("|" + array[1] + "|");
-                    sendMessageBox("ERROR MAGICOOOOO: |" + i + "|" + array[2] + "|" + len);
-                    sendMessageBox("|" + array[3] + "|");
-                    */
 
                     char aux_char = (char)160;
                     len = array[2].Trim().IndexOf(aux_char);
                     subString = array[2].Substring(0, len);
                 }
 
-                cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "Insert into especies(nombrecientifico, nombrecomun, familia, formadevida, genero)" +
-                    "Values(@nombrecientifico, @nombrecomun, @familia, @formadevida, @genero)";
-
-                cmd.Parameters.AddWithValue("@nombrecientifico", array[2]);
-                cmd.Parameters.AddWithValue("@nombrecomun", array[0]);
-                cmd.Parameters.AddWithValue("@familia", array[1]);
-                cmd.Parameters.AddWithValue("@formadevida", array[3]);
-                cmd.Parameters.AddWithValue("@genero", subString);
-                cmd.ExecuteNonQuery();
+                SqlConnector.postPutDeleteGenerico(
+                    "Insert into especies(nombrecientifico, nombrecomun, familia, formadevida, genero)" +
+                    "Values(@nombrecientifico, @nombrecomun, @familia, @formadevida, @genero)",
+                    new String[] { "nombrecientifico", "nombrecomun", "familia", "formadevida", "genero" },
+                    new String[] { array[2], array[0], array[1], array[3], subString }
+                );
             }
         }
 
@@ -224,6 +204,10 @@ namespace SylDesk
                 return null;
             }
         }
-    
+
+        private void textBoxBuscarEspecie_TextChanged(object sender, EventArgs e)
+        {
+            dataGridViewEspecies_Populate(textBoxBuscarEspecie.Text);
+        }
     }
 }

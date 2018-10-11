@@ -19,8 +19,8 @@ namespace SylDesk
         public Especie(string id, string nombrecientifico, string nombrecomun, string familia, string formadevida, string genero, string categoriadenorma)
         {
             this.id = id;
-            this.nombrecientifico = nombrecomun;
-            this.nombrecomun = nombrecientifico;
+            this.nombrecientifico = nombrecientifico;
+            this.nombrecomun = nombrecomun;
             this.familia = familia;
             this.formadevida = formadevida;
             this.genero = genero;
