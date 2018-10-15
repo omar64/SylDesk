@@ -451,7 +451,7 @@
             // 
             // alturafl
             // 
-            this.alturafl.HeaderText = "Altura F.L";
+            this.alturafl.HeaderText = "Altura F.L.";
             this.alturafl.Name = "alturafl";
             this.alturafl.Width = 70;
             // 
@@ -517,7 +517,6 @@
             // 
             this.areabasal.HeaderText = "Area Basal";
             this.areabasal.Name = "areabasal";
-            this.areabasal.Visible = false;
             // 
             // FormRegistro2
             // 

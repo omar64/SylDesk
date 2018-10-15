@@ -53,10 +53,7 @@ namespace SylDesk
             int row_index = dataGridViewIndividuos.CurrentCell.RowIndex;
             string column_name = dataGridViewIndividuos.Columns[dataGridViewIndividuos.CurrentCell.ColumnIndex].Name;
             DataGridViewRow row = dataGridViewIndividuos.Rows[dataGridViewIndividuos.CurrentCell.RowIndex];
-            if (column_name == "alturatotal")
-            {               
-                volumen_ecuacion(row);
-            }
+                        
             if (column_name == "diametro")
             {
                 dataGridViewIndividuos.Rows[row_index].Cells["perimetro"].Value = (Convert.ToDouble(dataGridViewIndividuos.CurrentCell.Value) * Math.PI).ToString("F4");
@@ -64,57 +61,72 @@ namespace SylDesk
 
                 updateData("perimetro", row, Convert.ToString(row.Cells["perimetro"].Value));
                 updateData("areabasal", row, Convert.ToString(row.Cells["areabasal"].Value));
-
-                volumen_ecuacion(row);
             }
             else if (column_name == "perimetro")
             {
                 dataGridViewIndividuos.Rows[row_index].Cells["diametro"].Value = (Convert.ToDouble(dataGridViewIndividuos.CurrentCell.Value) / Math.PI).ToString("F4");
+                dataGridViewIndividuos.Rows[row_index].Cells["areabasal"].Value = (Math.PI * Math.Pow(Convert.ToDouble(dataGridViewIndividuos.Rows[row_index].Cells["diametro"].Value) / 2, 2)) / 10000;
 
                 updateData("diametro", row, Convert.ToString(row.Cells["diametro"].Value));
-
-                volumen_ecuacion(row);
+                updateData("areabasal", row, Convert.ToString(row.Cells["areabasal"].Value));
             }
             else if (column_name == "nombrecientifico")
             {
-                Especie especie = SqlConnector.especieGet(
-                    "SELECT * FROM especies where nombrecientifico = @nombrecientifico",
-                    new String[] { "nombrecientifico" },
-                    new String[] { row.Cells["nombrecientifico"].Value.ToString() }
-                );
-
-                if (especie != null)
+                String nombrecientifico = tryGetStringCellValue(row, "nombrecientifico");
+                if(nombrecientifico != "")
                 {
-                    string textBoxNombreCientifico = row.Cells["nombrecientifico"].Value.ToString();
-                    string textBoxNombreComun = especie.getNombreComun();
-                    string textBoxFamilia = especie.getFamilia();
-                    string textBoxGenero = especie.getGenero();
+                    Especie especie = SqlConnector.especieGet(
+                        "SELECT * FROM especies where nombrecientifico = @nombrecientifico",
+                        new String[] { "nombrecientifico" },
+                        new String[] { nombrecientifico }
+                    );
 
-                    
-                    row.Cells["nombrecomun"].Value = textBoxNombreComun;
-                    row.Cells["familia"].Value = textBoxFamilia;
-                    row.Cells["genero"].Value = textBoxGenero;
+                    if (especie != null)
+                    {
+                        string textBoxNombreCientifico = nombrecientifico;
+                        string textBoxNombreComun = especie.getNombreComun();
+                        string textBoxFamilia = especie.getFamilia();
+                        string textBoxGenero = especie.getGenero();
 
-                    updateData("nombrecomun", row, textBoxNombreComun);
-                    updateData("familia", row, textBoxFamilia);
-                    updateData("genero", row, textBoxGenero);
 
-                    volumen_ecuacion(row);                    
+                        row.Cells["nombrecomun"].Value = textBoxNombreComun;
+                        row.Cells["familia"].Value = textBoxFamilia;
+                        row.Cells["genero"].Value = textBoxGenero;
+
+                        updateData("nombrecomun", row, textBoxNombreComun);
+                        updateData("familia", row, textBoxFamilia);
+                        updateData("genero", row, textBoxGenero);
+                    }
+                    else
+                    {
+                        DialogResult dialog_result = MessageBox.Show("No existe esa especie, desea crearla?",
+                            "",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question,
+                            MessageBoxDefaultButton.Button2);
+                        //
+                        // Test the results of the previous three dialogs. [6]
+                        //
+                        if (dialog_result == DialogResult.Yes)
+                        {
+                            form1.formRegistroEspecieToFront(proyecto_id, 1, "" + row.Cells[column_name].Value);
+                        }
+                        row.Cells[column_name].Value = "";
+
+                        row.Cells["nombrecomun"].Value = "";
+                        row.Cells["familia"].Value = "";
+                        row.Cells["genero"].Value = "";
+                        row.Cells["volumen"].Value = "0";
+
+                        updateData(column_name, row, "");
+                        updateData("nombrecomun", row, "");
+                        updateData("familia", row, "");
+                        updateData("genero", row, "");
+                        updateData("volumen", row, "");
+                    }
                 }
                 else
                 {
-                    DialogResult dialog_result = MessageBox.Show("No existe esa especie, desea crearla?",
-                        "",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question,
-                        MessageBoxDefaultButton.Button2);
-                    //
-                    // Test the results of the previous three dialogs. [6]
-                    //
-                    if (dialog_result == DialogResult.Yes)
-                    {                        
-                        form1.formRegistroEspecieToFront(proyecto_id, 1, "" + row.Cells[column_name].Value);
-                    }
                     row.Cells[column_name].Value = "";
 
                     row.Cells["nombrecomun"].Value = "";
@@ -122,15 +134,17 @@ namespace SylDesk
                     row.Cells["genero"].Value = "";
                     row.Cells["volumen"].Value = "0";
 
+                    updateData(column_name, row, "");
                     updateData("nombrecomun", row, "");
                     updateData("familia", row, "");
                     updateData("genero", row, "");
                     updateData("volumen", row, "");
-
                 }
             }
 
-            updateData(column_name, row, row.Cells[column_name].Value.ToString());
+            String new_value = tryGetStringCellValue(row, column_name);
+            updateData(column_name, row, new_value);
+            volumen_ecuacion(row);
         }
 
         private void volumen_ecuacion(DataGridViewRow row)
@@ -139,20 +153,15 @@ namespace SylDesk
             {
                 if (comboBoxAreas.SelectedIndex == 0)
                 {
-                    String sdiametro = row.Cells["diametro"].Value.ToString();
-                    String salturatotal = row.Cells["alturatotal"].Value.ToString();
                     String nombrecientifico = row.Cells["nombrecientifico"].Value.ToString();
 
-                    double diametro = Convert.ToDouble(row.Cells["diametro"].Value);
-                    double alturatotal = Convert.ToDouble(row.Cells["alturatotal"].Value);
-                    double perimetro = Convert.ToDouble(row.Cells["perimetro"].Value);
-                    double areabasal = Convert.ToDouble(row.Cells["areabasal"].Value);
-                    double alturafl = Convert.ToDouble(row.Cells["alturafl"].Value);
-                    double coberturalargo = Convert.ToDouble(row.Cells["coberturalargo"].Value);
-                    double coberturaancho = Convert.ToDouble(row.Cells["coberturaancho"].Value);
-
-                    SqlConnector.sendMessageBox("diametro: " +  diametro + "\n" + "alturatotal: " + alturatotal + "\n" + "perimetro: " + perimetro + "\n" +
-                        "areabasal: " + areabasal + "\n" + "alturafl: " + alturafl + "\n" + "coberturalargo: " + coberturalargo + "\n" + "coberturaancho: " + coberturaancho + "\n");
+                    double diametro = tryGetDoubleCellValue(row, "diametro");
+                    double alturatotal = tryGetDoubleCellValue(row, "alturatotal");
+                    double perimetro = tryGetDoubleCellValue(row, "perimetro"); ;
+                    double areabasal = tryGetDoubleCellValue(row, "areabasal"); ;
+                    double alturafl = tryGetDoubleCellValue(row, "alturafl"); ;
+                    double coberturalargo = tryGetDoubleCellValue(row, "coberturalargo");
+                    double coberturaancho = tryGetDoubleCellValue(row, "coberturaancho");
 
                     bool found_flag = false;
                     
@@ -270,8 +279,22 @@ namespace SylDesk
                     }
                     else
                     {
-                        SqlConnector.sendMessageBox("No hay Umafor/Region ligadas al proyecto");
-                        form1.formEditarToFront(proyecto_id);
+                        SqlConnector.sendMessageBox("No hay Umafor/Region ligadas al proyecto.");
+                        if (SqlConnector.sendYNMessageBox("Para su registro desea desplegar el editor del Proyecto?") == DialogResult.Yes)
+                        {
+                            form1.formEditarToFront(proyecto_id);
+                        }
+                        else
+                        {
+                            if (SqlConnector.sendYNMessageBox("O prefiere el editor de Ecuaciones?") == DialogResult.Yes)
+                            {
+                                form1.calculadoraEcuToFront(proyecto_id, 1, nombrecientifico);
+                            }
+                            else
+                            {
+                                SqlConnector.sendMessageBox("El proyecto sigue sin tener Umafor/Region ligados.");
+                            }
+                        }                        
                     }
                 }                
             }
@@ -464,10 +487,10 @@ namespace SylDesk
                 lista_individuos.Add(individuo.getCuadrante());
                 lista_individuos.Add(individuo.getNumero());
                 lista_individuos.Add(individuo.getNumeroArbolEnSitio());
-                lista_individuos.Add(individuo.getBifurcados());
+                lista_individuos.Add(individuo.getBifurcado());
                 lista_individuos.Add(individuo.getNombreCientifico());
                 lista_individuos.Add(individuo.getNombreComun());
-                lista_individuos.Add(individuo.getFamilias());
+                lista_individuos.Add(individuo.getFamilia());
                 lista_individuos.Add(individuo.getGenero());
                 lista_individuos.Add(individuo.getPerimetro());
                 lista_individuos.Add(individuo.getDiametro());
@@ -478,6 +501,7 @@ namespace SylDesk
                 lista_individuos.Add(individuo.getFormaFuste());
                 lista_individuos.Add(individuo.getEstadoCondicion());
                 lista_individuos.Add(individuo.getVolumen());
+                lista_individuos.Add(individuo.getAreaBasal());
 
                 dataGridViewIndividuos.Rows.Insert(0, lista_individuos.ToArray());
                 if (Convert.ToBoolean(dataGridViewIndividuos.Rows[0].Cells["bifurcados"].Value))
@@ -502,9 +526,6 @@ namespace SylDesk
                 new String[] { "proyecto_id", "numero_sitio" },
                 new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString() }
             );
-
-            
-            SqlConnector.sendMessageBox(sitio.getId() + " - " + sitio.getNumeroConsecutivo1() + " - " + sitio.getNumeroSitio() + " - " + sitio.getProyectoId());
 
             int numero_consecutivo;
             if (numero == 1)
@@ -843,6 +864,44 @@ namespace SylDesk
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+
+        public double tryGetDoubleCellValue(DataGridViewRow row, String column_name)
+        {
+            if (row.Cells[column_name].Value != null && row.Cells[column_name].Value.ToString() != String.Empty)
+            {
+                try
+                {
+                    return Convert.ToDouble(row.Cells[column_name].Value.ToString());
+                }
+                catch (Exception ex)
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public String tryGetStringCellValue(DataGridViewRow row, String column_name)
+        {
+            if (row.Cells[column_name].Value != null && row.Cells[column_name].Value.ToString() != String.Empty)
+            {
+                try
+                {
+                    return row.Cells[column_name].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    return "";
+                }
+            }
+            else
+            {
+                return "";
             }
         }
     }

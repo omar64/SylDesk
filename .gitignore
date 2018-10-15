@@ -2,9 +2,22 @@
 bin/
 bin-debug/
 bin-release/
+
+
+./Syldesk/Syldesk/obj/
+./Syldesk/Syldesk/bin/
+./SylDesk/.vs/SylDesk/v15/
+Syldesk/Syldesk/obj/
+Syldesk/Syldesk/bin/
+SylDesk/.vs/SylDesk/v15/
+
+./Syldesk/Syldesk/obj/*
+./Syldesk/Syldesk/bin/*
+./SylDesk/.vs/SylDesk/v15/*
 Syldesk/Syldesk/obj/*
 Syldesk/Syldesk/bin/*
 SylDesk/.vs/SylDesk/v15/*
+
 [Oo]bj/ # FlashDevelop obj
 [Bb]in/ # FlashDevelop bin
 

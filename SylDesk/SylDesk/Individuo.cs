@@ -15,7 +15,7 @@ namespace SylDesk
         private string cuadrante;
         private string numero;
         private string numeroarbolensitio;
-        private string bifurcados;
+        private string bifurcado;
         private string nombrecientifico;
         private string nombrecomun;
         private string familia;
@@ -29,17 +29,17 @@ namespace SylDesk
         private string formafuste;
         private string estadocondicion;
         private string rad;
-        private string atcategorias;
-        private string dncategorias;
+        private string atcategoria;
+        private string dncategoria;
         private string ab;
         private string volumen;
         private string areabasal;
 
         public Individuo(string id, string proyecto_id, string sitio, string area, string cuadrante, 
-            string numero, string numeroarbolensitio, string bifurcados, string nombrecientifico, string nombrecomun,
+            string numero, string numeroarbolensitio, string bifurcado, string nombrecientifico, string nombrecomun,
             string familia, string genero, string perimetro, string diametro, string alturafl, string alturatotal,
             string coberturalargo, string coberturaancho, string formafuste, string estadocondicion, string rad,
-            string atcategorias, string dncategorias, string ab, string volumen, string areabasal)
+            string atcategoria, string dncategoria, string ab, string volumen, string areabasal)
         {
             this.id = id;
             this.proyecto_id = proyecto_id;
@@ -48,7 +48,7 @@ namespace SylDesk
             this.cuadrante = cuadrante;
             this.numero = numero;
             this.numeroarbolensitio = numeroarbolensitio;
-            this.bifurcados = bifurcados;
+            this.bifurcado = bifurcado;
             this.nombrecientifico = nombrecientifico;
             this.nombrecomun = nombrecomun;
             this.familia = familia;
@@ -62,8 +62,8 @@ namespace SylDesk
             this.formafuste = formafuste;
             this.estadocondicion = estadocondicion;
             this.rad = rad;
-            this.atcategorias = atcategorias;
-            this.dncategorias = dncategorias;
+            this.atcategoria = atcategoria;
+            this.dncategoria = dncategoria;
             this.ab = ab;
             this.volumen = volumen;
             this.areabasal = areabasal;
@@ -103,9 +103,9 @@ namespace SylDesk
             return numeroarbolensitio;
         }
 
-        public string getBifurcados()
+        public string getBifurcado()
         {
-            return bifurcados;        
+            return bifurcado;        
         }
 
         public string getNombreCientifico()
@@ -118,7 +118,7 @@ namespace SylDesk
             return nombrecomun;
         }
 
-        public string getFamilias()
+        public string getFamilia()
         {
             return familia;
         }
@@ -173,14 +173,14 @@ namespace SylDesk
             return rad;
         }
 
-        public string getAtCategorias()
+        public string getAtCategoria()
         {
-            return atcategorias;
+            return atcategoria;
         }
 
-        public string getDnCategorias()
+        public string getDnCategoria()
         {
-            return dncategorias;
+            return dncategoria;
         }
 
         public string getAb()
