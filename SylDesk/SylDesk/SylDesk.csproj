@@ -86,12 +86,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalcuEmergente.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CalcuEmergente.Designer.cs">
-      <DependentUpon>CalcuEmergente.cs</DependentUpon>
-    </Compile>
     <Compile Include="CalculadoraEcu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -177,9 +171,6 @@
     </Compile>
     <Compile Include="Sitio.cs" />
     <Compile Include="SqlConnector.cs" />
-    <EmbeddedResource Include="CalcuEmergente.resx">
-      <DependentUpon>CalcuEmergente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CalculadoraEcu.resx">
       <DependentUpon>CalculadoraEcu.cs</DependentUpon>
     </EmbeddedResource>

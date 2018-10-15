@@ -46,7 +46,7 @@ namespace SylDesk
             string caption = "Decision";
             DialogResult dr = System.Windows.Forms.MessageBox.Show(messageBoxText, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             return dr;
-        }
+        }        
 
         ////////////////////////////// any especific value /////////////////////////////////////////////
         public static List<String> anyEspecificValueGet(String query, String[] var_names, String[] var_values)

@@ -226,8 +226,16 @@ namespace SylDesk
 
                         if (!found_flag)
                         {
-                            SqlConnector.sendMessageBox("Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.");
-                            form1.calculadoraEcuToFront(proyecto_id, 1, nombrecientifico);
+                            //SqlConnector.sendMessageBox("Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.");
+                            if(SqlConnector.sendYNMessageBox("Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.\n\n Usar ventana emergente?") == DialogResult.Yes)
+                            {
+                                FormEmergente form_emergente = new FormEmergente();
+                                form_emergente.Show();
+                            }
+                            else
+                            {
+                                form1.calculadoraEcuToFront(proyecto_id, 1, nombrecientifico);
+                            }
                         }
                     }
                 }
