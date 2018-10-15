@@ -138,7 +138,7 @@ namespace SylDesk
             var results = cmd.ExecuteReader();
             while (results.Read())
             {
-                list_proyectos.Add(new Proyecto("" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4], "" + results[5], "" + results[6]));
+                list_proyectos.Add(new Proyecto("" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4], "" + results[5]));
             }
             results.Close();
             results.Dispose();
@@ -160,7 +160,7 @@ namespace SylDesk
             var results = cmd.ExecuteReader();
             if (results.Read())
             {
-                proyecto = new Proyecto("" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4], "" + results[5], "" + results[6]);
+                proyecto = new Proyecto("" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4], "" + results[5]);
             }
             results.Close();
             results.Dispose();

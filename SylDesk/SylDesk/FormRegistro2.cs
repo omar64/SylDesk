@@ -384,7 +384,6 @@ namespace SylDesk
 
             string labelNombreText = proyecto.getNombre();
             string labelSuperficieText = proyecto.getSuperficie();
-            string labelSectorText = proyecto.getSector();
             string labelDescripcionText = proyecto.getDescripcion();
 
             labelNombre.Text = labelNombreText;

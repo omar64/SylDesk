@@ -21,14 +21,13 @@ namespace SylDesk
         public void Empty()
         {
             textBoxNombre.Text = "";
-            textBoxSector.Text = "";
             textBoxSuperficie.Text = "";
             richTextBoxDescripcion.Text = "";
         }
 
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
-            if(textBoxNombre.Text == "" || textBoxSector.Text == "" || textBoxSuperficie.Text == "" || richTextBoxDescripcion.Text == "")
+            if(textBoxNombre.Text == "" || textBoxSuperficie.Text == "" || richTextBoxDescripcion.Text == "")
             {
                 SqlConnector.sendMessageBox("Faltan Datos.");
             }
@@ -41,9 +40,9 @@ namespace SylDesk
                 try
                 {
                     SqlConnector.postPutDeleteGenerico(
-                        "Insert into proyectos(nombre, superficie, sector, descripcion)Values(@nombre,@superficie,@sector,@descripcion)",
-                        new String[] { "nombre", "superficie", "sector", "descripcion" },
-                        new String[] { textBoxNombre.Text, textBoxSuperficie.Text, textBoxSector.Text, richTextBoxDescripcion.Text }
+                        "Insert into proyectos(nombre, superficie, descripcion)Values(@nombre, @superficie, @descripcion)",
+                        new String[] { "nombre", "superficie", "descripcion" },
+                        new String[] { textBoxNombre.Text, textBoxSuperficie.Text, richTextBoxDescripcion.Text }
                     );
 
                     Proyecto proyecto = SqlConnector.proyectoGet(

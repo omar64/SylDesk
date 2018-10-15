@@ -30,18 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro1));
             this.groupBoxRegistro = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.richTextBoxDescripcion = new System.Windows.Forms.RichTextBox();
             this.buttonRegistrar = new System.Windows.Forms.Button();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.textBoxSuperficie = new System.Windows.Forms.TextBox();
             this.labelDescripcion = new System.Windows.Forms.Label();
-            this.textBoxSector = new System.Windows.Forms.TextBox();
-            this.labelSector = new System.Windows.Forms.Label();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelSuperficie = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxRegistro.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,14 +46,11 @@
             // 
             this.groupBoxRegistro.BackColor = System.Drawing.Color.Gainsboro;
             this.groupBoxRegistro.Controls.Add(this.button1);
-            this.groupBoxRegistro.Controls.Add(this.label4);
             this.groupBoxRegistro.Controls.Add(this.richTextBoxDescripcion);
             this.groupBoxRegistro.Controls.Add(this.buttonRegistrar);
             this.groupBoxRegistro.Controls.Add(this.textBoxNombre);
             this.groupBoxRegistro.Controls.Add(this.textBoxSuperficie);
             this.groupBoxRegistro.Controls.Add(this.labelDescripcion);
-            this.groupBoxRegistro.Controls.Add(this.textBoxSector);
-            this.groupBoxRegistro.Controls.Add(this.labelSector);
             this.groupBoxRegistro.Controls.Add(this.labelNombre);
             this.groupBoxRegistro.Controls.Add(this.labelSuperficie);
             this.groupBoxRegistro.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -68,14 +62,15 @@
             this.groupBoxRegistro.TabStop = false;
             this.groupBoxRegistro.Text = "Crear Proyecto";
             // 
-            // label4
+            // button1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 97);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Hectareas";
+            this.button1.Location = new System.Drawing.Point(725, 55);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBoxDescripcion
             // 
@@ -126,22 +121,6 @@
             this.labelDescripcion.TabIndex = 6;
             this.labelDescripcion.Text = "Descripción:";
             // 
-            // textBoxSector
-            // 
-            this.textBoxSector.Location = new System.Drawing.Point(164, 145);
-            this.textBoxSector.Name = "textBoxSector";
-            this.textBoxSector.Size = new System.Drawing.Size(305, 22);
-            this.textBoxSector.TabIndex = 2;
-            // 
-            // labelSector
-            // 
-            this.labelSector.AutoSize = true;
-            this.labelSector.Location = new System.Drawing.Point(113, 151);
-            this.labelSector.Name = "labelSector";
-            this.labelSector.Size = new System.Drawing.Size(50, 16);
-            this.labelSector.TabIndex = 5;
-            this.labelSector.Text = "Sector:";
-            // 
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
@@ -154,11 +133,11 @@
             // labelSuperficie
             // 
             this.labelSuperficie.AutoSize = true;
-            this.labelSuperficie.Location = new System.Drawing.Point(93, 102);
+            this.labelSuperficie.Location = new System.Drawing.Point(27, 105);
             this.labelSuperficie.Name = "labelSuperficie";
-            this.labelSuperficie.Size = new System.Drawing.Size(69, 16);
+            this.labelSuperficie.Size = new System.Drawing.Size(140, 16);
             this.labelSuperficie.TabIndex = 4;
-            this.labelSuperficie.Text = "Superficie:";
+            this.labelSuperficie.Text = "Superficie (Hectareas):";
             // 
             // label1
             // 
@@ -169,16 +148,6 @@
             this.label1.Size = new System.Drawing.Size(135, 24);
             this.label1.TabIndex = 12;
             this.label1.Text = "Crear Proyecto";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(725, 55);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormRegistro1
             // 
@@ -198,13 +167,10 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBoxRegistro;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox richTextBoxDescripcion;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.TextBox textBoxSuperficie;
         private System.Windows.Forms.Label labelDescripcion;
-        private System.Windows.Forms.TextBox textBoxSector;
-        private System.Windows.Forms.Label labelSector;
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Label labelSuperficie;
         private System.Windows.Forms.Button buttonRegistrar;
