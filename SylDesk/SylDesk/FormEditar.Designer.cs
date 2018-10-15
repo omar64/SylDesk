@@ -32,10 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textNombre = new System.Windows.Forms.TextBox();
             this.textSuperficie = new System.Windows.Forms.TextBox();
-            this.textSector = new System.Windows.Forms.TextBox();
             this.textDescr = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelNombre = new System.Windows.Forms.Label();
@@ -71,13 +69,6 @@
             this.textSuperficie.Size = new System.Drawing.Size(303, 21);
             this.textSuperficie.TabIndex = 95;
             // 
-            // textSector
-            // 
-            this.textSector.Location = new System.Drawing.Point(153, 150);
-            this.textSector.Name = "textSector";
-            this.textSector.Size = new System.Drawing.Size(303, 21);
-            this.textSector.TabIndex = 96;
-            // 
             // textDescr
             // 
             this.textDescr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -91,21 +82,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(82, 104);
+            this.label3.Location = new System.Drawing.Point(14, 105);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 15);
+            this.label3.Size = new System.Drawing.Size(133, 15);
             this.label3.TabIndex = 98;
-            this.label3.Text = "Superficie:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(102, 152);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 15);
-            this.label4.TabIndex = 99;
-            this.label4.Text = "Sector:";
+            this.label3.Text = "Superficie (Hectareas):";
             // 
             // label5
             // 
@@ -123,9 +104,7 @@
             this.groupBox1.Controls.Add(this.labelNombre);
             this.groupBox1.Controls.Add(this.textDescr);
             this.groupBox1.Controls.Add(this.buttonGuardar);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textSector);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textNombre);
             this.groupBox1.Controls.Add(this.textSuperficie);
@@ -216,10 +195,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textNombre;
         private System.Windows.Forms.TextBox textSuperficie;
-        private System.Windows.Forms.TextBox textSector;
         private System.Windows.Forms.TextBox textDescr;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labelNombre;

@@ -31,7 +31,6 @@ namespace SylDesk
             {
                 textNombre.Text = proyecto.getNombre();
                 textSuperficie.Text = proyecto.getSuperficie();
-                textSector.Text = proyecto.getSector();
                 textDescr.Text = proyecto.getDescripcion();
             }
 
@@ -60,12 +59,12 @@ namespace SylDesk
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            if (textNombre.Text != "" && textSuperficie.Text != "" && textSector.Text != "" && textDescr.Text != "")
+            if (textNombre.Text != "" && textSuperficie.Text != "" && textDescr.Text != "")
             {
                 SqlConnector.postPutDeleteGenerico(
-                    "UPDATE `proyectos` SET nombre = @nombre, superficie = @superficie, sector = @sector, descripcion = @descripcion WHERE id = @id",
-                    new String[] { "nombre", "superficie", "sector", "descripcion", "id" },
-                    new String[] { textNombre.Text, textSuperficie.Text, textSector.Text, textDescr.Text, "" + proyecto_id }
+                    "UPDATE `proyectos` SET nombre = @nombre, superficie = @superficie, descripcion = @descripcion WHERE id = @id",
+                    new String[] { "nombre", "superficie", "descripcion", "id" },
+                    new String[] { textNombre.Text, textSuperficie.Text, textDescr.Text, "" + proyecto_id }
                 );
                 SqlConnector.sendMessageBox("Se han guardado los cambios");
                 form1.formRegistro3ToFront();
