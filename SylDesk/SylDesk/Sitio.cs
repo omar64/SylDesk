@@ -28,7 +28,10 @@ namespace SylDesk
             this.coordenada_y = coordenada_y;
             this.municipio = municipio;
             this.estado_sucesional = estado_sucesional;
-        }
+            this.numero_consecutivo1 = numero_consecutivo1;
+            this.numero_consecutivo2 = numero_consecutivo2;
+            this.numero_consecutivo3 = numero_consecutivo1;
+    }
 
         public string getId()
         {

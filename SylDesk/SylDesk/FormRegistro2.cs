@@ -1,13 +1,8 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
 using ExcelDataReader;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -508,6 +503,9 @@ namespace SylDesk
                 new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString() }
             );
 
+            
+            SqlConnector.sendMessageBox(sitio.getId() + " - " + sitio.getNumeroConsecutivo1() + " - " + sitio.getNumeroSitio() + " - " + sitio.getProyectoId());
+
             int numero_consecutivo;
             if (numero == 1)
             {
@@ -541,13 +539,11 @@ namespace SylDesk
                 newRow.Cells["arbolnumeroensitio"].Value = 1;
             }
 
-            var row = dataGridViewIndividuos.Rows[dataGridViewIndividuos.RowCount - 1];
-
             SqlConnector.postPutDeleteGenerico(
                 "Insert into individuos(proyecto_id, sitio, area, numero, arbolnumeroensitio, bifurcados)" +
                 "Values(@proyecto_id, @sitio, @area, @numero, @arbolnumeroensitio, false)",
                 new String[] { "proyecto_id", "sitio", "area", "numero", "arbolnumeroensitio" },
-                new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["numero"].Value.ToString(), row.Cells["arbolnumeroensitio"].Value.ToString() }
+                new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), "" + numero_consecutivo, newRow.Cells["arbolnumeroensitio"].Value.ToString() }
             );
         }
 
@@ -668,7 +664,6 @@ namespace SylDesk
 
         private void getEspecies()
         {
-            especiesObject = new List<Especie>();
             especiesString = new List<string>();
 
             List<Especie> list_especies = SqlConnector.especiesGet(
@@ -683,7 +678,6 @@ namespace SylDesk
                 string labelFamiliaText = especie.getFamilia();
                 string labelGeneroText = especie.getGenero();
 
-                //especiesObject.Add(new Especie(labelNombreCientificoText, labelFamiliaText, labelGeneroText));
                 especiesString.Add(labelNombreCientificoText);
             }
 
