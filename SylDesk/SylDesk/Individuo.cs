@@ -32,7 +32,6 @@ namespace SylDesk
         private string atcategorias;
         private string dncategorias;
         private string ab;
-        private string grupo;
         private string volumen;
         private string areabasal;
 
@@ -40,7 +39,7 @@ namespace SylDesk
             string numero, string numeroarbolensitio, string bifurcados, string nombrecientifico, string nombrecomun,
             string familia, string genero, string perimetro, string diametro, string alturafl, string alturatotal,
             string coberturalargo, string coberturaancho, string formafuste, string estadocondicion, string rad,
-            string atcategorias, string dncategorias, string ab, string grupo, string volumen, string areabasal)
+            string atcategorias, string dncategorias, string ab, string volumen, string areabasal)
         {
             this.id = id;
             this.proyecto_id = proyecto_id;
@@ -66,7 +65,6 @@ namespace SylDesk
             this.atcategorias = atcategorias;
             this.dncategorias = dncategorias;
             this.ab = ab;
-            this.grupo = grupo;
             this.volumen = volumen;
             this.areabasal = areabasal;
     }
@@ -188,11 +186,6 @@ namespace SylDesk
         public string getAb()
         {
             return ab;
-        }
-
-        public string getGrupo()
-        {
-            return grupo;
         }
 
         public string getVolumen()

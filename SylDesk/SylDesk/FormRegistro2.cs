@@ -157,66 +157,102 @@ namespace SylDesk
                     double coberturalargo = Convert.ToDouble(row.Cells["coberturalargo"].Value);
                     double coberturaancho = Convert.ToDouble(row.Cells["coberturaancho"].Value);
 
+                    SqlConnector.sendMessageBox("diametro: " +  diametro + "\n" + "alturatotal: " + alturatotal + "\n" + "perimetro: " + perimetro + "\n" +
+                        "areabasal: " + areabasal + "\n" + "alturafl: " + alturafl + "\n" + "coberturalargo: " + coberturalargo + "\n" + "coberturaancho: " + coberturaancho + "\n");
+
                     bool found_flag = false;
+                    
+                    List<ProyectoEcuacion> list_proyecto_ecuacion = SqlConnector.proyectoEcuacionesGet(
+                        "SELECT * FROM `proyecto_ecuaciones` Where proyecto_id = @proyecto_id",
+                        new String[] { "proyecto_id" },
+                        new String[] { "" + proyecto_id }
+                    );
 
-                    if (!sdiametro.Equals("") && !salturatotal.Equals("") && !nombrecientifico.Equals("")) // && !sgrupo.Equals("")
+                    if (list_proyecto_ecuacion.Count > 0)
                     {
-
-                        List<ProyectoEcuacion> list_proyecto_ecuacion = SqlConnector.proyectoEcuacionesGet(
-                            "SELECT * FROM `proyecto_ecuaciones` Where proyecto_id = @proyecto_id",
-                            new String[] { "proyecto_id" },
-                            new String[] { "" + proyecto_id }
-                        );
-                        List<String> umafor_region_list = new List<String>();
-
-
                         foreach (ProyectoEcuacion proyecto_ecuacion in list_proyecto_ecuacion)
                         {
-                            umafor_region_list.Add(proyecto_ecuacion.getUmaforRegion());
-                        }
-                        
-
-                        foreach(String umafor_region in umafor_region_list)
-                        {
-                            //ecuacion, num1, num2, num3
                             EcuacionVolumen ecuacion_volumen = SqlConnector.ecuacionVolumenGet(
                                 "SELECT * FROM ecuaciones_volumen where especie = @especie AND umafor = @umafor",
                                 new String[] { "especie", "umafor" },
-                                new String[] { nombrecientifico, umafor_region }
+                                new String[] { nombrecientifico, proyecto_ecuacion.getUmaforRegion() }
                             );
 
-                            if(ecuacion_volumen != null)
+                            if (ecuacion_volumen != null)
                             {
+                                string ecuacion, pattern, replace, result;
 
-                                string ecuacion = ecuacion_volumen.getEcuacion();
+                                ecuacion = ecuacion_volumen.getEcuacion();
 
                                 MathParser parser = new MathParser();
-                                string pattern = @"\bDIAMETRO\b";
-                                string replace = "" + diametro;
-                                string result = Regex.Replace(ecuacion, pattern, replace);
+
+                                pattern = @"\bDIAMETRO\b";
+                                replace = "" + diametro;
+                                if (Regex.IsMatch(ecuacion, pattern) && diametro == 0)
+                                {
+                                    SqlConnector.sendMessageBox("Valor de diametro faltante para la ecuacion: " + ecuacion);
+                                    break;
+                                }
+                                result = Regex.Replace(ecuacion, pattern, replace);
+
                                 pattern = @"\bALTURATOTAL\b";
                                 replace = "" + alturatotal;
+                                if (Regex.IsMatch(ecuacion, pattern) && alturatotal == 0)
+                                {
+                                    SqlConnector.sendMessageBox("Valor de altura total faltante para la ecuacion: " + ecuacion);
+                                    break;
+                                }
                                 result = Regex.Replace(result, pattern, replace);
+
                                 pattern = @"\bPERIMETRO\b";
                                 replace = "" + perimetro;
+                                if (Regex.IsMatch(ecuacion, pattern) && perimetro == 0)
+                                {
+                                    SqlConnector.sendMessageBox("Valor de perimetro faltante para la ecuacion: " + ecuacion);
+                                    break;
+                                }
                                 result = Regex.Replace(result, pattern, replace);
+
                                 pattern = @"\bAREABASAL\b";
                                 replace = "" + areabasal;
+                                if (Regex.IsMatch(ecuacion, pattern) && areabasal == 0)
+                                {
+                                    SqlConnector.sendMessageBox("Valor area basal faltante para la ecuacion: " + ecuacion);
+                                    break;
+                                }
                                 result = Regex.Replace(result, pattern, replace);
+
                                 pattern = @"\bALTURAFL\b";
-                                replace = "" + areabasal;
+                                replace = "" + alturafl;
+                                if (Regex.IsMatch(ecuacion, pattern) && alturafl == 0)
+                                {
+                                    SqlConnector.sendMessageBox("Valor altura fuste limpio faltante para la ecuacion: " + ecuacion);
+                                    break;
+                                }
                                 result = Regex.Replace(result, pattern, replace);
+
                                 pattern = @"\bCOBERTURAANCHO\b";
-                                replace = "" + areabasal;
+                                replace = "" + coberturaancho;
+                                if (Regex.IsMatch(ecuacion, pattern) && coberturaancho == 0)
+                                {
+                                    SqlConnector.sendMessageBox("Valor cobertura ancho faltante para la ecuacion: " + ecuacion);
+                                    break;
+                                }
                                 result = Regex.Replace(result, pattern, replace);
+
                                 pattern = @"\bCOBERTURALARGO\b";
-                                replace = "" + areabasal;
+                                replace = "" + coberturalargo;
+                                if (Regex.IsMatch(ecuacion, pattern) && coberturalargo == 0)
+                                {
+                                    SqlConnector.sendMessageBox("Valor cobertura largo faltante para la ecuacion: " + ecuacion);
+                                    break;
+                                }
                                 result = Regex.Replace(result, pattern, replace);
 
                                 double volumen = parser.Parse(result, false);
 
                                 SqlConnector.sendMessageBox("" + result + " ---- " + volumen);
-                                
+
                                 row.Cells["volumen"].Value = volumen;
                                 updateData("volumen", row, "" + volumen);
                                 found_flag = true;
@@ -227,7 +263,7 @@ namespace SylDesk
                         if (!found_flag)
                         {
                             //SqlConnector.sendMessageBox("Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.");
-                            if(SqlConnector.sendYNMessageBox("Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.\n\n Usar ventana emergente?") == DialogResult.Yes)
+                            if (SqlConnector.sendYNMessageBox("Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.\n\n Usar ventana emergente?") == DialogResult.Yes)
                             {
                                 FormEmergente form_emergente = new FormEmergente();
                                 form_emergente.Show();
@@ -238,7 +274,12 @@ namespace SylDesk
                             }
                         }
                     }
-                }
+                    else
+                    {
+                        SqlConnector.sendMessageBox("No hay Umafor/Region ligadas al proyecto");
+                        form1.formEditarToFront(proyecto_id);
+                    }
+                }                
             }
             catch (Exception e)
             {
@@ -442,7 +483,6 @@ namespace SylDesk
                 lista_individuos.Add(individuo.getCoberturaAncho());
                 lista_individuos.Add(individuo.getFormaFuste());
                 lista_individuos.Add(individuo.getEstadoCondicion());
-                lista_individuos.Add(individuo.getGrupo());
                 lista_individuos.Add(individuo.getVolumen());
 
                 dataGridViewIndividuos.Rows.Insert(0, lista_individuos.ToArray());

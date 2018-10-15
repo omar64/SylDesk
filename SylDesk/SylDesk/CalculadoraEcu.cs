@@ -91,7 +91,6 @@ namespace SylDesk
         {
             if (comboBox1.Text != "TODOS" && comboBox2.Text != "TODOS" && textBox3.Text != "" && Ecuaciontext.Text != "")
             {
-                SqlConnector.sendMessageBox("proyecto id: " + proyecto_id + ", status: " + status + ", especie: " + especie);
                 EcuacionVolumen ecuacion_volumen = SqlConnector.ecuacionVolumenGet(
                     "SELECT * FROM `ecuaciones_volumen` where inventario = @inventario AND umafor = @umafor AND especie = @especie",
                     new String[] { "inventario", "umafor", "especie" },
@@ -136,6 +135,8 @@ namespace SylDesk
                                 new String[] { "inventario", "umafor", "especie", "ecuacion" },
                                 new String[] { comboBox1.Text, comboBox2.Text, textBox3.Text, Ecuaciontext.Text }
                             );
+
+                            comboBox1_populate();
 
                             if (status == 1)
                             {
