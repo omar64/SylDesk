@@ -25,7 +25,6 @@ namespace SylDesk
         public FormRegistro2()
         {
             InitializeComponent();
-            getEspecies();
         }
 
         public void setForm(Form1 form1)
@@ -44,12 +43,12 @@ namespace SylDesk
 
             dataGridViewIndividuos_Populate();
             fillForm();
+            getEspecies();
         }
 
         public void Empty()
         {
             comboBoxSitios.Items.Clear();
-            //comboBoxAreas.Items.Clear();
             dataGridViewIndividuos.Rows.Clear();
             dataGridViewIndividuos.Refresh();
         }        
