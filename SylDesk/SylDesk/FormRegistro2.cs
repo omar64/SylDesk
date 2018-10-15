@@ -20,7 +20,6 @@ namespace SylDesk
         private int proyecto_id;
         public List<Especie> especiesObject;
         public List<string> especiesString;
-        MySqlCommand cmd;
         AutoCompleteStringCollection source = new AutoCompleteStringCollection();
 
         public FormRegistro2()
@@ -84,24 +83,20 @@ namespace SylDesk
             }
             else if (column_name == "nombrecientifico")
             {
-                cmd = SqlConnector.getConnection(cmd);
+                Especie especie = SqlConnector.especieGet(
+                    "SELECT * FROM especies where nombrecientifico = @nombrecientifico",
+                    new String[] { "nombrecientifico" },
+                    new String[] { row.Cells["nombrecientifico"].Value.ToString() }
+                );
 
-                string sqlQueryString = "SELECT nombrecomun, familia, genero FROM especies where nombrecientifico = @nombrecientifico";
-                cmd.CommandText = sqlQueryString;
-                cmd.Parameters.AddWithValue("@nombrecientifico", row.Cells["nombrecientifico"].Value);
-
-                var results = cmd.ExecuteReader();
-
-                if (results.Read())
+                if (especie != null)
                 {
-                    string textBoxNombreComun = results[0].ToString();
-                    string textBoxFamilia = results[1].ToString();
-                    string textBoxGenero = results[2].ToString();
+                    string textBoxNombreCientifico = row.Cells["nombrecientifico"].Value.ToString();
+                    string textBoxNombreComun = especie.getNombreComun();
+                    string textBoxFamilia = especie.getFamilia();
+                    string textBoxGenero = especie.getGenero();
 
-                    results.Close();
-                    results.Dispose();
-                    //sendMessageBox(textBoxNombreCientificoText + " " + textBoxNombreComunText + " " + textBoxFamiliaText);
-
+                    
                     row.Cells["nombrecomun"].Value = textBoxNombreComun;
                     row.Cells["familia"].Value = textBoxFamilia;
                     row.Cells["genero"].Value = textBoxGenero;
@@ -110,13 +105,10 @@ namespace SylDesk
                     updateData("familia", row, textBoxFamilia);
                     updateData("genero", row, textBoxGenero);
 
-                    //grupo_especie(row);
                     volumen_ecuacion(row);                    
                 }
                 else
                 {
-                    results.Close();
-                    results.Dispose();
                     DialogResult dialog_result = MessageBox.Show("No existe esa especie, desea crearla?",
                         "",
                         MessageBoxButtons.YesNo,
@@ -144,46 +136,7 @@ namespace SylDesk
                 }
             }
 
-            /*
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "UPDATE individuos SET " + column_name + " = @" + column_name + " WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero";
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-            cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
-            cmd.Parameters.AddWithValue("@numero", row.Cells["numero"].Value);
-            cmd.Parameters.AddWithValue("@" + column_name, row.Cells[column_name].Value);
-            cmd.ExecuteNonQuery();
-            */
-        }
-
-        private void grupo_especie(DataGridViewRow row)
-        {
-            cmd = SqlConnector.getConnection(cmd);
-
-            string sqlQueryString = "SELECT grupo FROM grupo_especie where nombrecientifico = @nombrecientifico";
-            cmd.CommandText = sqlQueryString;
-            cmd.Parameters.AddWithValue("@nombrecientifico", row.Cells["nombrecientifico"].Value);
-
-            var results = cmd.ExecuteReader();
-
-            if (results.Read())
-            {
-                string grupo = results[0].ToString();
-                results.Close();
-                results.Dispose();
-
-                row.Cells["grupo"].Value = grupo;
-                updateData("grupo", row, grupo);
-            }
-            else
-            {
-                results.Close();
-                results.Dispose();
-
-                sendMessageBox("No se encontro un grupo adecuado para esta especie");
-                row.Cells["grupo"].Value = "";
-                updateData("grupo", row, "");
-            }            
+            updateData(column_name, row, row.Cells[column_name].Value.ToString());
         }
 
         private void volumen_ecuacion(DataGridViewRow row)
@@ -209,46 +162,34 @@ namespace SylDesk
                     if (!sdiametro.Equals("") && !salturatotal.Equals("") && !nombrecientifico.Equals("")) // && !sgrupo.Equals("")
                     {
 
-                        cmd = SqlConnector.getConnection(cmd);
-
-                        string sqlQueryString = "SELECT umafor_region FROM `proyecto_ecuaciones` Where proyecto_id = @proyecto_id";
-                        cmd.CommandText = sqlQueryString;
-                        cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-
-                        var results = cmd.ExecuteReader();
+                        List<ProyectoEcuacion> list_proyecto_ecuacion = SqlConnector.proyectoEcuacionesGet(
+                            "SELECT * FROM `proyecto_ecuaciones` Where proyecto_id = @proyecto_id",
+                            new String[] { "proyecto_id" },
+                            new String[] { "" + proyecto_id }
+                        );
                         List<String> umafor_region_list = new List<String>();
 
-                        while (results.Read())
-                        {
-                            umafor_region_list.Add(results[0].ToString());
-                        }
-                        results.Close();
-                        results.Dispose();
 
+                        foreach (ProyectoEcuacion proyecto_ecuacion in list_proyecto_ecuacion)
+                        {
+                            umafor_region_list.Add(proyecto_ecuacion.getUmaforRegion());
+                        }
+                        
 
                         foreach(String umafor_region in umafor_region_list)
                         {
-                            cmd = SqlConnector.getConnection(cmd);
+                            //ecuacion, num1, num2, num3
+                            EcuacionVolumen ecuacion_volumen = SqlConnector.ecuacionVolumenGet(
+                                "SELECT * FROM ecuaciones_volumen where especie = @especie AND umafor = @umafor",
+                                new String[] { "especie", "umafor" },
+                                new String[] { nombrecientifico, umafor_region }
+                            );
 
-                            //String sqlQueryString = "SELECT ecuacion, num1, num2, num3 FROM ecuaciones_volumen where grupo = @grupo";
-                            sqlQueryString = "SELECT ecuacion FROM ecuaciones_volumen where umafor = @umafor AND especie = @especie";
-                            cmd.CommandText = sqlQueryString;
-
-                            cmd.Parameters.AddWithValue("@umafor", umafor_region);
-                            cmd.Parameters.AddWithValue("@especie", nombrecientifico);
-                            //cmd.Parameters.AddWithValue("@grupo", row.Cells["grupo"].Value);
-
-                            results = cmd.ExecuteReader();
-                            if (results.Read())
+                            if(ecuacion_volumen != null)
                             {
 
-                                string ecuacion = results[0].ToString();
-                                //sendMessageBox("V= " + ecuacion);
-                                //double num1 = Convert.ToDouble(results[1].ToString());
-                                //double num2 = Convert.ToDouble(results[2].ToString());
-                                //double num3 = Convert.ToDouble(results[3].ToString());
+                                string ecuacion = ecuacion_volumen.getEcuacion();
 
-                                //double volumen = Math.Exp(num1 + num2 * Math.Log(diametro) + num3 * Math.Log(alturatotal));
                                 MathParser parser = new MathParser();
                                 string pattern = @"\bDIAMETRO\b";
                                 string replace = "" + diametro;
@@ -281,12 +222,8 @@ namespace SylDesk
                                 found_flag = true;
                                 break;
                             }
-                            results.Close();
-                            results.Dispose();
                         }
 
-                        results.Close();
-                        results.Dispose();
                         if (!found_flag)
                         {
                             SqlConnector.sendMessageBox("Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.");
@@ -309,40 +246,31 @@ namespace SylDesk
             }
         }
 
-        private void sendMessageBox(string message)
-        {
-            string messageBoxText = message;
-            string caption = "Error";
-            //MessageBoxButton button = MessageBoxButton.OK;
-            //MessageBoxImage icon = MessageBoxImage.Error;
-            MessageBox.Show(messageBoxText, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
         private void buttonAgregarSitio_Click(object sender, EventArgs e)
         {
             comboBoxSitios.Items.Add(comboBoxSitios.Items.Count + 1);
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "Insert into sitios(proyecto_id, numero_sitio)Values(@proyecto_id, @numero_sitio)";
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.Items.Count);
-            cmd.ExecuteNonQuery();
+            SqlConnector.postPutDeleteGenerico(
+                "Insert into sitios(proyecto_id, numero_sitio)Values(@proyecto_id, @numero_sitio)",
+                new String[] { "proyecto_id", "numero_sitio" },
+                new String[] { "" + proyecto_id, "" + comboBoxSitios.Items.Count }
+            );
         }
 
         private void buttonBorrarSitio_Click(object sender, EventArgs e)
         {
             if (comboBoxSitios.Items.Count > 1)
             {
-                cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio";
-                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-                cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.Items.Count);
-                cmd.ExecuteNonQuery();
+                SqlConnector.postPutDeleteGenerico(
+                    "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio",
+                    new String[] { "proyecto_id", "sitio" },
+                    new String[] { "" + proyecto_id, "" + comboBoxSitios.Items.Count }
+                );
 
-                cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "DELETE FROM sitios WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
-                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-                cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.Items.Count);
-                cmd.ExecuteNonQuery();
+                SqlConnector.postPutDeleteGenerico(
+                    "DELETE FROM sitios WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
+                    new String[] { "proyecto_id", "numero_sitio" },
+                    new String[] { "" + proyecto_id, "" + comboBoxSitios.Items.Count }
+                );
 
                 if (comboBoxSitios.Items.Count == comboBoxSitios.SelectedIndex + 1)
                 {
@@ -395,155 +323,120 @@ namespace SylDesk
 
         private void textBoxX_TextChanged(object sender, EventArgs e)
         {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "UPDATE sitios SET coordenada_x = @coordenada_x WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
-            cmd.Parameters.AddWithValue("@coordenada_x", textBoxX.Text);
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
-            cmd.ExecuteNonQuery();
+            SqlConnector.postPutDeleteGenerico(
+                "UPDATE sitios SET coordenada_x = @coordenada_x WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
+                new String[] { "coordenada_x", "proyecto_id", "numero_sitio" },
+                new String[] { textBoxX.Text, "" + proyecto_id, "" + comboBoxSitios.SelectedItem }
+            );
         }
 
         private void textBoxY_TextChanged(object sender, EventArgs e)
         {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "UPDATE sitios SET coordenada_y = @coordenada_y WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
-            cmd.Parameters.AddWithValue("@coordenada_y", textBoxY.Text);
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
-            cmd.ExecuteNonQuery();
+            SqlConnector.postPutDeleteGenerico(
+                "UPDATE sitios SET coordenada_y = @coordenada_y WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
+                new String[] { "coordenada_y", "proyecto_id", "numero_sitio" },
+                new String[] { textBoxX.Text, "" + proyecto_id, "" + comboBoxSitios.SelectedItem }
+            );
         }
 
         private void textBoxMunicipio_TextChanged(object sender, EventArgs e)
         {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "UPDATE sitios SET municipio = @municipio WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
-            cmd.Parameters.AddWithValue("@municipio", textBoxMunicipio.Text);
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
-            cmd.ExecuteNonQuery();
+            SqlConnector.postPutDeleteGenerico(
+                "UPDATE sitios SET municipio = @municipio WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
+                new String[] { "municipio", "proyecto_id", "numero_sitio" },
+                new String[] { textBoxMunicipio.Text, "" + proyecto_id, "" + comboBoxSitios.SelectedItem }
+            );
         }
 
         private void textBoxEstadoSucesional_TextChanged(object sender, EventArgs e)
         {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "UPDATE sitios SET estado_sucesional = @estado_sucesional WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
-            cmd.Parameters.AddWithValue("@estado_sucesional", textBoxEstadoSucesional.Text);
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
-            cmd.ExecuteNonQuery();
+            SqlConnector.postPutDeleteGenerico(
+                "UPDATE sitios SET estado_sucesional = @estado_sucesional WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
+                new String[] { "estado_sucesional", "proyecto_id", "numero_sitio" },
+                new String[] { textBoxEstadoSucesional.Text, "" + proyecto_id, "" + comboBoxSitios.SelectedItem }
+            );
         }
 
 
         private void fillForm()
         {
-            cmd = SqlConnector.getConnection(cmd);
+            Sitio sitio = SqlConnector.sitioGet(
+                "SELECT * FROM `sitios` where proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
+                new String[] { "proyecto_id", "numero_sitio" },
+                new String[] { "" + proyecto_id, "" + comboBoxSitios.SelectedItem }
+            );
 
-            string sqlQueryString = "SELECT municipio, coordenada_x, coordenada_y, estado_sucesional FROM `sitios` where proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
-            cmd.CommandText = sqlQueryString;
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
-
-            var results = cmd.ExecuteReader();
-
-            results.Read();
-
-            string textBoxMunicipioText = results[0].ToString();
-            string textBoxXText = results[1].ToString();
-            string textBoxYText = results[2].ToString();
-            string textBoxEstadoSucesionalText = results[3].ToString();
-
-            results.Close();
-            results.Dispose();
+            string textBoxMunicipioText = sitio.getMunicipio();
+            string textBoxXText = sitio.getCoordenadaX();
+            string textBoxYText = sitio.getCoordenadaY();
+            string textBoxEstadoSucesionalText = sitio.getEstadoSucesional();
 
             textBoxMunicipio.Text = textBoxMunicipioText;
             textBoxX.Text = textBoxXText;
             textBoxY.Text = textBoxYText;
             textBoxEstadoSucesional.Text = textBoxEstadoSucesionalText;
 
+            Proyecto proyecto = SqlConnector.proyectoGet(
+                "SELECT * FROM `proyectos` where id = @proyecto_id",
+                new String[] { "proyecto_id" },
+                new String[] { "" + proyecto_id }
+            );
 
-            cmd = SqlConnector.getConnection(cmd);
-
-            sqlQueryString = "SELECT nombre, superficie, sector, descripcion FROM `proyectos` where id = @proyecto_id";
-            cmd.CommandText = sqlQueryString;
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-
-            results = cmd.ExecuteReader();
-
-            results.Read();
-
-            string labelNombreText = results[0].ToString();
-            string labelSuperficieText = results[1].ToString();
-            string labelSectorText = results[2].ToString();
-            string labelDescripcionText = results[3].ToString();
-
-            results.Close();
-            results.Dispose();
+            string labelNombreText = proyecto.getNombre();
+            string labelSuperficieText = proyecto.getSuperficie();
+            string labelSectorText = proyecto.getSector();
+            string labelDescripcionText = proyecto.getDescripcion();
 
             labelNombre.Text = labelNombreText;
-            //labelSuperficie.Text = labelSuperficieText;
-            //labelSector.Text = labelSectorText;
-            //labelDescripcion.Text = labelDescripcionText;
         }
 
 
         private void comboBoxSitios_Populate()
         {
-            cmd = SqlConnector.getConnection(cmd);
+            List<Sitio> list_sitios = SqlConnector.sitiosGet(
+                "SELECT * FROM `sitios` where proyecto_id = @proyecto_id",
+                new String[] { "proyecto_id" },
+                new String[] { "" + proyecto_id }
+            );
 
-            string sqlQueryString = "SELECT numero_sitio FROM `sitios` where proyecto_id = @proyecto_id";
-            cmd.CommandText = sqlQueryString;
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-
-            var results = cmd.ExecuteReader();
-
-            while (results.Read())
+            foreach (Sitio sitio in list_sitios)
             {
-                comboBoxSitios.Items.Add(results[0]);
+                comboBoxSitios.Items.Add(sitio.getNumeroSitio());
             }
-
-            results.Close();
-            results.Dispose();
         }
 
         private void dataGridViewIndividuos_Populate()
         {
             dataGridViewIndividuos.Rows.Clear();
 
-            cmd = SqlConnector.getConnection(cmd);
-
-            string sqlQueryString = "SELECT cuadrante, numero, arbolnumeroensitio, bifurcados, nombrecientifico, " +
-                "nombrecomun, familia, genero, perimetro, diametro, alturafl, alturatotal, coberturalargo, coberturaancho, " +
-                "formadefuste, estadocondicion, grupo, volumen " +
-                " from `individuos` where proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area ORDER BY arbolnumeroensitio DESC";
-            cmd.CommandText = sqlQueryString;
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem.ToString());
-            cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem.ToString());
-
-            var results = cmd.ExecuteReader();
-
-
-            while (results.Read())
+            List<Individuo> list_individuos = SqlConnector.individuosGet(
+                "SELECT * from `individuos` where proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area ORDER BY arbolnumeroensitio DESC",
+                new String[] { "proyecto_id", "sitio", "area" },
+                new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString() }
+            );
+            
+            foreach(Individuo individuo in list_individuos)
             {
                 List<Object> lista_individuos = new List<Object>();
-                lista_individuos.Add(results[0]);
-                lista_individuos.Add(results[1]);
-                lista_individuos.Add(results[2]);
-                lista_individuos.Add(results[3]);
-                lista_individuos.Add(results[4]);
-                lista_individuos.Add(results[5]);
-                lista_individuos.Add(results[6]);
-                lista_individuos.Add(results[7]);
-                lista_individuos.Add(results[8]);
-                lista_individuos.Add(results[9]);
-                lista_individuos.Add(results[10]);
-                lista_individuos.Add(results[11]);
-                lista_individuos.Add(results[12]);
-                lista_individuos.Add(results[13]);
-                lista_individuos.Add(results[14]);
-                lista_individuos.Add(results[15]);
-                lista_individuos.Add(results[16]);
-                lista_individuos.Add(results[17]);
+
+                lista_individuos.Add(individuo.getCuadrante());
+                lista_individuos.Add(individuo.getNumero());
+                lista_individuos.Add(individuo.getNumeroArbolEnSitio());
+                lista_individuos.Add(individuo.getBifurcados());
+                lista_individuos.Add(individuo.getNombreCientifico());
+                lista_individuos.Add(individuo.getNombreComun());
+                lista_individuos.Add(individuo.getFamilias());
+                lista_individuos.Add(individuo.getGenero());
+                lista_individuos.Add(individuo.getPerimetro());
+                lista_individuos.Add(individuo.getDiametro());
+                lista_individuos.Add(individuo.getAlturaFl());
+                lista_individuos.Add(individuo.getAlturaTotal());
+                lista_individuos.Add(individuo.getCoberturaLargo());
+                lista_individuos.Add(individuo.getCoberturaAncho());
+                lista_individuos.Add(individuo.getFormaFuste());
+                lista_individuos.Add(individuo.getEstadoCondicion());
+                lista_individuos.Add(individuo.getGrupo());
+                lista_individuos.Add(individuo.getVolumen());
 
                 dataGridViewIndividuos.Rows.Insert(0, lista_individuos.ToArray());
                 if (Convert.ToBoolean(dataGridViewIndividuos.Rows[0].Cells["bifurcados"].Value))
@@ -551,67 +444,44 @@ namespace SylDesk
                     dataGridViewIndividuos.Rows[0].DefaultCellStyle.BackColor = Color.DarkGray;
                 }
             }
-
-            results.Close();
-            results.Dispose();
-        }
-
-
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            //this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            //System.Windows.Forms.Application.Exit();
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
-            //this.Hide(); //esconde el form actual
-
-
-            //FormRegistro1 objeto = new FormRegistro1(); //objeto declarado para abrir el form2
-            //objeto.Show(); //abre el form declarado con el objeto
             form1.formRegistro1ToFront();
         }
 
-        private void Buscarbutton_Click(object sender, EventArgs e)
-        {
-            /*this.Hide(); //esconde el form actual
-
-
-            FormRegistro3 objeto = new FormRegistro3(); //objeto declarado para abrir el form3
-            objeto.Show(); //abre el form declarado con el objeto*/
-        }
 
         private void buttonAgregarIndividuo_Click(object sender, EventArgs e)
         {
-            cmd = SqlConnector.getConnection(cmd);
             int numero = comboBoxAreas.SelectedIndex + 1;
 
-            string sqlQueryString = "SELECT numero_consecutivo" + numero + " FROM `sitios` where proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
-            cmd.CommandText = sqlQueryString;
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
+            Sitio sitio = SqlConnector.sitioGet(
+                "SELECT * FROM `sitios` where proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
+                new String[] { "proyecto_id", "numero_sitio" },
+                new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString() }
+            );
 
-            var results = cmd.ExecuteReader();
+            int numero_consecutivo;
+            if (numero == 1)
+            {
+                numero_consecutivo = Convert.ToInt32(sitio.getNumeroConsecutivo1());
+            }
+            else if(numero == 2)
+            {
+                numero_consecutivo = Convert.ToInt32(sitio.getNumeroConsecutivo2());
+            }
+            else
+            {
+                numero_consecutivo = Convert.ToInt32(sitio.getNumeroConsecutivo3());
+            }
 
-            results.Read();
+            SqlConnector.postPutDeleteGenerico(
+                "UPDATE sitios SET numero_consecutivo" + numero + " = @numero_consecutivo WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
+                new String[] { "numero_consecutivo", "proyecto_id", "numero_sitio" },
+                new String[] { ""  + (numero_consecutivo + 1), "" + proyecto_id, comboBoxSitios.SelectedItem.ToString() }
+            );
 
-            int numero_consecutivo = (int)results[0];
-
-            results.Close();
-            results.Dispose();
-
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "UPDATE sitios SET numero_consecutivo" + numero + " = @numero_consecutivo WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
-            cmd.Parameters.AddWithValue("@numero_consecutivo", numero_consecutivo + 1);
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
-            cmd.ExecuteNonQuery();
 
             var newRow = dataGridViewIndividuos.Rows[dataGridViewIndividuos.Rows.Add()];
             newRow.Cells["numero"].Value = numero_consecutivo;
@@ -627,15 +497,12 @@ namespace SylDesk
 
             var row = dataGridViewIndividuos.Rows[dataGridViewIndividuos.RowCount - 1];
 
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "Insert into individuos(proyecto_id, sitio, area, numero, arbolnumeroensitio, bifurcados)" +
-                "Values(@proyecto_id, @sitio, @area, @numero, @arbolnumeroensitio, false)";
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-            cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
-            cmd.Parameters.AddWithValue("@numero", row.Cells["numero"].Value);
-            cmd.Parameters.AddWithValue("@arbolnumeroensitio", row.Cells["arbolnumeroensitio"].Value);
-            cmd.ExecuteNonQuery();
+            SqlConnector.postPutDeleteGenerico(
+                "Insert into individuos(proyecto_id, sitio, area, numero, arbolnumeroensitio, bifurcados)" +
+                "Values(@proyecto_id, @sitio, @area, @numero, @arbolnumeroensitio, false)",
+                new String[] { "proyecto_id", "sitio", "area", "numero", "arbolnumeroensitio" },
+                new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["numero"].Value.ToString(), row.Cells["arbolnumeroensitio"].Value.ToString() }
+            );
         }
 
         private void buttonAgregarBifurcacion_Click(object sender, EventArgs e)
@@ -653,37 +520,19 @@ namespace SylDesk
                 dataGridViewIndividuos.Rows.Insert(row.Index + 1, clonedRow);
                 clonedRow.DefaultCellStyle.BackColor = Color.Gray;
 
-                cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio + 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio";
-                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-                cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-                cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
-                cmd.Parameters.AddWithValue("@arbolnumeroensitio", dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value);
-                cmd.ExecuteNonQuery();
+                SqlConnector.postPutDeleteGenerico(
+                    "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio + 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio",
+                    new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
+                    new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["arbolnumeroensitio"].Value.ToString() }
+                );
 
-                cmd = SqlConnector.getConnection(cmd);
-                cmd.CommandText = "Insert into individuos(proyecto_id, sitio, area, cuadrante, numero, arbolnumeroensitio, bifurcados, nombrecientifico, nombrecomun, familia, genero, perimetro, diametro, alturafl, alturatotal, coberturaancho, coberturalargo, formadefuste, estadocondicion)" +
-                    "Values(@proyecto_id, @sitio, @area, @cuadrante, @numero, @arbolnumeroensitio, true, @nombrecientifico, @nombrecomun, @familia, @genero, @perimetro, @diametro, @alturafl, @alturatotal, @coberturaancho, @coberturalargo, @formadefuste, @estadocondicion)";
-                cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-                cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-                cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
-                cmd.Parameters.AddWithValue("@cuadrante", clonedRow.Cells["cuadrante"].Value);
-                cmd.Parameters.AddWithValue("@numero", clonedRow.Cells["numero"].Value);
-                cmd.Parameters.AddWithValue("@arbolnumeroensitio", clonedRow.Cells["arbolnumeroensitio"].Value);
-                cmd.Parameters.AddWithValue("@nombrecientifico", clonedRow.Cells["nombrecientifico"].Value);
-                cmd.Parameters.AddWithValue("@nombrecomun", clonedRow.Cells["nombrecomun"].Value);
-                cmd.Parameters.AddWithValue("@familia", clonedRow.Cells["familia"].Value);
-                cmd.Parameters.AddWithValue("@genero", clonedRow.Cells["genero"].Value);
-                cmd.Parameters.AddWithValue("@perimetro", clonedRow.Cells["perimetro"].Value);
-                cmd.Parameters.AddWithValue("@diametro", clonedRow.Cells["diametro"].Value);
-                cmd.Parameters.AddWithValue("@alturafl", clonedRow.Cells["alturafl"].Value);
-                cmd.Parameters.AddWithValue("@alturatotal", clonedRow.Cells["alturatotal"].Value);
-                cmd.Parameters.AddWithValue("@coberturaancho", clonedRow.Cells["coberturaancho"].Value);
-                cmd.Parameters.AddWithValue("@coberturalargo", clonedRow.Cells["coberturalargo"].Value);
-                cmd.Parameters.AddWithValue("@formadefuste", clonedRow.Cells["formadefuste"].Value);
-                cmd.Parameters.AddWithValue("@estadocondicion", clonedRow.Cells["estadocondicion"].Value);
-
-                cmd.ExecuteNonQuery();
+                SqlConnector.postPutDeleteGenerico(
+                    "Insert into individuos(proyecto_id, sitio, area, cuadrante, numero, arbolnumeroensitio, bifurcados, nombrecientifico, nombrecomun, familia, genero, perimetro, diametro, alturafl, alturatotal, coberturaancho, coberturalargo, formadefuste, estadocondicion)" +
+                    "Values(@proyecto_id, @sitio, @area, @cuadrante, @numero, @arbolnumeroensitio, true, @nombrecientifico, @nombrecomun, @familia, @genero, @perimetro, @diametro, @alturafl, @alturatotal, @coberturaancho, @coberturalargo, @formadefuste, @estadocondicion)",
+                    new String[] { "proyecto_id", "sitio", "area", "cuadrante", "numero", "arbolnumeroensitio", "nombrecientifico", "nombrecomun",
+                    "familia", "genero", "perimetro", "diametro", "alturafl", "alturatotal", "coberturaancho", "coberturalargo", "formadefuste", "estadocondicion" },
+                    new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), clonedRow.Cells["cuadrante"].Value.ToString(), clonedRow.Cells["numero"].Value.ToString(), clonedRow.Cells["arbolnumeroensitio"].Value.ToString(), clonedRow.Cells["nombrecientifico"].Value.ToString(), clonedRow.Cells["nombrecomun"].Value.ToString(), clonedRow.Cells["familia"].Value.ToString(), clonedRow.Cells["genero"].Value.ToString(), clonedRow.Cells["perimetro"].Value.ToString(), clonedRow.Cells["diametro"].Value.ToString(), clonedRow.Cells["alturafl"].Value.ToString(), clonedRow.Cells["alturatotal"].Value.ToString(), clonedRow.Cells["coberturaancho"].Value.ToString(), clonedRow.Cells["coberturalargo"].Value.ToString(), clonedRow.Cells["formadefuste"].Value.ToString(), clonedRow.Cells["estadocondicion"].Value.ToString() }
+                );
 
                 dataGridViewIndividuos_Populate();
             }
@@ -698,83 +547,55 @@ namespace SylDesk
 
                 if (!(bool)row.Cells["bifurcados"].Value)
                 {
-                    cmd = SqlConnector.getConnection(cmd);
-                    string sqlQueryString = "SELECT COUNT(id) FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero";
-                    cmd.CommandText = sqlQueryString;
-                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-                    cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-                    cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
-                    cmd.Parameters.AddWithValue("@numero", dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value);
+                    List<String> list_values = SqlConnector.anyEspecificValueGet(
+                        "SELECT COUNT(id) FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero",
+                        new String[] { "proyecto_id", "sitio", "area", "numero" },
+                        new String[] { ""+ proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value.ToString() }
+                    );
 
-                    var results = cmd.ExecuteReader();
+                    int numero_elementos = Convert.ToInt32(list_values[0]);
 
-                    results.Read();
 
-                    int numero_elementos = Convert.ToInt32(results[0]);
+                    SqlConnector.postPutDeleteGenerico(
+                        "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero  = @numero",
+                        new String[] { "proyecto_id", "sitio", "area", "numero" },
+                        new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value.ToString() }
+                    );
 
-                    results.Close();
-                    results.Dispose();
+                    SqlConnector.postPutDeleteGenerico(
+                        "UPDATE individuos SET numero = (numero - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero > @numero",
+                        new String[] { "proyecto_id", "sitio", "area", "numero" },
+                        new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value.ToString() }
+                    );
 
-                    cmd = SqlConnector.getConnection(cmd);
-                    cmd.CommandText = "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero  = @numero";
-                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-                    cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-                    cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
-                    cmd.Parameters.AddWithValue("@numero", dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value);
-                    cmd.ExecuteNonQuery();
+                    SqlConnector.postPutDeleteGenerico(
+                        "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio - " + numero_elementos + ") WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio",
+                        new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
+                        new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value.ToString() }
+                    );
 
-                    cmd = SqlConnector.getConnection(cmd);
-                    cmd.CommandText = "UPDATE individuos SET numero = (numero - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero > @numero";
-                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-                    cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-                    cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
-                    cmd.Parameters.AddWithValue("@numero", dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value);
-                    cmd.ExecuteNonQuery();
-
-                    cmd = SqlConnector.getConnection(cmd);
-                    cmd.CommandText = "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio - " + numero_elementos + ") WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio";
-                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-                    cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-                    cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
-                    cmd.Parameters.AddWithValue("@arbolnumeroensitio", dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value);
-                    cmd.ExecuteNonQuery();
-
-                    cmd = SqlConnector.getConnection(cmd);
-                    cmd.CommandText = "UPDATE sitios SET numero_consecutivo" + numero + " = (numero_consecutivo" + numero + " - 1) WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio";
-                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-                    cmd.Parameters.AddWithValue("@numero_sitio", comboBoxSitios.SelectedItem);
-                    cmd.ExecuteNonQuery();
+                    SqlConnector.postPutDeleteGenerico(
+                        "UPDATE sitios SET numero_consecutivo" + numero + " = (numero_consecutivo" + numero + " - 1) WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
+                        new String[] { "proyecto_id", "numero_sitio" },
+                        new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString() }
+                    );
                 }
                 else
                 {
-                    cmd = SqlConnector.getConnection(cmd);
-                    cmd.CommandText = "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio = @arbolnumeroensitio";
-                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-                    cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-                    cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
-                    cmd.Parameters.AddWithValue("@arbolnumeroensitio", dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value);
-                    cmd.ExecuteNonQuery();
+                    SqlConnector.postPutDeleteGenerico(
+                        "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio = @arbolnumeroensitio",
+                        new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
+                        new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value.ToString() }
+                    );
 
-                    cmd = SqlConnector.getConnection(cmd);
-                    cmd.CommandText = "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio";
-                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-                    cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-                    cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
-                    cmd.Parameters.AddWithValue("@arbolnumeroensitio", dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value);
-                    cmd.ExecuteNonQuery();
+                    SqlConnector.postPutDeleteGenerico(
+                        "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio",
+                        new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
+                        new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value.ToString() }
+                    );
                 }
 
                 dataGridViewIndividuos_Populate();
-
-                /*
-                if (dataGridViewIndividuos.RowCount > 0)
-                {
-                    if (dataGridViewIndividuos.SelectedRows.Count > 0)
-                    {
-                        dataGridViewIndividuos.Rows.RemoveAt(row.Index);
-                    }
-                }
-                */
             }
         }
 
@@ -792,76 +613,37 @@ namespace SylDesk
 
         private void updateData(string name, DataGridViewRow row, string newdata)
         {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "UPDATE individuos SET " + name + " = @" + name + " WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero";
-            cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
-            cmd.Parameters.AddWithValue("@sitio", comboBoxSitios.SelectedItem);
-            cmd.Parameters.AddWithValue("@area", comboBoxAreas.SelectedItem);
-            cmd.Parameters.AddWithValue("@numero", row.Cells["numero"].Value);
-            cmd.Parameters.AddWithValue("@" + name, newdata);
-            cmd.ExecuteNonQuery();
+            SqlConnector.postPutDeleteGenerico(
+                "UPDATE individuos SET " + name + " = @" + name + " WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero",
+                new String[] { "proyecto_id", "sitio", "area", "numero", name },
+                new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["numero"].Value.ToString(), "" + newdata }
+            );
         }
 
         private void getEspecies()
         {
             especiesObject = new List<Especie>();
             especiesString = new List<string>();
-            cmd = SqlConnector.getConnection(cmd);
 
-            string sqlQueryString = "SELECT nombrecientifico, familia, genero FROM especies";
-            cmd.CommandText = sqlQueryString;
+            List<Especie> list_especies = SqlConnector.especiesGet(
+                "SELECT * FROM especies",
+                new String[] { },
+                new String[] { }
+            );
 
-            var results = cmd.ExecuteReader();
-
-            while (results.Read())
+            foreach (Especie especie in list_especies)
             {
-                string labelNombreCientificoText = results[0].ToString();
-                string labelFamiliaText = results[1].ToString();
-                string labelGeneroText = results[2].ToString();
+                string labelNombreCientificoText = especie.getNombreCientifico();
+                string labelFamiliaText = especie.getFamilia();
+                string labelGeneroText = especie.getGenero();
 
                 //especiesObject.Add(new Especie(labelNombreCientificoText, labelFamiliaText, labelGeneroText));
                 especiesString.Add(labelNombreCientificoText);
             }
 
-            results.Close();
-            results.Dispose();
-
             source.AddRange(especiesString.ToArray());
         }
-
-        private void dataGridViewIndividuos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            /*
-            int row_index = dataGridViewIndividuos.CurrentCell.RowIndex;
-            string column_name = dataGridViewIndividuos.Columns[dataGridViewIndividuos.CurrentCell.ColumnIndex].Name;
-
-            var source = new AutoCompleteStringCollection();
-            source.AddRange(new string[]
-            {
-                "January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December"
-            });
-
-            
-            dataGridViewIndividuos.Rows[row_index].Cells[0];
-            AutoCompleteCustomSource = source,
-            AutoCompleteMode =
-                AutoCompleteMode.SuggestAppend,
-            AutoCompleteSource =
-            AutoCompleteSource.CustomSource
-            */
-        }
-
+       
         private void dataGridViewIndividuos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             int column = dataGridViewIndividuos.CurrentCell.ColumnIndex;
@@ -882,22 +664,19 @@ namespace SylDesk
             }
         }
 
-        /*private void button6_Click(object sender, EventArgs e)
-        {
-
-        }*/
-
         private void buttonGrafica_Click(object sender, EventArgs e)
         {
-            //form1.formRegistro1ToFront();
             form1.graficaToFront(proyecto_id);
         }
 
         private void buttonImportar_Click(object sender, EventArgs e)
         {
-            cmd = SqlConnector.getConnection(cmd);
-            cmd.CommandText = "Delete from individuos where proyecto_id = " + proyecto_id;
-            cmd.ExecuteNonQuery();
+            SqlConnector.postPutDeleteGenerico(
+                "Delete from individuos where proyecto_id = " + proyecto_id,
+                new String[] { },
+                new String[] { }
+            );
+
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             DataSet dataSet = new DataSet();
@@ -921,6 +700,14 @@ namespace SylDesk
                     array[j] = val;
                     //sendMessageBox(val);
                 }
+
+                ///////// PARA DESPUEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEES ////////////////////////
+                /*
+                EcuacionVolumen ecuacion_volumen = SqlConnector.ecuacionVolumenGet(
+                    "SELECT * FROM ecuaciones_volumen where especie = @especie AND umafor = @umafor",
+                    new String[] { "especie", "umafor" },
+                    new String[] { nombrecientifico, umafor_region }
+                );
 
                 cmd = SqlConnector.getConnection(cmd);
                 cmd.CommandText = "Insert into individuos(proyecto_id, sitio, area, cuadrante, numero, arbolnumeroensitio, familia, nombrecientifico, nombrecomun, perimetro, diametro, alturafl, alturatotal, coberturalargo, coberturaancho, formadefuste, estadocondicion, bifurcados, atcategorias, dncategorias, volumen, areabasal)" +
@@ -980,11 +767,18 @@ namespace SylDesk
             sendMessageBox("Importacion Completa");
             for (int i = 1; i <= sitio_max; i++)
             {
+                EcuacionVolumen ecuacion_volumen = SqlConnector.ecuacionVolumenGet(
+                    "SELECT * FROM ecuaciones_volumen where especie = @especie AND umafor = @umafor",
+                    new String[] { "especie", "umafor" },
+                    new String[] { nombrecientifico, umafor_region }
+                );
+
                 cmd = SqlConnector.getConnection(cmd);
                 cmd.CommandText = "Insert into sitios(proyecto_id, numero_sitio)" +
                     "Values(@proyecto_id, @numero_sitio)";
                 cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
                 cmd.Parameters.AddWithValue("@numero_sitio", i);
+                */
             }
         }
 
