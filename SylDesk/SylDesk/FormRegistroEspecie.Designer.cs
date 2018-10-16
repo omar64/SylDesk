@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistroEspecie));
             this.textBoxGenero = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,12 +56,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxFormaDeVida = new System.Windows.Forms.ComboBox();
             this.comboBoxCategoriaDeNorma = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspecies)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxGenero
             // 
-            this.textBoxGenero.Location = new System.Drawing.Point(178, 83);
+            this.textBoxGenero.Location = new System.Drawing.Point(178, 73);
             this.textBoxGenero.Name = "textBoxGenero";
             this.textBoxGenero.Size = new System.Drawing.Size(234, 20);
             this.textBoxGenero.TabIndex = 86;
@@ -70,7 +72,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(552, 87);
+            this.label6.Location = new System.Drawing.Point(574, 79);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(135, 15);
             this.label6.TabIndex = 85;
@@ -80,7 +82,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(121, 85);
+            this.label5.Location = new System.Drawing.Point(121, 75);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 15);
             this.label5.TabIndex = 84;
@@ -90,7 +92,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(597, 54);
+            this.label4.Location = new System.Drawing.Point(619, 46);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 15);
             this.label4.TabIndex = 83;
@@ -98,9 +100,9 @@
             // 
             // textBoxBuscarEspecie
             // 
-            this.textBoxBuscarEspecie.Location = new System.Drawing.Point(495, 198);
+            this.textBoxBuscarEspecie.Location = new System.Drawing.Point(413, 168);
             this.textBoxBuscarEspecie.Name = "textBoxBuscarEspecie";
-            this.textBoxBuscarEspecie.Size = new System.Drawing.Size(242, 20);
+            this.textBoxBuscarEspecie.Size = new System.Drawing.Size(307, 20);
             this.textBoxBuscarEspecie.TabIndex = 81;
             this.textBoxBuscarEspecie.TextChanged += new System.EventHandler(this.textBoxBuscarEspecie_TextChanged);
             // 
@@ -108,7 +110,7 @@
             // 
             this.labelBuscarEspecie.AutoSize = true;
             this.labelBuscarEspecie.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBuscarEspecie.Location = new System.Drawing.Point(392, 200);
+            this.labelBuscarEspecie.Location = new System.Drawing.Point(310, 170);
             this.labelBuscarEspecie.Name = "labelBuscarEspecie";
             this.labelBuscarEspecie.Size = new System.Drawing.Size(97, 15);
             this.labelBuscarEspecie.TabIndex = 80;
@@ -128,9 +130,9 @@
             this.formadevida,
             this.categoriadelanorma,
             this.borrar});
-            this.dataGridViewEspecies.Location = new System.Drawing.Point(15, 237);
+            this.dataGridViewEspecies.Location = new System.Drawing.Point(15, 197);
             this.dataGridViewEspecies.Name = "dataGridViewEspecies";
-            this.dataGridViewEspecies.Size = new System.Drawing.Size(1068, 274);
+            this.dataGridViewEspecies.Size = new System.Drawing.Size(1068, 314);
             this.dataGridViewEspecies.TabIndex = 79;
             // 
             // familia
@@ -145,8 +147,8 @@
             // 
             // nombrecientifico
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle7;
             this.nombrecientifico.HeaderText = "Nombre Científico";
             this.nombrecientifico.Name = "nombrecientifico";
             // 
@@ -167,13 +169,13 @@
             // 
             // borrar
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.borrar.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.borrar.DefaultCellStyle = dataGridViewCellStyle8;
             this.borrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.borrar.HeaderText = "Borrar";
             this.borrar.Name = "borrar";
@@ -190,14 +192,14 @@
             // 
             // textBoxNombreComun
             // 
-            this.textBoxNombreComun.Location = new System.Drawing.Point(178, 160);
+            this.textBoxNombreComun.Location = new System.Drawing.Point(178, 125);
             this.textBoxNombreComun.Name = "textBoxNombreComun";
             this.textBoxNombreComun.Size = new System.Drawing.Size(234, 20);
             this.textBoxNombreComun.TabIndex = 77;
             // 
             // textBoxNombreCientifico
             // 
-            this.textBoxNombreCientifico.Location = new System.Drawing.Point(178, 118);
+            this.textBoxNombreCientifico.Location = new System.Drawing.Point(178, 99);
             this.textBoxNombreCientifico.Name = "textBoxNombreCientifico";
             this.textBoxNombreCientifico.Size = new System.Drawing.Size(234, 20);
             this.textBoxNombreCientifico.TabIndex = 76;
@@ -216,7 +218,7 @@
             // 
             this.labelNombreComun.AutoSize = true;
             this.labelNombreComun.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreComun.Location = new System.Drawing.Point(73, 165);
+            this.labelNombreComun.Location = new System.Drawing.Point(73, 127);
             this.labelNombreComun.Name = "labelNombreComun";
             this.labelNombreComun.Size = new System.Drawing.Size(99, 15);
             this.labelNombreComun.TabIndex = 74;
@@ -226,7 +228,7 @@
             // 
             this.labelNombreCientifico.AutoSize = true;
             this.labelNombreCientifico.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreCientifico.Location = new System.Drawing.Point(63, 123);
+            this.labelNombreCientifico.Location = new System.Drawing.Point(63, 101);
             this.labelNombreCientifico.Name = "labelNombreCientifico";
             this.labelNombreCientifico.Size = new System.Drawing.Size(109, 15);
             this.labelNombreCientifico.TabIndex = 73;
@@ -242,7 +244,7 @@
             this.buttonRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
             this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistrar.Location = new System.Drawing.Point(835, 120);
+            this.buttonRegistrar.Location = new System.Drawing.Point(728, 112);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(141, 45);
             this.buttonRegistrar.TabIndex = 72;
@@ -257,7 +259,7 @@
             this.button2.ForeColor = System.Drawing.Color.DodgerBlue;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(644, 120);
+            this.button2.Location = new System.Drawing.Point(900, 112);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(141, 45);
             this.button2.TabIndex = 88;
@@ -294,7 +296,7 @@
             "Herbácea",
             "Palma",
             "Trepadora"});
-            this.comboBoxFormaDeVida.Location = new System.Drawing.Point(694, 54);
+            this.comboBoxFormaDeVida.Location = new System.Drawing.Point(716, 46);
             this.comboBoxFormaDeVida.Name = "comboBoxFormaDeVida";
             this.comboBoxFormaDeVida.Size = new System.Drawing.Size(202, 21);
             this.comboBoxFormaDeVida.TabIndex = 90;
@@ -308,15 +310,26 @@
             "Extinta",
             "Peligro",
             "Proteccion Especial"});
-            this.comboBoxCategoriaDeNorma.Location = new System.Drawing.Point(694, 87);
+            this.comboBoxCategoriaDeNorma.Location = new System.Drawing.Point(716, 79);
             this.comboBoxCategoriaDeNorma.Name = "comboBoxCategoriaDeNorma";
             this.comboBoxCategoriaDeNorma.Size = new System.Drawing.Size(202, 21);
             this.comboBoxCategoriaDeNorma.TabIndex = 91;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(268, 154);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 34);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 92;
+            this.pictureBox1.TabStop = false;
             // 
             // FormRegistroEspecie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBoxCategoriaDeNorma);
             this.Controls.Add(this.comboBoxFormaDeVida);
             this.Controls.Add(this.label1);
@@ -338,6 +351,7 @@
             this.Name = "FormRegistroEspecie";
             this.Size = new System.Drawing.Size(1096, 528);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspecies)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,5 +383,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn borrar;
         private System.Windows.Forms.ComboBox comboBoxFormaDeVida;
         private System.Windows.Forms.ComboBox comboBoxCategoriaDeNorma;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

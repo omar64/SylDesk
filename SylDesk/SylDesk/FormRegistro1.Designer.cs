@@ -38,12 +38,15 @@
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelSuperficie = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxRegistro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxRegistro
             // 
             this.groupBoxRegistro.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBoxRegistro.Controls.Add(this.pictureBox1);
             this.groupBoxRegistro.Controls.Add(this.richTextBoxDescripcion);
             this.groupBoxRegistro.Controls.Add(this.buttonRegistrar);
             this.groupBoxRegistro.Controls.Add(this.textBoxNombre);
@@ -53,9 +56,9 @@
             this.groupBoxRegistro.Controls.Add(this.labelSuperficie);
             this.groupBoxRegistro.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxRegistro.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxRegistro.Location = new System.Drawing.Point(71, 36);
+            this.groupBoxRegistro.Location = new System.Drawing.Point(40, 36);
             this.groupBoxRegistro.Name = "groupBoxRegistro";
-            this.groupBoxRegistro.Size = new System.Drawing.Size(958, 468);
+            this.groupBoxRegistro.Size = new System.Drawing.Size(1024, 467);
             this.groupBoxRegistro.TabIndex = 11;
             this.groupBoxRegistro.TabStop = false;
             this.groupBoxRegistro.Text = "Crear Proyecto";
@@ -63,7 +66,7 @@
             // richTextBoxDescripcion
             // 
             this.richTextBoxDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBoxDescripcion.Location = new System.Drawing.Point(164, 205);
+            this.richTextBoxDescripcion.Location = new System.Drawing.Point(494, 206);
             this.richTextBoxDescripcion.Name = "richTextBoxDescripcion";
             this.richTextBoxDescripcion.Size = new System.Drawing.Size(389, 132);
             this.richTextBoxDescripcion.TabIndex = 7;
@@ -78,7 +81,7 @@
             this.buttonRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
             this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistrar.Location = new System.Drawing.Point(689, 376);
+            this.buttonRegistrar.Location = new System.Drawing.Point(731, 386);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(152, 48);
             this.buttonRegistrar.TabIndex = 10;
@@ -88,14 +91,14 @@
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.Location = new System.Drawing.Point(164, 59);
+            this.textBoxNombre.Location = new System.Drawing.Point(494, 88);
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(305, 22);
             this.textBoxNombre.TabIndex = 0;
             // 
             // textBoxSuperficie
             // 
-            this.textBoxSuperficie.Location = new System.Drawing.Point(164, 102);
+            this.textBoxSuperficie.Location = new System.Drawing.Point(494, 131);
             this.textBoxSuperficie.Name = "textBoxSuperficie";
             this.textBoxSuperficie.Size = new System.Drawing.Size(305, 22);
             this.textBoxSuperficie.TabIndex = 1;
@@ -103,7 +106,7 @@
             // labelDescripcion
             // 
             this.labelDescripcion.AutoSize = true;
-            this.labelDescripcion.Location = new System.Drawing.Point(82, 204);
+            this.labelDescripcion.Location = new System.Drawing.Point(412, 205);
             this.labelDescripcion.Name = "labelDescripcion";
             this.labelDescripcion.Size = new System.Drawing.Size(80, 16);
             this.labelDescripcion.TabIndex = 6;
@@ -112,7 +115,7 @@
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(33, 65);
+            this.labelNombre.Location = new System.Drawing.Point(363, 91);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(134, 16);
             this.labelNombre.TabIndex = 3;
@@ -121,7 +124,7 @@
             // labelSuperficie
             // 
             this.labelSuperficie.AutoSize = true;
-            this.labelSuperficie.Location = new System.Drawing.Point(27, 105);
+            this.labelSuperficie.Location = new System.Drawing.Point(357, 131);
             this.labelSuperficie.Name = "labelSuperficie";
             this.labelSuperficie.Size = new System.Drawing.Size(140, 16);
             this.labelSuperficie.TabIndex = 4;
@@ -137,6 +140,16 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Crear Proyecto";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(52, 72);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(266, 340);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormRegistro1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,6 +160,7 @@
             this.Size = new System.Drawing.Size(1096, 528);
             this.groupBoxRegistro.ResumeLayout(false);
             this.groupBoxRegistro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +177,6 @@
         private System.Windows.Forms.Label labelSuperficie;
         private System.Windows.Forms.Button buttonRegistrar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

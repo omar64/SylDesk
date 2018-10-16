@@ -41,10 +41,12 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -59,14 +61,14 @@
             // 
             // textNombre
             // 
-            this.textNombre.Location = new System.Drawing.Point(153, 55);
+            this.textNombre.Location = new System.Drawing.Point(473, 97);
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(303, 21);
             this.textNombre.TabIndex = 93;
             // 
             // textSuperficie
             // 
-            this.textSuperficie.Location = new System.Drawing.Point(153, 99);
+            this.textSuperficie.Location = new System.Drawing.Point(473, 141);
             this.textSuperficie.Name = "textSuperficie";
             this.textSuperficie.Size = new System.Drawing.Size(303, 21);
             this.textSuperficie.TabIndex = 95;
@@ -74,17 +76,17 @@
             // textDescr
             // 
             this.textDescr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textDescr.Location = new System.Drawing.Point(153, 212);
+            this.textDescr.Location = new System.Drawing.Point(440, 215);
             this.textDescr.Multiline = true;
             this.textDescr.Name = "textDescr";
-            this.textDescr.Size = new System.Drawing.Size(409, 160);
+            this.textDescr.Size = new System.Drawing.Size(336, 184);
             this.textDescr.TabIndex = 97;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(14, 105);
+            this.label3.Location = new System.Drawing.Point(334, 147);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 15);
             this.label3.TabIndex = 98;
@@ -94,7 +96,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(67, 188);
+            this.label5.Location = new System.Drawing.Point(358, 217);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 15);
             this.label5.TabIndex = 100;
@@ -103,6 +105,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.labelNombre);
             this.groupBox1.Controls.Add(this.textDescr);
             this.groupBox1.Controls.Add(this.buttonGuardar);
@@ -111,9 +114,9 @@
             this.groupBox1.Controls.Add(this.textNombre);
             this.groupBox1.Controls.Add(this.textSuperficie);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(26, 39);
+            this.groupBox1.Location = new System.Drawing.Point(18, 39);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(784, 477);
+            this.groupBox1.Size = new System.Drawing.Size(792, 477);
             this.groupBox1.TabIndex = 101;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Editar";
@@ -122,7 +125,7 @@
             // 
             this.labelNombre.AutoSize = true;
             this.labelNombre.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.Location = new System.Drawing.Point(22, 57);
+            this.labelNombre.Location = new System.Drawing.Point(342, 99);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(125, 15);
             this.labelNombre.TabIndex = 101;
@@ -137,7 +140,7 @@
             this.buttonGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonGuardar.Image = ((System.Drawing.Image)(resources.GetObject("buttonGuardar.Image")));
             this.buttonGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGuardar.Location = new System.Drawing.Point(541, 403);
+            this.buttonGuardar.Location = new System.Drawing.Point(603, 423);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(152, 48);
             this.buttonGuardar.TabIndex = 102;
@@ -176,15 +179,6 @@
             this.groupBox2.TabIndex = 104;
             this.groupBox2.TabStop = false;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(18, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(216, 21);
-            this.comboBox1.TabIndex = 104;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(18, 79);
@@ -194,6 +188,25 @@
             this.button1.Text = "Agregar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(18, 51);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(216, 21);
+            this.comboBox1.TabIndex = 104;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(37, 66);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(274, 333);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 103;
+            this.pictureBox1.TabStop = false;
             // 
             // FormEditar
             // 
@@ -208,6 +221,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,5 +243,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

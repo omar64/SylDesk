@@ -28,19 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("perimetro");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("diametro");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("altura fuste limpio");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("altura total");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("cobertura largo");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("cobertura ancho");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("area basal");
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("perimetro");
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("diametro");
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("altura fuste limpio");
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("altura total");
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("cobertura largo");
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("cobertura ancho");
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("area basal");
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("Manikara sapota-Zona Chunjujub");
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("Bursera Simaruba-Norte de Quintana Roo");
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("Bursera Simaruba-Zona Chunjujub");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculadoraEcu));
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Manikara sapota-Zona Chunjujub");
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Bursera Simaruba-Norte de Quintana Roo");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Bursera Simaruba-Zona Chunjujub");
-
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -85,13 +83,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label3);
@@ -131,14 +132,14 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(15, 48);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(845, 477);
+            this.panel1.Size = new System.Drawing.Size(837, 477);
             this.panel1.TabIndex = 0;
+            this.panel1.Tag = "";
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-
-            this.comboBox2.Location = new System.Drawing.Point(466, 40);
+            this.comboBox2.Location = new System.Drawing.Point(446, 87);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(359, 21);
             this.comboBox2.TabIndex = 55;
@@ -147,18 +148,16 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-
-            this.comboBox1.Location = new System.Drawing.Point(27, 33);
+            this.comboBox1.Location = new System.Drawing.Point(446, 39);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(262, 21);
+            this.comboBox1.Size = new System.Drawing.Size(359, 21);
             this.comboBox1.TabIndex = 54;
             this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_SomethingChanged);
-
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 84);
+            this.label3.Location = new System.Drawing.Point(444, 120);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 53;
@@ -166,32 +165,30 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(28, 100);
+            this.textBox3.Location = new System.Drawing.Point(447, 136);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(261, 20);
+            this.textBox3.Size = new System.Drawing.Size(358, 20);
             this.textBox3.TabIndex = 52;
             // 
             // listView1
             // 
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-
-            listViewItem1.Tag = "PERIMETRO";
-            listViewItem2.Tag = "DIAMETRO";
-            listViewItem3.Tag = "ALTURAFL";
-            listViewItem4.Tag = "ALTURATOTAL";
-            listViewItem5.Tag = "COBERTURALARGO";
-            listViewItem6.Tag = "COBERTURAANCHO";
-            listViewItem7.Tag = "AREABASAL";
+            listViewItem11.Tag = "PERIMETRO";
+            listViewItem12.Tag = "DIAMETRO";
+            listViewItem13.Tag = "ALTURAFL";
+            listViewItem14.Tag = "ALTURATOTAL";
+            listViewItem15.Tag = "COBERTURALARGO";
+            listViewItem16.Tag = "COBERTURAANCHO";
+            listViewItem17.Tag = "AREABASAL";
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7});
-
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16,
+            listViewItem17});
             this.listView1.LabelWrap = false;
             this.listView1.Location = new System.Drawing.Point(14, 218);
             this.listView1.MultiSelect = false;
@@ -205,6 +202,7 @@
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.White;
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.Location = new System.Drawing.Point(729, 343);
@@ -218,6 +216,7 @@
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.White;
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Location = new System.Drawing.Point(729, 217);
@@ -232,6 +231,7 @@
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.White;
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(678, 301);
@@ -246,6 +246,7 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(780, 217);
@@ -260,6 +261,7 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(729, 258);
@@ -283,6 +285,7 @@
             // button30
             // 
             this.button30.BackColor = System.Drawing.Color.White;
+            this.button30.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button30.Location = new System.Drawing.Point(678, 258);
@@ -297,6 +300,7 @@
             // button29
             // 
             this.button29.BackColor = System.Drawing.Color.White;
+            this.button29.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button29.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button29.Location = new System.Drawing.Point(729, 301);
@@ -311,6 +315,7 @@
             // button27
             // 
             this.button27.BackColor = System.Drawing.Color.White;
+            this.button27.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button27.Location = new System.Drawing.Point(678, 343);
@@ -325,6 +330,7 @@
             // button15
             // 
             this.button15.BackColor = System.Drawing.Color.White;
+            this.button15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button15.Location = new System.Drawing.Point(627, 343);
@@ -339,6 +345,7 @@
             // button16
             // 
             this.button16.BackColor = System.Drawing.Color.White;
+            this.button16.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button16.Location = new System.Drawing.Point(627, 301);
@@ -353,6 +360,7 @@
             // button17
             // 
             this.button17.BackColor = System.Drawing.Color.White;
+            this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button17.Location = new System.Drawing.Point(780, 259);
@@ -367,6 +375,7 @@
             // button18
             // 
             this.button18.BackColor = System.Drawing.Color.White;
+            this.button18.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button18.Location = new System.Drawing.Point(627, 258);
@@ -381,6 +390,7 @@
             // button19
             // 
             this.button19.BackColor = System.Drawing.Color.White;
+            this.button19.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button19.Location = new System.Drawing.Point(678, 218);
@@ -395,6 +405,7 @@
             // button25
             // 
             this.button25.BackColor = System.Drawing.Color.White;
+            this.button25.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button25.Location = new System.Drawing.Point(627, 218);
@@ -409,6 +420,7 @@
             // button14
             // 
             this.button14.BackColor = System.Drawing.Color.White;
+            this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.Location = new System.Drawing.Point(568, 340);
@@ -423,6 +435,7 @@
             // button13
             // 
             this.button13.BackColor = System.Drawing.Color.White;
+            this.button13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.Location = new System.Drawing.Point(466, 340);
@@ -437,6 +450,7 @@
             // num3
             // 
             this.num3.BackColor = System.Drawing.Color.White;
+            this.num3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num3.Location = new System.Drawing.Point(568, 299);
@@ -451,6 +465,7 @@
             // num2
             // 
             this.num2.BackColor = System.Drawing.Color.White;
+            this.num2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num2.Location = new System.Drawing.Point(517, 299);
@@ -465,6 +480,7 @@
             // num1
             // 
             this.num1.BackColor = System.Drawing.Color.White;
+            this.num1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num1.Location = new System.Drawing.Point(466, 299);
@@ -479,6 +495,7 @@
             // num6
             // 
             this.num6.BackColor = System.Drawing.Color.White;
+            this.num6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num6.Location = new System.Drawing.Point(568, 256);
@@ -493,6 +510,7 @@
             // num5
             // 
             this.num5.BackColor = System.Drawing.Color.White;
+            this.num5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num5.Location = new System.Drawing.Point(517, 256);
@@ -507,6 +525,7 @@
             // num9
             // 
             this.num9.BackColor = System.Drawing.Color.White;
+            this.num9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num9.Location = new System.Drawing.Point(568, 217);
@@ -521,6 +540,7 @@
             // num8
             // 
             this.num8.BackColor = System.Drawing.Color.White;
+            this.num8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num8.Location = new System.Drawing.Point(517, 217);
@@ -535,6 +555,7 @@
             // num4
             // 
             this.num4.BackColor = System.Drawing.Color.White;
+            this.num4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num4.Location = new System.Drawing.Point(466, 256);
@@ -549,6 +570,7 @@
             // num7
             // 
             this.num7.BackColor = System.Drawing.Color.White;
+            this.num7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num7.Location = new System.Drawing.Point(466, 217);
@@ -563,6 +585,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
@@ -578,6 +601,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
@@ -611,7 +635,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 17);
+            this.label2.Location = new System.Drawing.Point(444, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 5;
@@ -620,7 +644,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(463, 21);
+            this.label1.Location = new System.Drawing.Point(443, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 13);
             this.label1.TabIndex = 4;
@@ -632,13 +656,14 @@
             this.panel2.Controls.Add(this.buttonBorrar);
             this.panel2.Controls.Add(this.listView2);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(874, 48);
+            this.panel2.Location = new System.Drawing.Point(858, 48);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(203, 477);
+            this.panel2.Size = new System.Drawing.Size(235, 477);
             this.panel2.TabIndex = 1;
             // 
             // buttonBorrar
             // 
+            this.buttonBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBorrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonBorrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonBorrar.Image")));
@@ -655,14 +680,12 @@
             // 
             this.listView2.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-
-            listViewItem8,
-            listViewItem9,
-            listViewItem10});
-
+            listViewItem18,
+            listViewItem19,
+            listViewItem20});
             this.listView2.Location = new System.Drawing.Point(6, 37);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(191, 361);
+            this.listView2.Size = new System.Drawing.Size(218, 376);
             this.listView2.TabIndex = 15;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Tile;
@@ -697,6 +720,16 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "Editor de Ecuaciones";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(67, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(162, 152);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 56;
+            this.pictureBox1.TabStop = false;
+            // 
             // CalculadoraEcu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -712,6 +745,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -763,5 +797,6 @@
         private System.Windows.Forms.Button buttonBorrar;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

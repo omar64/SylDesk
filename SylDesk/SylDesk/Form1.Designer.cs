@@ -57,7 +57,6 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-
             this.formRegistro1 = new SylDesk.FormRegistro1();
             this.formRegistro2 = new SylDesk.FormRegistro2();
             this.formRegistro3 = new SylDesk.FormRegistro3();
@@ -67,8 +66,6 @@
             this.report = new SylDesk.Report();
             this.calculadoraEcu = new SylDesk.CalculadoraEcu();
             this.formEditar = new SylDesk.FormEditar();
-
-            //this.formKml1. new FormKml(this);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -95,22 +92,24 @@
             // button12
             // 
             this.button12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button12.BackColor = System.Drawing.Color.ForestGreen;
             this.button12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button12.FlatAppearance.BorderSize = 0;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(995, 3);
+            this.button12.Location = new System.Drawing.Point(986, 3);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(29, 30);
             this.button12.TabIndex = 2;
             this.button12.Text = "_";
-            this.button12.UseVisualStyleBackColor = true;
+            this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
             this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button11.BackColor = System.Drawing.Color.ForestGreen;
             this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button11.FlatAppearance.BorderSize = 0;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -121,12 +120,13 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(29, 30);
             this.button11.TabIndex = 1;
-            this.button11.UseVisualStyleBackColor = true;
+            this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button10
             // 
             this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button10.BackColor = System.Drawing.Color.ForestGreen;
             this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button10.FlatAppearance.BorderSize = 0;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -137,7 +137,7 @@
             this.button10.Size = new System.Drawing.Size(29, 30);
             this.button10.TabIndex = 0;
             this.button10.Text = "X";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // label5
@@ -146,9 +146,8 @@
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(436, 40);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 18);
+            this.label5.Size = new System.Drawing.Size(0, 18);
             this.label5.TabIndex = 72;
-            this.label5.Text = "";
             // 
             // groupBox1
             // 
@@ -162,7 +161,7 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(12, 62);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(404, 93);
+            this.groupBox1.Size = new System.Drawing.Size(444, 93);
             this.groupBox1.TabIndex = 69;
             this.groupBox1.TabStop = false;
             // 
@@ -172,7 +171,7 @@
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(346, 0);
+            this.button9.Location = new System.Drawing.Point(369, 0);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(55, 61);
             this.button9.TabIndex = 10;
@@ -188,9 +187,9 @@
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.Location = new System.Drawing.Point(285, -1);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(55, 61);
+            this.button4.Size = new System.Drawing.Size(72, 61);
             this.button4.TabIndex = 9;
-            this.button4.Text = "Calcul.";
+            this.button4.Text = "Calculadora";
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -202,7 +201,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(3, 67);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(398, 23);
+            this.panel2.Size = new System.Drawing.Size(438, 23);
             this.panel2.TabIndex = 8;
             // 
             // label1
@@ -216,7 +215,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Asignacion";
             // 
-            // Registrarespecie
+            // button3
             // 
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatAppearance.BorderSize = 0;
@@ -271,7 +270,7 @@
             this.groupBox3.Controls.Add(this.button15);
             this.groupBox3.Controls.Add(this.button16);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(697, 62);
+            this.groupBox3.Location = new System.Drawing.Point(737, 62);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(278, 93);
             this.groupBox3.TabIndex = 71;
@@ -375,7 +374,7 @@
             this.groupBox2.Controls.Add(this.button7);
             this.groupBox2.Controls.Add(this.button8);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(422, 61);
+            this.groupBox2.Location = new System.Drawing.Point(462, 61);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(269, 93);
             this.groupBox2.TabIndex = 70;
@@ -459,63 +458,64 @@
             this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // formRegistro11
+            // formRegistro1
             // 
             this.formRegistro1.Location = new System.Drawing.Point(3, 161);
-            this.formRegistro1.Name = "formRegistro11";
+            this.formRegistro1.Name = "formRegistro1";
             this.formRegistro1.Size = new System.Drawing.Size(1085, 527);
             this.formRegistro1.TabIndex = 73;
             // 
-            // formRegistro21
+            // formRegistro2
             // 
             this.formRegistro2.Location = new System.Drawing.Point(3, 161);
-            this.formRegistro2.Name = "formRegistro21";
+            this.formRegistro2.Name = "formRegistro2";
             this.formRegistro2.Size = new System.Drawing.Size(1085, 527);
             this.formRegistro2.TabIndex = 73;
             // 
-            // formRegistro31
+            // formRegistro3
             // 
             this.formRegistro3.Location = new System.Drawing.Point(3, 161);
-            this.formRegistro3.Name = "formRegistro31";
+            this.formRegistro3.Name = "formRegistro3";
             this.formRegistro3.Size = new System.Drawing.Size(1085, 527);
             this.formRegistro3.TabIndex = 73;
             // 
-            // formRegistroEspecie1
+            // formRegistroEspecie
             // 
             this.formRegistroEspecie.Location = new System.Drawing.Point(3, 161);
-            this.formRegistroEspecie.Name = "formRegistroEspecie1";
+            this.formRegistroEspecie.Name = "formRegistroEspecie";
             this.formRegistroEspecie.Size = new System.Drawing.Size(1085, 527);
             this.formRegistroEspecie.TabIndex = 73;
             // 
-            // formInicial1
+            // formInicial
             // 
+            this.formInicial.BackColor = System.Drawing.SystemColors.Control;
             this.formInicial.Location = new System.Drawing.Point(3, 161);
-            this.formInicial.Name = "formInicial1";
+            this.formInicial.Name = "formInicial";
             this.formInicial.Size = new System.Drawing.Size(1100, 700);
             this.formInicial.TabIndex = 73;
             // 
-            // Grafica
+            // grafica
             // 
             this.grafica.Location = new System.Drawing.Point(3, 161);
-            this.grafica.Name = "grafica1";
+            this.grafica.Name = "grafica";
             this.grafica.Size = new System.Drawing.Size(1085, 527);
             this.grafica.TabIndex = 73;
             // 
-            // Reporte
+            // report
             // 
             this.report.Location = new System.Drawing.Point(3, 161);
             this.report.Name = "report";
             this.report.Size = new System.Drawing.Size(1085, 527);
             this.report.TabIndex = 73;
             // 
-            // CalculadoraEcu
+            // calculadoraEcu
             // 
             this.calculadoraEcu.Location = new System.Drawing.Point(3, 161);
             this.calculadoraEcu.Name = "calculadoraEcu";
             this.calculadoraEcu.Size = new System.Drawing.Size(1085, 527);
             this.calculadoraEcu.TabIndex = 73;
             // 
-            // FormEditar
+            // formEditar
             // 
             this.formEditar.Location = new System.Drawing.Point(3, 161);
             this.formEditar.Name = "formEditar";
@@ -559,7 +559,6 @@
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
 
         }
 

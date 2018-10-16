@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonEliminarIndividuo = new System.Windows.Forms.Button();
             this.buttonAgregarBifurcacion = new System.Windows.Forms.Button();
             this.buttonAgregarIndividuo = new System.Windows.Forms.Button();
@@ -57,10 +57,6 @@
             this.comboBoxAreas = new System.Windows.Forms.ComboBox();
             this.comboBoxSitios = new System.Windows.Forms.ComboBox();
             this.dataGridViewIndividuos = new System.Windows.Forms.DataGridView();
-            this.button6 = new System.Windows.Forms.Button();
-            this.buttonGrafica = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonImportar = new System.Windows.Forms.Button();
             this.cuadrante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.arbolnumeroensitio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,6 +75,10 @@
             this.estadocondicion = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.volumen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.areabasal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button6 = new System.Windows.Forms.Button();
+            this.buttonGrafica = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonImportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIndividuos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,9 +87,11 @@
             this.buttonEliminarIndividuo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonEliminarIndividuo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEliminarIndividuo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonEliminarIndividuo.Location = new System.Drawing.Point(264, 473);
+            this.buttonEliminarIndividuo.Image = ((System.Drawing.Image)(resources.GetObject("buttonEliminarIndividuo.Image")));
+            this.buttonEliminarIndividuo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEliminarIndividuo.Location = new System.Drawing.Point(308, 44);
             this.buttonEliminarIndividuo.Name = "buttonEliminarIndividuo";
-            this.buttonEliminarIndividuo.Size = new System.Drawing.Size(75, 36);
+            this.buttonEliminarIndividuo.Size = new System.Drawing.Size(124, 37);
             this.buttonEliminarIndividuo.TabIndex = 88;
             this.buttonEliminarIndividuo.Text = "Eliminar\r\nIndividuo";
             this.buttonEliminarIndividuo.UseVisualStyleBackColor = true;
@@ -100,9 +102,11 @@
             this.buttonAgregarBifurcacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAgregarBifurcacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAgregarBifurcacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.buttonAgregarBifurcacion.Location = new System.Drawing.Point(149, 473);
+            this.buttonAgregarBifurcacion.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarBifurcacion.Image")));
+            this.buttonAgregarBifurcacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAgregarBifurcacion.Location = new System.Drawing.Point(158, 94);
             this.buttonAgregarBifurcacion.Name = "buttonAgregarBifurcacion";
-            this.buttonAgregarBifurcacion.Size = new System.Drawing.Size(75, 36);
+            this.buttonAgregarBifurcacion.Size = new System.Drawing.Size(133, 36);
             this.buttonAgregarBifurcacion.TabIndex = 87;
             this.buttonAgregarBifurcacion.Text = "Agregar\r\nBifurcación";
             this.buttonAgregarBifurcacion.UseVisualStyleBackColor = true;
@@ -113,9 +117,11 @@
             this.buttonAgregarIndividuo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAgregarIndividuo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAgregarIndividuo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.buttonAgregarIndividuo.Location = new System.Drawing.Point(39, 473);
+            this.buttonAgregarIndividuo.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarIndividuo.Image")));
+            this.buttonAgregarIndividuo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAgregarIndividuo.Location = new System.Drawing.Point(158, 45);
             this.buttonAgregarIndividuo.Name = "buttonAgregarIndividuo";
-            this.buttonAgregarIndividuo.Size = new System.Drawing.Size(75, 36);
+            this.buttonAgregarIndividuo.Size = new System.Drawing.Size(133, 39);
             this.buttonAgregarIndividuo.TabIndex = 86;
             this.buttonAgregarIndividuo.Text = "Agregar\r\nIndividuo";
             this.buttonAgregarIndividuo.UseVisualStyleBackColor = true;
@@ -125,7 +131,7 @@
             // 
             this.labelNombre.AutoSize = true;
             this.labelNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.Location = new System.Drawing.Point(896, 38);
+            this.labelNombre.Location = new System.Drawing.Point(974, 33);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(65, 20);
             this.labelNombre.TabIndex = 85;
@@ -135,7 +141,7 @@
             // 
             this.labelNombreProyecto.AutoSize = true;
             this.labelNombreProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreProyecto.Location = new System.Drawing.Point(815, 38);
+            this.labelNombreProyecto.Location = new System.Drawing.Point(893, 33);
             this.labelNombreProyecto.Name = "labelNombreProyecto";
             this.labelNombreProyecto.Size = new System.Drawing.Size(75, 20);
             this.labelNombreProyecto.TabIndex = 84;
@@ -143,14 +149,14 @@
             // 
             // textBoxEstadoSucesional
             // 
-            this.textBoxEstadoSucesional.Location = new System.Drawing.Point(715, 106);
+            this.textBoxEstadoSucesional.Location = new System.Drawing.Point(679, 101);
             this.textBoxEstadoSucesional.Name = "textBoxEstadoSucesional";
             this.textBoxEstadoSucesional.Size = new System.Drawing.Size(100, 20);
             this.textBoxEstadoSucesional.TabIndex = 83;
             // 
             // textBoxMunicipio
             // 
-            this.textBoxMunicipio.Location = new System.Drawing.Point(715, 67);
+            this.textBoxMunicipio.Location = new System.Drawing.Point(679, 62);
             this.textBoxMunicipio.Name = "textBoxMunicipio";
             this.textBoxMunicipio.Size = new System.Drawing.Size(100, 20);
             this.textBoxMunicipio.TabIndex = 82;
@@ -158,7 +164,7 @@
             // labelEstadoSucesional
             // 
             this.labelEstadoSucesional.AutoSize = true;
-            this.labelEstadoSucesional.Location = new System.Drawing.Point(614, 108);
+            this.labelEstadoSucesional.Location = new System.Drawing.Point(578, 103);
             this.labelEstadoSucesional.Name = "labelEstadoSucesional";
             this.labelEstadoSucesional.Size = new System.Drawing.Size(95, 13);
             this.labelEstadoSucesional.TabIndex = 81;
@@ -168,7 +174,7 @@
             // labelMunicipio
             // 
             this.labelMunicipio.AutoSize = true;
-            this.labelMunicipio.Location = new System.Drawing.Point(657, 70);
+            this.labelMunicipio.Location = new System.Drawing.Point(621, 65);
             this.labelMunicipio.Name = "labelMunicipio";
             this.labelMunicipio.Size = new System.Drawing.Size(52, 13);
             this.labelMunicipio.TabIndex = 80;
@@ -176,14 +182,14 @@
             // 
             // textBoxY
             // 
-            this.textBoxY.Location = new System.Drawing.Point(496, 102);
+            this.textBoxY.Location = new System.Drawing.Point(461, 103);
             this.textBoxY.Name = "textBoxY";
             this.textBoxY.Size = new System.Drawing.Size(100, 20);
             this.textBoxY.TabIndex = 79;
             // 
             // textBoxX
             // 
-            this.textBoxX.Location = new System.Drawing.Point(496, 64);
+            this.textBoxX.Location = new System.Drawing.Point(461, 65);
             this.textBoxX.Name = "textBoxX";
             this.textBoxX.Size = new System.Drawing.Size(100, 20);
             this.textBoxX.TabIndex = 78;
@@ -192,7 +198,7 @@
             // labelY
             // 
             this.labelY.AutoSize = true;
-            this.labelY.Location = new System.Drawing.Point(476, 109);
+            this.labelY.Location = new System.Drawing.Point(441, 110);
             this.labelY.Name = "labelY";
             this.labelY.Size = new System.Drawing.Size(14, 13);
             this.labelY.TabIndex = 77;
@@ -201,7 +207,7 @@
             // labelX
             // 
             this.labelX.AutoSize = true;
-            this.labelX.Location = new System.Drawing.Point(476, 69);
+            this.labelX.Location = new System.Drawing.Point(441, 70);
             this.labelX.Name = "labelX";
             this.labelX.Size = new System.Drawing.Size(14, 13);
             this.labelX.TabIndex = 76;
@@ -210,7 +216,7 @@
             // labelCoordenadas
             // 
             this.labelCoordenadas.AutoSize = true;
-            this.labelCoordenadas.Location = new System.Drawing.Point(493, 45);
+            this.labelCoordenadas.Location = new System.Drawing.Point(458, 46);
             this.labelCoordenadas.Name = "labelCoordenadas";
             this.labelCoordenadas.Size = new System.Drawing.Size(70, 13);
             this.labelCoordenadas.TabIndex = 75;
@@ -219,7 +225,7 @@
             // labelAreas
             // 
             this.labelAreas.AutoSize = true;
-            this.labelAreas.Location = new System.Drawing.Point(39, 84);
+            this.labelAreas.Location = new System.Drawing.Point(13, 84);
             this.labelAreas.Name = "labelAreas";
             this.labelAreas.Size = new System.Drawing.Size(34, 13);
             this.labelAreas.TabIndex = 74;
@@ -228,7 +234,7 @@
             // labelSitios
             // 
             this.labelSitios.AutoSize = true;
-            this.labelSitios.Location = new System.Drawing.Point(39, 44);
+            this.labelSitios.Location = new System.Drawing.Point(13, 44);
             this.labelSitios.Name = "labelSitios";
             this.labelSitios.Size = new System.Drawing.Size(32, 13);
             this.labelSitios.TabIndex = 72;
@@ -241,9 +247,9 @@
             this.buttonBorrarSitio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonBorrarSitio.Image = ((System.Drawing.Image)(resources.GetObject("buttonBorrarSitio.Image")));
             this.buttonBorrarSitio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBorrarSitio.Location = new System.Drawing.Point(326, 60);
+            this.buttonBorrarSitio.Location = new System.Drawing.Point(222, 473);
             this.buttonBorrarSitio.Name = "buttonBorrarSitio";
-            this.buttonBorrarSitio.Size = new System.Drawing.Size(144, 54);
+            this.buttonBorrarSitio.Size = new System.Drawing.Size(139, 45);
             this.buttonBorrarSitio.TabIndex = 71;
             this.buttonBorrarSitio.Text = "Eliminar Sitio";
             this.buttonBorrarSitio.UseVisualStyleBackColor = true;
@@ -257,9 +263,9 @@
             this.buttonAgregarSitio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonAgregarSitio.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarSitio.Image")));
             this.buttonAgregarSitio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAgregarSitio.Location = new System.Drawing.Point(175, 60);
+            this.buttonAgregarSitio.Location = new System.Drawing.Point(71, 473);
             this.buttonAgregarSitio.Name = "buttonAgregarSitio";
-            this.buttonAgregarSitio.Size = new System.Drawing.Size(145, 54);
+            this.buttonAgregarSitio.Size = new System.Drawing.Size(134, 45);
             this.buttonAgregarSitio.TabIndex = 70;
             this.buttonAgregarSitio.Text = "Añadir Sitio";
             this.buttonAgregarSitio.UseVisualStyleBackColor = true;
@@ -277,7 +283,7 @@
             "500",
             "100",
             "5"});
-            this.comboBoxAreas.Location = new System.Drawing.Point(39, 100);
+            this.comboBoxAreas.Location = new System.Drawing.Point(13, 100);
             this.comboBoxAreas.Name = "comboBoxAreas";
             this.comboBoxAreas.Size = new System.Drawing.Size(121, 21);
             this.comboBoxAreas.TabIndex = 69;
@@ -287,7 +293,7 @@
             // 
             this.comboBoxSitios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSitios.FormattingEnabled = true;
-            this.comboBoxSitios.Location = new System.Drawing.Point(39, 60);
+            this.comboBoxSitios.Location = new System.Drawing.Point(13, 60);
             this.comboBoxSitios.Name = "comboBoxSitios";
             this.comboBoxSitios.Size = new System.Drawing.Size(121, 21);
             this.comboBoxSitios.TabIndex = 68;
@@ -317,66 +323,13 @@
             this.estadocondicion,
             this.volumen,
             this.areabasal});
-            this.dataGridViewIndividuos.Location = new System.Drawing.Point(13, 170);
+            this.dataGridViewIndividuos.Location = new System.Drawing.Point(13, 144);
             this.dataGridViewIndividuos.Name = "dataGridViewIndividuos";
-            this.dataGridViewIndividuos.Size = new System.Drawing.Size(1069, 297);
+            this.dataGridViewIndividuos.Size = new System.Drawing.Size(1069, 323);
             this.dataGridViewIndividuos.TabIndex = 67;
             this.dataGridViewIndividuos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIndividuos_CellEndEdit);
             this.dataGridViewIndividuos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewIndividuos_EditingControlShowing);
             this.dataGridViewIndividuos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewIndividuos_KeyPress);
-            // 
-            // button6
-            // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(867, 113);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(141, 45);
-            this.button6.TabIndex = 89;
-            this.button6.Text = "Ubicación";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // buttonGrafica
-            // 
-            this.buttonGrafica.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonGrafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGrafica.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.buttonGrafica.Image = ((System.Drawing.Image)(resources.GetObject("buttonGrafica.Image")));
-            this.buttonGrafica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGrafica.Location = new System.Drawing.Point(867, 64);
-            this.buttonGrafica.Name = "buttonGrafica";
-            this.buttonGrafica.Size = new System.Drawing.Size(141, 45);
-            this.buttonGrafica.TabIndex = 90;
-            this.buttonGrafica.Text = "Grafica";
-            this.buttonGrafica.UseVisualStyleBackColor = true;
-            this.buttonGrafica.Click += new System.EventHandler(this.buttonGrafica_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(477, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 24);
-            this.label1.TabIndex = 91;
-            this.label1.Text = "Detalles Proyecto";
-            // 
-            // buttonImportar
-            // 
-            this.buttonImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonImportar.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.buttonImportar.Image = ((System.Drawing.Image)(resources.GetObject("buttonImportar.Image")));
-            this.buttonImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonImportar.Location = new System.Drawing.Point(783, 473);
-            this.buttonImportar.Name = "buttonImportar";
-            this.buttonImportar.Size = new System.Drawing.Size(131, 36);
-            this.buttonImportar.TabIndex = 92;
-            this.buttonImportar.Text = "Importar";
-            this.buttonImportar.UseVisualStyleBackColor = true;
-            this.buttonImportar.Click += new System.EventHandler(this.buttonImportar_Click);
             // 
             // cuadrante
             // 
@@ -385,16 +338,16 @@
             // 
             // numero
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numero.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numero.DefaultCellStyle = dataGridViewCellStyle22;
             this.numero.HeaderText = "*Consecutivo";
             this.numero.Name = "numero";
             this.numero.ReadOnly = true;
             // 
             // arbolnumeroensitio
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle23;
             this.arbolnumeroensitio.HeaderText = "*NO. EN CAMPO";
             this.arbolnumeroensitio.Name = "arbolnumeroensitio";
             this.arbolnumeroensitio.ReadOnly = true;
@@ -408,31 +361,31 @@
             // 
             // nombrecientifico
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle24;
             this.nombrecientifico.HeaderText = "Nombre Científico";
             this.nombrecientifico.Name = "nombrecientifico";
             // 
             // nombrecomun
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecomun.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecomun.DefaultCellStyle = dataGridViewCellStyle25;
             this.nombrecomun.HeaderText = "*Nombre Comun";
             this.nombrecomun.Name = "nombrecomun";
             this.nombrecomun.ReadOnly = true;
             // 
             // familia
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.familia.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.familia.DefaultCellStyle = dataGridViewCellStyle26;
             this.familia.HeaderText = "*Familia";
             this.familia.Name = "familia";
             this.familia.ReadOnly = true;
             // 
             // genero
             // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genero.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genero.DefaultCellStyle = dataGridViewCellStyle27;
             this.genero.HeaderText = "*Genero";
             this.genero.Name = "genero";
             this.genero.ReadOnly = true;
@@ -507,8 +460,8 @@
             // 
             // volumen
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.volumen.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.volumen.DefaultCellStyle = dataGridViewCellStyle28;
             this.volumen.HeaderText = "Volumen";
             this.volumen.Name = "volumen";
             this.volumen.ReadOnly = true;
@@ -517,6 +470,60 @@
             // 
             this.areabasal.HeaderText = "Area Basal";
             this.areabasal.Name = "areabasal";
+            // 
+            // button6
+            // 
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(954, 60);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(118, 42);
+            this.button6.TabIndex = 89;
+            this.button6.Text = "Ubicación";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // buttonGrafica
+            // 
+            this.buttonGrafica.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonGrafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGrafica.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonGrafica.Image = ((System.Drawing.Image)(resources.GetObject("buttonGrafica.Image")));
+            this.buttonGrafica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGrafica.Location = new System.Drawing.Point(811, 60);
+            this.buttonGrafica.Name = "buttonGrafica";
+            this.buttonGrafica.Size = new System.Drawing.Size(118, 43);
+            this.buttonGrafica.TabIndex = 90;
+            this.buttonGrafica.Text = "Grafica";
+            this.buttonGrafica.UseVisualStyleBackColor = true;
+            this.buttonGrafica.Click += new System.EventHandler(this.buttonGrafica_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(477, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 24);
+            this.label1.TabIndex = 91;
+            this.label1.Text = "Captura Proyecto";
+            // 
+            // buttonImportar
+            // 
+            this.buttonImportar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImportar.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonImportar.Image = ((System.Drawing.Image)(resources.GetObject("buttonImportar.Image")));
+            this.buttonImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonImportar.Location = new System.Drawing.Point(941, 482);
+            this.buttonImportar.Name = "buttonImportar";
+            this.buttonImportar.Size = new System.Drawing.Size(131, 36);
+            this.buttonImportar.TabIndex = 92;
+            this.buttonImportar.Text = "Importar";
+            this.buttonImportar.UseVisualStyleBackColor = true;
+            this.buttonImportar.Click += new System.EventHandler(this.buttonImportar_Click);
             // 
             // FormRegistro2
             // 
