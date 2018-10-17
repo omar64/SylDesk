@@ -254,7 +254,7 @@ namespace SylDesk
 
                                 double volumen = parser.Parse(result, false);
 
-                                SqlConnector.sendMessageBox("" + result + " ---- " + volumen);
+                                SqlConnector.sendMessageBox("" + result + "  =  " + volumen);
 
                                 row.Cells["volumen"].Value = volumen;
                                 updateData("volumen", row, "" + volumen);
@@ -594,7 +594,7 @@ namespace SylDesk
                     "Values(@proyecto_id, @sitio, @area, @cuadrante, @numero, @arbolnumeroensitio, true, @nombrecientifico, @nombrecomun, @familia, @genero, @perimetro, @diametro, @alturafl, @alturatotal, @coberturaancho, @coberturalargo, @formadefuste, @estadocondicion)",
                     new String[] { "proyecto_id", "sitio", "area", "cuadrante", "numero", "arbolnumeroensitio", "nombrecientifico", "nombrecomun",
                     "familia", "genero", "perimetro", "diametro", "alturafl", "alturatotal", "coberturaancho", "coberturalargo", "formadefuste", "estadocondicion" },
-                    new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), clonedRow.Cells["cuadrante"].Value.ToString(), clonedRow.Cells["numero"].Value.ToString(), clonedRow.Cells["arbolnumeroensitio"].Value.ToString(), clonedRow.Cells["nombrecientifico"].Value.ToString(), clonedRow.Cells["nombrecomun"].Value.ToString(), clonedRow.Cells["familia"].Value.ToString(), clonedRow.Cells["genero"].Value.ToString(), clonedRow.Cells["perimetro"].Value.ToString(), clonedRow.Cells["diametro"].Value.ToString(), clonedRow.Cells["alturafl"].Value.ToString(), clonedRow.Cells["alturatotal"].Value.ToString(), clonedRow.Cells["coberturaancho"].Value.ToString(), clonedRow.Cells["coberturalargo"].Value.ToString(), clonedRow.Cells["formadefuste"].Value.ToString(), clonedRow.Cells["estadocondicion"].Value.ToString() }
+                    new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), tryGetStringCellValue(clonedRow, "cuadrante"), tryGetStringCellValue(clonedRow, "numero"), tryGetStringCellValue(clonedRow, "arbolnumeroensitio"), tryGetStringCellValue(clonedRow, "nombrecientifico"), tryGetStringCellValue(clonedRow, "nombrecomun"), tryGetStringCellValue(clonedRow, "familia"), tryGetStringCellValue(clonedRow, "genero"), tryGetStringCellValue(clonedRow, "perimetro"), tryGetStringCellValue(clonedRow, "diametro"), tryGetStringCellValue(clonedRow, "alturafl"), tryGetStringCellValue(clonedRow, "alturatotal"), tryGetStringCellValue(clonedRow, "coberturaancho"), tryGetStringCellValue(clonedRow, "coberturalargo"), tryGetStringCellValue(clonedRow, "formadefuste"), tryGetStringCellValue(clonedRow, "estadocondicion") }
                 );
 
                 dataGridViewIndividuos_Populate();

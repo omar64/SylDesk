@@ -63,74 +63,85 @@ namespace SylDesk
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            List<String> aux = SqlConnector.anyEspecificValueGet(
-                "SELECT Min(alturatotal) as minimo from individuos where proyecto_id = @proyecto_id AND area = 500 AND alturatotal > 0 AND bifurcados = 0",
+            List<String> null_checker = SqlConnector.anyEspecificValueGet(
+                "SELECT Count(*) as null_checker from individuos where proyecto_id = @proyecto_id AND area = 500 AND alturatotal > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto_id }
             );
 
-            double min = Convert.ToDouble(aux[0]);
-            
-            aux = SqlConnector.anyEspecificValueGet(
-                "SELECT Max(alturatotal) as maximo from individuos where proyecto_id = @proyecto_id AND area = 500 AND alturatotal > 0 AND bifurcados = 0",
-                new String[] { "proyecto_id" },
-                new String[] { "" + proyecto_id }
-            );
-
-            double max = Convert.ToDouble(aux[0]);
-            int length = Convert.ToInt32(max / 2.5) - 1;
-
-            double current_rango = 5;
-            double rango_cat = 2.5;
-            double rango_cat2 = rango_cat / 2;
-
-            for (int i = 0; i < length; i++)
+            if (null_checker != null)
             {
-                String sqlQueryString = "";
-                double lower_point = current_rango - rango_cat2;
-                double upper_point = current_rango + rango_cat2;
-                if (i == 0)
-                {
-                    sqlQueryString = "SELECT Count(*) as conteo " +
-                        " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND alturatotal < " + upper_point;
-                }
-                else if (i == (length - 1))
-                {
-                    sqlQueryString = "SELECT Count(*) as conteo " +
-                        " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND alturatotal > " + lower_point;
-                }
-                else
-                {
-                    sqlQueryString = "SELECT Count(*) as conteo " +
-                        " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND alturatotal > " + lower_point + " AND alturatotal < " + upper_point;
-                }
-
-                aux = SqlConnector.anyEspecificValueGet(
-                    sqlQueryString,
+                List<String> aux = SqlConnector.anyEspecificValueGet(
+                    "SELECT Min(alturatotal) as minimo from individuos where proyecto_id = @proyecto_id AND area = 500 AND alturatotal > 0 AND bifurcados = 0",
                     new String[] { "proyecto_id" },
                     new String[] { "" + proyecto_id }
                 );
 
-                chart1.Series.Add(new kawaii_lolis.Series("" + current_rango));
-                chart1.Series[i].Points.AddXY("" + current_rango, aux[0]);
-                chart1.Series[i].ToolTip = "CAT: #VALX\nConteo: #VALY ";          //Tooltips para cada barra
+                double min = Convert.ToDouble(aux[0]);
 
-                dataGridView1.Rows.Add(current_rango, aux[0]);
+                aux = SqlConnector.anyEspecificValueGet(
+                    "SELECT Max(alturatotal) as maximo from individuos where proyecto_id = @proyecto_id AND area = 500 AND alturatotal > 0 AND bifurcados = 0",
+                    new String[] { "proyecto_id" },
+                    new String[] { "" + proyecto_id }
+                );
 
-                current_rango += rango_cat;
-                chart1.ChartAreas[0].AxisX.LabelStyle.Angle = 0;  //inclinacion de letras en graf.
-                chart1.AlignDataPointsByAxisLabel();
+                double max = Convert.ToDouble(aux[0]);
+                int length = Convert.ToInt32(max / 2.5) - 1;
 
-                chart1.Series[i]["LabelStyle"] = "Center";
-                chart1.Series[i]["LabelStyle"] = "Top";
-                chart1.Series[i].IsValueShownAsLabel = true;
-                chart1.Series[i].ChartType = kawaii_lolis.SeriesChartType.Column;
-                chart1.Series[i].LabelBackColor = Color.LightCyan;
-                chart1.Series[i].Font = new Font("Arial", 9);
-                chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
-                chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Arial", 9);  //Font grafica
+                double current_rango = 5;
+                double rango_cat = 2.5;
+                double rango_cat2 = rango_cat / 2;
+
+                for (int i = 0; i < length; i++)
+                {
+                    String sqlQueryString = "";
+                    double lower_point = current_rango - rango_cat2;
+                    double upper_point = current_rango + rango_cat2;
+                    if (i == 0)
+                    {
+                        SqlConnector.sendMessageBox("1");
+                        sqlQueryString = "SELECT Count(*) as conteo " +
+                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND alturatotal < " + upper_point;
+                    }
+                    else if (i == (length - 1))
+                    {
+                        SqlConnector.sendMessageBox("2");
+                        sqlQueryString = "SELECT Count(*) as conteo " +
+                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND alturatotal > " + lower_point;
+                    }
+                    else
+                    {
+                        SqlConnector.sendMessageBox("3");
+                        sqlQueryString = "SELECT Count(*) as conteo " +
+                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND alturatotal > " + lower_point + " AND alturatotal < " + upper_point;
+                    }
+
+                    aux = SqlConnector.anyEspecificValueGet(
+                        sqlQueryString,
+                        new String[] { "proyecto_id" },
+                        new String[] { "" + proyecto_id }
+                    );
+
+                    chart1.Series.Add(new kawaii_lolis.Series("" + current_rango));
+                    chart1.Series[i].Points.AddXY("" + current_rango, aux[0]);
+                    chart1.Series[i].ToolTip = "CAT: #VALX\nConteo: #VALY ";          //Tooltips para cada barra
+
+                    dataGridView1.Rows.Add(current_rango, aux[0]);
+
+                    current_rango += rango_cat;
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Angle = 0;  //inclinacion de letras en graf.
+                    chart1.AlignDataPointsByAxisLabel();
+
+                    chart1.Series[i]["LabelStyle"] = "Center";
+                    chart1.Series[i]["LabelStyle"] = "Top";
+                    chart1.Series[i].IsValueShownAsLabel = true;
+                    chart1.Series[i].ChartType = kawaii_lolis.SeriesChartType.Column;
+                    chart1.Series[i].LabelBackColor = Color.LightCyan;
+                    chart1.Series[i].Font = new Font("Arial", 9);
+                    chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Arial", 9);  //Font grafica
+                }
             }
-                       
             chart1.ChartAreas[0].RecalculateAxesScale();
         }
 
@@ -143,75 +154,83 @@ namespace SylDesk
             dataGridView1.Columns.Add("no_individuos", "No. Individuos");
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            List<String> aux = SqlConnector.anyEspecificValueGet(
-                "SELECT Min(diametro) as minimo from individuos where proyecto_id = @proyecto_id AND area = 500 AND diametro > 0 AND bifurcados = 0",
+            List<String> null_checker = SqlConnector.anyEspecificValueGet(
+                "SELECT Count(*) as null_checker from individuos where proyecto_id = @proyecto_id AND area = 500 AND diametro > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto_id }
             );
-            double min = Convert.ToDouble(aux[0]);
 
-            aux = SqlConnector.anyEspecificValueGet(
-                "SELECT Max(diametro) as maximo from individuos where proyecto_id = @proyecto_id AND area = 500 AND diametro > 0 AND bifurcados = 0",
-                new String[] { "proyecto_id" },
-                new String[] { "" + proyecto_id }
-            );
-            double max = Convert.ToDouble(aux[0]);
-
-            int length = Convert.ToInt32(max / 5) - 1;
-
-            double current_rango = 10;
-            double rango_cad = 5;
-            double rango_cad2 = rango_cad / 2;
-
-            for (int i = 0; i < length; i++)
+            if (null_checker != null)
             {
-                String sqlQueryString = "";
-
-                double lower_point = current_rango - rango_cad2;
-                double upper_point = current_rango + rango_cad2;
-                if (i == 0)
-                {
-                    sqlQueryString = "SELECT Count(*) as conteo " +
-                        " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND diametro < " + upper_point;
-                }
-                else if (i == (length - 1))
-                {
-                    sqlQueryString = "SELECT Count(*) as conteo " +
-                        " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND diametro > " + lower_point;
-                }
-                else
-                {
-                    sqlQueryString = "SELECT Count(*) as conteo " +
-                        " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND diametro >= " + lower_point + " AND diametro < " + upper_point;
-                }
-
-                aux = SqlConnector.anyEspecificValueGet(
-                    sqlQueryString,
+                List<String> aux = SqlConnector.anyEspecificValueGet(
+                    "SELECT Min(diametro) as minimo from individuos where proyecto_id = @proyecto_id AND area = 500 AND diametro > 0 AND bifurcados = 0",
                     new String[] { "proyecto_id" },
                     new String[] { "" + proyecto_id }
                 );
+                double min = Convert.ToDouble(aux[0]);
 
-                chart1.Series.Add(new kawaii_lolis.Series("" + current_rango));
-                chart1.Series[i].Points.AddXY("" + current_rango, aux[0]);
-                chart1.Series[i].ToolTip = "CaD #VALX\nConteo: #VALY ";          //Tooltips para cada barra
+                aux = SqlConnector.anyEspecificValueGet(
+                    "SELECT Max(diametro) as maximo from individuos where proyecto_id = @proyecto_id AND area = 500 AND diametro > 0 AND bifurcados = 0",
+                    new String[] { "proyecto_id" },
+                    new String[] { "" + proyecto_id }
+                );
+                double max = Convert.ToDouble(aux[0]);
 
-                dataGridView1.Rows.Add(current_rango, aux[0]);
+                int length = Convert.ToInt32(max / 5) - 1;
 
-                current_rango += rango_cad;
-                chart1.AlignDataPointsByAxisLabel();
-                chart1.Series[i]["PixelPointWidth"] = "75";
-                chart1.ChartAreas[0].AxisX.LabelStyle.Angle = 0;  //inclinacion de letras en graf.
+                double current_rango = 10;
+                double rango_cad = 5;
+                double rango_cad2 = rango_cad / 2;
 
-                chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
-                chart1.Series[i]["LabelStyle"] = "Center";
-                chart1.Series[i]["LabelStyle"] = "Top";
-                chart1.Series[i].IsValueShownAsLabel = true;
-                chart1.Series[i].ChartType = kawaii_lolis.SeriesChartType.Column;
-                chart1.Series[i].LabelBackColor = Color.LightCyan;
-                chart1.Series[i].Font = new Font("Arial", 9);
-                chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Arial", 9); //Font grafica
+                for (int i = 0; i < length; i++)
+                {
+                    String sqlQueryString = "";
+
+                    double lower_point = current_rango - rango_cad2;
+                    double upper_point = current_rango + rango_cad2;
+                    if (i == 0)
+                    {
+                        sqlQueryString = "SELECT Count(*) as conteo " +
+                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND diametro < " + upper_point;
+                    }
+                    else if (i == (length - 1))
+                    {
+                        sqlQueryString = "SELECT Count(*) as conteo " +
+                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND diametro > " + lower_point;
+                    }
+                    else
+                    {
+                        sqlQueryString = "SELECT Count(*) as conteo " +
+                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND diametro >= " + lower_point + " AND diametro < " + upper_point;
+                    }
+
+                    aux = SqlConnector.anyEspecificValueGet(
+                        sqlQueryString,
+                        new String[] { "proyecto_id" },
+                        new String[] { "" + proyecto_id }
+                    );
+
+                    chart1.Series.Add(new kawaii_lolis.Series("" + current_rango));
+                    chart1.Series[i].Points.AddXY("" + current_rango, aux[0]);
+                    chart1.Series[i].ToolTip = "CaD #VALX\nConteo: #VALY ";          //Tooltips para cada barra
+
+                    dataGridView1.Rows.Add(current_rango, aux[0]);
+
+                    current_rango += rango_cad;
+                    chart1.AlignDataPointsByAxisLabel();
+                    chart1.Series[i]["PixelPointWidth"] = "75";
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Angle = 0;  //inclinacion de letras en graf.
+
+                    chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
+                    chart1.Series[i]["LabelStyle"] = "Center";
+                    chart1.Series[i]["LabelStyle"] = "Top";
+                    chart1.Series[i].IsValueShownAsLabel = true;
+                    chart1.Series[i].ChartType = kawaii_lolis.SeriesChartType.Column;
+                    chart1.Series[i].LabelBackColor = Color.LightCyan;
+                    chart1.Series[i].Font = new Font("Arial", 9);
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Arial", 9); //Font grafica
+                }
             }
-
             chart1.ChartAreas[0].RecalculateAxesScale();
         }
 
@@ -228,28 +247,37 @@ namespace SylDesk
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
-                "SELECT nombrecientifico, Count(nombrecientifico) as conteo from individuos where proyecto_id = @proyecto_id AND area = 500 AND bifurcados = 0 Group By nombrecientifico ORDER BY conteo DESC",
+            List<String> null_checker = SqlConnector.anyEspecificValueGet(
+                "SELECT Count(*) as null_checker from individuos where proyecto_id = @proyecto_id AND area = 500 AND bifurcados = 0 Group By nombrecientifico",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto_id }
             );
 
-            for (int i = 0; i < numericUpDown1.Value; i++)
+            if (null_checker != null)
             {
-                double ha = Convert.ToDouble(aux[i][1]) / 0.6;
-                double ha2 = Convert.ToDouble(aux[i][1]) / (0.6 / superficie);
-                chart1.Series.Add(new kawaii_lolis.Series("" + aux[i][0]));
-                chart1.Series[i].Points.AddXY("" + aux[i][0], ha);               
-                dataGridView1.Rows.Add(aux[i][0], aux[i][1], ha.ToString("F4"), ha2.ToString("F4"));
+                List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
+                    "SELECT nombrecientifico, Count(nombrecientifico) as conteo from individuos where proyecto_id = @proyecto_id AND area = 500 AND bifurcados = 0 Group By nombrecientifico ORDER BY conteo DESC",
+                    new String[] { "proyecto_id" },
+                    new String[] { "" + proyecto_id }
+                );
 
-                chart1.AlignDataPointsByAxisLabel();                    
-                chart1.Series[i]["PixelPointWidth"] = "75";
-                chart1.Series[i]["PointWidth"] = "0.3";  //grosor de las barras
+                for (int i = 0; i < numericUpDown1.Value; i++)
+                {
+                    double ha = Convert.ToDouble(aux[i][1]) / 0.6;
+                    double ha2 = Convert.ToDouble(aux[i][1]) / (0.6 / superficie);
+                    chart1.Series.Add(new kawaii_lolis.Series("" + aux[i][0]));
+                    chart1.Series[i].Points.AddXY("" + aux[i][0], ha);
+                    dataGridView1.Rows.Add(aux[i][0], aux[i][1], ha.ToString("F4"), ha2.ToString("F4"));
 
-                chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;          //inclinacion de letras en graf.
-                chart1.Series[i].ToolTip = "#VALX\nConteo: #VALY ";          //Tooltips para cada barra
-                chart1.Series[i].Points[i].Color = Color.ForestGreen;       //color de barras verde
-                chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
+                    chart1.AlignDataPointsByAxisLabel();
+                    chart1.Series[i]["PixelPointWidth"] = "75";
+                    chart1.Series[i]["PointWidth"] = "0.3";  //grosor de las barras
+
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;          //inclinacion de letras en graf.
+                    chart1.Series[i].ToolTip = "#VALX\nConteo: #VALY ";          //Tooltips para cada barra
+                    chart1.Series[i].Points[i].Color = Color.ForestGreen;       //color de barras verde
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
+                }
             }
             chart1.ChartAreas[0].RecalculateAxesScale();
         }
@@ -267,29 +295,38 @@ namespace SylDesk
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
-                "SELECT nombrecientifico, Sum(areabasal) as areabasal2 from individuos where proyecto_id = @proyecto_id AND area = 500 AND areabasal > 0 Group By nombrecientifico ORDER BY areabasal2 DESC",
+            List<String> null_checker = SqlConnector.anyEspecificValueGet(
+                "SELECT Count(*) as null_checker from individuos where proyecto_id = @proyecto_id AND area = 500 AND areabasal > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto_id }
             );
 
-            for (int i = 0; i < numericUpDown1.Value; i++)
-            {                
-                double ha = Convert.ToDouble(aux[i][1]) / 0.6;
-                double ha2 = Convert.ToDouble(aux[i][1]) / (0.6 / superficie);
-                dataGridView1.Rows.Add(aux[i][0], aux[i][1], ha.ToString("F4"), ha2.ToString("F4"));
+            if (null_checker != null)
+            {
+                List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
+                    "SELECT nombrecientifico, Sum(areabasal) as areabasal2 from individuos where proyecto_id = @proyecto_id AND area = 500 AND areabasal > 0 Group By nombrecientifico ORDER BY areabasal2 DESC",
+                    new String[] { "proyecto_id" },
+                    new String[] { "" + proyecto_id }
+                );
 
-                chart1.Series.Add(new kawaii_lolis.Series("" + aux[i][0]));
-                chart1.Series[i].Points.AddXY("" + aux[i][0], ha);
-                chart1.AlignDataPointsByAxisLabel();
-                chart1.Series[i]["PixelPointWidth"] = "75";
-                chart1.Series[i]["PointWidth"] = "0.3";                         //grosor de las barras
-                chart1.Series[i].ToolTip = "#VALX\nArea Basal: #VALY ";          //Tooltips para cada barra
-                chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;              //inclinacion de letras en graf.
-                chart1.Series[i].Points[i].Color = Color.ForestGreen;             //color de barras verde
-                chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
+                for (int i = 0; i < numericUpDown1.Value; i++)
+                {
+                    double ha = Convert.ToDouble(aux[i][1]) / 0.6;
+                    double ha2 = Convert.ToDouble(aux[i][1]) / (0.6 / superficie);
+                    dataGridView1.Rows.Add(aux[i][0], aux[i][1], ha.ToString("F4"), ha2.ToString("F4"));
+
+                    chart1.Series.Add(new kawaii_lolis.Series("" + aux[i][0]));
+                    chart1.Series[i].Points.AddXY("" + aux[i][0], ha);
+                    chart1.AlignDataPointsByAxisLabel();
+                    chart1.Series[i]["PixelPointWidth"] = "75";
+                    chart1.Series[i]["PointWidth"] = "0.3";                         //grosor de las barras
+                    chart1.Series[i].ToolTip = "#VALX\nArea Basal: #VALY ";          //Tooltips para cada barra
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;              //inclinacion de letras en graf.
+                    chart1.Series[i].Points[i].Color = Color.ForestGreen;             //color de barras verde
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
+                }
+                chart1.ChartAreas[0].RecalculateAxesScale();
             }
-            chart1.ChartAreas[0].RecalculateAxesScale();
         }
 
         private void get_volumen()
@@ -306,33 +343,42 @@ namespace SylDesk
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
-                "SELECT nombrecientifico, Sum(volumen) as volumen2 from individuos where proyecto_id = @proyecto_id AND area = 500 AND volumen > 0 Group By nombrecientifico ORDER BY volumen DESC",
+            List<String> null_checker = SqlConnector.anyEspecificValueGet(
+                "SELECT Count(*) as null_checker from individuos where proyecto_id = @proyecto_id AND area = 500 AND volumen > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto_id }
             );
 
-            for (int i = 0; i < numericUpDown1.Value; i++)
+            if (null_checker != null)
             {
-                List<Object> lista_individuos = new List<Object>();
-                lista_individuos.Add(aux[i][0]);
-                lista_individuos.Add(aux[i][1]);
+                List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
+                    "SELECT nombrecientifico, Sum(volumen) as volumen2 from individuos where proyecto_id = @proyecto_id AND area = 500 AND volumen > 0 Group By nombrecientifico ORDER BY volumen DESC",
+                    new String[] { "proyecto_id" },
+                    new String[] { "" + proyecto_id }
+                );
 
-                double ha = Convert.ToDouble(aux[i][1]) / 0.6;
-                double ha2 =  Convert.ToDouble(aux[i][1]) / (0.6 / superficie);
-                dataGridView1.Rows.Add(aux[i][0], aux[i][1], ha.ToString("F4"), ha2.ToString("F4"));
-                chart1.Series.Add(new kawaii_lolis.Series("" + aux[i][0]));
+                for (int i = 0; i < numericUpDown1.Value; i++)
+                {
+                    List<Object> lista_individuos = new List<Object>();
+                    lista_individuos.Add(aux[i][0]);
+                    lista_individuos.Add(aux[i][1]);
 
-                chart1.Series[i].Points.AddXY("" + aux[i][0], ha);
-                chart1.AlignDataPointsByAxisLabel();
-                chart1.Series[i]["PixelPointWidth"] = "75";
-                chart1.Series[i]["PointWidth"] = "0.3";  //grosor de las barras
-                chart1.Series[i].ToolTip = "#VALX\nVolumen: #VALY ";          //Tooltips para cada barra
-                chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;      //inclinacion de letras en graf.
-                chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
-                chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
+                    double ha = Convert.ToDouble(aux[i][1]) / 0.6;
+                    double ha2 = Convert.ToDouble(aux[i][1]) / (0.6 / superficie);
+                    dataGridView1.Rows.Add(aux[i][0], aux[i][1], ha.ToString("F4"), ha2.ToString("F4"));
+                    chart1.Series.Add(new kawaii_lolis.Series("" + aux[i][0]));
+
+                    chart1.Series[i].Points.AddXY("" + aux[i][0], ha);
+                    chart1.AlignDataPointsByAxisLabel();
+                    chart1.Series[i]["PixelPointWidth"] = "75";
+                    chart1.Series[i]["PointWidth"] = "0.3";  //grosor de las barras
+                    chart1.Series[i].ToolTip = "#VALX\nVolumen: #VALY ";          //Tooltips para cada barra
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;      //inclinacion de letras en graf.
+                    chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
+                }
+                chart1.ChartAreas[0].RecalculateAxesScale();
             }
-            chart1.ChartAreas[0].RecalculateAxesScale();
         }
 
         private void get_IVI(int area)
@@ -359,6 +405,7 @@ namespace SylDesk
             chart1.Series[0].LegendText = "Frecuencia";
             chart1.Series[1].LegendText = "Densidad";
             chart1.Series[2].LegendText = "Dominancia";
+
 
             int num_sitios = 0;
             List<double> frec_abs = new List<double>();
@@ -408,7 +455,7 @@ namespace SylDesk
                 for (int j = 1; j <= num_sitios; j++)
                 {
                     aux = SqlConnector.anyEspecificValueGet(
-                        "SELECT Count(nombrecientifico), areabasal from individuos where proyecto_id = @proyecto_id AND area =  " + area + " AND sitio = " + j + " AND nombrecientifico = \"" + lista_individuos[i] + "\"",
+                        "SELECT Count(nombrecientifico), areabasal from individuos where proyecto_id = @proyecto_id AND area =  " + area + " AND sitio = " + j + " AND nombrecientifico = \"" + lista_individuos[i] + "\" AND areabasal > 0",
                         new String[] { "proyecto_id" },
                         new String[] { "" + proyecto_id }
                     );
