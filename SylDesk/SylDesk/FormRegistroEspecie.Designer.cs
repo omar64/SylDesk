@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistroEspecie));
             this.textBoxGenero = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -57,6 +57,7 @@
             this.comboBoxFormaDeVida = new System.Windows.Forms.ComboBox();
             this.comboBoxCategoriaDeNorma = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspecies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -130,9 +131,9 @@
             this.formadevida,
             this.categoriadelanorma,
             this.borrar});
-            this.dataGridViewEspecies.Location = new System.Drawing.Point(15, 197);
+            this.dataGridViewEspecies.Location = new System.Drawing.Point(15, 209);
             this.dataGridViewEspecies.Name = "dataGridViewEspecies";
-            this.dataGridViewEspecies.Size = new System.Drawing.Size(1068, 314);
+            this.dataGridViewEspecies.Size = new System.Drawing.Size(1068, 302);
             this.dataGridViewEspecies.TabIndex = 79;
             // 
             // familia
@@ -147,8 +148,8 @@
             // 
             // nombrecientifico
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle1;
             this.nombrecientifico.HeaderText = "Nombre Científico";
             this.nombrecientifico.Name = "nombrecientifico";
             // 
@@ -169,13 +170,13 @@
             // 
             // borrar
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.borrar.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.borrar.DefaultCellStyle = dataGridViewCellStyle2;
             this.borrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.borrar.HeaderText = "Borrar";
             this.borrar.Name = "borrar";
@@ -325,10 +326,21 @@
             this.pictureBox1.TabIndex = 92;
             this.pictureBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(291, 191);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(136, 15);
+            this.label2.TabIndex = 93;
+            this.label2.Text = "(Por Nombre Científico)";
+            // 
             // FormRegistroEspecie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBoxCategoriaDeNorma);
             this.Controls.Add(this.comboBoxFormaDeVida);
@@ -384,5 +396,6 @@
         private System.Windows.Forms.ComboBox comboBoxFormaDeVida;
         private System.Windows.Forms.ComboBox comboBoxCategoriaDeNorma;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
     }
 }

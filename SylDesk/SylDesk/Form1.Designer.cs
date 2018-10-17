@@ -491,6 +491,7 @@
             this.formInicial.BackColor = System.Drawing.SystemColors.Control;
             this.formInicial.Location = new System.Drawing.Point(3, 161);
             this.formInicial.Name = "formInicial";
+            this.formInicial.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.formInicial.Size = new System.Drawing.Size(1100, 700);
             this.formInicial.TabIndex = 73;
             // 
@@ -542,6 +543,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
