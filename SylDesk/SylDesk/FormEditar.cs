@@ -67,12 +67,13 @@ namespace SylDesk
                     new String[] { "nombre", "superficie", "descripcion", "id" },
                     new String[] { textNombre.Text, textSuperficie.Text, textDescr.Text, "" + proyecto_id }
                 );
-                SqlConnector.sendMessageBox("Se han guardado los cambios");
+
+                SqlConnector.sendMessage("Aviso", "Se han guardado los cambios", MessageBoxIcon.Information);
                 form1.formRegistro3ToFront();
             }
             else
             {
-                SqlConnector.sendMessageBox("Faltan Datos");
+                SqlConnector.sendMessage("Error", "Faltan Datos", MessageBoxIcon.Error);
             }
         }
 
@@ -116,7 +117,7 @@ namespace SylDesk
             }
             else
             {
-                SqlConnector.sendMessageBox("La UMAFOR/Región ya se encuentra registrada como parte de los inventarios utilizados en el proyecto.");
+                SqlConnector.sendMessage("Error", "La UMAFOR/Región ya se encuentra registrada como parte de los inventarios utilizados en el proyecto.", MessageBoxIcon.Error);
             }
         }
     }

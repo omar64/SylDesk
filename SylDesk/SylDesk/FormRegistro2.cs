@@ -193,7 +193,7 @@ namespace SylDesk
                                 replace = "" + diametro;
                                 if (Regex.IsMatch(ecuacion, pattern) && diametro == 0)
                                 {
-                                    SqlConnector.sendMessageBox("Valor de diametro faltante para la ecuacion: " + ecuacion);
+                                    SqlConnector.sendMessage("Valores Faltantes", "Valor de diametro faltante para la ecuacion: " + ecuacion, MessageBoxIcon.Warning);
                                     break;
                                 }
                                 result = Regex.Replace(ecuacion, pattern, replace);
@@ -202,7 +202,7 @@ namespace SylDesk
                                 replace = "" + alturatotal;
                                 if (Regex.IsMatch(ecuacion, pattern) && alturatotal == 0)
                                 {
-                                    SqlConnector.sendMessageBox("Valor de altura total faltante para la ecuacion: " + ecuacion);
+                                    SqlConnector.sendMessage("Valores Faltantes", "Valor de altura total faltante para la ecuacion: " + ecuacion, MessageBoxIcon.Warning);
                                     break;
                                 }
                                 result = Regex.Replace(result, pattern, replace);
@@ -211,7 +211,7 @@ namespace SylDesk
                                 replace = "" + perimetro;
                                 if (Regex.IsMatch(ecuacion, pattern) && perimetro == 0)
                                 {
-                                    SqlConnector.sendMessageBox("Valor de perimetro faltante para la ecuacion: " + ecuacion);
+                                    SqlConnector.sendMessage("Valores Faltantes", "Valor de perimetro faltante para la ecuacion: " + ecuacion, MessageBoxIcon.Warning);
                                     break;
                                 }
                                 result = Regex.Replace(result, pattern, replace);
@@ -220,7 +220,7 @@ namespace SylDesk
                                 replace = "" + areabasal;
                                 if (Regex.IsMatch(ecuacion, pattern) && areabasal == 0)
                                 {
-                                    SqlConnector.sendMessageBox("Valor area basal faltante para la ecuacion: " + ecuacion);
+                                    SqlConnector.sendMessage("Valores Faltantes", "Valor area basal faltante para la ecuacion: " + ecuacion, MessageBoxIcon.Warning);
                                     break;
                                 }
                                 result = Regex.Replace(result, pattern, replace);
@@ -229,7 +229,7 @@ namespace SylDesk
                                 replace = "" + alturafl;
                                 if (Regex.IsMatch(ecuacion, pattern) && alturafl == 0)
                                 {
-                                    SqlConnector.sendMessageBox("Valor altura fuste limpio faltante para la ecuacion: " + ecuacion);
+                                    SqlConnector.sendMessage("Valores Faltantes", "Valor altura fuste limpio faltante para la ecuacion: " + ecuacion, MessageBoxIcon.Warning);
                                     break;
                                 }
                                 result = Regex.Replace(result, pattern, replace);
@@ -238,7 +238,7 @@ namespace SylDesk
                                 replace = "" + coberturaancho;
                                 if (Regex.IsMatch(ecuacion, pattern) && coberturaancho == 0)
                                 {
-                                    SqlConnector.sendMessageBox("Valor cobertura ancho faltante para la ecuacion: " + ecuacion);
+                                    SqlConnector.sendMessage("Valores Faltantes", "Valor cobertura ancho faltante para la ecuacion: " + ecuacion, MessageBoxIcon.Warning);
                                     break;
                                 }
                                 result = Regex.Replace(result, pattern, replace);
@@ -247,14 +247,14 @@ namespace SylDesk
                                 replace = "" + coberturalargo;
                                 if (Regex.IsMatch(ecuacion, pattern) && coberturalargo == 0)
                                 {
-                                    SqlConnector.sendMessageBox("Valor cobertura largo faltante para la ecuacion: " + ecuacion);
+                                    SqlConnector.sendMessage("Valores Faltantes", "Valor cobertura largo faltante para la ecuacion: " + ecuacion, MessageBoxIcon.Warning);
                                     break;
                                 }
                                 result = Regex.Replace(result, pattern, replace);
 
                                 double volumen = parser.Parse(result, false);
 
-                                SqlConnector.sendMessageBox("" + result + "  =  " + volumen);
+                                SqlConnector.sendMessage("La Ecuacion", "" + result + "  =  " + volumen, MessageBoxIcon.Information);
 
                                 row.Cells["volumen"].Value = volumen;
                                 updateData("volumen", row, "" + volumen);
@@ -265,13 +265,13 @@ namespace SylDesk
 
                         if (!found_flag)
                         {
-                            //SqlConnector.sendMessageBox("Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.");
-                            if (SqlConnector.sendYNMessageBox("Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.\n\n Usar ventana emergente?") == DialogResult.Yes)
+                            DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.\n\n Usar ventana emergente?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                            if (dr == DialogResult.Yes)
                             {
                                 FormEmergente form_emergente = new FormEmergente();
                                 form_emergente.Show();
                             }
-                            else
+                            else if (dr == DialogResult.No)
                             {
                                 form1.calculadoraEcuToFront(proyecto_id, 1, nombrecientifico);
                             }
@@ -279,20 +279,22 @@ namespace SylDesk
                     }
                     else
                     {
-                        SqlConnector.sendMessageBox("No hay Umafor/Region ligadas al proyecto.");
-                        if (SqlConnector.sendYNMessageBox("Para su registro desea desplegar el editor del Proyecto?") == DialogResult.Yes)
+                        SqlConnector.sendMessage("Importante", "No hay Umafor/Region ligadas al proyecto.", MessageBoxIcon.Exclamation);
+                        DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "Para su registro desea desplegar el editor del Proyecto?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dr == DialogResult.Yes)
                         {
                             form1.formEditarToFront(proyecto_id);
                         }
                         else
                         {
-                            if (SqlConnector.sendYNMessageBox("O prefiere el editor de Ecuaciones?") == DialogResult.Yes)
+                            dr = SqlConnector.sendOptionsMessage("Decision", "O prefiere el editor de Ecuaciones?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (dr == DialogResult.Yes)
                             {
                                 form1.calculadoraEcuToFront(proyecto_id, 1, nombrecientifico);
                             }
                             else
                             {
-                                SqlConnector.sendMessageBox("El proyecto sigue sin tener Umafor/Region ligados.");
+                                SqlConnector.sendMessage("Importante", "El proyecto sigue sin tener Umafor/Region ligados.", MessageBoxIcon.Warning);
                             }
                         }                        
                     }

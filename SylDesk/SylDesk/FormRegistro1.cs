@@ -29,11 +29,11 @@ namespace SylDesk
         {
             if(textBoxNombre.Text == "" || textBoxSuperficie.Text == "" || richTextBoxDescripcion.Text == "")
             {
-                SqlConnector.sendMessageBox("Faltan Datos.");
+                SqlConnector.sendMessage("Error", "Faltan Datos.", MessageBoxIcon.Error);            
             }
             else if(!(Double.TryParse(textBoxSuperficie.Text, out double aux2)))
             {
-                SqlConnector.sendMessageBox("Superficie debe ser numerico.");
+                SqlConnector.sendMessage("Error", "Superficie debe ser numerico.", MessageBoxIcon.Error);
             }
             else
             {
@@ -56,7 +56,7 @@ namespace SylDesk
                         new String[] { "proyecto_id", "numero_sitio" },
                         new String[] { proyecto.getId(), "1" }
                     );
-                    SqlConnector.sendMessageBox("El proyecto guardado.");
+                    SqlConnector.sendMessage("Aviso", "El proyecto guardado.", MessageBoxIcon.Information);
 
                     form1.formRegistro2ToFront(Convert.ToInt32(proyecto.getId()));
                 }

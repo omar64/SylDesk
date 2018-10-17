@@ -33,20 +33,17 @@ namespace SylDesk
             SqlConnector.connection.Dispose();
         }
 
-        public static void sendMessageBox(string message)
+        public static void sendMessage(string caption, string message, MessageBoxIcon icon)
         {
-            string messageBoxText = message;
-            string caption = "Aviso";
-            System.Windows.Forms.MessageBox.Show(messageBoxText, caption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            System.Windows.Forms.MessageBox.Show(message, caption, MessageBoxButtons.OK, icon);
         }
 
-        public static DialogResult sendYNMessageBox(string message)
+
+        public static DialogResult sendOptionsMessage(string caption, string message, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
-            string messageBoxText = message;
-            string caption = "Decision";
-            DialogResult dr = System.Windows.Forms.MessageBox.Show(messageBoxText, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = System.Windows.Forms.MessageBox.Show(message, caption, buttons, icon);
             return dr;
-        }        
+        }
 
         ////////////////////////////// any especific value /////////////////////////////////////////////
         public static List<String> anyEspecificValueGet(String query, String[] var_names, String[] var_values)
@@ -59,8 +56,15 @@ namespace SylDesk
             {
                 cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
             }
-
-            var results = cmd.ExecuteReader();
+            MySqlDataReader results = null;
+            try
+            {
+                results = cmd.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
             if(results.Read())
             {
                 int j = 0;
@@ -68,7 +72,6 @@ namespace SylDesk
                 {
                     try
                     {
-                        //sendMessageBox("" + results[j]);
                         list_values.Add("" + results[j]);
                         j++;
                     }
@@ -251,10 +254,7 @@ namespace SylDesk
             {
                 sitio = new Sitio("" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4], "" + results[5], "" + results[6], "" + results[7], "" + results[8], "" + results[9]);
             }
-            else
-            {
-                sendMessageBox("RUH ROH");
-            }
+
             results.Close();
             results.Dispose();
             return sitio;
