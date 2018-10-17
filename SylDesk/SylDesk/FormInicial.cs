@@ -17,11 +17,20 @@ namespace SylDesk
         public FormInicial()
         {
             InitializeComponent();
+
+            
         }
 
         public void setForm(Form1 form1)
         {
             this.form1 = form1;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            form1.formRegistro3ToFront();
+        }
+        
+
     }
 }

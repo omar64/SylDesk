@@ -56,7 +56,7 @@ namespace SylDesk
                         new String[] { "proyecto_id", "numero_sitio" },
                         new String[] { proyecto.getId(), "1" }
                     );
-                    SqlConnector.sendMessageBox("El proyecto guardado.");
+                    SqlConnector.sendMessageBox("Proyecto Guardado.");
 
                     form1.formRegistro2ToFront(Convert.ToInt32(proyecto.getId()));
                 }
