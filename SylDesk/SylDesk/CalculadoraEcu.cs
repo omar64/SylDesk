@@ -49,7 +49,7 @@ namespace SylDesk
         
         private void logButtonEvent(object sender, EventArgs e)
         {
-            DialogResult dr = SqlConnector.sendYNMessageBox("La mayoría de las ecuaciones biométricas utilizadas para cálculo de volumen utilizan logaritmo natural (LN) ¿está seguro de continuar utilizando la operación LOG?");
+            DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "La mayoría de las ecuaciones biométricas utilizadas para cálculo de volumen utilizan logaritmo natural (LN) ¿está seguro de continuar utilizando la operación LOG?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 setNewWord("()log()");
@@ -105,7 +105,8 @@ namespace SylDesk
 
                 if (ecuacion_volumen != null)
                 {
-                    if (SqlConnector.sendYNMessageBox("La ecuación ya existe para la UMAFOR/Región seleccionada. ¿Desea reemplazarla?") == DialogResult.Yes)
+                    DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "La ecuación ya existe para la UMAFOR/Región seleccionada. ¿Desea reemplazarla?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr == DialogResult.Yes)
                     {
                         SqlConnector.postPutDeleteGenerico(
                             "UPDATE `ecuaciones_volumen` SET ecuacion = @ecuacion WHERE inventario = @inventario AND umafor = @umafor AND especie = @especie",
@@ -117,7 +118,8 @@ namespace SylDesk
                         {
                             if (especie == textBox3.Text)
                             {
-                                if (SqlConnector.sendYNMessageBox("La UMAFOR/Región de la ecuación ingresada no se encuentra registrada como parte de los inventarios utilizados en el proyecto. ¿Desea agregarla?") == DialogResult.Yes)
+                                dr = SqlConnector.sendOptionsMessage("Decision", "La UMAFOR / Región de la ecuación ingresada no se encuentra registrada como parte de los inventarios utilizados en el proyecto. ¿Desea agregarla ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                if (dr == DialogResult.Yes)
                                 {
                                     SqlConnector.postPutDeleteGenerico(
                                         "Insert into proyecto_ecuaciones(proyecto_id, umafor_region)Values(@proyecto_id, @umafor_region)",
@@ -130,12 +132,13 @@ namespace SylDesk
                                 {
                                     Empty();
                                     textBox3.Text = especie;
-                                    SqlConnector.sendMessageBox("No ha hecho el cambio necesario...");
+                                    SqlConnector.sendMessage("Importante", "No ha hecho el cambio necesario...", MessageBoxIcon.Warning);
                                 }
                             }
                             else
                             {
-                                if (SqlConnector.sendYNMessageBox("La UMAFOR/Región de la ecuación ingresada no se encuentra registrada como parte de los inventarios utilizados en el proyecto, Sin embargo es de otra especie a la necesitada en el momento. ¿Desea agregarla?") == DialogResult.Yes)
+                                dr = SqlConnector.sendOptionsMessage("Decision", "La UMAFOR/Región de la ecuación ingresada no se encuentra registrada como parte de los inventarios utilizados en el proyecto, Sin embargo es de otra especie a la necesitada en el momento. ¿Desea agregarla?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                if (dr == DialogResult.Yes)
                                 {
                                     SqlConnector.postPutDeleteGenerico(
                                         "Insert into proyecto_ecuaciones(proyecto_id, umafor_region)Values(@proyecto_id, @umafor_region)",
@@ -144,11 +147,11 @@ namespace SylDesk
                                     );
                                     Empty();
                                     textBox3.Text = especie;
-                                    SqlConnector.sendMessageBox("Puede ser que la Umafor/Región para la especie necesitada en el momento siga sin estar vinculada!");
+                                    SqlConnector.sendMessage("Aviso", "Puede ser que la Umafor / Región para la especie necesitada en el momento siga sin estar vinculada!", MessageBoxIcon.Information);
                                 }
                                 else
                                 {
-                                    SqlConnector.sendMessageBox("No ha hecho el cambio necesario...");
+                                    SqlConnector.sendMessage("Importante", "No ha hecho el cambio necesario...", MessageBoxIcon.Warning);
                                 }
                             }                            
                         }
@@ -160,8 +163,7 @@ namespace SylDesk
                     {
                         if (ecuacion_volumen2.getInventario() != comboBox1.Text)
                         {
-                            SqlConnector.sendMessageBox(""+ ecuacion_volumen2.getInventario() + " -  " +  comboBox1.Text);
-                            SqlConnector.sendMessageBox("El nombre de Umafor/Region debe ser unico y este ya se encuentra en otro inventario.");
+                            SqlConnector.sendMessage("Error", "El nombre de Umafor/Region debe ser unico y este ya se encuentra en otro inventario.", MessageBoxIcon.Error);
                         }
                         else
                         {
@@ -185,7 +187,9 @@ namespace SylDesk
                                 {
                                     if (especie == textBox3.Text)
                                     {
-                                        if (SqlConnector.sendYNMessageBox("La UMAFOR/Región de la ecuación ingresada no se encuentra registrada como parte de los inventarios utilizados en el proyecto. ¿Desea agregarla?") == DialogResult.Yes)
+                                        DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "La UMAFOR/Región de la ecuación ingresada no se encuentra registrada como parte de los inventarios utilizados en el proyecto. ¿Desea agregarla?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                                        if (dr == DialogResult.Yes)
                                         {
                                             SqlConnector.postPutDeleteGenerico(
                                                 "Insert into proyecto_ecuaciones(proyecto_id, umafor_region)Values(@proyecto_id, @umafor_region)",
@@ -196,14 +200,16 @@ namespace SylDesk
                                         }
                                         else
                                         {
-                                            SqlConnector.sendMessageBox("No ha hecho el cambio necesario...");
+                                            SqlConnector.sendMessage("Importante", "No ha hecho el cambio necesario...", MessageBoxIcon.Warning);
                                             Empty();
                                             textBox3.Text = especie;
                                         }
                                     }
                                     else
                                     {
-                                        if (SqlConnector.sendYNMessageBox("La UMAFOR/Región de la ecuación ingresada no se encuentra registrada como parte de los inventarios utilizados en el proyecto, Sin embargo es de otra especie a la necesitada en el momento. ¿Desea agregarla?") == DialogResult.Yes)
+                                        DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "La UMAFOR/Región de la ecuación ingresada no se encuentra registrada como parte de los inventarios utilizados en el proyecto, Sin embargo es de otra especie a la necesitada en el momento. ¿Desea agregarla?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                                        if (dr == DialogResult.Yes)
                                         {
                                             SqlConnector.postPutDeleteGenerico(
                                                 "Insert into proyecto_ecuaciones(proyecto_id, umafor_region)Values(@proyecto_id, @umafor_region)",
@@ -212,13 +218,13 @@ namespace SylDesk
                                             );
                                             Empty();
                                             textBox3.Text = especie;
-                                            SqlConnector.sendMessageBox("Puede ser que la Umafor/Región para la especie necesitada en el momento siga sin estar vinculada!");
+                                            SqlConnector.sendMessage("Aviso", "Puede ser que la Umafor/Región para la especie necesitada en el momento siga sin estar vinculada!", MessageBoxIcon.Information);
                                         }
                                         else
                                         {
                                             Empty();
                                             textBox3.Text = especie;
-                                            SqlConnector.sendMessageBox("No ha hecho el cambio necesario...");
+                                            SqlConnector.sendMessage("Importante", "No ha hecho el cambio necesario...", MessageBoxIcon.Warning);
                                         }
                                     }
                                 }
@@ -226,18 +232,20 @@ namespace SylDesk
                                 {
                                     if (especie == textBox3.Text)
                                     {
-                                        SqlConnector.sendMessageBox("La UMAFOR/Región de la ecuación ingresada ya se encuentra registrada como parte de los inventarios utilizados en el proyecto.");
+                                        SqlConnector.sendMessage("Aviso", "La UMAFOR/Región de la ecuación ingresada ya se encuentra registrada como parte de los inventarios utilizados en el proyecto.", MessageBoxIcon.Information);
                                         form1.formRegistro2ToFront(proyecto_id);
                                     }
                                     else
                                     {
-                                        if(SqlConnector.sendYNMessageBox("La UMAFOR/Región de la ecuación ingresada ya se encuentra registrada como parte de los inventarios utilizados en el proyecto, Sin embargo es de otra especie a la necesitada en el momento. ¿Desea regresar?") == DialogResult.Yes)
+                                        DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "La UMAFOR/Región de la ecuación ingresada ya se encuentra registrada como parte de los inventarios utilizados en el proyecto, Sin embargo es de otra especie a la necesitada en el momento. ¿Desea regresar?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                                        if (dr == DialogResult.Yes)
                                         {
                                             form1.formRegistro2ToFront(proyecto_id);
                                         }
                                         else
                                         {
-                                            SqlConnector.sendMessageBox("Puede ser que la Umafor/Región para la especie necesitada en el momento siga sin estar vinculada!");
+                                            SqlConnector.sendMessage("Aviso", "Puede ser que la Umafor/Región para la especie necesitada en el momento siga sin estar vinculada!", MessageBoxIcon.Information);
                                         }
                                     }
                                 }
@@ -260,18 +268,20 @@ namespace SylDesk
                             );
                             if (especie == textBox3.Text)
                             {
-                                SqlConnector.sendMessageBox("La UMAFOR/Región de la ecuación ingresada no se encuentra registrada en la base de datos, se agregará a dicha base y como parte de los inventarios utilizados en el proyecto. ");
+                                SqlConnector.sendMessage("Aviso", "La UMAFOR/Región de la ecuación ingresada no se encuentra registrada en la base de datos, se agregará a dicha base y como parte de los inventarios utilizados en el proyecto. ", MessageBoxIcon.Information);
                                 form1.formRegistro2ToFront(proyecto_id);
                             }
                             else
                             {
-                                if (SqlConnector.sendYNMessageBox("La UMAFOR/Región de la ecuación ingresada no se encuentra registrada en la base de datos, se agregará a dicha base y como parte de los inventarios utilizados en el proyecto, Sin embargo no es la especie necesitada en el momento. ¿Desea regresar?") == DialogResult.Yes)
+                                DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "La UMAFOR/Región de la ecuación ingresada no se encuentra registrada en la base de datos, se agregará a dicha base y como parte de los inventarios utilizados en el proyecto, Sin embargo no es la especie necesitada en el momento. ¿Desea regresar?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                                if (dr == DialogResult.Yes)
                                 {
                                     form1.formRegistro2ToFront(proyecto_id);
                                 }
                                 else
                                 {
-                                    SqlConnector.sendMessageBox("Puede ser que la Umafor/Región para la especie necesitada en el momento siga sin estar vinculada!");
+                                    SqlConnector.sendMessage("Aviso", "Puede ser que la Umafor/Región para la especie necesitada en el momento siga sin estar vinculada!", MessageBoxIcon.Information);
                                 }
                             }
                             
@@ -284,7 +294,7 @@ namespace SylDesk
             }
             else
             {
-                SqlConnector.sendMessageBox("faltan argumentos (inventario, umafor, especie o ecuacion) o inventario y umafor/region no pueden ser \"TODOS\".");
+                SqlConnector.sendMessage("Error", "faltan argumentos (inventario, umafor, especie o ecuacion) o inventario y umafor/region no pueden ser \"TODOS\".", MessageBoxIcon.Stop);                
             }
         }
 
@@ -357,7 +367,9 @@ namespace SylDesk
         private void buttonBorrar_Click(object sender, EventArgs e)
         {
             int i = listView2.SelectedIndices[0];
-            if (SqlConnector.sendYNMessageBox("¿Seguro que desea eliminar la ecuación? No habrá forma de deshacer esta acción posteriormente.") == DialogResult.Yes)
+            DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "¿Seguro que desea eliminar la ecuación? No habrá forma de deshacer esta acción posteriormente.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
             {                
                 string s = listView2.Items[i].Text;
                 string s1 = s.Substring(0, s.IndexOf("-")).Trim();

@@ -60,7 +60,8 @@ namespace SylDesk
                 Empty();
 
                 dataGridViewEspecies_Populate("");
-                SqlConnector.sendMessageBox("Especie agregada!");
+                SqlConnector.sendMessage("Aviso", "Especie agregada!", MessageBoxIcon.Information);
+
                 if (status == 1)
                 {
                     form1.formRegistro2ToFront(proyecto_id);
@@ -68,7 +69,7 @@ namespace SylDesk
             }
             else
             {
-                SqlConnector.sendMessageBox("Ingrese todos los datos");
+                SqlConnector.sendMessage("Error", "Ingrese todos los datos", MessageBoxIcon.Error);
             }
         }
 
@@ -114,7 +115,7 @@ namespace SylDesk
             try
             {
                 OpenFileDialog openFileDialog1 = new OpenFileDialog();
-                
+
                 if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     if (openFileDialog1.FileName != "")
@@ -123,7 +124,7 @@ namespace SylDesk
                     }
                     else
                     {
-                        SqlConnector.sendMessageBox("No se selecciono archivo o no ese archivo no es compatible.");
+                        SqlConnector.sendMessage("Error", "No se selecciono archivo o no ese archivo no es compatible.", MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -132,7 +133,7 @@ namespace SylDesk
             }
             catch (Exception ex)
             {
-                SqlConnector.sendMessageBox("Error inesperado.");
+                SqlConnector.sendMessage("Error", "Error inesperado.", MessageBoxIcon.Error);
                 return;
             }
 

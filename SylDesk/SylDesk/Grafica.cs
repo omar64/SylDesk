@@ -64,12 +64,12 @@ namespace SylDesk
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
-                "SELECT Count(*) as null_checker from individuos where proyecto_id = @proyecto_id AND area = 500 AND alturatotal > 0 AND bifurcados = 0",
+                "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND alturatotal > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto_id }
             );
-
-            if (null_checker != null)
+            
+            if (null_checker != null && null_checker.Count > 0)
             {
                 List<String> aux = SqlConnector.anyEspecificValueGet(
                     "SELECT Min(alturatotal) as minimo from individuos where proyecto_id = @proyecto_id AND area = 500 AND alturatotal > 0 AND bifurcados = 0",
@@ -99,19 +99,19 @@ namespace SylDesk
                     double upper_point = current_rango + rango_cat2;
                     if (i == 0)
                     {
-                        SqlConnector.sendMessageBox("1");
+                        SqlConnector.sendMessage("Debug", "1", MessageBoxIcon.Hand);
                         sqlQueryString = "SELECT Count(*) as conteo " +
                             " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND alturatotal < " + upper_point;
                     }
                     else if (i == (length - 1))
                     {
-                        SqlConnector.sendMessageBox("2");
+                        SqlConnector.sendMessage("Debug", "2", MessageBoxIcon.Hand);
                         sqlQueryString = "SELECT Count(*) as conteo " +
                             " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND alturatotal > " + lower_point;
                     }
                     else
                     {
-                        SqlConnector.sendMessageBox("3");
+                        SqlConnector.sendMessage("Debug", "3", MessageBoxIcon.Hand);
                         sqlQueryString = "SELECT Count(*) as conteo " +
                             " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND alturatotal > " + lower_point + " AND alturatotal < " + upper_point;
                     }
@@ -142,6 +142,10 @@ namespace SylDesk
                     chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Arial", 9);  //Font grafica
                 }
             }
+            else
+            {
+                SqlConnector.sendMessage("Datos Faltantes/Inadecuados", "La grafica no puede mostrarse porque no tiene datos adecuados", MessageBoxIcon.Stop);
+            }
             chart1.ChartAreas[0].RecalculateAxesScale();
         }
 
@@ -155,12 +159,12 @@ namespace SylDesk
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
-                "SELECT Count(*) as null_checker from individuos where proyecto_id = @proyecto_id AND area = 500 AND diametro > 0 AND bifurcados = 0",
+                "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND diametro > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto_id }
             );
 
-            if (null_checker != null)
+            if (null_checker != null && null_checker.Count > 0)
             {
                 List<String> aux = SqlConnector.anyEspecificValueGet(
                     "SELECT Min(diametro) as minimo from individuos where proyecto_id = @proyecto_id AND area = 500 AND diametro > 0 AND bifurcados = 0",
@@ -231,6 +235,10 @@ namespace SylDesk
                     chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Arial", 9); //Font grafica
                 }
             }
+            else
+            {
+                SqlConnector.sendMessage("Datos Faltantes/Inadecuados", "La grafica no puede mostrarse porque no tiene datos adecuados", MessageBoxIcon.Stop);
+            }
             chart1.ChartAreas[0].RecalculateAxesScale();
         }
 
@@ -248,12 +256,13 @@ namespace SylDesk
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
-                "SELECT Count(*) as null_checker from individuos where proyecto_id = @proyecto_id AND area = 500 AND bifurcados = 0 Group By nombrecientifico",
+                "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND bifurcados = 0 Group By nombrecientifico",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto_id }
             );
 
-            if (null_checker != null)
+
+            if (null_checker != null && null_checker.Count > 0)
             {
                 List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
                     "SELECT nombrecientifico, Count(nombrecientifico) as conteo from individuos where proyecto_id = @proyecto_id AND area = 500 AND bifurcados = 0 Group By nombrecientifico ORDER BY conteo DESC",
@@ -261,7 +270,7 @@ namespace SylDesk
                     new String[] { "" + proyecto_id }
                 );
 
-                for (int i = 0; i < numericUpDown1.Value; i++)
+                for (int i = 0; i < numericUpDown1.Value && i < aux.Count; i++)
                 {
                     double ha = Convert.ToDouble(aux[i][1]) / 0.6;
                     double ha2 = Convert.ToDouble(aux[i][1]) / (0.6 / superficie);
@@ -278,6 +287,10 @@ namespace SylDesk
                     chart1.Series[i].Points[i].Color = Color.ForestGreen;       //color de barras verde
                     chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
                 }
+            }
+            else
+            {
+                SqlConnector.sendMessage("Datos Faltantes/Inadecuados", "La grafica no puede mostrarse porque no tiene datos adecuados", MessageBoxIcon.Stop);
             }
             chart1.ChartAreas[0].RecalculateAxesScale();
         }
@@ -296,12 +309,12 @@ namespace SylDesk
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
-                "SELECT Count(*) as null_checker from individuos where proyecto_id = @proyecto_id AND area = 500 AND areabasal > 0 AND bifurcados = 0",
+                "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND areabasal > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto_id }
             );
 
-            if (null_checker != null)
+            if (null_checker != null && null_checker.Count > 0)
             {
                 List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
                     "SELECT nombrecientifico, Sum(areabasal) as areabasal2 from individuos where proyecto_id = @proyecto_id AND area = 500 AND areabasal > 0 Group By nombrecientifico ORDER BY areabasal2 DESC",
@@ -309,7 +322,7 @@ namespace SylDesk
                     new String[] { "" + proyecto_id }
                 );
 
-                for (int i = 0; i < numericUpDown1.Value; i++)
+                for (int i = 0; i < numericUpDown1.Value && i < aux.Count; i++)
                 {
                     double ha = Convert.ToDouble(aux[i][1]) / 0.6;
                     double ha2 = Convert.ToDouble(aux[i][1]) / (0.6 / superficie);
@@ -325,8 +338,12 @@ namespace SylDesk
                     chart1.Series[i].Points[i].Color = Color.ForestGreen;             //color de barras verde
                     chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
                 }
-                chart1.ChartAreas[0].RecalculateAxesScale();
             }
+            else
+            {
+                SqlConnector.sendMessage("Datos Faltantes/Inadecuados", "La grafica no puede mostrarse porque no tiene datos adecuados", MessageBoxIcon.Stop);
+            }
+            chart1.ChartAreas[0].RecalculateAxesScale();            
         }
 
         private void get_volumen()
@@ -344,12 +361,12 @@ namespace SylDesk
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
-                "SELECT Count(*) as null_checker from individuos where proyecto_id = @proyecto_id AND area = 500 AND volumen > 0 AND bifurcados = 0",
+                "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND volumen > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto_id }
             );
 
-            if (null_checker != null)
+            if (null_checker != null && null_checker.Count > 0)
             {
                 List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
                     "SELECT nombrecientifico, Sum(volumen) as volumen2 from individuos where proyecto_id = @proyecto_id AND area = 500 AND volumen > 0 Group By nombrecientifico ORDER BY volumen DESC",
@@ -357,7 +374,7 @@ namespace SylDesk
                     new String[] { "" + proyecto_id }
                 );
 
-                for (int i = 0; i < numericUpDown1.Value; i++)
+                for (int i = 0; i < numericUpDown1.Value && i < aux.Count; i++)
                 {
                     List<Object> lista_individuos = new List<Object>();
                     lista_individuos.Add(aux[i][0]);
@@ -377,8 +394,13 @@ namespace SylDesk
                     chart1.Series[i].Points[i].Color = Color.ForestGreen;  //color de barras verde
                     chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
                 }
-                chart1.ChartAreas[0].RecalculateAxesScale();
             }
+            else
+            {
+                SqlConnector.sendMessage("Datos Faltantes/Inadecuados", "La grafica no puede mostrarse porque no tiene datos adecuados", MessageBoxIcon.Stop);
+            }
+            chart1.ChartAreas[0].RecalculateAxesScale();
+            
         }
 
         private void get_IVI(int area)
@@ -407,6 +429,7 @@ namespace SylDesk
             chart1.Series[2].LegendText = "Dominancia";
 
 
+
             int num_sitios = 0;
             List<double> frec_abs = new List<double>();
             List<double> frec_rel = new List<double>();
@@ -426,7 +449,7 @@ namespace SylDesk
             List<IVI> list_ivis = new List<IVI>();
 
             List<List<String>> aux2 = SqlConnector.anyEspecificValuesGet(
-                "SELECT nombrecientifico from individuos where proyecto_id = @proyecto_id AND area =  " + area + " Group By nombrecientifico ORDER BY nombrecientifico ASC",
+                "SELECT nombrecientifico from individuos where proyecto_id = @proyecto_id AND area =  " + area + " AND nombrecientifico != \"\" Group By nombrecientifico ORDER BY nombrecientifico ASC",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto_id }
             );
@@ -455,7 +478,8 @@ namespace SylDesk
                 for (int j = 1; j <= num_sitios; j++)
                 {
                     aux = SqlConnector.anyEspecificValueGet(
-                        "SELECT Count(nombrecientifico), areabasal from individuos where proyecto_id = @proyecto_id AND area =  " + area + " AND sitio = " + j + " AND nombrecientifico = \"" + lista_individuos[i] + "\" AND areabasal > 0",
+                        //"SELECT Count(nombrecientifico), areabasal from individuos where proyecto_id = @proyecto_id AND area =  " + area + " AND sitio = " + j + " AND nombrecientifico = \"" + lista_individuos[i] + "\" AND areabasal > 0",
+                        "SELECT Count(nombrecientifico), Sum(areabasal) from individuos where proyecto_id = @proyecto_id AND area =  " + area + " AND sitio = " + j + " AND nombrecientifico = \"" + lista_individuos[i] + "\" AND areabasal > 0",
                         new String[] { "proyecto_id" },
                         new String[] { "" + proyecto_id }
                     );
@@ -485,16 +509,16 @@ namespace SylDesk
                 dom_rel[i] = (dom_abs[i] / dom_total) * 100;
                 list_ivis.Add(new IVI(lista_individuos[i].ToString(), frec_abs[i], frec_rel[i], den_abs[i], den_rel[i], dom_abs[i], dom_rel[i]));
 
-                dataGridView1.Rows.Add(lista_individuos[i], frec_abs[i].ToString("F4"), frec_rel[i].ToString("F4"), den_abs[i].ToString("F4"), den_rel[i].ToString("F4"), dom_abs[i].ToString("F5"), dom_rel[i].ToString("F4"), ((frec_rel[i] + den_rel[i] + dom_rel[i])).ToString("F4"));
+                dataGridView1.Rows.Add(lista_individuos[i], Convert.ToDouble(frec_abs[i].ToString("F4")), Convert.ToDouble(frec_rel[i].ToString("F4")), Convert.ToDouble(den_abs[i].ToString("F4")), Convert.ToDouble(den_rel[i].ToString("F4")), Convert.ToDouble(dom_abs[i].ToString("F5")), Convert.ToDouble(dom_rel[i].ToString("F4")), Convert.ToDouble(((frec_rel[i] + den_rel[i] + dom_rel[i])).ToString("F4")));
                 chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;  //inclinacion de letras en graf.
                 chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
             }
             List<IVI> list_ivis2 = list_ivis.OrderByDescending((x) => x.ivi).ToList();
-            for(int i = 0; i < numericUpDown1.Value; i++)
+            for(int i = 0; i < numericUpDown1.Value && i < list_ivis2.Count; i++)
             {
-                chart1.Series["frecuencia"].Points.AddXY("" + list_ivis2[i].get_nombrecientifico(), ((list_ivis2[i].get_frec_rel())).ToString("F4"));
-                chart1.Series["densidad"].Points.AddXY("" + list_ivis2[i].get_nombrecientifico(), ((list_ivis2[i].get_den_rel())).ToString("F4"));
-                chart1.Series["dominancia"].Points.AddXY("" + list_ivis2[i].get_nombrecientifico(), ((list_ivis2[i].get_dom_rel())).ToString("F4"));
+                chart1.Series["frecuencia"].Points.AddXY("" + list_ivis2[i].get_nombrecientifico(), Convert.ToDouble((list_ivis2[i].get_frec_rel())).ToString("F4"));
+                chart1.Series["densidad"].Points.AddXY("" + list_ivis2[i].get_nombrecientifico(), Convert.ToDouble((list_ivis2[i].get_den_rel())).ToString("F4"));
+                chart1.Series["dominancia"].Points.AddXY("" + list_ivis2[i].get_nombrecientifico(), Convert.ToDouble((list_ivis2[i].get_dom_rel())).ToString("F4"));
                 chart1.Series["frecuencia"].Points[i].ToolTip = "#VALX\nIVI: " + ((list_ivis2[i].get_frec_rel() + list_ivis2[i].get_den_rel() + list_ivis2[i].get_dom_rel())).ToString("F4");  //Valor position top
                 chart1.Series["densidad"].Points[i].ToolTip = "#VALX\nIVI: " + ((list_ivis2[i].get_frec_rel() + list_ivis2[i].get_den_rel() + list_ivis2[i].get_dom_rel())).ToString("F4");  //Valor position top
                 chart1.Series["dominancia"].Points[i].ToolTip = "#VALX\nIVI: " + ((list_ivis2[i].get_frec_rel() + list_ivis2[i].get_den_rel() + list_ivis2[i].get_dom_rel())).ToString("F4");  //Valor position top
