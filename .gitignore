@@ -1,22 +1,11 @@
 # Build and Release Folders
 bin/
+obj/
 bin-debug/
 bin-release/
 
 
-./Syldesk/Syldesk/obj/
-./Syldesk/Syldesk/bin/
-./SylDesk/.vs/SylDesk/v15/
-Syldesk/Syldesk/obj/
-Syldesk/Syldesk/bin/
-SylDesk/.vs/SylDesk/v15/
 
-./Syldesk/Syldesk/obj/*
-./Syldesk/Syldesk/bin/*
-./SylDesk/.vs/SylDesk/v15/*
-Syldesk/Syldesk/obj/*
-Syldesk/Syldesk/bin/*
-SylDesk/.vs/SylDesk/v15/*
 
 [Oo]bj/ # FlashDevelop obj
 [Bb]in/ # FlashDevelop bin
@@ -30,6 +19,9 @@ SylDesk/.vs/SylDesk/v15/*
 *.ipa
 *.apk
 *.exe
+*.suo
+*.csproj
+*.pdb
 
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
