@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace SylDesk
 {
@@ -15,8 +16,14 @@ namespace SylDesk
     {
         public Form1()
         {
+            // hilo de inicializacion el formLoading
+            Thread t = new Thread(new ThreadStart(StartForm));
+            t.Start();
+            Thread.Sleep(1000);
+
             InitializeComponent();
-            
+
+            t.Abort(); // se utiliza para terminar el hilo y dejar al form principal comenzar
 
             this.formRegistro1.setForm(this);
             this.formRegistro2.setForm(this);
@@ -31,6 +38,12 @@ namespace SylDesk
             
 
             formInicialToFront();
+        }
+
+        //permite inicializar el form loading
+        public void StartForm()
+        {
+            Application.Run(new LoadingForm());
         }
 
         

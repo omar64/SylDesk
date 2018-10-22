@@ -61,14 +61,14 @@
             // 
             // textNombre
             // 
-            this.textNombre.Location = new System.Drawing.Point(473, 97);
+            this.textNombre.Location = new System.Drawing.Point(473, 60);
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(303, 21);
             this.textNombre.TabIndex = 93;
             // 
             // textSuperficie
             // 
-            this.textSuperficie.Location = new System.Drawing.Point(473, 141);
+            this.textSuperficie.Location = new System.Drawing.Point(473, 104);
             this.textSuperficie.Name = "textSuperficie";
             this.textSuperficie.Size = new System.Drawing.Size(303, 21);
             this.textSuperficie.TabIndex = 95;
@@ -76,17 +76,17 @@
             // textDescr
             // 
             this.textDescr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textDescr.Location = new System.Drawing.Point(440, 215);
+            this.textDescr.Location = new System.Drawing.Point(473, 178);
             this.textDescr.Multiline = true;
             this.textDescr.Name = "textDescr";
-            this.textDescr.Size = new System.Drawing.Size(336, 184);
+            this.textDescr.Size = new System.Drawing.Size(303, 184);
             this.textDescr.TabIndex = 97;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(334, 147);
+            this.label3.Location = new System.Drawing.Point(334, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 15);
             this.label3.TabIndex = 98;
@@ -96,7 +96,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(358, 217);
+            this.label5.Location = new System.Drawing.Point(391, 180);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 15);
             this.label5.TabIndex = 100;
@@ -135,7 +135,7 @@
             // 
             this.labelNombre.AutoSize = true;
             this.labelNombre.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.Location = new System.Drawing.Point(342, 99);
+            this.labelNombre.Location = new System.Drawing.Point(342, 62);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(125, 15);
             this.labelNombre.TabIndex = 101;
@@ -145,6 +145,7 @@
             // 
             this.buttonGuardar.BackColor = System.Drawing.Color.White;
             this.buttonGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.buttonGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
