@@ -85,13 +85,14 @@
             // buttonEliminarIndividuo
             // 
             this.buttonEliminarIndividuo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonEliminarIndividuo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
             this.buttonEliminarIndividuo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEliminarIndividuo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonEliminarIndividuo.Image = ((System.Drawing.Image)(resources.GetObject("buttonEliminarIndividuo.Image")));
             this.buttonEliminarIndividuo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEliminarIndividuo.Location = new System.Drawing.Point(308, 44);
             this.buttonEliminarIndividuo.Name = "buttonEliminarIndividuo";
-            this.buttonEliminarIndividuo.Size = new System.Drawing.Size(124, 37);
+            this.buttonEliminarIndividuo.Size = new System.Drawing.Size(138, 41);
             this.buttonEliminarIndividuo.TabIndex = 88;
             this.buttonEliminarIndividuo.Text = "Eliminar\r\nIndividuo";
             this.buttonEliminarIndividuo.UseVisualStyleBackColor = true;
@@ -100,13 +101,14 @@
             // buttonAgregarBifurcacion
             // 
             this.buttonAgregarBifurcacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAgregarBifurcacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.buttonAgregarBifurcacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAgregarBifurcacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonAgregarBifurcacion.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarBifurcacion.Image")));
             this.buttonAgregarBifurcacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAgregarBifurcacion.Location = new System.Drawing.Point(158, 94);
             this.buttonAgregarBifurcacion.Name = "buttonAgregarBifurcacion";
-            this.buttonAgregarBifurcacion.Size = new System.Drawing.Size(133, 36);
+            this.buttonAgregarBifurcacion.Size = new System.Drawing.Size(133, 44);
             this.buttonAgregarBifurcacion.TabIndex = 87;
             this.buttonAgregarBifurcacion.Text = "Agregar\r\nBifurcación";
             this.buttonAgregarBifurcacion.UseVisualStyleBackColor = true;
@@ -115,13 +117,14 @@
             // buttonAgregarIndividuo
             // 
             this.buttonAgregarIndividuo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAgregarIndividuo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.buttonAgregarIndividuo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAgregarIndividuo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonAgregarIndividuo.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarIndividuo.Image")));
             this.buttonAgregarIndividuo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAgregarIndividuo.Location = new System.Drawing.Point(158, 45);
+            this.buttonAgregarIndividuo.Location = new System.Drawing.Point(158, 44);
             this.buttonAgregarIndividuo.Name = "buttonAgregarIndividuo";
-            this.buttonAgregarIndividuo.Size = new System.Drawing.Size(133, 39);
+            this.buttonAgregarIndividuo.Size = new System.Drawing.Size(133, 44);
             this.buttonAgregarIndividuo.TabIndex = 86;
             this.buttonAgregarIndividuo.Text = "Agregar\r\nIndividuo";
             this.buttonAgregarIndividuo.UseVisualStyleBackColor = true;
@@ -182,14 +185,14 @@
             // 
             // textBoxY
             // 
-            this.textBoxY.Location = new System.Drawing.Point(461, 103);
+            this.textBoxY.Location = new System.Drawing.Point(472, 103);
             this.textBoxY.Name = "textBoxY";
             this.textBoxY.Size = new System.Drawing.Size(100, 20);
             this.textBoxY.TabIndex = 79;
             // 
             // textBoxX
             // 
-            this.textBoxX.Location = new System.Drawing.Point(461, 65);
+            this.textBoxX.Location = new System.Drawing.Point(472, 65);
             this.textBoxX.Name = "textBoxX";
             this.textBoxX.Size = new System.Drawing.Size(100, 20);
             this.textBoxX.TabIndex = 78;
@@ -198,7 +201,7 @@
             // labelY
             // 
             this.labelY.AutoSize = true;
-            this.labelY.Location = new System.Drawing.Point(441, 110);
+            this.labelY.Location = new System.Drawing.Point(452, 110);
             this.labelY.Name = "labelY";
             this.labelY.Size = new System.Drawing.Size(14, 13);
             this.labelY.TabIndex = 77;
@@ -207,7 +210,7 @@
             // labelX
             // 
             this.labelX.AutoSize = true;
-            this.labelX.Location = new System.Drawing.Point(441, 70);
+            this.labelX.Location = new System.Drawing.Point(452, 70);
             this.labelX.Name = "labelX";
             this.labelX.Size = new System.Drawing.Size(14, 13);
             this.labelX.TabIndex = 76;
@@ -216,7 +219,7 @@
             // labelCoordenadas
             // 
             this.labelCoordenadas.AutoSize = true;
-            this.labelCoordenadas.Location = new System.Drawing.Point(458, 46);
+            this.labelCoordenadas.Location = new System.Drawing.Point(469, 46);
             this.labelCoordenadas.Name = "labelCoordenadas";
             this.labelCoordenadas.Size = new System.Drawing.Size(70, 13);
             this.labelCoordenadas.TabIndex = 75;
@@ -243,6 +246,7 @@
             // buttonBorrarSitio
             // 
             this.buttonBorrarSitio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonBorrarSitio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
             this.buttonBorrarSitio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBorrarSitio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonBorrarSitio.Image = ((System.Drawing.Image)(resources.GetObject("buttonBorrarSitio.Image")));
@@ -258,6 +262,7 @@
             // buttonAgregarSitio
             // 
             this.buttonAgregarSitio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAgregarSitio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.buttonAgregarSitio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAgregarSitio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAgregarSitio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -474,6 +479,7 @@
             // button6
             // 
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
@@ -488,6 +494,7 @@
             // buttonGrafica
             // 
             this.buttonGrafica.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonGrafica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.buttonGrafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGrafica.ForeColor = System.Drawing.Color.DodgerBlue;
             this.buttonGrafica.Image = ((System.Drawing.Image)(resources.GetObject("buttonGrafica.Image")));
@@ -513,6 +520,7 @@
             // buttonImportar
             // 
             this.buttonImportar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonImportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.buttonImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonImportar.ForeColor = System.Drawing.Color.DodgerBlue;
             this.buttonImportar.Image = ((System.Drawing.Image)(resources.GetObject("buttonImportar.Image")));

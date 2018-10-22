@@ -248,3 +248,4 @@ C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDes
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.FormEmergente.resources
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.FormEmergente.resources
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.LoadingForm.resources

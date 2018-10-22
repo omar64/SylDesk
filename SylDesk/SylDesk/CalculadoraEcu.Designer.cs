@@ -597,6 +597,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Transparent;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
@@ -613,6 +614,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
@@ -679,6 +681,7 @@
             // buttonBorrar
             // 
             this.buttonBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonBorrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
             this.buttonBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBorrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonBorrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonBorrar.Image")));
