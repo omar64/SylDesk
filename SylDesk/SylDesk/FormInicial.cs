@@ -39,7 +39,7 @@ namespace SylDesk
             {
                 imageNumber = 1;
             }
-            SliderPic.ImageLocation = string.Format(@"Images\{0}.jpg", imageNumber);
+            SliderPic.ImageLocation = string.Format(@"..\..\..\Images\{0}.jpg", imageNumber);
             imageNumber++;
 
             
