@@ -531,7 +531,7 @@
             this.labelSuperficie.Name = "labelSuperficie";
             this.labelSuperficie.Size = new System.Drawing.Size(140, 16);
             this.labelSuperficie.TabIndex = 4;
-            this.labelSuperficie.Text = "Superficie (Hectareas):";
+            this.labelSuperficie.Text = "Superficie (Hectáreas):";
             // 
             // label1
             // 
@@ -555,7 +555,10 @@
             // 
             // toolTip1
             // 
+            this.toolTip1.AutoPopDelay = 9000;
+            this.toolTip1.InitialDelay = 500;
             this.toolTip1.IsBalloon = true;
+            this.toolTip1.ReshowDelay = 100;
             this.toolTip1.StripAmpersands = true;
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Crear Proyecto";

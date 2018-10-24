@@ -19,7 +19,7 @@ namespace SylDesk
             // hilo de inicializacion el formLoading
             Thread t = new Thread(new ThreadStart(StartForm));
             t.Start();
-            Thread.Sleep(2000);
+            Thread.Sleep(8000);
 
             InitializeComponent();
 

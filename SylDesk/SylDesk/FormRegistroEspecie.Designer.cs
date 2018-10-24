@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistroEspecie));
             this.textBoxGenero = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,6 +65,7 @@
             // textBoxGenero
             // 
             this.textBoxGenero.Location = new System.Drawing.Point(178, 73);
+            this.textBoxGenero.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBoxGenero.Name = "textBoxGenero";
             this.textBoxGenero.Size = new System.Drawing.Size(234, 20);
             this.textBoxGenero.TabIndex = 86;
@@ -74,6 +75,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(574, 79);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(135, 15);
             this.label6.TabIndex = 85;
@@ -84,16 +86,18 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(121, 75);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 15);
             this.label5.TabIndex = 84;
-            this.label5.Text = "Genero:";
+            this.label5.Text = "Género:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(619, 46);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 15);
             this.label4.TabIndex = 83;
@@ -102,8 +106,9 @@
             // textBoxBuscarEspecie
             // 
             this.textBoxBuscarEspecie.Location = new System.Drawing.Point(413, 168);
+            this.textBoxBuscarEspecie.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBoxBuscarEspecie.Name = "textBoxBuscarEspecie";
-            this.textBoxBuscarEspecie.Size = new System.Drawing.Size(307, 20);
+            this.textBoxBuscarEspecie.Size = new System.Drawing.Size(306, 20);
             this.textBoxBuscarEspecie.TabIndex = 81;
             this.textBoxBuscarEspecie.TextChanged += new System.EventHandler(this.textBoxBuscarEspecie_TextChanged);
             // 
@@ -112,6 +117,7 @@
             this.labelBuscarEspecie.AutoSize = true;
             this.labelBuscarEspecie.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBuscarEspecie.Location = new System.Drawing.Point(310, 170);
+            this.labelBuscarEspecie.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelBuscarEspecie.Name = "labelBuscarEspecie";
             this.labelBuscarEspecie.Size = new System.Drawing.Size(97, 15);
             this.labelBuscarEspecie.TabIndex = 80;
@@ -131,7 +137,8 @@
             this.formadevida,
             this.categoriadelanorma,
             this.borrar});
-            this.dataGridViewEspecies.Location = new System.Drawing.Point(15, 209);
+            this.dataGridViewEspecies.Location = new System.Drawing.Point(14, 209);
+            this.dataGridViewEspecies.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dataGridViewEspecies.Name = "dataGridViewEspecies";
             this.dataGridViewEspecies.Size = new System.Drawing.Size(1068, 302);
             this.dataGridViewEspecies.TabIndex = 79;
@@ -143,13 +150,13 @@
             // 
             // genero
             // 
-            this.genero.HeaderText = "Genero";
+            this.genero.HeaderText = "Género";
             this.genero.Name = "genero";
             // 
             // nombrecientifico
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle1;
             this.nombrecientifico.HeaderText = "Nombre Científico";
             this.nombrecientifico.Name = "nombrecientifico";
             // 
@@ -170,13 +177,13 @@
             // 
             // borrar
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.borrar.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.borrar.DefaultCellStyle = dataGridViewCellStyle2;
             this.borrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.borrar.HeaderText = "Borrar";
             this.borrar.Name = "borrar";
@@ -187,6 +194,7 @@
             // textBoxFamilia
             // 
             this.textBoxFamilia.Location = new System.Drawing.Point(178, 47);
+            this.textBoxFamilia.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBoxFamilia.Name = "textBoxFamilia";
             this.textBoxFamilia.Size = new System.Drawing.Size(234, 20);
             this.textBoxFamilia.TabIndex = 78;
@@ -194,6 +202,7 @@
             // textBoxNombreComun
             // 
             this.textBoxNombreComun.Location = new System.Drawing.Point(178, 125);
+            this.textBoxNombreComun.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBoxNombreComun.Name = "textBoxNombreComun";
             this.textBoxNombreComun.Size = new System.Drawing.Size(234, 20);
             this.textBoxNombreComun.TabIndex = 77;
@@ -201,6 +210,7 @@
             // textBoxNombreCientifico
             // 
             this.textBoxNombreCientifico.Location = new System.Drawing.Point(178, 99);
+            this.textBoxNombreCientifico.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBoxNombreCientifico.Name = "textBoxNombreCientifico";
             this.textBoxNombreCientifico.Size = new System.Drawing.Size(234, 20);
             this.textBoxNombreCientifico.TabIndex = 76;
@@ -210,6 +220,7 @@
             this.labelFamilia.AutoSize = true;
             this.labelFamilia.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFamilia.Location = new System.Drawing.Point(121, 52);
+            this.labelFamilia.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFamilia.Name = "labelFamilia";
             this.labelFamilia.Size = new System.Drawing.Size(51, 15);
             this.labelFamilia.TabIndex = 75;
@@ -220,6 +231,7 @@
             this.labelNombreComun.AutoSize = true;
             this.labelNombreComun.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreComun.Location = new System.Drawing.Point(73, 127);
+            this.labelNombreComun.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNombreComun.Name = "labelNombreComun";
             this.labelNombreComun.Size = new System.Drawing.Size(99, 15);
             this.labelNombreComun.TabIndex = 74;
@@ -229,7 +241,8 @@
             // 
             this.labelNombreCientifico.AutoSize = true;
             this.labelNombreCientifico.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreCientifico.Location = new System.Drawing.Point(63, 101);
+            this.labelNombreCientifico.Location = new System.Drawing.Point(62, 101);
+            this.labelNombreCientifico.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNombreCientifico.Name = "labelNombreCientifico";
             this.labelNombreCientifico.Size = new System.Drawing.Size(109, 15);
             this.labelNombreCientifico.TabIndex = 73;
@@ -247,8 +260,9 @@
             this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
             this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonRegistrar.Location = new System.Drawing.Point(728, 112);
+            this.buttonRegistrar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.buttonRegistrar.Name = "buttonRegistrar";
-            this.buttonRegistrar.Size = new System.Drawing.Size(141, 45);
+            this.buttonRegistrar.Size = new System.Drawing.Size(140, 45);
             this.buttonRegistrar.TabIndex = 72;
             this.buttonRegistrar.Text = "Registrar";
             this.buttonRegistrar.UseVisualStyleBackColor = false;
@@ -263,8 +277,9 @@
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(900, 112);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(141, 45);
+            this.button2.Size = new System.Drawing.Size(140, 45);
             this.button2.TabIndex = 88;
             this.button2.Text = "Importar";
             this.button2.UseVisualStyleBackColor = true;
@@ -275,6 +290,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(479, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(167, 24);
             this.label1.TabIndex = 89;
@@ -300,6 +316,7 @@
             "Palma",
             "Trepadora"});
             this.comboBoxFormaDeVida.Location = new System.Drawing.Point(716, 46);
+            this.comboBoxFormaDeVida.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.comboBoxFormaDeVida.Name = "comboBoxFormaDeVida";
             this.comboBoxFormaDeVida.Size = new System.Drawing.Size(202, 21);
             this.comboBoxFormaDeVida.TabIndex = 90;
@@ -314,6 +331,7 @@
             "Peligro",
             "Proteccion Especial"});
             this.comboBoxCategoriaDeNorma.Location = new System.Drawing.Point(716, 79);
+            this.comboBoxCategoriaDeNorma.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.comboBoxCategoriaDeNorma.Name = "comboBoxCategoriaDeNorma";
             this.comboBoxCategoriaDeNorma.Size = new System.Drawing.Size(202, 21);
             this.comboBoxCategoriaDeNorma.TabIndex = 91;
@@ -322,6 +340,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(268, 154);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(36, 34);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -332,7 +351,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(291, 191);
+            this.label2.Location = new System.Drawing.Point(290, 191);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(136, 15);
             this.label2.TabIndex = 93;
@@ -362,6 +382,7 @@
             this.Controls.Add(this.labelNombreComun);
             this.Controls.Add(this.labelNombreCientifico);
             this.Controls.Add(this.buttonRegistrar);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "FormRegistroEspecie";
             this.Size = new System.Drawing.Size(1096, 528);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspecies)).EndInit();
@@ -388,6 +409,10 @@
         private System.Windows.Forms.Button buttonRegistrar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxFormaDeVida;
+        private System.Windows.Forms.ComboBox comboBoxCategoriaDeNorma;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn familia;
         private System.Windows.Forms.DataGridViewTextBoxColumn genero;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombrecientifico;
@@ -395,9 +420,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn formadevida;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoriadelanorma;
         private System.Windows.Forms.DataGridViewButtonColumn borrar;
-        private System.Windows.Forms.ComboBox comboBoxFormaDeVida;
-        private System.Windows.Forms.ComboBox comboBoxCategoriaDeNorma;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
     }
 }
