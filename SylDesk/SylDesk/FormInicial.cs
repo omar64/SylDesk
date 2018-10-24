@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace SylDesk
 {
@@ -38,11 +39,12 @@ namespace SylDesk
             if(imageNumber == 4)
             {
                 imageNumber = 1;
+                
             }
             SliderPic.ImageLocation = string.Format(@"..\..\..\Images\{0}.jpg", imageNumber);
             imageNumber++;
-
             
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -50,16 +52,47 @@ namespace SylDesk
             LoadNextImage();
         }
 
-        
-
         private void FormInicial_Load(object sender, EventArgs e)
         {
             //panel2.BackColor = Color.FromArgb(180,0,0,0);
             //pictureBox1.BackColor = Color.FromArgb(180,0,0,0);
+
+            labelB.BackColor = Color.Transparent;
+            labelB.Parent = SliderPic;
+
+
+            labelTxt.BackColor = Color.Transparent;
+            labelTxt.Parent = SliderPic;
+
+            labelS.BackColor = Color.Transparent;
+            labelS.Parent = SliderPic;
+
+            buttonIniciar.BackColor = Color.Transparent;
+            buttonIniciar.Parent = SliderPic;
+
+            
+
+            
+
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void SliderPic_Paint(object sender, PaintEventArgs e)
         {
+            
+            e.Graphics.DrawImage(SliderPic.Image, 0, 0, SliderPic.ClientRectangle, GraphicsUnit.Pixel);
+
+            Color top = Color.FromArgb(150, Color.Black);
+            Color bottom = Color.FromArgb(150, Color.Black);
+            LinearGradientMode direction = LinearGradientMode.Vertical;
+            LinearGradientBrush brush = new LinearGradientBrush(SliderPic.ClientRectangle, top, bottom, direction);
+
+            e.Graphics.FillRectangle(brush, SliderPic.ClientRectangle);
+        }
+
+        private void buttonIniciar_Click(object sender, EventArgs e)
+        {
+            
+
             form1.formRegistro3ToFront();
         }
     }

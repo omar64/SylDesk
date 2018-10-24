@@ -19,7 +19,7 @@ namespace SylDesk
             // hilo de inicializacion el formLoading
             Thread t = new Thread(new ThreadStart(StartForm));
             t.Start();
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
 
             InitializeComponent();
 
@@ -35,8 +35,10 @@ namespace SylDesk
             this.calculadoraEcu.setForm(this);
             this.formEditar.setForm(this);
 
-            
-
+            SidePanel1.Hide();
+            SidePanel2.Hide();
+            SidePanel3.Hide();
+            SidePanel4.Hide();
             formInicialToFront();
         }
 
@@ -52,15 +54,34 @@ namespace SylDesk
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            SidePanel2.Hide();
+            SidePanel3.Hide();
+            SidePanel4.Hide();
+
+            SidePanel1.Show();           
+
             formRegistro1ToFront();
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
+            SidePanel1.Hide();
+            SidePanel3.Hide();
+            SidePanel4.Hide();
+
+            SidePanel2.Show();
+
             formRegistro3ToFront();
         }
         private void button3_Click(object sender, EventArgs e)
         {
+            SidePanel1.Hide();
+            SidePanel2.Hide();
+            SidePanel4.Hide();
+
+            SidePanel3.Show();
+
             formRegistroEspecieToFront(-1, 0, "");
         }
         private void button10_Click(object sender, EventArgs e)
@@ -89,6 +110,12 @@ namespace SylDesk
 
         private void button4_Click(object sender, EventArgs e)
         {
+            SidePanel1.Hide();
+            SidePanel2.Hide();
+            SidePanel3.Hide();
+
+            SidePanel4.Show();
+
             calculadoraEcuToFront(-1, 0, "");
         }
 

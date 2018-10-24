@@ -57,6 +57,10 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.SidePanel1 = new System.Windows.Forms.Panel();
+            this.SidePanel2 = new System.Windows.Forms.Panel();
+            this.SidePanel3 = new System.Windows.Forms.Panel();
+            this.SidePanel4 = new System.Windows.Forms.Panel();
             this.formRegistro1 = new SylDesk.FormRegistro1();
             this.formRegistro2 = new SylDesk.FormRegistro2();
             this.formRegistro3 = new SylDesk.FormRegistro3();
@@ -152,6 +156,10 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox1.Controls.Add(this.SidePanel4);
+            this.groupBox1.Controls.Add(this.SidePanel3);
+            this.groupBox1.Controls.Add(this.SidePanel2);
+            this.groupBox1.Controls.Add(this.SidePanel1);
             this.groupBox1.Controls.Add(this.button9);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.panel2);
@@ -201,9 +209,9 @@
             this.panel2.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 67);
+            this.panel2.Location = new System.Drawing.Point(3, 68);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(438, 23);
+            this.panel2.Size = new System.Drawing.Size(438, 22);
             this.panel2.TabIndex = 8;
             // 
             // label1
@@ -211,7 +219,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(123, 0);
+            this.label1.Location = new System.Drawing.Point(177, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 15);
             this.label1.TabIndex = 0;
@@ -311,7 +319,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(96, 0);
+            this.label3.Location = new System.Drawing.Point(96, 4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 15);
             this.label3.TabIndex = 1;
@@ -419,7 +427,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(96, 0);
+            this.label2.Location = new System.Drawing.Point(106, 4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 1;
@@ -470,6 +478,38 @@
             this.button8.Text = "Galeria";
             this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button8.UseVisualStyleBackColor = true;
+            // 
+            // SidePanel1
+            // 
+            this.SidePanel1.BackColor = System.Drawing.Color.LimeGreen;
+            this.SidePanel1.Location = new System.Drawing.Point(15, 60);
+            this.SidePanel1.Name = "SidePanel1";
+            this.SidePanel1.Size = new System.Drawing.Size(97, 7);
+            this.SidePanel1.TabIndex = 74;
+            // 
+            // SidePanel2
+            // 
+            this.SidePanel2.BackColor = System.Drawing.Color.LimeGreen;
+            this.SidePanel2.Location = new System.Drawing.Point(118, 60);
+            this.SidePanel2.Name = "SidePanel2";
+            this.SidePanel2.Size = new System.Drawing.Size(100, 7);
+            this.SidePanel2.TabIndex = 75;
+            // 
+            // SidePanel3
+            // 
+            this.SidePanel3.BackColor = System.Drawing.Color.LimeGreen;
+            this.SidePanel3.Location = new System.Drawing.Point(224, 60);
+            this.SidePanel3.Name = "SidePanel3";
+            this.SidePanel3.Size = new System.Drawing.Size(55, 7);
+            this.SidePanel3.TabIndex = 75;
+            // 
+            // SidePanel4
+            // 
+            this.SidePanel4.BackColor = System.Drawing.Color.LimeGreen;
+            this.SidePanel4.Location = new System.Drawing.Point(285, 60);
+            this.SidePanel4.Name = "SidePanel4";
+            this.SidePanel4.Size = new System.Drawing.Size(72, 7);
+            this.SidePanel4.TabIndex = 76;
             // 
             // formRegistro1
             // 
@@ -616,6 +656,10 @@
         private Report report = null;
         private CalculadoraEcu calculadoraEcu = null;
         private FormEditar formEditar = null;
+        private System.Windows.Forms.Panel SidePanel1;
+        private System.Windows.Forms.Panel SidePanel2;
+        private System.Windows.Forms.Panel SidePanel4;
+        private System.Windows.Forms.Panel SidePanel3;
     }
 }
 

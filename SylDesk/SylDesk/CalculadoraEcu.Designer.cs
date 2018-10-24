@@ -216,7 +216,7 @@
             this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(729, 343);
+            this.button8.Location = new System.Drawing.Point(729, 346);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(45, 35);
             this.button8.TabIndex = 50;
@@ -329,7 +329,7 @@
             this.button27.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button27.Location = new System.Drawing.Point(678, 343);
+            this.button27.Location = new System.Drawing.Point(678, 346);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(45, 35);
             this.button27.TabIndex = 37;
@@ -344,7 +344,7 @@
             this.button15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(627, 343);
+            this.button15.Location = new System.Drawing.Point(627, 346);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(45, 35);
             this.button15.TabIndex = 35;
@@ -389,7 +389,7 @@
             this.button18.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button18.Location = new System.Drawing.Point(627, 258);
+            this.button18.Location = new System.Drawing.Point(627, 259);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(45, 35);
             this.button18.TabIndex = 32;
@@ -404,7 +404,7 @@
             this.button19.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button19.Location = new System.Drawing.Point(678, 218);
+            this.button19.Location = new System.Drawing.Point(678, 217);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(45, 35);
             this.button19.TabIndex = 31;
@@ -419,7 +419,7 @@
             this.button25.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button25.Location = new System.Drawing.Point(627, 218);
+            this.button25.Location = new System.Drawing.Point(627, 217);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(45, 35);
             this.button25.TabIndex = 25;
@@ -434,7 +434,7 @@
             this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(568, 340);
+            this.button14.Location = new System.Drawing.Point(568, 347);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(45, 35);
             this.button14.TabIndex = 24;
@@ -449,9 +449,9 @@
             this.button13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(466, 340);
+            this.button13.Location = new System.Drawing.Point(466, 347);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(96, 34);
+            this.button13.Size = new System.Drawing.Size(96, 35);
             this.button13.TabIndex = 23;
             this.button13.Tag = "0";
             this.button13.Text = "0";
@@ -464,7 +464,7 @@
             this.num3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num3.Location = new System.Drawing.Point(568, 299);
+            this.num3.Location = new System.Drawing.Point(568, 302);
             this.num3.Name = "num3";
             this.num3.Size = new System.Drawing.Size(45, 35);
             this.num3.TabIndex = 22;
@@ -479,7 +479,7 @@
             this.num2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num2.Location = new System.Drawing.Point(517, 299);
+            this.num2.Location = new System.Drawing.Point(517, 302);
             this.num2.Name = "num2";
             this.num2.Size = new System.Drawing.Size(45, 35);
             this.num2.TabIndex = 21;
@@ -494,7 +494,7 @@
             this.num1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num1.Location = new System.Drawing.Point(466, 299);
+            this.num1.Location = new System.Drawing.Point(466, 302);
             this.num1.Name = "num1";
             this.num1.Size = new System.Drawing.Size(45, 35);
             this.num1.TabIndex = 20;
@@ -509,7 +509,7 @@
             this.num6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num6.Location = new System.Drawing.Point(568, 256);
+            this.num6.Location = new System.Drawing.Point(568, 259);
             this.num6.Name = "num6";
             this.num6.Size = new System.Drawing.Size(45, 35);
             this.num6.TabIndex = 19;
@@ -524,7 +524,7 @@
             this.num5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num5.Location = new System.Drawing.Point(517, 256);
+            this.num5.Location = new System.Drawing.Point(517, 259);
             this.num5.Name = "num5";
             this.num5.Size = new System.Drawing.Size(45, 35);
             this.num5.TabIndex = 18;
@@ -569,9 +569,9 @@
             this.num4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.num4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num4.Location = new System.Drawing.Point(466, 256);
+            this.num4.Location = new System.Drawing.Point(466, 259);
             this.num4.Name = "num4";
-            this.num4.Size = new System.Drawing.Size(45, 37);
+            this.num4.Size = new System.Drawing.Size(45, 35);
             this.num4.TabIndex = 15;
             this.num4.Tag = "4";
             this.num4.Text = "4";
@@ -586,7 +586,7 @@
             this.num7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num7.Location = new System.Drawing.Point(466, 217);
             this.num7.Name = "num7";
-            this.num7.Size = new System.Drawing.Size(45, 33);
+            this.num7.Size = new System.Drawing.Size(45, 35);
             this.num7.TabIndex = 14;
             this.num7.Tag = "7";
             this.num7.Text = "7";
@@ -686,7 +686,7 @@
             this.buttonBorrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonBorrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonBorrar.Image")));
             this.buttonBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBorrar.Location = new System.Drawing.Point(90, 419);
+            this.buttonBorrar.Location = new System.Drawing.Point(117, 419);
             this.buttonBorrar.Name = "buttonBorrar";
             this.buttonBorrar.Size = new System.Drawing.Size(107, 39);
             this.buttonBorrar.TabIndex = 54;
