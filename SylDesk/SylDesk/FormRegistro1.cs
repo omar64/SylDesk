@@ -154,142 +154,116 @@ namespace SylDesk
             }
             if(!error_flag)
             {
-                try
+                if (checkBoxA1.Checked || checkBoxA2.Checked || checkBoxA3.Checked || checkBoxA4.Checked)
                 {
-                    //SqlConnector.sendMessage("debug", "1", MessageBoxIcon.Information);
-                    string sql_text1 = "Insert into proyectos( nombre, superficie, descripcion";
-                    string sql_text2 = ")Values(@nombre, @superficie, @descripcion";
-                    string sql_text3 = ")";
-
-                    string sql_variable_text1 = "";
-                    string sql_variable_text2 = "";
-
-                    string area1_text = "";
-                    string area2_text = "";
-                    string area3_text = "";
-                    string area4_text = "";
-
-                    List<String> var_names = new List<String>();
-                    var_names.AddRange(new String[]{"nombre", "superficie", "descripcion"});
-
-                    string[] area1_var_names = { };
-                    string[] area2_var_names = { };
-                    string[] area3_var_names = { };
-                    string[] area4_var_names = { };
-
-                    List<String> var_values = new List<String>();
-                    var_values.AddRange(new String[] { textBoxNombre.Text, textBoxSuperficie.Text, richTextBoxDescripcion.Text });
-
-                    string[] area1_var_values = { };
-                    string[] area2_var_values = { };
-                    string[] area3_var_values = { };
-                    string[] area4_var_values = { };
-
-                    //SqlConnector.sendMessage("debug", "2", MessageBoxIcon.Information);
-
-                    if (checkBoxA1.Checked)
+                    try
                     {
-                        area1_text = ",area1_activo, area1_superficie, area1_vol_cob, area1_dia_lar, area1_alt_anc";
-                        area1_var_names = new String[] { "area1_activo", "area1_superficie", "area1_vol_cob", "area1_dia_lar", "area1_alt_anc" };
-                        area1_var_values = new String[] { Convert.ToInt32(checkBoxA1.Checked).ToString(), SuperficieTxB1.Text, Convert.ToInt32(radioVolumen1.Checked).ToString(), DiametroTxB1.Text, AlturaTxB1.Text };
+                        string sql_text1 = "Insert into proyectos( nombre, superficie, descripcion";
+                        string sql_text2 = ")Values(@nombre, @superficie, @descripcion";
+                        string sql_text3 = ")";
 
-                        sql_variable_text1 += ",area1_activo, area1_superficie, area1_vol_cob, area1_dia_lar, area1_alt_anc";
-                        sql_variable_text2 += ",@area1_activo, @area1_superficie, @area1_vol_cob, @area1_dia_lar, @area1_alt_anc";
-                        var_names.AddRange(area1_var_names);
-                        var_values.AddRange(area1_var_values);
-                    }
-                    if (checkBoxA2.Checked)
-                    {
-                        area2_text = ",area2_activo, area2_superficie, area2_vol_cob, area2_dia_lar, area2_alt_anc";
-                        area2_var_names = new String[] { "area2_activo", "area2_superficie", "area2_vol_cob", "area2_dia_lar", "area2_alt_anc" };
-                        area2_var_values = new String[] { Convert.ToInt32(checkBoxA2.Checked).ToString(), SuperficieTxB2.Text, Convert.ToInt32(radioVolumen2.Checked).ToString(), DiametroTxB2.Text, AlturaTxB2.Text };
+                        string sql_variable_text1 = "";
+                        string sql_variable_text2 = "";
 
-                        sql_variable_text1 += ",area2_activo, area2_superficie, area2_vol_cob, area2_dia_lar, area2_alt_anc";
-                        sql_variable_text2 += ",@area2_activo, @area2_superficie, @area2_vol_cob, @area2_dia_lar, @area2_alt_anc";
-                        var_names.AddRange(area2_var_names);
-                        var_values.AddRange(area2_var_values);
-                    }
-                    if (checkBoxA3.Checked)
-                    {
-                        area3_text = ",area3_activo, area3_superficie, area3_vol_cob, area3_dia_lar, area3_alt_anc";
-                        area3_var_names = new String[] { "area3_activo", "area3_superficie", "area3_vol_cob", "area3_dia_lar", "area3_alt_anc" };
-                        area3_var_values = new String[] { Convert.ToInt32(checkBoxA3.Checked).ToString(), SuperficieTxB3.Text, Convert.ToInt32(radioVolumen3.Checked).ToString(), DiametroTxB3.Text, AlturaTxB3.Text };
+                        string area1_text = "";
+                        string area2_text = "";
+                        string area3_text = "";
+                        string area4_text = "";
 
-                        sql_variable_text1 += ",area3_activo, area3_superficie, area3_vol_cob, area3_dia_lar, area3_alt_anc";
-                        sql_variable_text2 += ",@area3_activo, @area3_superficie, @area3_vol_cob, @area3_dia_lar, @area3_alt_anc";
-                        var_names.AddRange(area3_var_names);
-                        var_values.AddRange(area3_var_values);
-                    }
-                    if (checkBoxA4.Checked)
-                    {
-                        area4_text = ",area4_activo, area4_superficie, area4_vol_cob, area4_dia_lar, area4_alt_anc";
-                        area4_var_names = new String[] { "area4_activo", "area4_superficie", "area4_vol_cob", "area4_dia_lar", "area4_alt_anc" };
-                        area4_var_values = new String[] { Convert.ToInt32(checkBoxA4.Checked).ToString(), SuperficieTxB4.Text, Convert.ToInt32(radioVolumen4.Checked).ToString(), DiametroTxB4.Text, AlturaTxB4.Text };
+                        List<String> var_names = new List<String>();
+                        var_names.AddRange(new String[] { "nombre", "superficie", "descripcion" });
 
-                        sql_variable_text1 += ",area4_activo, area4_superficie, area4_vol_cob, area4_dia_lar, area4_alt_anc";
-                        sql_variable_text2 += ",@area4_activo, @area4_superficie, @area4_vol_cob, @area4_dia_lar, @area4_alt_anc";
-                        var_names.AddRange(area4_var_names);
-                        var_values.AddRange(area4_var_values);
-                    }
+                        string[] area1_var_names = { };
+                        string[] area2_var_names = { };
+                        string[] area3_var_names = { };
+                        string[] area4_var_names = { };
 
-                    
-                    //SqlConnector.sendMessage("debug", "3", MessageBoxIcon.Information);
+                        List<String> var_values = new List<String>();
+                        var_values.AddRange(new String[] { textBoxNombre.Text, textBoxSuperficie.Text, richTextBoxDescripcion.Text });
 
-                    /*
-                    SqlConnector.sendMessage("debug", sql_text1 + sql_variable_text1 + sql_text2 + sql_variable_text2 + sql_text3, MessageBoxIcon.Information);
-                    SqlConnector.sendMessage("debug", "tamaño de la lista: " + var_names.Count + ", tamaño de la lista2: " + var_values.Count, MessageBoxIcon.Information);
-                    for (int i= 0; i < var_names.Count; i++)
-                    {
-                        SqlConnector.sendMessage("debug", var_names[i] + ": " + var_values[i], MessageBoxIcon.Information);
-                    }
-                    */
+                        string[] area1_var_values = { };
+                        string[] area2_var_values = { };
+                        string[] area3_var_values = { };
+                        string[] area4_var_values = { };
 
-                    SqlConnector.postPutDeleteGenerico(
-                        sql_text1 +
-                        sql_variable_text1 +
-                        sql_text2 +
-                        sql_variable_text2 +
-                        sql_text3,
-                        var_names.ToArray(),
-                        var_values.ToArray()
-                        /*
-                        new String[] {
-                            "nombre", "superficie", "descripcion",
-                            "area1_activo", "area1_superficie", "area1_vol_cob", "area1_dia_lar", "area1_alt_anc",
-                            "area2_activo", "area2_superficie", "area2_vol_cob", "area2_dia_lar", "area2_alt_anc",
-                            "area3_activo", "area3_superficie", "area3_vol_cob", "area3_dia_lar", "area3_alt_anc",
-                            "area4_activo", "area4_superficie", "area4_vol_cob", "area4_dia_lar", "area4_alt_anc"
-                        },
-                        new String[] {
-                            textBoxNombre.Text, textBoxSuperficie.Text, richTextBoxDescripcion.Text,
-                            checkBoxA1.Checked.ToString(), SuperficieTxB1.Text,  radioVolumen1.Checked.ToString(), DiametroTxB1.Text, AlturaTxB1.Text,
-                            checkBoxA2.Checked.ToString(), SuperficieTxB2.Text,  radioVolumen2.Checked.ToString(), DiametroTxB2.Text, AlturaTxB2.Text,
-                            checkBoxA3.Checked.ToString(), SuperficieTxB3.Text,  radioVolumen3.Checked.ToString(), DiametroTxB3.Text, AlturaTxB3.Text,
-                            checkBoxA4.Checked.ToString(), SuperficieTxB4.Text,  radioVolumen4.Checked.ToString(), DiametroTxB4.Text, AlturaTxB4.Text
+                        if (checkBoxA1.Checked)
+                        {
+                            area1_text = ",area1_activo, area1_superficie, area1_vol_cob, area1_dia_lar, area1_alt_anc";
+                            area1_var_names = new String[] { "area1_activo", "area1_superficie", "area1_vol_cob", "area1_dia_lar", "area1_alt_anc" };
+                            area1_var_values = new String[] { Convert.ToInt32(checkBoxA1.Checked).ToString(), SuperficieTxB1.Text, Convert.ToInt32(radioVolumen1.Checked).ToString(), DiametroTxB1.Text, AlturaTxB1.Text };
+
+                            sql_variable_text1 += ",area1_activo, area1_superficie, area1_vol_cob, area1_dia_lar, area1_alt_anc";
+                            sql_variable_text2 += ",@area1_activo, @area1_superficie, @area1_vol_cob, @area1_dia_lar, @area1_alt_anc";
+                            var_names.AddRange(area1_var_names);
+                            var_values.AddRange(area1_var_values);
                         }
-                        */
-                    );
-                    SqlConnector.sendMessage("debug", "4", MessageBoxIcon.Information);
+                        if (checkBoxA2.Checked)
+                        {
+                            area2_text = ",area2_activo, area2_superficie, area2_vol_cob, area2_dia_lar, area2_alt_anc";
+                            area2_var_names = new String[] { "area2_activo", "area2_superficie", "area2_vol_cob", "area2_dia_lar", "area2_alt_anc" };
+                            area2_var_values = new String[] { Convert.ToInt32(checkBoxA2.Checked).ToString(), SuperficieTxB2.Text, Convert.ToInt32(radioVolumen2.Checked).ToString(), DiametroTxB2.Text, AlturaTxB2.Text };
 
+                            sql_variable_text1 += ",area2_activo, area2_superficie, area2_vol_cob, area2_dia_lar, area2_alt_anc";
+                            sql_variable_text2 += ",@area2_activo, @area2_superficie, @area2_vol_cob, @area2_dia_lar, @area2_alt_anc";
+                            var_names.AddRange(area2_var_names);
+                            var_values.AddRange(area2_var_values);
+                        }
+                        if (checkBoxA3.Checked)
+                        {
+                            area3_text = ",area3_activo, area3_superficie, area3_vol_cob, area3_dia_lar, area3_alt_anc";
+                            area3_var_names = new String[] { "area3_activo", "area3_superficie", "area3_vol_cob", "area3_dia_lar", "area3_alt_anc" };
+                            area3_var_values = new String[] { Convert.ToInt32(checkBoxA3.Checked).ToString(), SuperficieTxB3.Text, Convert.ToInt32(radioVolumen3.Checked).ToString(), DiametroTxB3.Text, AlturaTxB3.Text };
 
-                    Proyecto proyecto = SqlConnector.proyectoGet(
-                        "SELECT * from proyectos where nombre = @nombre",
-                        new String[] { "nombre" } , 
-                        new String[] { textBoxNombre.Text}
-                    );
+                            sql_variable_text1 += ",area3_activo, area3_superficie, area3_vol_cob, area3_dia_lar, area3_alt_anc";
+                            sql_variable_text2 += ",@area3_activo, @area3_superficie, @area3_vol_cob, @area3_dia_lar, @area3_alt_anc";
+                            var_names.AddRange(area3_var_names);
+                            var_values.AddRange(area3_var_values);
+                        }
+                        if (checkBoxA4.Checked)
+                        {
+                            area4_text = ",area4_activo, area4_superficie, area4_vol_cob, area4_dia_lar, area4_alt_anc";
+                            area4_var_names = new String[] { "area4_activo", "area4_superficie", "area4_vol_cob", "area4_dia_lar", "area4_alt_anc" };
+                            area4_var_values = new String[] { Convert.ToInt32(checkBoxA4.Checked).ToString(), SuperficieTxB4.Text, Convert.ToInt32(radioVolumen4.Checked).ToString(), DiametroTxB4.Text, AlturaTxB4.Text };
 
-                    SqlConnector.postPutDeleteGenerico(
-                        "Insert into sitios(proyecto_id, numero_sitio)Values(@proyecto_id, @numero_sitio)",
-                        new String[] { "proyecto_id", "numero_sitio" },
-                        new String[] { proyecto.getId(), "1" }
-                    );
-                    SqlConnector.sendMessage("Aviso", "Proyecto Guardado.", MessageBoxIcon.Information);
+                            sql_variable_text1 += ",area4_activo, area4_superficie, area4_vol_cob, area4_dia_lar, area4_alt_anc";
+                            sql_variable_text2 += ",@area4_activo, @area4_superficie, @area4_vol_cob, @area4_dia_lar, @area4_alt_anc";
+                            var_names.AddRange(area4_var_names);
+                            var_values.AddRange(area4_var_values);
+                        }
 
-                    form1.formRegistro2ToFront(proyecto);
+                        SqlConnector.postPutDeleteGenerico(
+                            sql_text1 +
+                            sql_variable_text1 +
+                            sql_text2 +
+                            sql_variable_text2 +
+                            sql_text3,
+                            var_names.ToArray(),
+                            var_values.ToArray()
+                        );
+
+                        Proyecto proyecto = SqlConnector.proyectoGet(
+                            "SELECT * from proyectos where nombre = @nombre",
+                            new String[] { "nombre" },
+                            new String[] { textBoxNombre.Text }
+                        );
+
+                        SqlConnector.postPutDeleteGenerico(
+                            "Insert into sitios(proyecto_id, numero_sitio)Values(@proyecto_id, @numero_sitio)",
+                            new String[] { "proyecto_id", "numero_sitio" },
+                            new String[] { proyecto.getId(), "1" }
+                        );
+                        SqlConnector.sendMessage("Aviso", "Proyecto Guardado.", MessageBoxIcon.Information);
+
+                        form1.formRegistro2ToFront(proyecto);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
                 }
-                catch (Exception)
+                else
                 {
-
+                    SqlConnector.sendMessage("Error", "Almenos un area debe de estar activada.", MessageBoxIcon.Error);
                 }
             }
         }
