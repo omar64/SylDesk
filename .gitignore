@@ -3,9 +3,11 @@ bin/
 obj/
 bin-debug/
 bin-release/
+.vs/
 
-
-
+SylDesk/SylDesk/bin-debug/
+SylDesk/SylDesk/bin-release/
+SylDesk/.vs/
 
 [Oo]bj/ # FlashDevelop obj
 [Bb]in/ # FlashDevelop bin
