@@ -8,9 +8,6 @@ C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\DevExpress.Utils.v17.2.
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\DevExpress.XtraEditors.v17.2.dll
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\DevExpress.XtraMap.v17.2.dll
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\DevExpress.XtraPrinting.v17.2.dll
-C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\MySql.Data.dll
-C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\MySql.Data.Entity.EF6.dll
-C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\MySql.Web.dll
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\DevExpress.Pdf.v17.2.Core.dll
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\DevExpress.Sparkline.v17.2.Core.dll
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\DevExpress.XtraBars.v17.2.dll
@@ -150,9 +147,6 @@ C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\LiveCh
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\Microsoft.ReportViewer.Common.dll
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
-C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\MySql.Data.dll
-C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\MySql.Data.Entity.EF6.dll
-C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\MySql.Web.dll
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\DevExpress.Pdf.v17.2.Core.dll
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\DevExpress.Sparkline.v17.2.Core.dll
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\DevExpress.XtraBars.v17.2.dll

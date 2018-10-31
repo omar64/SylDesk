@@ -561,7 +561,6 @@
             this.TipBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.TipBox.TabIndex = 13;
             this.TipBox.TabStop = false;
-            this.TipBox.Click += new System.EventHandler(this.TipBox_Click);
             // 
             // toolTip1
             // 
