@@ -297,11 +297,50 @@ namespace SylDesk
         private void FormRegistro1_Load(object sender, EventArgs e)
         {
             toolTip1.SetToolTip(TipBox, "Lorem ipsum dolor sit amet consectetur adipiscing\n elit ornare, accumsan nec auctor morbi eget diam cubilia curae,\n justo nisl fringilla natoque sodales dignissim tristique.\n Massa morbi fringilla taciti pulvinar vel nascetur risus luctus eros,\n aliquam orci accumsan quam convallis id sociis lectus egestas, dui mattis aptent leo conubia arcu mi consequat.\n Dictumst senectus litora suscipit proin pretium mattis facilisi, montes posuere ut felis convallis\n dignissim eleifend luctus, praesent urna nullam ridiculus vitae enim.");
+
+            
+
         }
+
+        private void checkBoxA1_CheckedChanged(object sender, EventArgs e)
+        {
+            Area_Checked(checkBoxA1, SuperficieTxB1, radioVolumen1, radioCobertura1,DiametroTxB1, AlturaTxB1);
+        }
+
+        private void checkBoxA2_CheckedChanged(object sender, EventArgs e)
+        {
+            Area_Checked(checkBoxA2, SuperficieTxB2, radioVolumen2, radioCobertura2, DiametroTxB2, AlturaTxB2);
+        }
+
+        private void checkBoxA3_CheckedChanged(object sender, EventArgs e)
+        {
+            Area_Checked(checkBoxA3, SuperficieTxB3, radioVolumen3, radioCobertura3, DiametroTxB3, AlturaTxB3);
+        }
+
+        private void checkBoxA4_CheckedChanged(object sender, EventArgs e)
+        {
+            Area_Checked(checkBoxA4, SuperficieTxB4, radioVolumen4, radioCobertura4, DiametroTxB4, AlturaTxB4);
+        }
+
+        private void Area_Checked(CheckBox checkBox, TextBox superficie, RadioButton volumen, RadioButton cobertura, TextBox diametro, TextBox altura)
+        {
+            //Area 1 Componentes
+            
+
+            superficie.Enabled = checkBox.Checked;
+            volumen.Enabled = checkBox.Checked;
+            cobertura.Enabled = checkBox.Checked;
+            diametro.Enabled = checkBox.Checked;
+            altura.Enabled = checkBox.Checked;
+            
+        }
+        
 
         private void TipBox_Click(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }

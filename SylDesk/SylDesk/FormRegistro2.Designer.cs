@@ -30,18 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle97 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle98 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle99 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle100 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle101 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle102 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle103 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle104 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonEliminarIndividuo = new System.Windows.Forms.Button();
             this.buttonAgregarBifurcacion = new System.Windows.Forms.Button();
             this.buttonAgregarIndividuo = new System.Windows.Forms.Button();
-            this.labelNombre = new System.Windows.Forms.Label();
             this.labelNombreProyecto = new System.Windows.Forms.Label();
             this.textBoxEstadoSucesional = new System.Windows.Forms.TextBox();
             this.textBoxMunicipio = new System.Windows.Forms.TextBox();
@@ -84,6 +83,7 @@
             this.ButtonBack = new System.Windows.Forms.Button();
             this.TipBox = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.TBNombre = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIndividuos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipBox)).BeginInit();
             this.SuspendLayout();
@@ -96,7 +96,7 @@
             this.buttonEliminarIndividuo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonEliminarIndividuo.Image = ((System.Drawing.Image)(resources.GetObject("buttonEliminarIndividuo.Image")));
             this.buttonEliminarIndividuo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEliminarIndividuo.Location = new System.Drawing.Point(308, 44);
+            this.buttonEliminarIndividuo.Location = new System.Drawing.Point(301, 44);
             this.buttonEliminarIndividuo.Name = "buttonEliminarIndividuo";
             this.buttonEliminarIndividuo.Size = new System.Drawing.Size(138, 41);
             this.buttonEliminarIndividuo.TabIndex = 88;
@@ -112,7 +112,7 @@
             this.buttonAgregarBifurcacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonAgregarBifurcacion.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarBifurcacion.Image")));
             this.buttonAgregarBifurcacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAgregarBifurcacion.Location = new System.Drawing.Point(158, 94);
+            this.buttonAgregarBifurcacion.Location = new System.Drawing.Point(151, 94);
             this.buttonAgregarBifurcacion.Name = "buttonAgregarBifurcacion";
             this.buttonAgregarBifurcacion.Size = new System.Drawing.Size(133, 44);
             this.buttonAgregarBifurcacion.TabIndex = 87;
@@ -128,7 +128,7 @@
             this.buttonAgregarIndividuo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonAgregarIndividuo.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarIndividuo.Image")));
             this.buttonAgregarIndividuo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAgregarIndividuo.Location = new System.Drawing.Point(158, 44);
+            this.buttonAgregarIndividuo.Location = new System.Drawing.Point(151, 44);
             this.buttonAgregarIndividuo.Name = "buttonAgregarIndividuo";
             this.buttonAgregarIndividuo.Size = new System.Drawing.Size(133, 44);
             this.buttonAgregarIndividuo.TabIndex = 86;
@@ -136,21 +136,11 @@
             this.buttonAgregarIndividuo.UseVisualStyleBackColor = true;
             this.buttonAgregarIndividuo.Click += new System.EventHandler(this.buttonAgregarIndividuo_Click);
             // 
-            // labelNombre
-            // 
-            this.labelNombre.AutoSize = true;
-            this.labelNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.Location = new System.Drawing.Point(875, 51);
-            this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(65, 20);
-            this.labelNombre.TabIndex = 85;
-            this.labelNombre.Text = "Nombre";
-            // 
             // labelNombreProyecto
             // 
             this.labelNombreProyecto.AutoSize = true;
             this.labelNombreProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreProyecto.Location = new System.Drawing.Point(794, 51);
+            this.labelNombreProyecto.Location = new System.Drawing.Point(750, 33);
             this.labelNombreProyecto.Name = "labelNombreProyecto";
             this.labelNombreProyecto.Size = new System.Drawing.Size(75, 20);
             this.labelNombreProyecto.TabIndex = 84;
@@ -158,14 +148,14 @@
             // 
             // textBoxEstadoSucesional
             // 
-            this.textBoxEstadoSucesional.Location = new System.Drawing.Point(679, 101);
+            this.textBoxEstadoSucesional.Location = new System.Drawing.Point(648, 106);
             this.textBoxEstadoSucesional.Name = "textBoxEstadoSucesional";
             this.textBoxEstadoSucesional.Size = new System.Drawing.Size(100, 20);
             this.textBoxEstadoSucesional.TabIndex = 83;
             // 
             // textBoxMunicipio
             // 
-            this.textBoxMunicipio.Location = new System.Drawing.Point(679, 62);
+            this.textBoxMunicipio.Location = new System.Drawing.Point(648, 75);
             this.textBoxMunicipio.Name = "textBoxMunicipio";
             this.textBoxMunicipio.Size = new System.Drawing.Size(100, 20);
             this.textBoxMunicipio.TabIndex = 82;
@@ -173,7 +163,7 @@
             // labelEstadoSucesional
             // 
             this.labelEstadoSucesional.AutoSize = true;
-            this.labelEstadoSucesional.Location = new System.Drawing.Point(578, 103);
+            this.labelEstadoSucesional.Location = new System.Drawing.Point(547, 108);
             this.labelEstadoSucesional.Name = "labelEstadoSucesional";
             this.labelEstadoSucesional.Size = new System.Drawing.Size(95, 13);
             this.labelEstadoSucesional.TabIndex = 81;
@@ -183,7 +173,7 @@
             // labelMunicipio
             // 
             this.labelMunicipio.AutoSize = true;
-            this.labelMunicipio.Location = new System.Drawing.Point(621, 65);
+            this.labelMunicipio.Location = new System.Drawing.Point(590, 78);
             this.labelMunicipio.Name = "labelMunicipio";
             this.labelMunicipio.Size = new System.Drawing.Size(52, 13);
             this.labelMunicipio.TabIndex = 80;
@@ -191,23 +181,23 @@
             // 
             // textBoxY
             // 
-            this.textBoxY.Location = new System.Drawing.Point(472, 103);
+            this.textBoxY.Location = new System.Drawing.Point(468, 106);
             this.textBoxY.Name = "textBoxY";
-            this.textBoxY.Size = new System.Drawing.Size(100, 20);
+            this.textBoxY.Size = new System.Drawing.Size(67, 20);
             this.textBoxY.TabIndex = 79;
             // 
             // textBoxX
             // 
-            this.textBoxX.Location = new System.Drawing.Point(472, 65);
+            this.textBoxX.Location = new System.Drawing.Point(468, 76);
             this.textBoxX.Name = "textBoxX";
-            this.textBoxX.Size = new System.Drawing.Size(100, 20);
+            this.textBoxX.Size = new System.Drawing.Size(67, 20);
             this.textBoxX.TabIndex = 78;
             this.textBoxX.TextChanged += new System.EventHandler(this.textBoxX_TextChanged);
             // 
             // labelY
             // 
             this.labelY.AutoSize = true;
-            this.labelY.Location = new System.Drawing.Point(452, 110);
+            this.labelY.Location = new System.Drawing.Point(448, 113);
             this.labelY.Name = "labelY";
             this.labelY.Size = new System.Drawing.Size(14, 13);
             this.labelY.TabIndex = 77;
@@ -216,7 +206,7 @@
             // labelX
             // 
             this.labelX.AutoSize = true;
-            this.labelX.Location = new System.Drawing.Point(452, 70);
+            this.labelX.Location = new System.Drawing.Point(448, 81);
             this.labelX.Name = "labelX";
             this.labelX.Size = new System.Drawing.Size(14, 13);
             this.labelX.TabIndex = 76;
@@ -225,9 +215,10 @@
             // labelCoordenadas
             // 
             this.labelCoordenadas.AutoSize = true;
-            this.labelCoordenadas.Location = new System.Drawing.Point(469, 46);
+            this.labelCoordenadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCoordenadas.Location = new System.Drawing.Point(461, 58);
             this.labelCoordenadas.Name = "labelCoordenadas";
-            this.labelCoordenadas.Size = new System.Drawing.Size(70, 13);
+            this.labelCoordenadas.Size = new System.Drawing.Size(81, 15);
             this.labelCoordenadas.TabIndex = 75;
             this.labelCoordenadas.Text = "Coordenadas";
             // 
@@ -257,7 +248,7 @@
             this.buttonBorrarSitio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonBorrarSitio.Image = ((System.Drawing.Image)(resources.GetObject("buttonBorrarSitio.Image")));
             this.buttonBorrarSitio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBorrarSitio.Location = new System.Drawing.Point(222, 473);
+            this.buttonBorrarSitio.Location = new System.Drawing.Point(222, 476);
             this.buttonBorrarSitio.Name = "buttonBorrarSitio";
             this.buttonBorrarSitio.Size = new System.Drawing.Size(139, 45);
             this.buttonBorrarSitio.TabIndex = 71;
@@ -274,7 +265,7 @@
             this.buttonAgregarSitio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonAgregarSitio.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarSitio.Image")));
             this.buttonAgregarSitio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAgregarSitio.Location = new System.Drawing.Point(71, 473);
+            this.buttonAgregarSitio.Location = new System.Drawing.Point(71, 476);
             this.buttonAgregarSitio.Name = "buttonAgregarSitio";
             this.buttonAgregarSitio.Size = new System.Drawing.Size(134, 45);
             this.buttonAgregarSitio.TabIndex = 70;
@@ -314,14 +305,14 @@
             // 
             this.dataGridViewIndividuos.AllowUserToAddRows = false;
             this.dataGridViewIndividuos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewIndividuos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle97.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle97.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle97.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle97.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle97.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle97.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle97.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewIndividuos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle97;
             this.dataGridViewIndividuos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewIndividuos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cuadrante,
@@ -357,16 +348,16 @@
             // 
             // numero
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numero.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle98.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numero.DefaultCellStyle = dataGridViewCellStyle98;
             this.numero.HeaderText = "*Consecutivo";
             this.numero.Name = "numero";
             this.numero.ReadOnly = true;
             // 
             // arbolnumeroensitio
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle99.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arbolnumeroensitio.DefaultCellStyle = dataGridViewCellStyle99;
             this.arbolnumeroensitio.HeaderText = "*NO. EN CAMPO";
             this.arbolnumeroensitio.Name = "arbolnumeroensitio";
             this.arbolnumeroensitio.ReadOnly = true;
@@ -380,31 +371,31 @@
             // 
             // nombrecientifico
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle100.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle100;
             this.nombrecientifico.HeaderText = "Nombre Científico";
             this.nombrecientifico.Name = "nombrecientifico";
             // 
             // nombrecomun
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecomun.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle101.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecomun.DefaultCellStyle = dataGridViewCellStyle101;
             this.nombrecomun.HeaderText = "*Nombre Comun";
             this.nombrecomun.Name = "nombrecomun";
             this.nombrecomun.ReadOnly = true;
             // 
             // familia
             // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.familia.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle102.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.familia.DefaultCellStyle = dataGridViewCellStyle102;
             this.familia.HeaderText = "*Familia";
             this.familia.Name = "familia";
             this.familia.ReadOnly = true;
             // 
             // genero
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genero.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle103.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genero.DefaultCellStyle = dataGridViewCellStyle103;
             this.genero.HeaderText = "*Género";
             this.genero.Name = "genero";
             this.genero.ReadOnly = true;
@@ -479,8 +470,8 @@
             // 
             // volumen
             // 
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.volumen.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle104.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.volumen.DefaultCellStyle = dataGridViewCellStyle104;
             this.volumen.HeaderText = "Volumen";
             this.volumen.Name = "volumen";
             this.volumen.ReadOnly = true;
@@ -498,7 +489,7 @@
             this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(941, 83);
+            this.button6.Location = new System.Drawing.Point(926, 80);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(118, 42);
             this.button6.TabIndex = 89;
@@ -513,7 +504,7 @@
             this.buttonGrafica.ForeColor = System.Drawing.Color.DodgerBlue;
             this.buttonGrafica.Image = ((System.Drawing.Image)(resources.GetObject("buttonGrafica.Image")));
             this.buttonGrafica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGrafica.Location = new System.Drawing.Point(798, 83);
+            this.buttonGrafica.Location = new System.Drawing.Point(802, 80);
             this.buttonGrafica.Name = "buttonGrafica";
             this.buttonGrafica.Size = new System.Drawing.Size(118, 43);
             this.buttonGrafica.TabIndex = 90;
@@ -539,7 +530,7 @@
             this.buttonImportar.ForeColor = System.Drawing.Color.DodgerBlue;
             this.buttonImportar.Image = ((System.Drawing.Image)(resources.GetObject("buttonImportar.Image")));
             this.buttonImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonImportar.Location = new System.Drawing.Point(941, 482);
+            this.buttonImportar.Location = new System.Drawing.Point(941, 485);
             this.buttonImportar.Name = "buttonImportar";
             this.buttonImportar.Size = new System.Drawing.Size(131, 36);
             this.buttonImportar.TabIndex = 92;
@@ -581,10 +572,22 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Captura Proyecto";
             // 
+            // TBNombre
+            // 
+            this.TBNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBNombre.Enabled = false;
+            this.TBNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBNombre.Location = new System.Drawing.Point(831, 33);
+            this.TBNombre.Multiline = true;
+            this.TBNombre.Name = "TBNombre";
+            this.TBNombre.Size = new System.Drawing.Size(210, 40);
+            this.TBNombre.TabIndex = 109;
+            // 
             // FormRegistro2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TBNombre);
             this.Controls.Add(this.TipBox);
             this.Controls.Add(this.ButtonBack);
             this.Controls.Add(this.buttonImportar);
@@ -594,7 +597,6 @@
             this.Controls.Add(this.buttonEliminarIndividuo);
             this.Controls.Add(this.buttonAgregarBifurcacion);
             this.Controls.Add(this.buttonAgregarIndividuo);
-            this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.labelNombreProyecto);
             this.Controls.Add(this.textBoxEstadoSucesional);
             this.Controls.Add(this.textBoxMunicipio);
@@ -627,7 +629,6 @@
         private System.Windows.Forms.Button buttonEliminarIndividuo;
         private System.Windows.Forms.Button buttonAgregarBifurcacion;
         private System.Windows.Forms.Button buttonAgregarIndividuo;
-        private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Label labelNombreProyecto;
         private System.Windows.Forms.TextBox textBoxEstadoSucesional;
         private System.Windows.Forms.TextBox textBoxMunicipio;
@@ -672,5 +673,6 @@
         private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.PictureBox TipBox;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TextBox TBNombre;
     }
 }

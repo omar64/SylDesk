@@ -358,6 +358,7 @@
             this.checkBoxA4.TabIndex = 60;
             this.checkBoxA4.Text = "Área 4";
             this.checkBoxA4.UseVisualStyleBackColor = true;
+            this.checkBoxA4.CheckedChanged += new System.EventHandler(this.checkBoxA4_CheckedChanged);
             // 
             // SuperficieTxB3
             // 
@@ -375,6 +376,7 @@
             this.checkBoxA3.TabIndex = 58;
             this.checkBoxA3.Text = "Área 3";
             this.checkBoxA3.UseVisualStyleBackColor = true;
+            this.checkBoxA3.CheckedChanged += new System.EventHandler(this.checkBoxA3_CheckedChanged);
             // 
             // SuperficieTxB2
             // 
@@ -392,6 +394,7 @@
             this.checkBoxA2.TabIndex = 56;
             this.checkBoxA2.Text = "Área 2";
             this.checkBoxA2.UseVisualStyleBackColor = true;
+            this.checkBoxA2.CheckedChanged += new System.EventHandler(this.checkBoxA2_CheckedChanged);
             // 
             // label6
             // 
@@ -454,6 +457,7 @@
             this.checkBoxA1.TabIndex = 49;
             this.checkBoxA1.Text = "Área 1";
             this.checkBoxA1.UseVisualStyleBackColor = true;
+            this.checkBoxA1.CheckedChanged += new System.EventHandler(this.checkBoxA1_CheckedChanged);
             // 
             // pictureBox1
             // 

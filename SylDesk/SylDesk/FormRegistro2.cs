@@ -20,11 +20,14 @@ namespace SylDesk
         public FormRegistro2()
         {
             InitializeComponent();
+            
         }
 
         public void setForm(Form1 form1)
         {
             this.form1 = form1;
+
+           
         }
 
         public void Initialize(Proyecto proyecto)
@@ -585,13 +588,17 @@ namespace SylDesk
             textBoxMunicipio.Text = textBoxMunicipioText;
             textBoxX.Text = textBoxXText;
             textBoxY.Text = textBoxYText;
-            textBoxEstadoSucesional.Text = textBoxEstadoSucesionalText;            
+            textBoxEstadoSucesional.Text = textBoxEstadoSucesionalText;
 
-            string labelNombreText = proyecto.getNombre();
+
+            TBNombre.Text = proyecto.getNombre();
+            //string textBox1Text = proyecto.getNombre();
+            //string labelNombreText = proyecto.getNombre();
             string labelSuperficieText = proyecto.getSuperficie();
             string labelDescripcionText = proyecto.getDescripcion();
 
-            labelNombre.Text = labelNombreText;
+            
+            //labelNombre.Text = labelNombreText;
         }
 
         private void comboBoxAreas_Populate()

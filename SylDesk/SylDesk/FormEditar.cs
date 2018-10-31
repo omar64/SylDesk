@@ -127,5 +127,40 @@ namespace SylDesk
             //form1.formRegistro2ToFront(proyecto_id);
             form1.formRegistro3ToFront();
         }
+
+        private void checkBoxA1_CheckedChanged(object sender, EventArgs e)
+        {
+            Area_Checked(checkBoxA1, SuperficieTxB1, radioVolumen1, radioCobertura1, DiametroTxB1, AlturaTxB1);
+        }
+
+        private void checkBoxA2_CheckedChanged(object sender, EventArgs e)
+        {
+            Area_Checked(checkBoxA2, SuperficieTxB2, radioVolumen2, radioCobertura2, DiametroTxB2, AlturaTxB2);
+        }
+
+        private void checkBoxA3_CheckedChanged(object sender, EventArgs e)
+        {
+            Area_Checked(checkBoxA3, SuperficieTxB3, radioVolumen3, radioCobertura3, DiametroTxB3, AlturaTxB3);
+        }
+
+        private void checkBoxA4_CheckedChanged(object sender, EventArgs e)
+        {
+            Area_Checked(checkBoxA4, SuperficieTxB4, radioVolumen4, radioCobertura4, DiametroTxB4, AlturaTxB4);
+        }
+
+        private void Area_Checked(CheckBox checkBox, TextBox superficie, RadioButton volumen, RadioButton cobertura, TextBox diametro, TextBox altura)
+        {
+            //Area 1 Componentes
+
+
+            superficie.Enabled = checkBox.Checked;
+            volumen.Enabled = checkBox.Checked;
+            cobertura.Enabled = checkBox.Checked;
+            diametro.Enabled = checkBox.Checked;
+            altura.Enabled = checkBox.Checked;
+
+        }
+
+
     }
 }
