@@ -12,7 +12,7 @@ namespace SylDesk
     public partial class FormRegistro2 : UserControl
     {
         private Form1 form1;
-        private int proyecto_id;
+        private Proyecto proyecto;
         public List<Especie> especiesObject;
         public List<string> especiesString;
         AutoCompleteStringCollection source = new AutoCompleteStringCollection();
@@ -27,12 +27,13 @@ namespace SylDesk
             this.form1 = form1;
         }
 
-        public void Initialize(int proyecto_id)
+        public void Initialize(Proyecto proyecto)
         {
             Empty();
-            this.proyecto_id = proyecto_id;
+            this.proyecto = proyecto;
 
             comboBoxSitios_Populate();
+            comboBoxAreas_Populate();
             comboBoxSitios.SelectedIndex = 0;
             comboBoxAreas.SelectedIndex = 0;
 
@@ -53,22 +54,140 @@ namespace SylDesk
             int row_index = dataGridViewIndividuos.CurrentCell.RowIndex;
             string column_name = dataGridViewIndividuos.Columns[dataGridViewIndividuos.CurrentCell.ColumnIndex].Name;
             DataGridViewRow row = dataGridViewIndividuos.Rows[dataGridViewIndividuos.CurrentCell.RowIndex];
-                        
+
+            if (column_name == "alturatotal")
+            {
+                double[] rangos = getCurrentAltAnc();
+                if (rangos[0] > Convert.ToDouble(row.Cells["alturatotal"].Value) || rangos[1] < Convert.ToDouble(row.Cells["alturatotal"].Value))
+                {
+                    SqlConnector.sendMessage("Error", "La altura total no debe de ser menor que " + rangos[0] + " y no debe ser mayor a " + rangos[1], MessageBoxIcon.Error);
+                    row.Cells["alturatotal"].Value = "";
+                }
+            }
+
+            if (column_name == "coberturaancho")
+            {
+                double[] rangos = getCurrentAltAnc();
+                if (rangos[0] > Convert.ToDouble(row.Cells["coberturaancho"].Value) || rangos[1] < Convert.ToDouble(row.Cells["coberturaancho"].Value))
+                {
+                    SqlConnector.sendMessage("Error", "La cobertura ancho no debe de ser menor que " + rangos[0] + " y no debe ser mayor a " + rangos[1], MessageBoxIcon.Error);
+                    row.Cells["coberturaancho"].Value = "";
+                }
+            }            
+
+            if (column_name == "coberturalargo")
+            {
+                double[] rangos = getCurrentDiaLar();
+                if (rangos[0] > Convert.ToDouble(row.Cells["coberturalargo"].Value) || rangos[1] < Convert.ToDouble(row.Cells["coberturalargo"].Value))
+                {
+                    SqlConnector.sendMessage("Error", "La cobertura largo no debe de ser menor que " + rangos[0] + " y no debe ser mayor a " + rangos[1], MessageBoxIcon.Error);
+                    row.Cells["coberturalargo"].Value = "";
+                }
+            }
+
+
             if (column_name == "diametro")
             {
-                dataGridViewIndividuos.Rows[row_index].Cells["perimetro"].Value = (Convert.ToDouble(dataGridViewIndividuos.CurrentCell.Value) * Math.PI).ToString("F4");
-                dataGridViewIndividuos.Rows[row_index].Cells["areabasal"].Value = (Math.PI * Math.Pow(Convert.ToDouble(dataGridViewIndividuos.CurrentCell.Value) / 2, 2)) / 10000;
+                double[] rangos = getCurrentDiaLar();
+                if (rangos[0] > Convert.ToDouble(row.Cells["diametro"].Value) || rangos[1] < Convert.ToDouble(row.Cells["diametro"].Value))
+                {
+                    SqlConnector.sendMessage("Error", "El diametro no debe de ser menor que " + rangos[0] + " y no debe ser mayor a " + rangos[1], MessageBoxIcon.Error);
+                    row.Cells["diametro"].Value = "";
+                    row.Cells["perimetro"].Value = "";
+                    row.Cells["areabasal"].Value = "";
 
-                updateData("perimetro", row, Convert.ToString(row.Cells["perimetro"].Value));
-                updateData("areabasal", row, Convert.ToString(row.Cells["areabasal"].Value));
+                    updateData("diametro", row, "");
+                    updateData("perimetro", row, "");
+                    updateData("areabasal", row, "");
+                }
+                else
+                {
+                    try
+                    {
+                        row.Cells["perimetro"].Value = (Convert.ToDouble(row.Cells[column_name].Value) * Math.PI).ToString("F4");
+                    }
+                    catch (Exception ex)                    
+                    {
+                        SqlConnector.sendMessage("Error", "Hubo un error al momento de calcular el perimetro." , MessageBoxIcon.Error);
+                        row.Cells["diametro"].Value = "";
+                        row.Cells["perimetro"].Value = "";
+                        row.Cells["areabasal"].Value = "";
+
+                        updateData("diametro", row, "");
+                        updateData("perimetro", row, "");
+                        updateData("areabasal", row, "");
+                    }
+                    try
+                    {
+                        row.Cells["areabasal"].Value = (Math.PI * Math.Pow(Convert.ToDouble(row.Cells[column_name].Value) / 2, 2)) / 10000;
+                    }
+                    catch (Exception ex)
+                    {
+                        SqlConnector.sendMessage("Error", "Hubo un error al momento de calcular el area basal.", MessageBoxIcon.Error);
+                        row.Cells["diametro"].Value = "";
+                        row.Cells["perimetro"].Value = "";
+                        row.Cells["areabasal"].Value = "";
+
+                        updateData("diametro", row, "");
+                        updateData("perimetro", row, "");
+                        updateData("areabasal", row, "");
+                    }
+                    updateData("perimetro", row, Convert.ToString(row.Cells["perimetro"].Value));
+                    updateData("areabasal", row, Convert.ToString(row.Cells["areabasal"].Value));
+                    
+                }
             }
             else if (column_name == "perimetro")
             {
-                dataGridViewIndividuos.Rows[row_index].Cells["diametro"].Value = (Convert.ToDouble(dataGridViewIndividuos.CurrentCell.Value) / Math.PI).ToString("F4");
-                dataGridViewIndividuos.Rows[row_index].Cells["areabasal"].Value = (Math.PI * Math.Pow(Convert.ToDouble(dataGridViewIndividuos.Rows[row_index].Cells["diametro"].Value) / 2, 2)) / 10000;
+                row.Cells["diametro"].Value = (Convert.ToDouble(row.Cells[column_name].Value) / Math.PI).ToString("F4");
 
-                updateData("diametro", row, Convert.ToString(row.Cells["diametro"].Value));
-                updateData("areabasal", row, Convert.ToString(row.Cells["areabasal"].Value));
+                double[] rangos = getCurrentDiaLar();
+                if (rangos[0] > Convert.ToDouble(row.Cells["diametro"].Value) || rangos[1] < Convert.ToDouble(row.Cells["diametro"].Value))
+                {
+                    SqlConnector.sendMessage("Error", "El diametro no debe de ser menor que " + rangos[0] + " y no debe ser mayor a " + rangos[1], MessageBoxIcon.Error);
+                    row.Cells["diametro"].Value = "";
+                    row.Cells["perimetro"].Value = "";
+                    row.Cells["areabasal"].Value = "";
+
+                    updateData("diametro", row, "");
+                    updateData("perimetro", row, "");
+                    updateData("areabasal", row, "");
+                }
+                else
+                {
+                    try
+                    {
+                        row.Cells["diametro"].Value = (Convert.ToDouble(row.Cells["perimetro"].Value) * Math.PI).ToString("F4");
+                    }
+                    catch (Exception ex)
+                    {
+                        SqlConnector.sendMessage("Error", "Hubo un error al momento de calcular el perimetro.", MessageBoxIcon.Error);
+                        row.Cells["diametro"].Value = "";
+                        row.Cells["perimetro"].Value = "";
+                        row.Cells["areabasal"].Value = "";
+
+                        updateData("diametro", row, "");
+                        updateData("perimetro", row, "");
+                        updateData("areabasal", row, "");
+                    }
+                    try
+                    {
+                        row.Cells["areabasal"].Value = (Math.PI * Math.Pow(Convert.ToDouble(row.Cells[column_name].Value) / 2, 2)) / 10000;
+                    }
+                    catch (Exception ex)
+                    {
+                        SqlConnector.sendMessage("Error", "Hubo un error al momento de calcular el area basal.", MessageBoxIcon.Error);
+                        row.Cells["diametro"].Value = "";
+                        row.Cells["perimetro"].Value = "";
+                        row.Cells["areabasal"].Value = "";
+
+                        updateData("diametro", row, "");
+                        updateData("perimetro", row, "");
+                        updateData("areabasal", row, "");
+                    }
+                    updateData("perimetro", row, Convert.ToString(row.Cells["perimetro"].Value));
+                    updateData("areabasal", row, Convert.ToString(row.Cells["areabasal"].Value));
+                }
             }
             else if (column_name == "nombrecientifico")
             {
@@ -109,10 +228,10 @@ namespace SylDesk
                         //
                         if (dialog_result == DialogResult.Yes)
                         {
-                            form1.formRegistroEspecieToFront(proyecto_id, 1, "" + row.Cells[column_name].Value);
+                            form1.formRegistroEspecieToFront(proyecto, 1, "" + row.Cells[column_name].Value);                            
                         }
-                        row.Cells[column_name].Value = "";
 
+                        row.Cells[column_name].Value = "";
                         row.Cells["nombrecomun"].Value = "";
                         row.Cells["familia"].Value = "";
                         row.Cells["genero"].Value = "";
@@ -123,6 +242,8 @@ namespace SylDesk
                         updateData("familia", row, "");
                         updateData("genero", row, "");
                         updateData("volumen", row, "");
+
+                        return;
                     }
                 }
                 else
@@ -138,7 +259,7 @@ namespace SylDesk
                     updateData("nombrecomun", row, "");
                     updateData("familia", row, "");
                     updateData("genero", row, "");
-                    updateData("volumen", row, "");
+                    updateData("volumen", row, "0");
                 }
             }
 
@@ -151,10 +272,10 @@ namespace SylDesk
         {
             try
             {
-                if (comboBoxAreas.SelectedIndex == 0)
-                {
-                    String nombrecientifico = row.Cells["nombrecientifico"].Value.ToString();
+                String nombrecientifico = row.Cells["nombrecientifico"].Value.ToString();
 
+                if (getCurrentVolCob() && nombrecientifico != "")
+                {
                     double diametro = tryGetDoubleCellValue(row, "diametro");
                     double alturatotal = tryGetDoubleCellValue(row, "alturatotal");
                     double perimetro = tryGetDoubleCellValue(row, "perimetro"); ;
@@ -164,11 +285,11 @@ namespace SylDesk
                     double coberturaancho = tryGetDoubleCellValue(row, "coberturaancho");
 
                     bool found_flag = false;
-                    
+
                     List<ProyectoEcuacion> list_proyecto_ecuacion = SqlConnector.proyectoEcuacionesGet(
                         "SELECT * FROM `proyecto_ecuaciones` Where proyecto_id = @proyecto_id",
                         new String[] { "proyecto_id" },
-                        new String[] { "" + proyecto_id }
+                        new String[] { "" + Convert.ToInt32(proyecto.getId()) }
                     );
 
                     if (list_proyecto_ecuacion.Count > 0)
@@ -256,10 +377,20 @@ namespace SylDesk
 
                                 SqlConnector.sendMessage("La Ecuacion", "" + result + "  =  " + volumen, MessageBoxIcon.Information);
 
-                                row.Cells["volumen"].Value = volumen;
-                                updateData("volumen", row, "" + volumen);
-                                found_flag = true;
-                                break;
+                                if (volumen < 0 || volumen > 50)
+                                {
+                                    SqlConnector.sendMessage("Error", "El volumen debe estar en el rango de 0 a 50" , MessageBoxIcon.Information);
+
+                                    row.Cells["volumen"].Value = 0;
+                                    updateData("volumen", row, "" + 0);                                    
+                                }
+                                else
+                                {
+                                    row.Cells["volumen"].Value = volumen;
+                                    updateData("volumen", row, "" + volumen);
+                                    found_flag = true;
+                                    break;
+                                }
                             }
                         }
 
@@ -273,7 +404,7 @@ namespace SylDesk
                             }
                             else if (dr == DialogResult.No)
                             {
-                                form1.calculadoraEcuToFront(proyecto_id, 1, nombrecientifico);
+                                form1.calculadoraEcuToFront(proyecto, 1, nombrecientifico);
                             }
                         }
                     }
@@ -283,22 +414,27 @@ namespace SylDesk
                         DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "Para su registro desea desplegar el editor del Proyecto?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (dr == DialogResult.Yes)
                         {
-                            form1.formEditarToFront(proyecto_id);
+                            form1.formEditarToFront(proyecto);
                         }
                         else
                         {
                             dr = SqlConnector.sendOptionsMessage("Decision", "O prefiere el editor de Ecuaciones?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (dr == DialogResult.Yes)
                             {
-                                form1.calculadoraEcuToFront(proyecto_id, 1, nombrecientifico);
+                                form1.calculadoraEcuToFront(proyecto, 1, nombrecientifico);
                             }
                             else
                             {
                                 SqlConnector.sendMessage("Importante", "El proyecto sigue sin tener Umafor/Region ligados.", MessageBoxIcon.Warning);
                             }
-                        }                        
+                        }
                     }
-                }                
+                }
+                else
+                {
+                    row.Cells["volumen"].Value = "0";
+                    updateData("volumen", row, "0");
+                }
             }
             catch (Exception e)
             {
@@ -315,36 +451,43 @@ namespace SylDesk
         }
 
         private void buttonAgregarSitio_Click(object sender, EventArgs e)
-        {
+        {        
             comboBoxSitios.Items.Add(comboBoxSitios.Items.Count + 1);
             SqlConnector.postPutDeleteGenerico(
                 "Insert into sitios(proyecto_id, numero_sitio)Values(@proyecto_id, @numero_sitio)",
                 new String[] { "proyecto_id", "numero_sitio" },
-                new String[] { "" + proyecto_id, "" + comboBoxSitios.Items.Count }
+                new String[] { "" + Convert.ToInt32(proyecto.getId()), "" + comboBoxSitios.Items.Count }
             );
+            SqlConnector.sendMessage("Aviso", "Sitio agregado.", MessageBoxIcon.Question);
         }
 
         private void buttonBorrarSitio_Click(object sender, EventArgs e)
         {
+            
             if (comboBoxSitios.Items.Count > 1)
             {
-                SqlConnector.postPutDeleteGenerico(
-                    "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio",
-                    new String[] { "proyecto_id", "sitio" },
-                    new String[] { "" + proyecto_id, "" + comboBoxSitios.Items.Count }
-                );
+                DialogResult dr = SqlConnector.sendOptionsMessage("Alerta", "¿Seguro que desea eliminar el sitio?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                SqlConnector.postPutDeleteGenerico(
-                    "DELETE FROM sitios WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
-                    new String[] { "proyecto_id", "numero_sitio" },
-                    new String[] { "" + proyecto_id, "" + comboBoxSitios.Items.Count }
-                );
-
-                if (comboBoxSitios.Items.Count == comboBoxSitios.SelectedIndex + 1)
+                if (dr == DialogResult.Yes)
                 {
-                    comboBoxSitios.SelectedIndex -= 1;
+                    SqlConnector.postPutDeleteGenerico(
+                        "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio",
+                        new String[] { "proyecto_id", "sitio" },
+                        new String[] { "" + Convert.ToInt32(proyecto.getId()), "" + comboBoxSitios.Items.Count }
+                    );
+
+                    SqlConnector.postPutDeleteGenerico(
+                        "DELETE FROM sitios WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
+                        new String[] { "proyecto_id", "numero_sitio" },
+                        new String[] { "" + Convert.ToInt32(proyecto.getId()), "" + comboBoxSitios.Items.Count }
+                    );
+
+                    if (comboBoxSitios.Items.Count == comboBoxSitios.SelectedIndex + 1)
+                    {
+                        comboBoxSitios.SelectedIndex -= 1;
+                    }
+                    comboBoxSitios.Items.Remove(comboBoxSitios.Items.Count);
                 }
-                comboBoxSitios.Items.Remove(comboBoxSitios.Items.Count);
             }
         }
 
@@ -394,7 +537,7 @@ namespace SylDesk
             SqlConnector.postPutDeleteGenerico(
                 "UPDATE sitios SET coordenada_x = @coordenada_x WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
                 new String[] { "coordenada_x", "proyecto_id", "numero_sitio" },
-                new String[] { textBoxX.Text, "" + proyecto_id, "" + comboBoxSitios.SelectedItem }
+                new String[] { textBoxX.Text, "" + Convert.ToInt32(proyecto.getId()), "" + comboBoxSitios.SelectedItem }
             );
         }
 
@@ -403,7 +546,7 @@ namespace SylDesk
             SqlConnector.postPutDeleteGenerico(
                 "UPDATE sitios SET coordenada_y = @coordenada_y WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
                 new String[] { "coordenada_y", "proyecto_id", "numero_sitio" },
-                new String[] { textBoxX.Text, "" + proyecto_id, "" + comboBoxSitios.SelectedItem }
+                new String[] { textBoxX.Text, "" + Convert.ToInt32(proyecto.getId()), "" + comboBoxSitios.SelectedItem }
             );
         }
 
@@ -412,7 +555,7 @@ namespace SylDesk
             SqlConnector.postPutDeleteGenerico(
                 "UPDATE sitios SET municipio = @municipio WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
                 new String[] { "municipio", "proyecto_id", "numero_sitio" },
-                new String[] { textBoxMunicipio.Text, "" + proyecto_id, "" + comboBoxSitios.SelectedItem }
+                new String[] { textBoxMunicipio.Text, "" + Convert.ToInt32(proyecto.getId()), "" + comboBoxSitios.SelectedItem }
             );
         }
 
@@ -421,7 +564,7 @@ namespace SylDesk
             SqlConnector.postPutDeleteGenerico(
                 "UPDATE sitios SET estado_sucesional = @estado_sucesional WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
                 new String[] { "estado_sucesional", "proyecto_id", "numero_sitio" },
-                new String[] { textBoxEstadoSucesional.Text, "" + proyecto_id, "" + comboBoxSitios.SelectedItem }
+                new String[] { textBoxEstadoSucesional.Text, "" + Convert.ToInt32(proyecto.getId()), "" + comboBoxSitios.SelectedItem }
             );
         }
 
@@ -431,7 +574,7 @@ namespace SylDesk
             Sitio sitio = SqlConnector.sitioGet(
                 "SELECT * FROM `sitios` where proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
                 new String[] { "proyecto_id", "numero_sitio" },
-                new String[] { "" + proyecto_id, "" + comboBoxSitios.SelectedItem }
+                new String[] { "" + Convert.ToInt32(proyecto.getId()), "" + comboBoxSitios.SelectedItem }
             );
 
             string textBoxMunicipioText = sitio.getMunicipio();
@@ -442,13 +585,7 @@ namespace SylDesk
             textBoxMunicipio.Text = textBoxMunicipioText;
             textBoxX.Text = textBoxXText;
             textBoxY.Text = textBoxYText;
-            textBoxEstadoSucesional.Text = textBoxEstadoSucesionalText;
-
-            Proyecto proyecto = SqlConnector.proyectoGet(
-                "SELECT * FROM `proyectos` where id = @proyecto_id",
-                new String[] { "proyecto_id" },
-                new String[] { "" + proyecto_id }
-            );
+            textBoxEstadoSucesional.Text = textBoxEstadoSucesionalText;            
 
             string labelNombreText = proyecto.getNombre();
             string labelSuperficieText = proyecto.getSuperficie();
@@ -457,18 +594,41 @@ namespace SylDesk
             labelNombre.Text = labelNombreText;
         }
 
+        private void comboBoxAreas_Populate()
+        {
+            comboBoxAreas.Items.Clear();
+            if (proyecto.getArea1Activo())
+            {
+                comboBoxAreas.Items.Add(proyecto.getArea1Superficie());
+            }
+            if (proyecto.getArea2Activo())
+            {
+                comboBoxAreas.Items.Add(proyecto.getArea2Superficie());
+            } 
+            if (proyecto.getArea3Activo())
+            {
+                comboBoxAreas.Items.Add(proyecto.getArea3Superficie());
+            }                            
+            if (proyecto.getArea4Activo())
+            {
+                comboBoxAreas.Items.Add(proyecto.getArea4Superficie());
+            }
+        }
+
 
         private void comboBoxSitios_Populate()
         {
+            comboBoxSitios.Items.Clear();
             List<Sitio> list_sitios = SqlConnector.sitiosGet(
                 "SELECT * FROM `sitios` where proyecto_id = @proyecto_id",
                 new String[] { "proyecto_id" },
-                new String[] { "" + proyecto_id }
+                new String[] { "" + proyecto.getId()
+            }
             );
 
             foreach (Sitio sitio in list_sitios)
             {
-                comboBoxSitios.Items.Add(sitio.getNumeroSitio());
+                comboBoxSitios.Items.Add(1);
             }
         }
 
@@ -479,7 +639,7 @@ namespace SylDesk
             List<Individuo> list_individuos = SqlConnector.individuosGet(
                 "SELECT * from `individuos` where proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area ORDER BY arbolnumeroensitio DESC",
                 new String[] { "proyecto_id", "sitio", "area" },
-                new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString() }
+                new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString() }
             );
             
             foreach(Individuo individuo in list_individuos)
@@ -526,7 +686,7 @@ namespace SylDesk
             Sitio sitio = SqlConnector.sitioGet(
                 "SELECT * FROM `sitios` where proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
                 new String[] { "proyecto_id", "numero_sitio" },
-                new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString() }
+                new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString() }
             );
 
             int numero_consecutivo;
@@ -546,7 +706,7 @@ namespace SylDesk
             SqlConnector.postPutDeleteGenerico(
                 "UPDATE sitios SET numero_consecutivo" + numero + " = @numero_consecutivo WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
                 new String[] { "numero_consecutivo", "proyecto_id", "numero_sitio" },
-                new String[] { ""  + (numero_consecutivo + 1), "" + proyecto_id, comboBoxSitios.SelectedItem.ToString() }
+                new String[] { ""  + (numero_consecutivo + 1), "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString() }
             );
 
 
@@ -566,7 +726,7 @@ namespace SylDesk
                 "Insert into individuos(proyecto_id, sitio, area, numero, arbolnumeroensitio, bifurcados)" +
                 "Values(@proyecto_id, @sitio, @area, @numero, @arbolnumeroensitio, false)",
                 new String[] { "proyecto_id", "sitio", "area", "numero", "arbolnumeroensitio" },
-                new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), "" + numero_consecutivo, newRow.Cells["arbolnumeroensitio"].Value.ToString() }
+                new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), "" + numero_consecutivo, newRow.Cells["arbolnumeroensitio"].Value.ToString() }
             );
         }
 
@@ -588,7 +748,7 @@ namespace SylDesk
                 SqlConnector.postPutDeleteGenerico(
                     "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio + 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio",
                     new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
-                    new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["arbolnumeroensitio"].Value.ToString() }
+                    new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["arbolnumeroensitio"].Value.ToString() }
                 );
 
                 SqlConnector.postPutDeleteGenerico(
@@ -596,7 +756,7 @@ namespace SylDesk
                     "Values(@proyecto_id, @sitio, @area, @cuadrante, @numero, @arbolnumeroensitio, true, @nombrecientifico, @nombrecomun, @familia, @genero, @perimetro, @diametro, @alturafl, @alturatotal, @coberturaancho, @coberturalargo, @formadefuste, @estadocondicion)",
                     new String[] { "proyecto_id", "sitio", "area", "cuadrante", "numero", "arbolnumeroensitio", "nombrecientifico", "nombrecomun",
                     "familia", "genero", "perimetro", "diametro", "alturafl", "alturatotal", "coberturaancho", "coberturalargo", "formadefuste", "estadocondicion" },
-                    new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), tryGetStringCellValue(clonedRow, "cuadrante"), tryGetStringCellValue(clonedRow, "numero"), tryGetStringCellValue(clonedRow, "arbolnumeroensitio"), tryGetStringCellValue(clonedRow, "nombrecientifico"), tryGetStringCellValue(clonedRow, "nombrecomun"), tryGetStringCellValue(clonedRow, "familia"), tryGetStringCellValue(clonedRow, "genero"), tryGetStringCellValue(clonedRow, "perimetro"), tryGetStringCellValue(clonedRow, "diametro"), tryGetStringCellValue(clonedRow, "alturafl"), tryGetStringCellValue(clonedRow, "alturatotal"), tryGetStringCellValue(clonedRow, "coberturaancho"), tryGetStringCellValue(clonedRow, "coberturalargo"), tryGetStringCellValue(clonedRow, "formadefuste"), tryGetStringCellValue(clonedRow, "estadocondicion") }
+                    new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), tryGetStringCellValue(clonedRow, "cuadrante"), tryGetStringCellValue(clonedRow, "numero"), tryGetStringCellValue(clonedRow, "arbolnumeroensitio"), tryGetStringCellValue(clonedRow, "nombrecientifico"), tryGetStringCellValue(clonedRow, "nombrecomun"), tryGetStringCellValue(clonedRow, "familia"), tryGetStringCellValue(clonedRow, "genero"), tryGetStringCellValue(clonedRow, "perimetro"), tryGetStringCellValue(clonedRow, "diametro"), tryGetStringCellValue(clonedRow, "alturafl"), tryGetStringCellValue(clonedRow, "alturatotal"), tryGetStringCellValue(clonedRow, "coberturaancho"), tryGetStringCellValue(clonedRow, "coberturalargo"), tryGetStringCellValue(clonedRow, "formadefuste"), tryGetStringCellValue(clonedRow, "estadocondicion") }
                 );
 
                 dataGridViewIndividuos_Populate();
@@ -607,57 +767,62 @@ namespace SylDesk
         {
             if (dataGridViewIndividuos.SelectedRows.Count > 0)
             {
-                var row = dataGridViewIndividuos.SelectedRows[0];
-                int numero = comboBoxAreas.SelectedIndex + 1;
+                DialogResult dr = SqlConnector.sendOptionsMessage("Alerta", "¿Seguro que desea eliminar ese individuo?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (!(bool)row.Cells["bifurcados"].Value)
+                if (dr == DialogResult.Yes)
                 {
-                    List<String> list_values = SqlConnector.anyEspecificValueGet(
-                        "SELECT COUNT(id) FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero",
-                        new String[] { "proyecto_id", "sitio", "area", "numero" },
-                        new String[] { ""+ proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value.ToString() }
-                    );
+                    var row = dataGridViewIndividuos.SelectedRows[0];
+                    int numero = comboBoxAreas.SelectedIndex + 1;
 
-                    int numero_elementos = Convert.ToInt32(list_values[0]);
+                    if (!(bool)row.Cells["bifurcados"].Value)
+                    {
+                        List<String> list_values = SqlConnector.anyEspecificValueGet(
+                            "SELECT COUNT(id) FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero",
+                            new String[] { "proyecto_id", "sitio", "area", "numero" },
+                            new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value.ToString() }
+                        );
+
+                        int numero_elementos = Convert.ToInt32(list_values[0]);
 
 
-                    SqlConnector.postPutDeleteGenerico(
-                        "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero  = @numero",
-                        new String[] { "proyecto_id", "sitio", "area", "numero" },
-                        new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value.ToString() }
-                    );
+                        SqlConnector.postPutDeleteGenerico(
+                            "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero  = @numero",
+                            new String[] { "proyecto_id", "sitio", "area", "numero" },
+                            new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value.ToString() }
+                        );
 
-                    SqlConnector.postPutDeleteGenerico(
-                        "UPDATE individuos SET numero = (numero - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero > @numero",
-                        new String[] { "proyecto_id", "sitio", "area", "numero" },
-                        new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value.ToString() }
-                    );
+                        SqlConnector.postPutDeleteGenerico(
+                            "UPDATE individuos SET numero = (numero - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero > @numero",
+                            new String[] { "proyecto_id", "sitio", "area", "numero" },
+                            new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["numero"].Value.ToString() }
+                        );
 
-                    SqlConnector.postPutDeleteGenerico(
-                        "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio - " + numero_elementos + ") WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio",
-                        new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
-                        new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value.ToString() }
-                    );
+                        SqlConnector.postPutDeleteGenerico(
+                            "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio - " + numero_elementos + ") WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio",
+                            new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
+                            new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value.ToString() }
+                        );
 
-                    SqlConnector.postPutDeleteGenerico(
-                        "UPDATE sitios SET numero_consecutivo" + numero + " = (numero_consecutivo" + numero + " - 1) WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
-                        new String[] { "proyecto_id", "numero_sitio" },
-                        new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString() }
-                    );
-                }
-                else
-                {
-                    SqlConnector.postPutDeleteGenerico(
-                        "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio = @arbolnumeroensitio",
-                        new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
-                        new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value.ToString() }
-                    );
+                        SqlConnector.postPutDeleteGenerico(
+                            "UPDATE sitios SET numero_consecutivo" + numero + " = (numero_consecutivo" + numero + " - 1) WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
+                            new String[] { "proyecto_id", "numero_sitio" },
+                            new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString() }
+                        );
+                    }
+                    else
+                    {
+                        SqlConnector.postPutDeleteGenerico(
+                            "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio = @arbolnumeroensitio",
+                            new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
+                            new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value.ToString() }
+                        );
 
-                    SqlConnector.postPutDeleteGenerico(
-                        "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio",
-                        new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
-                        new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value.ToString() }
-                    );
+                        SqlConnector.postPutDeleteGenerico(
+                            "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio",
+                            new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
+                            new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), dataGridViewIndividuos.Rows[row.Index].Cells["arbolnumeroensitio"].Value.ToString() }
+                        );
+                    }
                 }
 
                 dataGridViewIndividuos_Populate();
@@ -681,7 +846,7 @@ namespace SylDesk
             SqlConnector.postPutDeleteGenerico(
                 "UPDATE individuos SET " + name + " = @" + name + " WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero",
                 new String[] { "proyecto_id", "sitio", "area", "numero", name },
-                new String[] { "" + proyecto_id, comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["numero"].Value.ToString(), "" + newdata }
+                new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["numero"].Value.ToString(), "" + newdata }
             );
         }
 
@@ -721,21 +886,19 @@ namespace SylDesk
                     tb.AutoCompleteCustomSource = source;
                     tb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                     tb.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
                 }
-
             }
         }
 
         private void buttonGrafica_Click(object sender, EventArgs e)
         {
-            form1.graficaToFront(proyecto_id);
+            form1.graficaToFront(proyecto);
         }
 
         private void buttonImportar_Click(object sender, EventArgs e)
         {
             SqlConnector.postPutDeleteGenerico(
-                "Delete from individuos where proyecto_id = " + proyecto_id,
+                "Delete from individuos where proyecto_id = " + Convert.ToInt32(proyecto.getId()),
                 new String[] { },
                 new String[] { }
             );
@@ -843,6 +1006,117 @@ namespace SylDesk
                 cmd.Parameters.AddWithValue("@numero_sitio", i);
                 */
             }
+        }
+
+        public double getCurrentAreaSuperficie()
+        {
+            double current_area_superficie = 0;
+            if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea1Superficie())
+            {
+                current_area_superficie = Convert.ToDouble(proyecto.getSuperficie());
+            }
+            else if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea2Superficie())
+            {
+                current_area_superficie = Convert.ToDouble(proyecto.getSuperficie());
+            }
+            else if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea3Superficie())
+            {
+                current_area_superficie = Convert.ToDouble(proyecto.getSuperficie());
+            }
+            else if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea4Superficie())
+            {
+                current_area_superficie = Convert.ToDouble(proyecto.getSuperficie());
+            }
+            else
+            {
+                SqlConnector.sendMessage("Error", "Este mensaje no deberia aparececr" , MessageBoxIcon.Error);
+            }
+            return current_area_superficie;
+        }
+
+        public bool getCurrentVolCob()
+        {
+            bool current_vol_cob = false;
+            if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea1Superficie())
+            {
+                current_vol_cob = Convert.ToBoolean(proyecto.getArea1VolCob());
+            }
+            else if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea2Superficie())
+            {
+                current_vol_cob = Convert.ToBoolean(proyecto.getArea2VolCob());
+            }
+            else if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea3Superficie())
+            {
+                current_vol_cob = Convert.ToBoolean(proyecto.getArea3VolCob());
+            }
+            else if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea4Superficie())
+            {
+                current_vol_cob = Convert.ToBoolean(proyecto.getArea4VolCob());
+            }
+            else
+            {
+                SqlConnector.sendMessage("Error", "Este mensaje no deberia aparececr", MessageBoxIcon.Error);
+            }
+            return current_vol_cob;
+        }
+
+        public double[] getCurrentDiaLar()
+        {
+            string aux = "";
+            if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea1Superficie())
+            {
+                aux = proyecto.getArea1DiaLar();
+            }
+            else if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea2Superficie())
+            {
+                aux = proyecto.getArea2DiaLar();
+            }
+            else if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea3Superficie())
+            {
+                aux = proyecto.getArea3DiaLar();
+            }
+            else if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea4Superficie())
+            {
+                aux = proyecto.getArea4DiaLar();
+            }
+            else
+            {
+                SqlConnector.sendMessage("Error", "Este mensaje no deberia aparececr", MessageBoxIcon.Error);
+                return new Double[]{ 0 , 0};
+            }
+            String[] aux2 = SqlConnector.getWordsDividedByMinus(aux);
+            return new Double[] { Convert.ToDouble(aux2[0]), Convert.ToDouble(aux2[1]) };
+        }
+
+        public double[] getCurrentAltAnc()
+        {
+            SqlConnector.sendMessage("debug", "debug: " + comboBoxAreas.SelectedItem.ToString() + ", " + proyecto.getArea1Superficie() + ", " + proyecto.getArea2Superficie() + ", " + proyecto.getArea3Superficie() + ", " + proyecto.getArea4Superficie(), MessageBoxIcon.Asterisk);
+
+            double[] current_alt_anc = { };
+            string aux = "";
+            if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea1Superficie())
+            {
+                aux = proyecto.getArea1AltAnc();
+            }
+            else if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea2Superficie())
+            {
+                aux = proyecto.getArea2AltAnc();
+            }
+            else if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea3Superficie())
+            {
+                aux = proyecto.getArea3AltAnc();
+            }
+            else if (comboBoxAreas.SelectedItem.ToString() == proyecto.getArea4Superficie())
+            {
+                aux = proyecto.getArea4AltAnc();
+            }
+            else
+            {
+                SqlConnector.sendMessage("Error", "Este mensaje no deberia aparececr", MessageBoxIcon.Error);
+                return new Double[] { 0, 0 };
+            }
+            String[] aux2 = SqlConnector.getWordsDividedByMinus(aux);
+            return new Double[] { Convert.ToDouble(aux2[0]), Convert.ToDouble(aux2[1]) };
         }
 
         public DataSet ReadXlsx(string filepath)

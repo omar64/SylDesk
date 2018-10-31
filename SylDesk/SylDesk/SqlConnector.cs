@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using System.Data.SqlClient;
-using System.Windows;
 using System.Windows.Forms;
 
 namespace SylDesk
@@ -35,14 +30,44 @@ namespace SylDesk
 
         public static void sendMessage(string caption, string message, MessageBoxIcon icon)
         {
-            System.Windows.Forms.MessageBox.Show(message, caption, MessageBoxButtons.OK, icon);
+            MessageBox.Show(message, caption, MessageBoxButtons.OK, icon);
         }
 
 
         public static DialogResult sendOptionsMessage(string caption, string message, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
-            DialogResult dr = System.Windows.Forms.MessageBox.Show(message, caption, buttons, icon);
+            DialogResult dr = MessageBox.Show(message, caption, buttons, icon);
             return dr;
+        }
+
+        public static string getFirstWord(string s)
+        {
+            string first_word = "";
+            if (s.IndexOf(" ") > -1)
+            {
+                first_word = s.Substring(0, s.IndexOf(" "));
+            }
+            else
+            {
+                first_word = s;
+            }
+            return first_word.Trim();
+        }
+
+        public static string[] getWordsDividedByMinus(string s)
+        {
+            if (s.IndexOf("-") > -1)
+            {
+                string s1 = s.Substring(0, s.IndexOf("-")).Trim();
+                string s2 = s.Substring(s.IndexOf("-") + 1).Trim();
+
+                return new String[] { s1, s2 };
+            }
+            else
+            {
+                sendMessage("Error", "El texto debe de tener simbolo \"-\" como separacion", MessageBoxIcon.Error);
+                return null;
+            }
         }
 
         ////////////////////////////// any especific value /////////////////////////////////////////////
@@ -141,7 +166,14 @@ namespace SylDesk
             var results = cmd.ExecuteReader();
             while (results.Read())
             {
-                list_proyectos.Add(new Proyecto("" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4], "" + results[5]));
+                list_proyectos.Add(new Proyecto(
+                    "" + results[0], "" + results[1], "" + results[2], "" + results[3], 
+                    "" + results[4], "" + results[5], "" + results[6], "" + results[7], "" + results[8], 
+                    "" + results[9], "" + results[10], "" + results[11], "" + results[12], "" + results[13],
+                    "" + results[14], "" + results[15], "" + results[16], "" + results[17], "" + results[18],
+                    "" + results[19], "" + results[20], "" + results[21], "" + results[22], "" + results[23],
+                    "" + results[24], "" + results[25]
+                ));
             }
             results.Close();
             results.Dispose();
@@ -163,7 +195,14 @@ namespace SylDesk
             var results = cmd.ExecuteReader();
             if (results.Read())
             {
-                proyecto = new Proyecto("" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4], "" + results[5]);
+                proyecto = new Proyecto(
+                    "" + results[0], "" + results[1], "" + results[2], "" + results[3],
+                    "" + results[4], "" + results[5], "" + results[6], "" + results[7], "" + results[8],
+                    "" + results[9], "" + results[10], "" + results[11], "" + results[12], "" + results[13],
+                    "" + results[14], "" + results[15], "" + results[16], "" + results[17], "" + results[18],
+                    "" + results[19], "" + results[20], "" + results[21], "" + results[22], "" + results[23],
+                    "" + results[24], "" + results[25]
+                );
             }
             results.Close();
             results.Dispose();
@@ -231,7 +270,10 @@ namespace SylDesk
             var results = cmd.ExecuteReader();
             while (results.Read())
             {
-                list_sitios.Add(new Sitio("" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4], "" + results[5], "" + results[6], "" + results[7], "" + results[8], "" + results[9]));
+                list_sitios.Add(new Sitio(
+                    "" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4], 
+                    "" + results[5], "" + results[6], "" + results[7], "" + results[8], "" + results[9]
+                ));
             }
             results.Close();
             results.Dispose();
@@ -252,7 +294,10 @@ namespace SylDesk
             var results = cmd.ExecuteReader();
             if(results.Read())
             {
-                sitio = new Sitio("" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4], "" + results[5], "" + results[6], "" + results[7], "" + results[8], "" + results[9]);
+                sitio = new Sitio(
+                    "" + results[0], "" + results[1], "" + results[2], "" + results[3], "" + results[4], 
+                    "" + results[5], "" + results[6], "" + results[7], "" + results[8], "" + results[9]
+                );
             }
 
             results.Close();
@@ -492,7 +537,13 @@ namespace SylDesk
             cmd.CommandText = query;
             for (int i = 0; i < var_names.Length; i++)
             {
-                cmd.Parameters.AddWithValue("@" + var_names[i], var_values[i]);
+                string s = var_values[i].Trim();
+                if (!string.IsNullOrEmpty(s))
+                {
+                    s = char.ToUpper(s[0]) + s.Substring(1).ToLower();
+                }
+                
+                cmd.Parameters.AddWithValue("@" + var_names[i], s);
             }
             cmd.ExecuteNonQuery();
         }

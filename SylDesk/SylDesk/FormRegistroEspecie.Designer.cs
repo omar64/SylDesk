@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistroEspecie));
             this.textBoxGenero = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -148,8 +148,8 @@
             // 
             // nombrecientifico
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle1;
             this.nombrecientifico.HeaderText = "Nombre Científico";
             this.nombrecientifico.Name = "nombrecientifico";
             // 
@@ -170,13 +170,13 @@
             // 
             // borrar
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.borrar.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.borrar.DefaultCellStyle = dataGridViewCellStyle2;
             this.borrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.borrar.HeaderText = "Borrar";
             this.borrar.Name = "borrar";
@@ -204,6 +204,7 @@
             this.textBoxNombreCientifico.Name = "textBoxNombreCientifico";
             this.textBoxNombreCientifico.Size = new System.Drawing.Size(234, 20);
             this.textBoxNombreCientifico.TabIndex = 76;
+            this.textBoxNombreCientifico.TextChanged += new System.EventHandler(this.textBoxNombreCientifico_TextChanged);
             // 
             // labelFamilia
             // 
@@ -309,6 +310,7 @@
             this.comboBoxCategoriaDeNorma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategoriaDeNorma.FormattingEnabled = true;
             this.comboBoxCategoriaDeNorma.Items.AddRange(new object[] {
+            "No Aplica",
             "Amenaza",
             "Extinta",
             "Peligro",

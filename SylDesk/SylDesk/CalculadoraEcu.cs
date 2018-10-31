@@ -7,7 +7,7 @@ namespace SylDesk
     public partial class CalculadoraEcu : UserControl
     {
         private Form1 form1;
-        private int proyecto_id = -1;
+        private Proyecto proyecto = null;
         private int status = 0;
         private String especie = "";
 
@@ -21,9 +21,9 @@ namespace SylDesk
             this.form1 = form1;
         }
 
-        public void Initialize(int proyecto_id, int status, String  especie)
+        public void Initialize(Proyecto proyecto, int status, String  especie)
         {
-            this.proyecto_id = proyecto_id;
+            this.proyecto = proyecto;
             this.status = status;
             this.especie = especie;
             Empty();
@@ -72,8 +72,9 @@ namespace SylDesk
         {
             int i = listView2.SelectedIndices[0];
             string s = listView2.Items[i].Text;
-            string s1 = s.Substring(0, s.IndexOf("-")).Trim();
-            string s2 = s.Substring(s.IndexOf("-") + 1).Trim();
+            string[] sn = SqlConnector.getWordsDividedByMinus(s);
+            string s1 = sn[0];
+            string s2 = sn[1];
             
             EcuacionVolumen ecuacion_volumen = SqlConnector.ecuacionVolumenGet(
                 "SELECT * FROM `ecuaciones_volumen` where especie = @especie AND umafor = @umafor ",
@@ -124,9 +125,9 @@ namespace SylDesk
                                     SqlConnector.postPutDeleteGenerico(
                                         "Insert into proyecto_ecuaciones(proyecto_id, umafor_region)Values(@proyecto_id, @umafor_region)",
                                         new String[] { "proyecto_id", "umafor_region" },
-                                        new String[] { "" + proyecto_id, comboBox2.Text }
+                                        new String[] { "" + proyecto.getId(), comboBox2.Text }
                                     );
-                                    form1.formRegistro2ToFront(proyecto_id);
+                                    form1.formRegistro2ToFront(proyecto);
                                 }
                                 else
                                 {
@@ -143,7 +144,7 @@ namespace SylDesk
                                     SqlConnector.postPutDeleteGenerico(
                                         "Insert into proyecto_ecuaciones(proyecto_id, umafor_region)Values(@proyecto_id, @umafor_region)",
                                         new String[] { "proyecto_id", "umafor_region" },
-                                        new String[] { "" + proyecto_id, comboBox2.Text }
+                                        new String[] { "" + proyecto.getId(), comboBox2.Text }
                                     );
                                     Empty();
                                     textBox3.Text = especie;
@@ -180,7 +181,7 @@ namespace SylDesk
                                 ProyectoEcuacion proyecto_ecuacion = SqlConnector.proyectoEcuacionGet(
                                     "SELECT * FROM `proyecto_ecuaciones` where umafor_region = @umafor_region and proyecto_id = @proyecto_id",
                                     new String[] { "umafor_region", "proyecto_id" },
-                                    new String[] { comboBox2.Text, "" + proyecto_id }
+                                    new String[] { comboBox2.Text, "" + proyecto.getId() }
                                 );
 
                                 if (proyecto_ecuacion == null)
@@ -194,9 +195,9 @@ namespace SylDesk
                                             SqlConnector.postPutDeleteGenerico(
                                                 "Insert into proyecto_ecuaciones(proyecto_id, umafor_region)Values(@proyecto_id, @umafor_region)",
                                                 new String[] { "proyecto_id", "umafor_region" },
-                                                new String[] { "" + proyecto_id, comboBox2.Text }
+                                                new String[] { "" + proyecto.getId(), comboBox2.Text }
                                             );
-                                            form1.formRegistro2ToFront(proyecto_id);
+                                            form1.formRegistro2ToFront(proyecto);
                                         }
                                         else
                                         {
@@ -214,7 +215,7 @@ namespace SylDesk
                                             SqlConnector.postPutDeleteGenerico(
                                                 "Insert into proyecto_ecuaciones(proyecto_id, umafor_region)Values(@proyecto_id, @umafor_region)",
                                                 new String[] { "proyecto_id", "umafor_region" },
-                                                new String[] { "" + proyecto_id, comboBox2.Text }
+                                                new String[] { "" + proyecto.getId(), comboBox2.Text }
                                             );
                                             Empty();
                                             textBox3.Text = especie;
@@ -233,7 +234,7 @@ namespace SylDesk
                                     if (especie == textBox3.Text)
                                     {
                                         SqlConnector.sendMessage("Aviso", "La UMAFOR/Región de la ecuación ingresada ya se encuentra registrada como parte de los inventarios utilizados en el proyecto.", MessageBoxIcon.Information);
-                                        form1.formRegistro2ToFront(proyecto_id);
+                                        form1.formRegistro2ToFront(proyecto);
                                     }
                                     else
                                     {
@@ -241,7 +242,7 @@ namespace SylDesk
 
                                         if (dr == DialogResult.Yes)
                                         {
-                                            form1.formRegistro2ToFront(proyecto_id);
+                                            form1.formRegistro2ToFront(proyecto);
                                         }
                                         else
                                         {
@@ -264,12 +265,12 @@ namespace SylDesk
                             SqlConnector.postPutDeleteGenerico(
                                 "Insert into proyecto_ecuaciones(proyecto_id, umafor_region)Values(@proyecto_id, @umafor_region)",
                                 new String[] { "proyecto_id", "umafor_region" },
-                                new String[] { "" + proyecto_id, comboBox2.Text }
+                                new String[] { "" + proyecto.getId(), comboBox2.Text }
                             );
                             if (especie == textBox3.Text)
                             {
                                 SqlConnector.sendMessage("Aviso", "La UMAFOR/Región de la ecuación ingresada no se encuentra registrada en la base de datos, se agregará a dicha base y como parte de los inventarios utilizados en el proyecto. ", MessageBoxIcon.Information);
-                                form1.formRegistro2ToFront(proyecto_id);
+                                form1.formRegistro2ToFront(proyecto);
                             }
                             else
                             {
@@ -277,7 +278,7 @@ namespace SylDesk
 
                                 if (dr == DialogResult.Yes)
                                 {
-                                    form1.formRegistro2ToFront(proyecto_id);
+                                    form1.formRegistro2ToFront(proyecto);
                                 }
                                 else
                                 {
@@ -372,8 +373,10 @@ namespace SylDesk
             if (dr == DialogResult.Yes)
             {                
                 string s = listView2.Items[i].Text;
-                string s1 = s.Substring(0, s.IndexOf("-")).Trim();
-                string s2 = s.Substring(s.IndexOf("-") + 1).Trim();
+
+                string[] sn = SqlConnector.getWordsDividedByMinus(s);
+                string s1 = sn[0];
+                string s2 = sn[1];
 
                 SqlConnector.postPutDeleteGenerico(
                     "DELETE FROM ecuaciones_volumen WHERE umafor = @umafor AND especie = @especie",

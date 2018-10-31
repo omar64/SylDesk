@@ -7,7 +7,7 @@ namespace SylDesk
     public partial class FormEditar : UserControl
     {
         private Form1 form1;
-        private int proyecto_id;
+        private Proyecto proyecto;
         public FormEditar()
         {
             InitializeComponent();
@@ -18,15 +18,10 @@ namespace SylDesk
             this.form1 = form1;
         }
 
-        public void Initialize(int proyecto_id)
+        public void Initialize(Proyecto proyecto)
         {            
-            this.proyecto_id = proyecto_id;
+            this.proyecto = proyecto;
 
-            Proyecto proyecto = SqlConnector.proyectoGet(
-                "SELECT * FROM `proyectos` where id = @proyecto_id",
-                new String[] { "proyecto_id" },
-                new String[] { "" + proyecto_id }
-            );
             if (proyecto != null)
             {
                 textNombre.Text = proyecto.getNombre();
@@ -49,7 +44,7 @@ namespace SylDesk
             List<ProyectoEcuacion> list_proyecto_ecuaciones = SqlConnector.proyectoEcuacionesGet(
                 "SELECT * FROM `proyecto_ecuaciones` Where proyecto_id = @proyecto_id",
                 new String[] { "proyecto_id" },
-                new String[] { "" + proyecto_id }
+                new String[] { "" + proyecto.getId() }
             );
             foreach (ProyectoEcuacion proyecto_ecuacion in list_proyecto_ecuaciones)
             {
@@ -65,7 +60,7 @@ namespace SylDesk
                 SqlConnector.postPutDeleteGenerico(
                     "UPDATE `proyectos` SET nombre = @nombre, superficie = @superficie, descripcion = @descripcion WHERE id = @id",
                     new String[] { "nombre", "superficie", "descripcion", "id" },
-                    new String[] { textNombre.Text, textSuperficie.Text, textDescr.Text, "" + proyecto_id }
+                    new String[] { textNombre.Text, textSuperficie.Text, textDescr.Text, "" + proyecto.getId() }
                 );
 
                 SqlConnector.sendMessage("Aviso", "Se han guardado los cambios", MessageBoxIcon.Information);
@@ -103,7 +98,7 @@ namespace SylDesk
             ProyectoEcuacion proyecto_ecuacion = SqlConnector.proyectoEcuacionGet(
                                     "SELECT * FROM `proyecto_ecuaciones` where umafor_region = @umafor_region and proyecto_id = @proyecto_id",
                                     new String[] { "umafor_region", "proyecto_id" },
-                                    new String[] { comboBox1.Text, "" + proyecto_id }
+                                    new String[] { comboBox1.Text, "" + proyecto.getId() }
                                 );
 
             if (proyecto_ecuacion == null)
@@ -111,7 +106,7 @@ namespace SylDesk
                 SqlConnector.postPutDeleteGenerico(
                     "Insert into proyecto_ecuaciones(proyecto_id, umafor_region)Values(@proyecto_id, @umafor_region)",
                     new String[] { "proyecto_id", "umafor_region" },
-                    new String[] { "" + proyecto_id, comboBox1.Text }
+                    new String[] { "" + proyecto.getId(), comboBox1.Text }
                 );
                 listview1_Populate();
             }

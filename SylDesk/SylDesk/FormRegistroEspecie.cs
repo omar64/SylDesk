@@ -10,7 +10,7 @@ namespace SylDesk
     public partial class FormRegistroEspecie : UserControl
     {
         private Form1 form1;
-        private int proyecto_id = -1;
+        private Proyecto proyecto = null;
         private int status = 0;
         private string nombre = "";
 
@@ -24,11 +24,11 @@ namespace SylDesk
             this.form1 = form1;
         }
 
-        public void Initialize(int proyecto_id, int status, String nombre)
+        public void Initialize(Proyecto proyecto, int status, String nombre)
         {
             Empty();
             dataGridViewEspecies_Populate("");
-            this.proyecto_id = proyecto_id;
+            this.proyecto = proyecto;
             this.status = status;
             this.nombre = nombre;
             textBoxNombreCientifico.Text = nombre;
@@ -64,7 +64,7 @@ namespace SylDesk
 
                 if (status == 1)
                 {
-                    form1.formRegistro2ToFront(proyecto_id);
+                    form1.formRegistro2ToFront(proyecto);
                 }
             }
             else
@@ -209,6 +209,12 @@ namespace SylDesk
         private void textBoxBuscarEspecie_TextChanged(object sender, EventArgs e)
         {
             dataGridViewEspecies_Populate(textBoxBuscarEspecie.Text);
+        }
+
+        private void textBoxNombreCientifico_TextChanged(object sender, EventArgs e)
+        {
+            string s = textBoxNombreCientifico.Text;
+            textBoxGenero.Text = SqlConnector.getFirstWord(s);
         }
     }
 }

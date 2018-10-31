@@ -61,7 +61,7 @@ namespace SylDesk
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            formRegistroEspecieToFront(-1, 0, "");
+            formRegistroEspecieToFront(null, 0, "");
         }
         private void button10_Click(object sender, EventArgs e)
         {
@@ -89,7 +89,7 @@ namespace SylDesk
 
         private void button4_Click(object sender, EventArgs e)
         {
-            calculadoraEcuToFront(-1, 0, "");
+            calculadoraEcuToFront(null, 0, "");
         }
 
 
@@ -111,15 +111,11 @@ namespace SylDesk
         {
             formRegistro1.Empty();
             formRegistro1.BringToFront();
-
-            
-
-            
         }
         
-        public void formRegistro2ToFront(int proyecto_id)
+        public void formRegistro2ToFront(Proyecto proyecto)
         {
-            formRegistro2.Initialize(proyecto_id);
+            formRegistro2.Initialize(proyecto);
             formRegistro2.BringToFront();
         }
         public void formRegistro3ToFront()
@@ -127,18 +123,18 @@ namespace SylDesk
             formRegistro3.Initialize();
             formRegistro3.BringToFront();
         }
-        public void formRegistroEspecieToFront(int proyecto_id, int status, String nombre)
+        public void formRegistroEspecieToFront(Proyecto proyecto, int status, String nombre)
         {
-            formRegistroEspecie.Initialize(proyecto_id, status, nombre);
+            formRegistroEspecie.Initialize(proyecto, status, nombre);
             formRegistroEspecie.BringToFront();
         }
         public void formInicialToFront()
         {
             formInicial.BringToFront();
         }
-        public void graficaToFront(int proyecto_id)
+        public void graficaToFront(Proyecto proyecto)
         {
-            grafica.Initialize(proyecto_id);
+            grafica.Initialize(proyecto);
             grafica.BringToFront();
         }
        public void reportToFront()
@@ -146,14 +142,14 @@ namespace SylDesk
             report.InitializeLifetimeService();
             report.BringToFront();
         }
-        public void calculadoraEcuToFront(int proyecto_id , int status, String especie)
+        public void calculadoraEcuToFront(Proyecto proyecto , int status, String especie)
         {
-            calculadoraEcu.Initialize(proyecto_id, status, especie);
+            calculadoraEcu.Initialize(proyecto, status, especie);
             calculadoraEcu.BringToFront();
         }
-        public void formEditarToFront(int proyecto_id)
+        public void formEditarToFront(Proyecto proyecto)
         {
-            formEditar.Initialize(proyecto_id);
+            formEditar.Initialize(proyecto);
             formEditar.BringToFront();
         }
 

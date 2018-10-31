@@ -62,13 +62,20 @@ namespace SylDesk
         {
             if (e.RowIndex >= 0)
             {
+                Proyecto proyecto = SqlConnector.proyectoGet(
+                    "SELECT * from proyectos where id = @id",
+                    new String[] { "id" },
+                    new String[] { dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString() }
+                );
+
                 if (e.ColumnIndex == this.detalle.Index)
                 {
-                    form1.formRegistro2ToFront(Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value));
+                    
+                    form1.formRegistro2ToFront(proyecto);
                 }
                 else if (e.ColumnIndex == this.editar.Index)
                 {
-                    form1.formEditarToFront(Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value));
+                    form1.formEditarToFront(proyecto);
                 }
             }
         }
