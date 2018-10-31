@@ -150,9 +150,6 @@ C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\LiveCh
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\Microsoft.ReportViewer.Common.dll
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
-C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\MySql.Data.dll
-C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\MySql.Data.Entity.EF6.dll
-C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\MySql.Web.dll
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\DevExpress.Pdf.v17.2.Core.dll
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\DevExpress.Sparkline.v17.2.Core.dll
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\DevExpress.XtraBars.v17.2.dll

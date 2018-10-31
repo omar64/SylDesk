@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace SylDesk
@@ -27,22 +28,43 @@ namespace SylDesk
                 textNombre.Text = proyecto.getNombre();
                 textSuperficie.Text = proyecto.getSuperficie();
                 textDescr.Text = proyecto.getDescripcion();
-
-
             }
 
             listview1_Populate();
             comboBox1_Populate();
 
-            fill_area(1);
-            fill_area(2);
-            fill_area(3);
-            fill_area(4);
+            for (int i = 1; i <= 4; i++)
+            {
+                fill_area(i);
+                Area_Checked(i);
+            }
         }
 
         public void Empty()
         {
-
+            textNombre.Text = "";
+            textSuperficie.Text = "";
+            textDescr.Text = "";
+            checkBoxA1.Checked = true;
+            checkBoxA2.Checked = true;
+            checkBoxA3.Checked = true;
+            checkBoxA4.Checked = true;
+            SuperficieTxB1.Text = "";
+            SuperficieTxB2.Text = "";
+            SuperficieTxB3.Text = "";
+            SuperficieTxB4.Text = "";
+            radioVolumen1.Select();
+            radioVolumen2.Select();
+            radioVolumen3.Select();
+            radioVolumen4.Select();
+            DiametroTxB1.Text = "";
+            DiametroTxB2.Text = "";
+            DiametroTxB3.Text = "";
+            DiametroTxB4.Text = "";
+            AlturaTxB1.Text = "";
+            AlturaTxB2.Text = "";
+            AlturaTxB3.Text = "";
+            AlturaTxB4.Text = "";
         }
 
         public void listview1_Populate()
@@ -62,141 +84,125 @@ namespace SylDesk
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
+            Boolean error_flag = false;
             if (textNombre.Text != "" && textSuperficie.Text != "" && textDescr.Text != "")
             {
                 if (!(Double.TryParse(textSuperficie.Text, out double aux2)))
                 {
                     SqlConnector.sendMessage("Error", "Superficie debe ser numerico.", MessageBoxIcon.Error);
+                    error_flag = true;
+                }
+                if (checkBoxA1.Checked)
+                {
+                    if (area_check(1))
+                    {
+                        error_flag = true;
+                    }
+                }
+                if (checkBoxA2.Checked)
+                {
+                    if (area_check(2))
+                    {
+                        error_flag = true;
+                    }
+                }
+                if (checkBoxA3.Checked)
+                {
+                    if (area_check(3))
+                    {
+                        error_flag = true;
+                    }
+                }
+                if (checkBoxA4.Checked)
+                {
+                    if (area_check(4))
+                    {
+                        error_flag = true;
+                    }
+                }
+
+                if (checkBoxA1.Checked || checkBoxA2.Checked || checkBoxA3.Checked || checkBoxA4.Checked)
+                {
+                    if (checkBoxA1.Checked && checkBoxA2.Checked && SuperficieTxB1.Text == SuperficieTxB2.Text)
+                    {
+                        SqlConnector.sendMessage("Error", "Area muestreada 1 y 2 tienen la misma superficie.", MessageBoxIcon.Error);
+                        error_flag = true;
+                    }
+                    else if (checkBoxA1.Checked && checkBoxA3.Checked && SuperficieTxB1.Text == SuperficieTxB3.Text)
+                    {
+                        SqlConnector.sendMessage("Error", "Area muestreada 1 y 3 tienen la misma superficie.", MessageBoxIcon.Error);
+                        error_flag = true;
+                    }
+                    else if (checkBoxA1.Checked && checkBoxA4.Checked && SuperficieTxB1.Text == SuperficieTxB4.Text)
+                    {
+                        SqlConnector.sendMessage("Error", "Area muestreada 1 y 4 tienen la misma superficie.", MessageBoxIcon.Error);
+                        error_flag = true;
+                    }
+                    else if (checkBoxA2.Checked && checkBoxA3.Checked && SuperficieTxB2.Text == SuperficieTxB3.Text)
+                    {
+                        SqlConnector.sendMessage("Error", "Area muestreada 2 y 3 tienen la misma superficie.", MessageBoxIcon.Error);
+                        error_flag = true;
+                    }
+                    else if (checkBoxA2.Checked && checkBoxA4.Checked && SuperficieTxB2.Text == SuperficieTxB4.Text)
+                    {
+                        SqlConnector.sendMessage("Error", "Area muestreada 2 y 4 tienen la misma superficie.", MessageBoxIcon.Error);
+                        error_flag = true;
+                    }
+                    else if (checkBoxA3.Checked && checkBoxA4.Checked && SuperficieTxB3.Text == SuperficieTxB4.Text)
+                    {
+                        SqlConnector.sendMessage("Error", "Area muestreada 3 y 4 tienen la misma superficie.", MessageBoxIcon.Error);
+                        error_flag = true;
+                    }
                 }
                 else
                 {
-                    if (checkBoxA1.Checked || checkBoxA2.Checked || checkBoxA3.Checked || checkBoxA4.Checked)
-                    {
-                        if (checkBoxA1.Checked)
-                        {
-                            if (SuperficieTxB1.Text == "" || DiametroTxB1.Text == "" || AlturaTxB1.Text == "")
-                            {
-                                SqlConnector.sendMessage("Error", "Faltan Datos del Area de muestreo 1.", MessageBoxIcon.Error);
-                                return;
-                            }
-                            if (DiametroTxB1.Text.IndexOf("-") < 0)
-                            {
-                                SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area1 falta simbolo de separacion \"-\".", MessageBoxIcon.Error);
-                                return;
-                            }
-                            if (AlturaTxB1.Text.IndexOf("-") < 0)
-                            {
-                                SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area1 falta simbolo de separacion \"-\".", MessageBoxIcon.Error);
-                                return;
-                            }
-                            if (!(Double.TryParse(SuperficieTxB1.Text, out double aux3)))
-                            {
-                                SqlConnector.sendMessage("Error", "Superficie del Area1 debe ser numerico.", MessageBoxIcon.Error);
-                                return;
-                            }
-                            updateArea(1, checkBoxA1.Checked, SuperficieTxB1.Text, radioVolumen1.Checked, DiametroTxB1.Text, AlturaTxB1.Text);
-                        }
-                        else
-                        {
-                            updateArea(1, checkBoxA1.Checked);
-                        }
-                        if (checkBoxA2.Checked)
-                        {
-                            if (SuperficieTxB2.Text == "" || DiametroTxB2.Text == "" || AlturaTxB2.Text == "")
-                            {
-                                SqlConnector.sendMessage("Error", "Faltan Datos del Area de muestreo 2.", MessageBoxIcon.Error);
-                                return;
-                            }
-                            if (DiametroTxB2.Text.IndexOf("-") < 0)
-                            {
-                                SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area2 falta simbolo de separacion \"-\".", MessageBoxIcon.Error);
-                                return;
-                            }
-                            if (AlturaTxB2.Text.IndexOf("-") < 0)
-                            {
-                                SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area2 falta simbolo de separacion \"-\".", MessageBoxIcon.Error);
-                                return;
-                            }
-                            if (!(Double.TryParse(SuperficieTxB2.Text, out double aux3)))
-                            {
-                                SqlConnector.sendMessage("Error", "Superficie del Area2 debe ser numerico.", MessageBoxIcon.Error);
-                                return;
-                            }
-                            updateArea(2, checkBoxA2.Checked, SuperficieTxB2.Text, radioVolumen2.Checked, DiametroTxB2.Text, AlturaTxB2.Text);
-                        }
-                        else
-                        {
-                            updateArea(2, checkBoxA2.Checked);
-                        }
-                        if (checkBoxA3.Checked)
-                        {
-                            if (SuperficieTxB3.Text == "" || DiametroTxB3.Text == "" || AlturaTxB3.Text == "")
-                            {
-                                SqlConnector.sendMessage("Error", "Faltan Datos del Area de muestreo 3.", MessageBoxIcon.Error);
-                                return;
-                            }
-                            if (DiametroTxB3.Text.IndexOf("-") < 0)
-                            {
-                                SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area3 falta simbolo de separacion \"-\".", MessageBoxIcon.Error);
-                                return;
-                            }
-                            if (AlturaTxB3.Text.IndexOf("-") < 0)
-                            {
-                                SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area3 falta simbolo de separacion \"-\".", MessageBoxIcon.Error);
-                                return;
-                            }
-                            if (!(Double.TryParse(SuperficieTxB3.Text, out double aux3)))
-                            {
-                                SqlConnector.sendMessage("Error", "Superficie del Area3 debe ser numerico.", MessageBoxIcon.Error);
-                                return;
-                            }
-                            updateArea(3, checkBoxA3.Checked, SuperficieTxB3.Text, radioVolumen3.Checked, DiametroTxB3.Text, AlturaTxB3.Text);
-                        }
-                        else
-                        {
-                            updateArea(3, checkBoxA3.Checked);
-                        }
-                        if (checkBoxA4.Checked)
-                        {
-                            if (SuperficieTxB4.Text == "" || DiametroTxB4.Text == "" || AlturaTxB4.Text == "")
-                            {
-                                SqlConnector.sendMessage("Error", "Faltan Datos del Area de muestreo 4.", MessageBoxIcon.Error);
-                                return;
-                            }
-                            if (DiametroTxB4.Text.IndexOf("-") < 0)
-                            {
-                                SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area4 falta simbolo de separacion \"-\".", MessageBoxIcon.Error);
-                                return;
-                            }
-                            if (AlturaTxB4.Text.IndexOf("-") < 0)
-                            {
-                                SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area4 falta simbolo de separacion \"-\".", MessageBoxIcon.Error);
-                                return;
-                            }
-                            if (!(Double.TryParse(SuperficieTxB4.Text, out double aux3)))
-                            {
-                                SqlConnector.sendMessage("Error", "Superficie del Area4 debe ser numerico.", MessageBoxIcon.Error);
-                                return;
-                            }
-                            updateArea(4, checkBoxA4.Checked, SuperficieTxB4.Text, radioVolumen4.Checked, DiametroTxB4.Text, AlturaTxB4.Text);
-                        }
-                        else
-                        {
-                            updateArea(4, checkBoxA4.Checked);
-                        }
+                    SqlConnector.sendMessage("Error", "Almenos un area debe de estar activada.", MessageBoxIcon.Error);
+                    error_flag = true;
+                }
 
-                        SqlConnector.postPutDeleteGenerico(
-                            "UPDATE `proyectos` SET nombre = @nombre, superficie = @superficie, descripcion = @descripcion WHERE id = @id",
-                            new String[] { "nombre", "superficie", "descripcion", "id" },
-                            new String[] { textNombre.Text, textSuperficie.Text, textDescr.Text, "" + proyecto.getId() }
-                        );
-                        SqlConnector.sendMessage("Aviso", "Se han guardado los cambios", MessageBoxIcon.Information);
-                        form1.formRegistro3ToFront();
+                if (!error_flag)
+                {
+                    
+                    if (checkBoxA1.Checked)
+                    {
+                        updateArea(1, checkBoxA1.Checked, SuperficieTxB1.Text, radioVolumen1.Checked, DiametroTxB1.Text, AlturaTxB1.Text);
                     }
                     else
                     {
-                        SqlConnector.sendMessage("Error", "Almenos un area debe de estar activada.", MessageBoxIcon.Error);
+                        updateArea(1, checkBoxA1.Checked);
                     }
+                    if (checkBoxA2.Checked)
+                    {
+                        updateArea(2, checkBoxA2.Checked, SuperficieTxB2.Text, radioVolumen2.Checked, DiametroTxB2.Text, AlturaTxB2.Text);
+                    }
+                    else
+                    {
+                        updateArea(2, checkBoxA2.Checked);
+                    }
+                    if (checkBoxA3.Checked)
+                    {
+                        updateArea(3, checkBoxA3.Checked, SuperficieTxB3.Text, radioVolumen3.Checked, DiametroTxB3.Text, AlturaTxB3.Text);
+                    }
+                    else
+                    {
+                        updateArea(3, checkBoxA3.Checked);
+                    }
+                    if (checkBoxA4.Checked)
+                    {
+                        updateArea(4, checkBoxA4.Checked, SuperficieTxB4.Text, radioVolumen4.Checked, DiametroTxB4.Text, AlturaTxB4.Text);
+                    }
+                    else
+                    {
+                        updateArea(4, checkBoxA4.Checked);
+                    }
+
+                    SqlConnector.postPutDeleteGenerico(
+                        "UPDATE `proyectos` SET nombre = @nombre, superficie = @superficie, descripcion = @descripcion WHERE id = @id",
+                        new String[] { "nombre", "superficie", "descripcion", "id" },
+                        new String[] { textNombre.Text, textSuperficie.Text, textDescr.Text, "" + proyecto.getId() }
+                    );
+                    SqlConnector.sendMessage("Aviso", "Se han guardado los cambios", MessageBoxIcon.Information);
+                    form1.formRegistro3ToFront();
                 }
             }                       
             else
@@ -266,6 +272,217 @@ namespace SylDesk
             );
         }
 
+        private Control getComponent(int type, int id)
+        {
+            //Type 0:Activado 1:Superficie, 2:Volumen, 3:Cobertura, 4:DiaLar, 5:AltAnc
+            if (type == 0)
+            {
+                if (id == 1)
+                {
+                    return checkBoxA1;
+                }
+                else if (id == 2)
+                {
+                    return checkBoxA2;
+                }
+                else if (id == 3)
+                {
+                    return checkBoxA3;
+                }
+                else
+                {
+                    return checkBoxA4;
+                }
+            }
+            else if (type == 1)
+            {
+                if (id == 1)
+                {
+                    return SuperficieTxB1;
+                }
+                else if (id == 2)
+                {
+                    return SuperficieTxB2;
+                }
+                else if (id == 3)
+                {
+                    return SuperficieTxB3;
+                }
+                else
+                {
+                    return SuperficieTxB4;
+                }
+            }
+            else if (type == 2)
+            {
+                if (id == 1)
+                {
+                    return radioVolumen1;
+                }
+                else if (id == 2)
+                {
+                    return radioVolumen2;
+                }
+                else if (id == 3)
+                {
+                    return radioVolumen3;
+                }
+                else
+                {
+                    return radioVolumen4;
+                }
+            }
+            else if (type == 3)
+            {
+                if (id == 1)
+                {
+                    return radioCobertura1;
+                }
+                else if (id == 2)
+                {
+                    return radioCobertura2;
+                }
+                else if (id == 3)
+                {
+                    return radioCobertura3;
+                }
+                else
+                {
+                    return radioCobertura4;
+                }
+            }
+            else if (type == 4)
+            {
+                if (id == 1)
+                {
+                    return DiametroTxB1;
+                }
+                else if (id == 2)
+                {
+                    return DiametroTxB2;
+                }
+                else if (id == 3)
+                {
+                    return DiametroTxB3;
+                }
+                else
+                {
+                    return DiametroTxB4;
+                }
+            }
+            else
+            {
+                if (id == 1)
+                {
+                    return AlturaTxB1;
+                }
+                else if (id == 2)
+                {
+                    return AlturaTxB2;
+                }
+                else if (id == 3)
+                {
+                    return AlturaTxB3;
+                }
+                else
+                {
+                    return AlturaTxB4;
+                }
+            }
+        }
+
+        private Boolean area_check(int number_area)
+        {
+            Boolean error_flag = false;
+            if (getComponent(1, number_area).Text == "" || getComponent(4, number_area).Text == "" || getComponent(5, number_area).Text == "")
+            {
+                SqlConnector.sendMessage("Error", "Faltan Datos del Area de muestreo " + number_area + ".", MessageBoxIcon.Error);
+                error_flag = true;
+            }
+            if (getComponent(4, number_area).Text != "")
+            {
+                if (getComponent(4, number_area).Text.IndexOf("-") < 0)
+                {
+                    SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area" + number_area + " falta simbolo de separacion \"-\".", MessageBoxIcon.Error);
+                    error_flag = true;
+                }
+                else
+                {
+                    if (Regex.Matches(getComponent(4, number_area).Text, "-").Count > 1)
+                    {
+                        SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area" + number_area + " hay mas de un simbolo de separacion \"-\".", MessageBoxIcon.Error);
+                        error_flag = true;
+                    }
+                    else
+                    {
+                        string[] rangos_dialar = SqlConnector.getWordsDividedByMinus(getComponent(4, number_area).Text);
+                        double aux1, aux2;
+                        bool flag1 = Double.TryParse(rangos_dialar[0], out aux1);
+                        bool flag2 = Double.TryParse(rangos_dialar[1], out aux2);
+                        if (!flag1)
+                        {
+                            SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area" + number_area + " el valor inferior debe ser numerico.", MessageBoxIcon.Error);
+                            error_flag = true;
+                        }
+                        if (!flag2)
+                        {
+                            SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area" + number_area + " el valor superior debe ser numerico.", MessageBoxIcon.Error);
+                            error_flag = true;
+                        }
+                        if (flag1 && flag2 && aux1 >= aux2)
+                        {
+                            SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area" + number_area + " el valor inferior no debe ser mayor o igual al superior.", MessageBoxIcon.Error);
+                            error_flag = true;
+                        }
+                    }
+                }
+            }
+            if (getComponent(5, number_area).Text != "")
+            {
+                if (getComponent(5, number_area).Text.IndexOf("-") < 0)
+                {
+                    SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area" + number_area + " falta simbolo de separacion \"-\".", MessageBoxIcon.Error);
+                    error_flag = true;
+                }
+                else
+                {
+                    if (Regex.Matches(getComponent(5, number_area).Text, "-").Count > 1)
+                    {
+                        SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area" + number_area + " hay mas de un simbolo de separacion \"-\".", MessageBoxIcon.Error);
+                        error_flag = true;
+                    }
+                    else
+                    {
+                        string[] rangos_altanc = SqlConnector.getWordsDividedByMinus(getComponent(5, number_area).Text);
+                        double aux1, aux2;
+                        bool flag1 = Double.TryParse(rangos_altanc[0], out aux1);
+                        bool flag2 = Double.TryParse(rangos_altanc[1], out aux2);
+                        if (!flag1)
+                        {
+                            SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area" + number_area + " el valor inferior debe ser numerico.", MessageBoxIcon.Error);
+                            error_flag = true;
+                        }
+                        if (!flag2)
+                        {
+                            SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area" + number_area + " el valor superior debe ser numerico.", MessageBoxIcon.Error);
+                            error_flag = true;
+                        }
+                        if (flag1 && flag2 && aux1 >= aux2)
+                        {
+                            SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area" + number_area + " el valor inferior no debe ser mayor o igual al superior.", MessageBoxIcon.Error);
+                            error_flag = true;
+                        }
+                    }
+                }
+            }
+            if (!(Double.TryParse(getComponent(1, number_area).Text, out double aux3)))
+            {
+                SqlConnector.sendMessage("Error", "Superficie del Area" + number_area + " debe ser numerico.", MessageBoxIcon.Error);
+                error_flag = true;
+            }
+            return error_flag;
+        }
+
         private void comboBox1_Populate()
         {
             comboBox1.Items.Clear();
@@ -323,37 +540,32 @@ namespace SylDesk
 
         private void checkBoxA1_CheckedChanged(object sender, EventArgs e)
         {
-            Area_Checked(checkBoxA1, SuperficieTxB1, radioVolumen1, radioCobertura1, DiametroTxB1, AlturaTxB1);
+            Area_Checked(1);
         }
 
         private void checkBoxA2_CheckedChanged(object sender, EventArgs e)
         {
-            Area_Checked(checkBoxA2, SuperficieTxB2, radioVolumen2, radioCobertura2, DiametroTxB2, AlturaTxB2);
+            Area_Checked(2);
         }
 
         private void checkBoxA3_CheckedChanged(object sender, EventArgs e)
         {
-            Area_Checked(checkBoxA3, SuperficieTxB3, radioVolumen3, radioCobertura3, DiametroTxB3, AlturaTxB3);
+            Area_Checked(3);
         }
 
         private void checkBoxA4_CheckedChanged(object sender, EventArgs e)
         {
-            Area_Checked(checkBoxA4, SuperficieTxB4, radioVolumen4, radioCobertura4, DiametroTxB4, AlturaTxB4);
+            Area_Checked(4);
         }
 
-        private void Area_Checked(CheckBox checkBox, TextBox superficie, RadioButton volumen, RadioButton cobertura, TextBox diametro, TextBox altura)
+        private void Area_Checked(int number_area)
         {
-            //Area 1 Componentes
-
-
-            superficie.Enabled = checkBox.Checked;
-            volumen.Enabled = checkBox.Checked;
-            cobertura.Enabled = checkBox.Checked;
-            diametro.Enabled = checkBox.Checked;
-            altura.Enabled = checkBox.Checked;
-
+            CheckBox checkbox = (CheckBox)getComponent(0, number_area);
+            getComponent(1, number_area).Enabled = checkbox.Checked;
+            getComponent(2, number_area).Enabled = checkbox.Checked;
+            getComponent(3, number_area).Enabled = checkbox.Checked;
+            getComponent(4, number_area).Enabled = checkbox.Checked;
+            getComponent(5, number_area).Enabled = checkbox.Checked;           
         }
-
-
     }
 }

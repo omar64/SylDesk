@@ -17,7 +17,7 @@ namespace SylDesk
 
         public Grafica()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         public void setForm(Form1 form1)
@@ -34,7 +34,7 @@ namespace SylDesk
             this.proyecto = proyecto;
             numericUpDown1.Visible = false;
 
-            
+
             superficie = Convert.ToDouble(proyecto.getSuperficie());
         }
 
@@ -62,16 +62,18 @@ namespace SylDesk
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            string areas_query = getVolumeAreas();
+
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
-                "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND alturatotal > 0 AND bifurcados = 0",
+                "SELECT * from individuos where proyecto_id = @proyecto_id AND (" + areas_query + ") AND alturatotal > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto.getId() }
             );
-            
+
             if (null_checker != null && null_checker.Count > 0)
             {
                 List<String> aux = SqlConnector.anyEspecificValueGet(
-                    "SELECT Min(alturatotal) as minimo from individuos where proyecto_id = @proyecto_id AND area = 500 AND alturatotal > 0 AND bifurcados = 0",
+                    "SELECT Min(alturatotal) as minimo from individuos where proyecto_id = @proyecto_id AND (" + areas_query + ") AND alturatotal > 0 AND bifurcados = 0",
                     new String[] { "proyecto_id" },
                     new String[] { "" + proyecto.getId() }
                 );
@@ -79,7 +81,7 @@ namespace SylDesk
                 double min = Convert.ToDouble(aux[0]);
 
                 aux = SqlConnector.anyEspecificValueGet(
-                    "SELECT Max(alturatotal) as maximo from individuos where proyecto_id = @proyecto_id AND area = 500 AND alturatotal > 0 AND bifurcados = 0",
+                    "SELECT Max(alturatotal) as maximo from individuos where proyecto_id = @proyecto_id AND (" + areas_query + ") AND alturatotal > 0 AND bifurcados = 0",
                     new String[] { "proyecto_id" },
                     new String[] { "" + proyecto.getId() }
                 );
@@ -98,21 +100,18 @@ namespace SylDesk
                     double upper_point = current_rango + rango_cat2;
                     if (i == 0)
                     {
-                        SqlConnector.sendMessage("Debug", "1", MessageBoxIcon.Hand);
                         sqlQueryString = "SELECT Count(*) as conteo " +
-                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND alturatotal < " + upper_point;
+                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND (" + areas_query + ") AND alturatotal < " + upper_point;
                     }
                     else if (i == (length - 1))
                     {
-                        SqlConnector.sendMessage("Debug", "2", MessageBoxIcon.Hand);
                         sqlQueryString = "SELECT Count(*) as conteo " +
-                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND alturatotal > " + lower_point;
+                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND (" + areas_query + ") AND alturatotal > " + lower_point;
                     }
                     else
                     {
-                        SqlConnector.sendMessage("Debug", "3", MessageBoxIcon.Hand);
                         sqlQueryString = "SELECT Count(*) as conteo " +
-                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND alturatotal > " + lower_point + " AND alturatotal < " + upper_point;
+                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND (" + areas_query + ") AND alturatotal > " + lower_point + " AND alturatotal < " + upper_point;
                     }
 
                     aux = SqlConnector.anyEspecificValueGet(
@@ -157,8 +156,10 @@ namespace SylDesk
             dataGridView1.Columns.Add("no_individuos", "No. Individuos");
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            string areas_query = getVolumeAreas();
+
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
-                "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND diametro > 0 AND bifurcados = 0",
+                "SELECT * from individuos where proyecto_id = @proyecto_id AND (" + areas_query + ") AND diametro > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto.getId() }
             );
@@ -166,14 +167,14 @@ namespace SylDesk
             if (null_checker != null && null_checker.Count > 0)
             {
                 List<String> aux = SqlConnector.anyEspecificValueGet(
-                    "SELECT Min(diametro) as minimo from individuos where proyecto_id = @proyecto_id AND area = 500 AND diametro > 0 AND bifurcados = 0",
+                    "SELECT Min(diametro) as minimo from individuos where proyecto_id = @proyecto_id AND (" + areas_query + ") AND diametro > 0 AND bifurcados = 0",
                     new String[] { "proyecto_id" },
                     new String[] { "" + proyecto.getId() }
                 );
                 double min = Convert.ToDouble(aux[0]);
 
                 aux = SqlConnector.anyEspecificValueGet(
-                    "SELECT Max(diametro) as maximo from individuos where proyecto_id = @proyecto_id AND area = 500 AND diametro > 0 AND bifurcados = 0",
+                    "SELECT Max(diametro) as maximo from individuos where proyecto_id = @proyecto_id AND (" + areas_query + ") AND diametro > 0 AND bifurcados = 0",
                     new String[] { "proyecto_id" },
                     new String[] { "" + proyecto.getId() }
                 );
@@ -194,17 +195,17 @@ namespace SylDesk
                     if (i == 0)
                     {
                         sqlQueryString = "SELECT Count(*) as conteo " +
-                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND diametro < " + upper_point;
+                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND (" + areas_query + ") AND diametro < " + upper_point;
                     }
                     else if (i == (length - 1))
                     {
                         sqlQueryString = "SELECT Count(*) as conteo " +
-                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND diametro > " + lower_point;
+                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND (" + areas_query + ") AND diametro > " + lower_point;
                     }
                     else
                     {
                         sqlQueryString = "SELECT Count(*) as conteo " +
-                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND area = 500 AND diametro >= " + lower_point + " AND diametro < " + upper_point;
+                            " from individuos where proyecto_id = @proyecto_id AND bifurcados = 0 AND (" + areas_query + ") AND diametro >= " + lower_point + " AND diametro < " + upper_point;
                     }
 
                     aux = SqlConnector.anyEspecificValueGet(
@@ -254,8 +255,10 @@ namespace SylDesk
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            string areas_query = getVolumeAreas();
+
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
-                "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND bifurcados = 0 Group By nombrecientifico",
+                "SELECT * from individuos where proyecto_id = @proyecto_id AND (" + areas_query + ") AND bifurcados = 0 Group By nombrecientifico",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto.getId() }
             );
@@ -264,7 +267,7 @@ namespace SylDesk
             if (null_checker != null && null_checker.Count > 0)
             {
                 List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
-                    "SELECT nombrecientifico, Count(nombrecientifico) as conteo from individuos where proyecto_id = @proyecto_id AND area = 500 AND bifurcados = 0 Group By nombrecientifico ORDER BY conteo DESC",
+                    "SELECT nombrecientifico, Count(nombrecientifico) as conteo from individuos where proyecto_id = @proyecto_id AND " + areas_query + " AND bifurcados = 0 Group By nombrecientifico ORDER BY conteo DESC",
                     new String[] { "proyecto_id" },
                     new String[] { "" + proyecto.getId() }
                 );
@@ -307,8 +310,10 @@ namespace SylDesk
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            string areas_query = getVolumeAreas();
+
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
-                "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND areabasal > 0 AND bifurcados = 0",
+                "SELECT * from individuos where proyecto_id = @proyecto_id AND (" + areas_query + ") AND areabasal > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto.getId() }
             );
@@ -316,7 +321,7 @@ namespace SylDesk
             if (null_checker != null && null_checker.Count > 0)
             {
                 List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
-                    "SELECT nombrecientifico, Sum(areabasal) as areabasal2 from individuos where proyecto_id = @proyecto_id AND area = 500 AND areabasal > 0 Group By nombrecientifico ORDER BY areabasal2 DESC",
+                    "SELECT nombrecientifico, Sum(areabasal) as areabasal2 from individuos where proyecto_id = @proyecto_id AND (" + areas_query + ") AND areabasal > 0 Group By nombrecientifico ORDER BY areabasal2 DESC",
                     new String[] { "proyecto_id" },
                     new String[] { "" + proyecto.getId() }
                 );
@@ -342,7 +347,7 @@ namespace SylDesk
             {
                 SqlConnector.sendMessage("Datos Faltantes/Inadecuados", "La grafica no puede mostrarse porque no tiene datos adecuados", MessageBoxIcon.Stop);
             }
-            chart1.ChartAreas[0].RecalculateAxesScale();            
+            chart1.ChartAreas[0].RecalculateAxesScale();
         }
 
         private void get_volumen()
@@ -359,8 +364,10 @@ namespace SylDesk
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            string areas_query = getVolumeAreas();
+
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
-                "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND volumen > 0 AND bifurcados = 0",
+                "SELECT * from individuos where proyecto_id = @proyecto_id AND (" + areas_query + ") AND volumen > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto.getId() }
             );
@@ -368,7 +375,7 @@ namespace SylDesk
             if (null_checker != null && null_checker.Count > 0)
             {
                 List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
-                    "SELECT nombrecientifico, Sum(volumen) as volumen2 from individuos where proyecto_id = @proyecto_id AND area = 500 AND volumen > 0 Group By nombrecientifico ORDER BY volumen DESC",
+                    "SELECT nombrecientifico, Sum(volumen) as volumen2 from individuos where proyecto_id = @proyecto_id AND (" + areas_query + ") AND volumen > 0 Group By nombrecientifico ORDER BY volumen DESC",
                     new String[] { "proyecto_id" },
                     new String[] { "" + proyecto.getId() }
                 );
@@ -399,12 +406,11 @@ namespace SylDesk
                 SqlConnector.sendMessage("Datos Faltantes/Inadecuados", "La grafica no puede mostrarse porque no tiene datos adecuados", MessageBoxIcon.Stop);
             }
             chart1.ChartAreas[0].RecalculateAxesScale();
-            
+
         }
 
         private void get_IVI(int area)
         {
-           
             Empty();
 
             chart1.ChartAreas[0].AxisY.Title = "I.V.I";
@@ -449,7 +455,7 @@ namespace SylDesk
             List<IVI> list_ivis = new List<IVI>();
 
             List<List<String>> aux2 = SqlConnector.anyEspecificValuesGet(
-                "SELECT nombrecientifico from individuos where proyecto_id = @proyecto_id AND area =  " + area + " AND nombrecientifico != \"\" Group By nombrecientifico ORDER BY nombrecientifico ASC",
+                "SELECT nombrecientifico from individuos where proyecto_id = @proyecto_id AND area = " + area + " AND nombrecientifico != \"\" Group By nombrecientifico ORDER BY nombrecientifico ASC",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto.getId() }
             );
@@ -514,7 +520,7 @@ namespace SylDesk
                 chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
             }
             List<IVI> list_ivis2 = list_ivis.OrderByDescending((x) => x.ivi).ToList();
-            for(int i = 0; i < numericUpDown1.Value && i < list_ivis2.Count; i++)
+            for (int i = 0; i < numericUpDown1.Value && i < list_ivis2.Count; i++)
             {
                 chart1.Series["frecuencia"].Points.AddXY("" + list_ivis2[i].get_nombrecientifico(), Convert.ToDouble((list_ivis2[i].get_frec_rel())).ToString("F4"));
                 chart1.Series["densidad"].Points.AddXY("" + list_ivis2[i].get_nombrecientifico(), Convert.ToDouble((list_ivis2[i].get_den_rel())).ToString("F4"));
@@ -532,12 +538,6 @@ namespace SylDesk
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*PanelCargando.Visible = true;
-            System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ThreadStart(get_cat));
-            thread.Start();*/
-
-            
-
             numericUpDown1.Visible = false;
             get_cat();
         }
@@ -632,6 +632,40 @@ namespace SylDesk
         private void Grafica_Load(object sender, EventArgs e)
         {
             toolTip1.SetToolTip(TipBox, "Lorem ipsum dolor sit amet consectetur adipiscing\n elit ornare, accumsan nec auctor morbi eget diam cubilia curae,\n justo nisl fringilla natoque sodales dignissim tristique.\n Massa morbi fringilla taciti pulvinar vel nascetur risus luctus eros,\n aliquam orci accumsan quam convallis id sociis lectus egestas, dui mattis aptent leo conubia arcu mi consequat.\n Dictumst senectus litora suscipit proin pretium mattis facilisi, montes posuere ut felis convallis\n dignissim eleifend luctus, praesent urna nullam ridiculus vitae enim.");
+        }
+
+        private string getVolumeAreas()
+        {
+            string areas_query = "";
+            if (proyecto.getArea1Activo() && Convert.ToBoolean(proyecto.getArea1VolCob()))
+            {
+                areas_query += " area = " + proyecto.getArea1Superficie();
+            }
+            if (proyecto.getArea2Activo() && Convert.ToBoolean(proyecto.getArea2VolCob()))
+            {
+                if (areas_query != "")
+                {
+                    areas_query += " OR ";
+                }
+                areas_query += " area = " + proyecto.getArea2Superficie();
+            }
+            if (proyecto.getArea3Activo() && Convert.ToBoolean(proyecto.getArea3VolCob()))
+            {
+                if (areas_query != "")
+                {
+                    areas_query += " OR ";
+                }
+                areas_query += " area = " + proyecto.getArea2Superficie();
+            }
+            if (proyecto.getArea4Activo() && Convert.ToBoolean(proyecto.getArea4VolCob()))
+            {
+                if (areas_query != "")
+                {
+                    areas_query += " OR ";
+                }
+                areas_query += " area = " + proyecto.getArea2Superficie();
+            }
+            return areas_query;
         }
     }
 }
