@@ -68,9 +68,11 @@
             this.buttonIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonIniciar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonIniciar.ForeColor = System.Drawing.Color.White;
-            this.buttonIniciar.Location = new System.Drawing.Point(444, 256);
+            this.buttonIniciar.Image = ((System.Drawing.Image)(resources.GetObject("buttonIniciar.Image")));
+            this.buttonIniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonIniciar.Location = new System.Drawing.Point(413, 267);
             this.buttonIniciar.Name = "buttonIniciar";
-            this.buttonIniciar.Size = new System.Drawing.Size(226, 56);
+            this.buttonIniciar.Size = new System.Drawing.Size(275, 56);
             this.buttonIniciar.TabIndex = 14;
             this.buttonIniciar.Text = "Iniciar Proyectos";
             this.buttonIniciar.UseVisualStyleBackColor = false;

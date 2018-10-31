@@ -2238,7 +2238,19 @@
         WqlkzGYHJAK5I9aKK7E707sl/Ej/2Q==
 </value>
   </data>
+  <data name="buttonIniciar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAAEuSURBVFhHzdc/SsNxDAXwXqCi
+        o+ggXsIzdBBc3FrQpZ7ACtLJf7haqtChDgUddJAOvYSX+vkCyUNC0CWQ74MPhJchpcO3tNd1XTPCskpY
+        VgnLKmFZJSyr+GIIr84J2H6gXZZz4H0O6h18ZmD7eykSswbe56CewecWbH8lRWLk2+F9DqqpD/MGPk9g
+        +zspEvMFvM9BHcCRsw+239UuyyHwPocWhGWVsKziizOQt+a3U7D9sXZZxsD7HNQn+LyA7R+lSMwGeJ+D
+        moPPDdh+IkVilsD7HNR/74w8gJn58525hG/nAmw/0i7LFHifQwvCskpYVvHFNuw5W2D7vnZZdoD3OagF
+        +DyA7a+lSMwKeJ+DaurDNPXofYBP2c9BU/8OSoVllbCsEpZVwrJKWNboej+Q6q40LUvULQAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>32</value>
   </metadata>
 </root>

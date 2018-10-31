@@ -27,6 +27,9 @@ namespace SylDesk
 
         public void Initialize(int proyecto_id)
         {
+            PanelCargando.Hide();
+
+
             Empty();
             this.proyecto_id = proyecto_id;
             numericUpDown1.Visible = false;
@@ -405,6 +408,7 @@ namespace SylDesk
 
         private void get_IVI(int area)
         {
+           
             Empty();
 
             chart1.ChartAreas[0].AxisY.Title = "I.V.I";
@@ -532,6 +536,12 @@ namespace SylDesk
 
         private void button1_Click(object sender, EventArgs e)
         {
+            /*PanelCargando.Visible = true;
+            System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ThreadStart(get_cat));
+            thread.Start();*/
+
+            
+
             numericUpDown1.Visible = false;
             get_cat();
         }
@@ -621,6 +631,11 @@ namespace SylDesk
         private void ReportButton_Click(object sender, EventArgs e)
         {
             form1.reportToFront();
+        }
+
+        private void Grafica_Load(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(TipBox, "Lorem ipsum dolor sit amet consectetur adipiscing\n elit ornare, accumsan nec auctor morbi eget diam cubilia curae,\n justo nisl fringilla natoque sodales dignissim tristique.\n Massa morbi fringilla taciti pulvinar vel nascetur risus luctus eros,\n aliquam orci accumsan quam convallis id sociis lectus egestas, dui mattis aptent leo conubia arcu mi consequat.\n Dictumst senectus litora suscipit proin pretium mattis facilisi, montes posuere ut felis convallis\n dignissim eleifend luctus, praesent urna nullam ridiculus vitae enim.");
         }
     }
 }

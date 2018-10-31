@@ -19,7 +19,7 @@ namespace SylDesk
             // hilo de inicializacion el formLoading
             Thread t = new Thread(new ThreadStart(StartForm));
             t.Start();
-            Thread.Sleep(8000);
+            Thread.Sleep(2000);
 
             InitializeComponent();
 
@@ -39,7 +39,16 @@ namespace SylDesk
             SidePanel2.Hide();
             SidePanel3.Hide();
             SidePanel4.Hide();
+
             formInicialToFront();
+            this.Show();
+            this.Activate();
+            this.TopMost = true;
+            this.TopMost = false;
+            this.Focus();
+            
+            
+            
         }
 
         //permite inicializar el form loading
@@ -48,8 +57,22 @@ namespace SylDesk
             Application.Run(new LoadingForm());
         }
 
-        
+        //########  minimizar y maximizar desde la barra de tareas  #######\\
 
+        const int WS_MINIMIZEDBOX = 0x20000;
+        const int CS_DBLCLKS = 0X8;
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style |= WS_MINIMIZEDBOX;
+                cp.ClassStyle |= CS_DBLCLKS;
+                return cp;
+            }
+        } 
+        // Side panel para seleccionar el boton seleccionado 
 
 
         private void button1_Click(object sender, EventArgs e)

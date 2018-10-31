@@ -120,5 +120,17 @@ namespace SylDesk
                 SqlConnector.sendMessage("Error", "La UMAFOR/Región ya se encuentra registrada como parte de los inventarios utilizados en el proyecto.", MessageBoxIcon.Error);
             }
         }
+
+        private void FormEditar_Load(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(TipBox, "En este formulario se editaran los proyectos llenando \nlos campos requeridos para su registro.\nRevisa bien los datos antes de guardar te quiero bb.");
+            
+        }
+
+        private void ButtonBack_Click(object sender, EventArgs e)
+        {
+            //form1.formRegistro2ToFront(proyecto_id);
+            form1.formRegistro3ToFront();
+        }
     }
 }

@@ -102,9 +102,9 @@
             this.groupBoxRegistro.Controls.Add(this.labelSuperficie);
             this.groupBoxRegistro.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxRegistro.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxRegistro.Location = new System.Drawing.Point(40, 36);
+            this.groupBoxRegistro.Location = new System.Drawing.Point(17, 36);
             this.groupBoxRegistro.Name = "groupBoxRegistro";
-            this.groupBoxRegistro.Size = new System.Drawing.Size(1024, 467);
+            this.groupBoxRegistro.Size = new System.Drawing.Size(1057, 467);
             this.groupBoxRegistro.TabIndex = 11;
             this.groupBoxRegistro.TabStop = false;
             this.groupBoxRegistro.Text = "Crear Proyecto";
@@ -460,7 +460,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(21, 56);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(266, 340);
+            this.pictureBox1.Size = new System.Drawing.Size(222, 268);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
@@ -484,7 +484,7 @@
             this.buttonRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
             this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistrar.Location = new System.Drawing.Point(727, 413);
+            this.buttonRegistrar.Location = new System.Drawing.Point(734, 413);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(150, 48);
             this.buttonRegistrar.TabIndex = 10;
@@ -546,16 +546,17 @@
             // TipBox
             // 
             this.TipBox.Image = ((System.Drawing.Image)(resources.GetObject("TipBox.Image")));
-            this.TipBox.Location = new System.Drawing.Point(1051, 3);
+            this.TipBox.Location = new System.Drawing.Point(1052, 3);
             this.TipBox.Name = "TipBox";
             this.TipBox.Size = new System.Drawing.Size(23, 22);
             this.TipBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.TipBox.TabIndex = 13;
             this.TipBox.TabStop = false;
+            this.TipBox.Click += new System.EventHandler(this.TipBox_Click);
             // 
             // toolTip1
             // 
-            this.toolTip1.AutoPopDelay = 9000;
+            this.toolTip1.AutoPopDelay = 25000;
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.IsBalloon = true;
             this.toolTip1.ReshowDelay = 100;
