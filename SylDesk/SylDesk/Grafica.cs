@@ -10,7 +10,7 @@ namespace SylDesk
 {
     public partial class Grafica : UserControl
     {
-        private int proyecto_id;
+        private Proyecto proyecto;
         private Form1 form1;
         private int flag = 0;
         private double superficie = 0;
@@ -25,20 +25,16 @@ namespace SylDesk
             this.form1 = form1;
         }
 
-        public void Initialize(int proyecto_id)
+        public void Initialize(Proyecto proyecto)
         {
             PanelCargando.Hide();
 
 
             Empty();
-            this.proyecto_id = proyecto_id;
+            this.proyecto = proyecto;
             numericUpDown1.Visible = false;
 
-            Proyecto proyecto = SqlConnector.proyectoGet(
-                "SELECT * from proyectos where id = @id",
-                new String[] { "id" },
-                new String[] { "" + proyecto_id }                
-            );
+            
             superficie = Convert.ToDouble(proyecto.getSuperficie());
         }
 
@@ -53,7 +49,7 @@ namespace SylDesk
 
         private void button17_Click(object sender, EventArgs e)
         {
-            form1.formRegistro2ToFront(proyecto_id);
+            form1.formRegistro2ToFront(proyecto);
         }
 
         private void get_cat() //individuos por categorias de altura
@@ -69,7 +65,7 @@ namespace SylDesk
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
                 "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND alturatotal > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
-                new String[] { "" + proyecto_id }
+                new String[] { "" + proyecto.getId() }
             );
             
             if (null_checker != null && null_checker.Count > 0)
@@ -77,7 +73,7 @@ namespace SylDesk
                 List<String> aux = SqlConnector.anyEspecificValueGet(
                     "SELECT Min(alturatotal) as minimo from individuos where proyecto_id = @proyecto_id AND area = 500 AND alturatotal > 0 AND bifurcados = 0",
                     new String[] { "proyecto_id" },
-                    new String[] { "" + proyecto_id }
+                    new String[] { "" + proyecto.getId() }
                 );
 
                 double min = Convert.ToDouble(aux[0]);
@@ -85,7 +81,7 @@ namespace SylDesk
                 aux = SqlConnector.anyEspecificValueGet(
                     "SELECT Max(alturatotal) as maximo from individuos where proyecto_id = @proyecto_id AND area = 500 AND alturatotal > 0 AND bifurcados = 0",
                     new String[] { "proyecto_id" },
-                    new String[] { "" + proyecto_id }
+                    new String[] { "" + proyecto.getId() }
                 );
 
                 double max = Convert.ToDouble(aux[0]);
@@ -122,7 +118,7 @@ namespace SylDesk
                     aux = SqlConnector.anyEspecificValueGet(
                         sqlQueryString,
                         new String[] { "proyecto_id" },
-                        new String[] { "" + proyecto_id }
+                        new String[] { "" + proyecto.getId() }
                     );
 
                     chart1.Series.Add(new kawaii_lolis.Series("" + current_rango));
@@ -164,7 +160,7 @@ namespace SylDesk
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
                 "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND diametro > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
-                new String[] { "" + proyecto_id }
+                new String[] { "" + proyecto.getId() }
             );
 
             if (null_checker != null && null_checker.Count > 0)
@@ -172,14 +168,14 @@ namespace SylDesk
                 List<String> aux = SqlConnector.anyEspecificValueGet(
                     "SELECT Min(diametro) as minimo from individuos where proyecto_id = @proyecto_id AND area = 500 AND diametro > 0 AND bifurcados = 0",
                     new String[] { "proyecto_id" },
-                    new String[] { "" + proyecto_id }
+                    new String[] { "" + proyecto.getId() }
                 );
                 double min = Convert.ToDouble(aux[0]);
 
                 aux = SqlConnector.anyEspecificValueGet(
                     "SELECT Max(diametro) as maximo from individuos where proyecto_id = @proyecto_id AND area = 500 AND diametro > 0 AND bifurcados = 0",
                     new String[] { "proyecto_id" },
-                    new String[] { "" + proyecto_id }
+                    new String[] { "" + proyecto.getId() }
                 );
                 double max = Convert.ToDouble(aux[0]);
 
@@ -214,7 +210,7 @@ namespace SylDesk
                     aux = SqlConnector.anyEspecificValueGet(
                         sqlQueryString,
                         new String[] { "proyecto_id" },
-                        new String[] { "" + proyecto_id }
+                        new String[] { "" + proyecto.getId() }
                     );
 
                     chart1.Series.Add(new kawaii_lolis.Series("" + current_rango));
@@ -261,7 +257,7 @@ namespace SylDesk
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
                 "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND bifurcados = 0 Group By nombrecientifico",
                 new String[] { "proyecto_id" },
-                new String[] { "" + proyecto_id }
+                new String[] { "" + proyecto.getId() }
             );
 
 
@@ -270,7 +266,7 @@ namespace SylDesk
                 List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
                     "SELECT nombrecientifico, Count(nombrecientifico) as conteo from individuos where proyecto_id = @proyecto_id AND area = 500 AND bifurcados = 0 Group By nombrecientifico ORDER BY conteo DESC",
                     new String[] { "proyecto_id" },
-                    new String[] { "" + proyecto_id }
+                    new String[] { "" + proyecto.getId() }
                 );
 
                 for (int i = 0; i < numericUpDown1.Value && i < aux.Count; i++)
@@ -314,7 +310,7 @@ namespace SylDesk
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
                 "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND areabasal > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
-                new String[] { "" + proyecto_id }
+                new String[] { "" + proyecto.getId() }
             );
 
             if (null_checker != null && null_checker.Count > 0)
@@ -322,7 +318,7 @@ namespace SylDesk
                 List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
                     "SELECT nombrecientifico, Sum(areabasal) as areabasal2 from individuos where proyecto_id = @proyecto_id AND area = 500 AND areabasal > 0 Group By nombrecientifico ORDER BY areabasal2 DESC",
                     new String[] { "proyecto_id" },
-                    new String[] { "" + proyecto_id }
+                    new String[] { "" + proyecto.getId() }
                 );
 
                 for (int i = 0; i < numericUpDown1.Value && i < aux.Count; i++)
@@ -366,7 +362,7 @@ namespace SylDesk
             List<String> null_checker = SqlConnector.anyEspecificValueGet(
                 "SELECT * from individuos where proyecto_id = @proyecto_id AND area = 500 AND volumen > 0 AND bifurcados = 0",
                 new String[] { "proyecto_id" },
-                new String[] { "" + proyecto_id }
+                new String[] { "" + proyecto.getId() }
             );
 
             if (null_checker != null && null_checker.Count > 0)
@@ -374,7 +370,7 @@ namespace SylDesk
                 List<List<String>> aux = SqlConnector.anyEspecificValuesGet(
                     "SELECT nombrecientifico, Sum(volumen) as volumen2 from individuos where proyecto_id = @proyecto_id AND area = 500 AND volumen > 0 Group By nombrecientifico ORDER BY volumen DESC",
                     new String[] { "proyecto_id" },
-                    new String[] { "" + proyecto_id }
+                    new String[] { "" + proyecto.getId() }
                 );
 
                 for (int i = 0; i < numericUpDown1.Value && i < aux.Count; i++)
@@ -445,7 +441,7 @@ namespace SylDesk
             List<String> aux = SqlConnector.anyEspecificValueGet(
                 "SELECT Count(*) from sitios where proyecto_id = @proyecto_id",
                 new String[] { "proyecto_id" },
-                new String[] { "" + proyecto_id }
+                new String[] { "" + proyecto.getId() }
             );
             num_sitios = Convert.ToInt32(aux[0]);
 
@@ -455,7 +451,7 @@ namespace SylDesk
             List<List<String>> aux2 = SqlConnector.anyEspecificValuesGet(
                 "SELECT nombrecientifico from individuos where proyecto_id = @proyecto_id AND area =  " + area + " AND nombrecientifico != \"\" Group By nombrecientifico ORDER BY nombrecientifico ASC",
                 new String[] { "proyecto_id" },
-                new String[] { "" + proyecto_id }
+                new String[] { "" + proyecto.getId() }
             );
 
             foreach (List<String> results in aux2)
@@ -485,7 +481,7 @@ namespace SylDesk
                         //"SELECT Count(nombrecientifico), areabasal from individuos where proyecto_id = @proyecto_id AND area =  " + area + " AND sitio = " + j + " AND nombrecientifico = \"" + lista_individuos[i] + "\" AND areabasal > 0",
                         "SELECT Count(nombrecientifico), Sum(areabasal) from individuos where proyecto_id = @proyecto_id AND area =  " + area + " AND sitio = " + j + " AND nombrecientifico = \"" + lista_individuos[i] + "\" AND areabasal > 0",
                         new String[] { "proyecto_id" },
-                        new String[] { "" + proyecto_id }
+                        new String[] { "" + proyecto.getId() }
                     );
 
                     int aux3 = Convert.ToInt32(aux[0]);

@@ -10,7 +10,7 @@ namespace SylDesk
     public partial class FormRegistroEspecie : UserControl
     {
         private Form1 form1;
-        private int proyecto_id = -1;
+        private Proyecto proyecto = null;
         private int status = 0;
         private string nombre = "";
 
@@ -24,11 +24,11 @@ namespace SylDesk
             this.form1 = form1;
         }
 
-        public void Initialize(int proyecto_id, int status, String nombre)
+        public void Initialize(Proyecto proyecto, int status, String nombre)
         {
             Empty();
             dataGridViewEspecies_Populate("");
-            this.proyecto_id = proyecto_id;
+            this.proyecto = proyecto;
             this.status = status;
             this.nombre = nombre;
             textBoxNombreCientifico.Text = nombre;
@@ -64,7 +64,7 @@ namespace SylDesk
 
                 if (status == 1)
                 {
-                    form1.formRegistro2ToFront(proyecto_id);
+                    form1.formRegistro2ToFront(proyecto);
                 }
             }
             else
@@ -211,9 +211,17 @@ namespace SylDesk
             dataGridViewEspecies_Populate(textBoxBuscarEspecie.Text);
         }
 
+
         private void FormRegistroEspecie_Load(object sender, EventArgs e)
         {
             toolTip1.SetToolTip(TipBox, "Lorem ipsum dolor sit amet consectetur adipiscing\n elit ornare, accumsan nec auctor morbi eget diam cubilia curae,\n justo nisl fringilla natoque sodales dignissim tristique.\n Massa morbi fringilla taciti pulvinar vel nascetur risus luctus eros,\n aliquam orci accumsan quam convallis id sociis lectus egestas, dui mattis aptent leo conubia arcu mi consequat.\n Dictumst senectus litora suscipit proin pretium mattis facilisi, montes posuere ut felis convallis\n dignissim eleifend luctus, praesent urna nullam ridiculus vitae enim.");
+        }
+
+        private void textBoxNombreCientifico_TextChanged(object sender, EventArgs e)
+        {
+            string s = textBoxNombreCientifico.Text;
+            textBoxGenero.Text = SqlConnector.getFirstWord(s);
+
         }
     }
 }

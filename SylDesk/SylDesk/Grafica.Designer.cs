@@ -240,6 +240,7 @@
             // 
             // TipBox
             // 
+            this.TipBox.Cursor = System.Windows.Forms.Cursors.Help;
             this.TipBox.Image = ((System.Drawing.Image)(resources.GetObject("TipBox.Image")));
             this.TipBox.Location = new System.Drawing.Point(1052, 3);
             this.TipBox.Name = "TipBox";

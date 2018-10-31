@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistroEspecie));
             this.textBoxGenero = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -133,14 +133,14 @@
             this.dataGridViewEspecies.AllowUserToAddRows = false;
             this.dataGridViewEspecies.AllowUserToDeleteRows = false;
             this.dataGridViewEspecies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewEspecies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEspecies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewEspecies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEspecies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.familia,
@@ -168,8 +168,8 @@
             // 
             // nombrecientifico
             // 
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle2;
             this.nombrecientifico.HeaderText = "Nombre Científico";
             this.nombrecientifico.Name = "nombrecientifico";
             // 
@@ -190,13 +190,13 @@
             // 
             // borrar
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            this.borrar.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.borrar.DefaultCellStyle = dataGridViewCellStyle3;
             this.borrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.borrar.HeaderText = "Borrar";
             this.borrar.Name = "borrar";
@@ -227,6 +227,7 @@
             this.textBoxNombreCientifico.Name = "textBoxNombreCientifico";
             this.textBoxNombreCientifico.Size = new System.Drawing.Size(234, 20);
             this.textBoxNombreCientifico.TabIndex = 76;
+            this.textBoxNombreCientifico.TextChanged += new System.EventHandler(this.textBoxNombreCientifico_TextChanged);
             // 
             // labelFamilia
             // 
@@ -339,6 +340,7 @@
             this.comboBoxCategoriaDeNorma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategoriaDeNorma.FormattingEnabled = true;
             this.comboBoxCategoriaDeNorma.Items.AddRange(new object[] {
+            "No Aplica",
             "Amenaza",
             "Extinta",
             "Peligro",
@@ -373,6 +375,7 @@
             // 
             // TipBox
             // 
+            this.TipBox.Cursor = System.Windows.Forms.Cursors.Help;
             this.TipBox.Image = ((System.Drawing.Image)(resources.GetObject("TipBox.Image")));
             this.TipBox.Location = new System.Drawing.Point(1052, 3);
             this.TipBox.Name = "TipBox";
