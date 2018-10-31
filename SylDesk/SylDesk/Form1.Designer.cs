@@ -35,6 +35,10 @@
             this.button10 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SidePanel4 = new System.Windows.Forms.Panel();
+            this.SidePanel3 = new System.Windows.Forms.Panel();
+            this.SidePanel2 = new System.Windows.Forms.Panel();
+            this.SidePanel1 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -152,6 +156,10 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox1.Controls.Add(this.SidePanel4);
+            this.groupBox1.Controls.Add(this.SidePanel3);
+            this.groupBox1.Controls.Add(this.SidePanel2);
+            this.groupBox1.Controls.Add(this.SidePanel1);
             this.groupBox1.Controls.Add(this.button9);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.panel2);
@@ -161,9 +169,41 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(12, 62);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(444, 93);
+            this.groupBox1.Size = new System.Drawing.Size(494, 93);
             this.groupBox1.TabIndex = 69;
             this.groupBox1.TabStop = false;
+            // 
+            // SidePanel4
+            // 
+            this.SidePanel4.BackColor = System.Drawing.Color.LimeGreen;
+            this.SidePanel4.Location = new System.Drawing.Point(314, 60);
+            this.SidePanel4.Name = "SidePanel4";
+            this.SidePanel4.Size = new System.Drawing.Size(95, 7);
+            this.SidePanel4.TabIndex = 76;
+            // 
+            // SidePanel3
+            // 
+            this.SidePanel3.BackColor = System.Drawing.Color.LimeGreen;
+            this.SidePanel3.Location = new System.Drawing.Point(224, 60);
+            this.SidePanel3.Name = "SidePanel3";
+            this.SidePanel3.Size = new System.Drawing.Size(83, 7);
+            this.SidePanel3.TabIndex = 75;
+            // 
+            // SidePanel2
+            // 
+            this.SidePanel2.BackColor = System.Drawing.Color.LimeGreen;
+            this.SidePanel2.Location = new System.Drawing.Point(118, 60);
+            this.SidePanel2.Name = "SidePanel2";
+            this.SidePanel2.Size = new System.Drawing.Size(100, 7);
+            this.SidePanel2.TabIndex = 75;
+            // 
+            // SidePanel1
+            // 
+            this.SidePanel1.BackColor = System.Drawing.Color.LimeGreen;
+            this.SidePanel1.Location = new System.Drawing.Point(15, 60);
+            this.SidePanel1.Name = "SidePanel1";
+            this.SidePanel1.Size = new System.Drawing.Size(97, 7);
+            this.SidePanel1.TabIndex = 74;
             // 
             // button9
             // 
@@ -172,7 +212,7 @@
             this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(369, 0);
+            this.button9.Location = new System.Drawing.Point(422, 0);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(55, 61);
             this.button9.TabIndex = 10;
@@ -187,11 +227,11 @@
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(285, -1);
+            this.button4.Location = new System.Drawing.Point(314, -1);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(72, 61);
+            this.button4.Size = new System.Drawing.Size(95, 61);
             this.button4.TabIndex = 9;
-            this.button4.Text = "Calculadora";
+            this.button4.Text = "Ecuac. Volumen";
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -201,9 +241,9 @@
             this.panel2.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 67);
+            this.panel2.Location = new System.Drawing.Point(3, 68);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(438, 23);
+            this.panel2.Size = new System.Drawing.Size(488, 22);
             this.panel2.TabIndex = 8;
             // 
             // label1
@@ -211,7 +251,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(123, 0);
+            this.label1.Location = new System.Drawing.Point(189, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 15);
             this.label1.TabIndex = 0;
@@ -226,9 +266,9 @@
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.Location = new System.Drawing.Point(224, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(55, 61);
+            this.button3.Size = new System.Drawing.Size(83, 61);
             this.button3.TabIndex = 7;
-            this.button3.Text = "Especie";
+            this.button3.Text = "Crear Especie";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -275,7 +315,7 @@
             this.groupBox3.Controls.Add(this.button15);
             this.groupBox3.Controls.Add(this.button16);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(737, 62);
+            this.groupBox3.Location = new System.Drawing.Point(787, 62);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(278, 93);
             this.groupBox3.TabIndex = 71;
@@ -311,7 +351,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(96, 0);
+            this.label3.Location = new System.Drawing.Point(96, 4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 15);
             this.label3.TabIndex = 1;
@@ -383,7 +423,7 @@
             this.groupBox2.Controls.Add(this.button7);
             this.groupBox2.Controls.Add(this.button8);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(462, 61);
+            this.groupBox2.Location = new System.Drawing.Point(512, 61);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(269, 93);
             this.groupBox2.TabIndex = 70;
@@ -419,7 +459,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(96, 0);
+            this.label2.Location = new System.Drawing.Point(106, 4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 1;
@@ -616,6 +656,10 @@
         private Report report = null;
         private CalculadoraEcu calculadoraEcu = null;
         private FormEditar formEditar = null;
+        private System.Windows.Forms.Panel SidePanel1;
+        private System.Windows.Forms.Panel SidePanel2;
+        private System.Windows.Forms.Panel SidePanel4;
+        private System.Windows.Forms.Panel SidePanel3;
     }
 }
 

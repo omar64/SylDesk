@@ -293,5 +293,10 @@ namespace SylDesk
                 }
             }
         }
+
+        private void FormRegistro1_Load(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(TipBox, "En este formulario se crearan los proyectos llenando \nlos campos requeridos para su registro");
+        }
     }
 }

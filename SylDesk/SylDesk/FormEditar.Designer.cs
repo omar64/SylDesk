@@ -90,7 +90,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 15);
             this.label3.TabIndex = 98;
-            this.label3.Text = "Superficie (Hectareas):";
+            this.label3.Text = "Superficie (Hectáreas):";
             // 
             // label5
             // 
@@ -126,7 +126,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(37, 66);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(274, 333);
+            this.pictureBox1.Size = new System.Drawing.Size(291, 335);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 103;
             this.pictureBox1.TabStop = false;
@@ -175,7 +175,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 13);
             this.label2.TabIndex = 103;
-            this.label2.Text = "Umafor/Region";
+            this.label2.Text = "Umafor/Región";
             // 
             // groupBox2
             // 

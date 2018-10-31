@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculadoraEcu));
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("perimetro");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("diametro");
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("altura fuste limpio");
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("altura total");
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("cobertura largo");
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("cobertura ancho");
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("area basal");
-            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("Manikara sapota-Zona Chunjujub");
-            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("Bursera Simaruba-Norte de Quintana Roo");
-            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("Bursera Simaruba-Zona Chunjujub");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("perimetro");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("diametro");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("altura fuste limpio");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("altura total");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("cobertura largo");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("cobertura ancho");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("area basal");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Manikara sapota-Zona Chunjujub");
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Bursera Simaruba-Norte de Quintana Roo");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Bursera Simaruba-Zona Chunjujub");
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -185,21 +185,21 @@
             // 
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            listViewItem11.Tag = "PERIMETRO";
-            listViewItem12.Tag = "DIAMETRO";
-            listViewItem13.Tag = "ALTURAFL";
-            listViewItem14.Tag = "ALTURATOTAL";
-            listViewItem15.Tag = "COBERTURALARGO";
-            listViewItem16.Tag = "COBERTURAANCHO";
-            listViewItem17.Tag = "AREABASAL";
+            listViewItem1.Tag = "PERIMETRO";
+            listViewItem2.Tag = "DIAMETRO";
+            listViewItem3.Tag = "ALTURAFL";
+            listViewItem4.Tag = "ALTURATOTAL";
+            listViewItem5.Tag = "COBERTURALARGO";
+            listViewItem6.Tag = "COBERTURAANCHO";
+            listViewItem7.Tag = "AREABASAL";
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16,
-            listViewItem17});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7});
             this.listView1.LabelWrap = false;
             this.listView1.Location = new System.Drawing.Point(14, 218);
             this.listView1.MultiSelect = false;
@@ -214,9 +214,10 @@
             // 
             this.button8.BackColor = System.Drawing.Color.White;
             this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(729, 343);
+            this.button8.Location = new System.Drawing.Point(729, 346);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(45, 35);
             this.button8.TabIndex = 50;
@@ -228,6 +229,7 @@
             // 
             this.button7.BackColor = System.Drawing.Color.White;
             this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Location = new System.Drawing.Point(729, 217);
@@ -243,6 +245,7 @@
             // 
             this.button6.BackColor = System.Drawing.Color.White;
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(678, 301);
@@ -258,6 +261,7 @@
             // 
             this.button5.BackColor = System.Drawing.Color.White;
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(780, 217);
@@ -273,6 +277,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.White;
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(729, 258);
@@ -297,6 +302,7 @@
             // 
             this.button30.BackColor = System.Drawing.Color.White;
             this.button30.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button30.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button30.Location = new System.Drawing.Point(678, 258);
@@ -312,6 +318,7 @@
             // 
             this.button29.BackColor = System.Drawing.Color.White;
             this.button29.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button29.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button29.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button29.Location = new System.Drawing.Point(729, 301);
@@ -327,9 +334,10 @@
             // 
             this.button27.BackColor = System.Drawing.Color.White;
             this.button27.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button27.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button27.Location = new System.Drawing.Point(678, 343);
+            this.button27.Location = new System.Drawing.Point(678, 346);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(45, 35);
             this.button27.TabIndex = 37;
@@ -342,9 +350,10 @@
             // 
             this.button15.BackColor = System.Drawing.Color.White;
             this.button15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(627, 343);
+            this.button15.Location = new System.Drawing.Point(627, 346);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(45, 35);
             this.button15.TabIndex = 35;
@@ -357,6 +366,7 @@
             // 
             this.button16.BackColor = System.Drawing.Color.White;
             this.button16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button16.Location = new System.Drawing.Point(627, 301);
@@ -372,6 +382,7 @@
             // 
             this.button17.BackColor = System.Drawing.Color.White;
             this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button17.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button17.Location = new System.Drawing.Point(780, 259);
@@ -387,9 +398,10 @@
             // 
             this.button18.BackColor = System.Drawing.Color.White;
             this.button18.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button18.Location = new System.Drawing.Point(627, 258);
+            this.button18.Location = new System.Drawing.Point(627, 259);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(45, 35);
             this.button18.TabIndex = 32;
@@ -402,9 +414,10 @@
             // 
             this.button19.BackColor = System.Drawing.Color.White;
             this.button19.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button19.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button19.Location = new System.Drawing.Point(678, 218);
+            this.button19.Location = new System.Drawing.Point(678, 217);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(45, 35);
             this.button19.TabIndex = 31;
@@ -417,9 +430,10 @@
             // 
             this.button25.BackColor = System.Drawing.Color.White;
             this.button25.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button25.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button25.Location = new System.Drawing.Point(627, 218);
+            this.button25.Location = new System.Drawing.Point(627, 217);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(45, 35);
             this.button25.TabIndex = 25;
@@ -432,9 +446,10 @@
             // 
             this.button14.BackColor = System.Drawing.Color.White;
             this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(568, 340);
+            this.button14.Location = new System.Drawing.Point(568, 347);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(45, 35);
             this.button14.TabIndex = 24;
@@ -447,11 +462,12 @@
             // 
             this.button13.BackColor = System.Drawing.Color.White;
             this.button13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(466, 340);
+            this.button13.Location = new System.Drawing.Point(466, 347);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(96, 34);
+            this.button13.Size = new System.Drawing.Size(96, 35);
             this.button13.TabIndex = 23;
             this.button13.Tag = "0";
             this.button13.Text = "0";
@@ -462,9 +478,10 @@
             // 
             this.num3.BackColor = System.Drawing.Color.White;
             this.num3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.num3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.num3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num3.Location = new System.Drawing.Point(568, 299);
+            this.num3.Location = new System.Drawing.Point(568, 302);
             this.num3.Name = "num3";
             this.num3.Size = new System.Drawing.Size(45, 35);
             this.num3.TabIndex = 22;
@@ -477,9 +494,10 @@
             // 
             this.num2.BackColor = System.Drawing.Color.White;
             this.num2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.num2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.num2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num2.Location = new System.Drawing.Point(517, 299);
+            this.num2.Location = new System.Drawing.Point(517, 302);
             this.num2.Name = "num2";
             this.num2.Size = new System.Drawing.Size(45, 35);
             this.num2.TabIndex = 21;
@@ -492,9 +510,10 @@
             // 
             this.num1.BackColor = System.Drawing.Color.White;
             this.num1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.num1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.num1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num1.Location = new System.Drawing.Point(466, 299);
+            this.num1.Location = new System.Drawing.Point(466, 302);
             this.num1.Name = "num1";
             this.num1.Size = new System.Drawing.Size(45, 35);
             this.num1.TabIndex = 20;
@@ -507,9 +526,10 @@
             // 
             this.num6.BackColor = System.Drawing.Color.White;
             this.num6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.num6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.num6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num6.Location = new System.Drawing.Point(568, 256);
+            this.num6.Location = new System.Drawing.Point(568, 259);
             this.num6.Name = "num6";
             this.num6.Size = new System.Drawing.Size(45, 35);
             this.num6.TabIndex = 19;
@@ -522,9 +542,10 @@
             // 
             this.num5.BackColor = System.Drawing.Color.White;
             this.num5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.num5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.num5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num5.Location = new System.Drawing.Point(517, 256);
+            this.num5.Location = new System.Drawing.Point(517, 259);
             this.num5.Name = "num5";
             this.num5.Size = new System.Drawing.Size(45, 35);
             this.num5.TabIndex = 18;
@@ -537,6 +558,7 @@
             // 
             this.num9.BackColor = System.Drawing.Color.White;
             this.num9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.num9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.num9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num9.Location = new System.Drawing.Point(568, 217);
@@ -552,6 +574,7 @@
             // 
             this.num8.BackColor = System.Drawing.Color.White;
             this.num8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.num8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.num8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num8.Location = new System.Drawing.Point(517, 217);
@@ -567,11 +590,12 @@
             // 
             this.num4.BackColor = System.Drawing.Color.White;
             this.num4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.num4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.num4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num4.Location = new System.Drawing.Point(466, 256);
+            this.num4.Location = new System.Drawing.Point(466, 259);
             this.num4.Name = "num4";
-            this.num4.Size = new System.Drawing.Size(45, 37);
+            this.num4.Size = new System.Drawing.Size(45, 35);
             this.num4.TabIndex = 15;
             this.num4.Tag = "4";
             this.num4.Text = "4";
@@ -582,11 +606,12 @@
             // 
             this.num7.BackColor = System.Drawing.Color.White;
             this.num7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.num7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.num7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.num7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num7.Location = new System.Drawing.Point(466, 217);
             this.num7.Name = "num7";
-            this.num7.Size = new System.Drawing.Size(45, 33);
+            this.num7.Size = new System.Drawing.Size(45, 35);
             this.num7.TabIndex = 14;
             this.num7.Tag = "7";
             this.num7.Text = "7";
@@ -665,7 +690,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 15);
             this.label1.TabIndex = 4;
-            this.label1.Text = "UMAFOR/Region:";
+            this.label1.Text = "UMAFOR/Región:";
             // 
             // panel2
             // 
@@ -686,7 +711,7 @@
             this.buttonBorrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonBorrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonBorrar.Image")));
             this.buttonBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBorrar.Location = new System.Drawing.Point(90, 419);
+            this.buttonBorrar.Location = new System.Drawing.Point(117, 419);
             this.buttonBorrar.Name = "buttonBorrar";
             this.buttonBorrar.Size = new System.Drawing.Size(107, 39);
             this.buttonBorrar.TabIndex = 54;
@@ -698,9 +723,9 @@
             // 
             this.listView2.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem18,
-            listViewItem19,
-            listViewItem20});
+            listViewItem8,
+            listViewItem9,
+            listViewItem10});
             this.listView2.Location = new System.Drawing.Point(6, 37);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(218, 376);
