@@ -406,6 +406,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 4);
             this.pictureBox1.Name = "pictureBox1";
@@ -413,6 +414,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 68;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // groupBox2
             // 
@@ -535,6 +537,7 @@
             // formRegistroEspecie
             // 
             this.formRegistroEspecie.Location = new System.Drawing.Point(3, 161);
+            this.formRegistroEspecie.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.formRegistroEspecie.Name = "formRegistroEspecie";
             this.formRegistroEspecie.Size = new System.Drawing.Size(1085, 527);
             this.formRegistroEspecie.TabIndex = 73;

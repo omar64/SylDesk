@@ -78,6 +78,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TipBox = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBoxRegistro.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -112,6 +114,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
@@ -150,7 +154,7 @@
             // 
             this.groupBox5.Controls.Add(this.radioCobertura4);
             this.groupBox5.Controls.Add(this.radioVolumen4);
-            this.groupBox5.Location = new System.Drawing.Point(206, 163);
+            this.groupBox5.Location = new System.Drawing.Point(206, 167);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(145, 23);
             this.groupBox5.TabIndex = 95;
@@ -180,7 +184,7 @@
             // 
             this.groupBox4.Controls.Add(this.radioCobertura3);
             this.groupBox4.Controls.Add(this.radioVolumen3);
-            this.groupBox4.Location = new System.Drawing.Point(206, 134);
+            this.groupBox4.Location = new System.Drawing.Point(206, 138);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(145, 23);
             this.groupBox4.TabIndex = 94;
@@ -210,7 +214,7 @@
             // 
             this.groupBox3.Controls.Add(this.radioCobertura2);
             this.groupBox3.Controls.Add(this.radioVolumen2);
-            this.groupBox3.Location = new System.Drawing.Point(206, 106);
+            this.groupBox3.Location = new System.Drawing.Point(206, 110);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(145, 23);
             this.groupBox3.TabIndex = 93;
@@ -240,7 +244,7 @@
             // 
             this.groupBox2.Controls.Add(this.radioCobertura1);
             this.groupBox2.Controls.Add(this.radioVolumen1);
-            this.groupBox2.Location = new System.Drawing.Point(206, 79);
+            this.groupBox2.Location = new System.Drawing.Point(206, 83);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(145, 23);
             this.groupBox2.TabIndex = 50;
@@ -288,63 +292,63 @@
             // 
             // AlturaTxB4
             // 
-            this.AlturaTxB4.Location = new System.Drawing.Point(486, 163);
+            this.AlturaTxB4.Location = new System.Drawing.Point(486, 167);
             this.AlturaTxB4.Name = "AlturaTxB4";
             this.AlturaTxB4.Size = new System.Drawing.Size(100, 22);
             this.AlturaTxB4.TabIndex = 82;
             // 
             // AlturaTxB3
             // 
-            this.AlturaTxB3.Location = new System.Drawing.Point(486, 135);
+            this.AlturaTxB3.Location = new System.Drawing.Point(486, 139);
             this.AlturaTxB3.Name = "AlturaTxB3";
             this.AlturaTxB3.Size = new System.Drawing.Size(100, 22);
             this.AlturaTxB3.TabIndex = 81;
             // 
             // AlturaTxB2
             // 
-            this.AlturaTxB2.Location = new System.Drawing.Point(486, 107);
+            this.AlturaTxB2.Location = new System.Drawing.Point(486, 111);
             this.AlturaTxB2.Name = "AlturaTxB2";
             this.AlturaTxB2.Size = new System.Drawing.Size(100, 22);
             this.AlturaTxB2.TabIndex = 80;
             // 
             // AlturaTxB1
             // 
-            this.AlturaTxB1.Location = new System.Drawing.Point(486, 79);
+            this.AlturaTxB1.Location = new System.Drawing.Point(486, 83);
             this.AlturaTxB1.Name = "AlturaTxB1";
             this.AlturaTxB1.Size = new System.Drawing.Size(100, 22);
             this.AlturaTxB1.TabIndex = 79;
             // 
             // DiametroTxB4
             // 
-            this.DiametroTxB4.Location = new System.Drawing.Point(369, 163);
+            this.DiametroTxB4.Location = new System.Drawing.Point(369, 167);
             this.DiametroTxB4.Name = "DiametroTxB4";
             this.DiametroTxB4.Size = new System.Drawing.Size(100, 22);
             this.DiametroTxB4.TabIndex = 77;
             // 
             // DiametroTxB3
             // 
-            this.DiametroTxB3.Location = new System.Drawing.Point(369, 135);
+            this.DiametroTxB3.Location = new System.Drawing.Point(369, 139);
             this.DiametroTxB3.Name = "DiametroTxB3";
             this.DiametroTxB3.Size = new System.Drawing.Size(100, 22);
             this.DiametroTxB3.TabIndex = 76;
             // 
             // DiametroTxB2
             // 
-            this.DiametroTxB2.Location = new System.Drawing.Point(369, 107);
+            this.DiametroTxB2.Location = new System.Drawing.Point(369, 111);
             this.DiametroTxB2.Name = "DiametroTxB2";
             this.DiametroTxB2.Size = new System.Drawing.Size(100, 22);
             this.DiametroTxB2.TabIndex = 75;
             // 
             // DiametroTxB1
             // 
-            this.DiametroTxB1.Location = new System.Drawing.Point(369, 79);
+            this.DiametroTxB1.Location = new System.Drawing.Point(369, 83);
             this.DiametroTxB1.Name = "DiametroTxB1";
             this.DiametroTxB1.Size = new System.Drawing.Size(100, 22);
             this.DiametroTxB1.TabIndex = 74;
             // 
             // SuperficieTxB4
             // 
-            this.SuperficieTxB4.Location = new System.Drawing.Point(100, 163);
+            this.SuperficieTxB4.Location = new System.Drawing.Point(100, 167);
             this.SuperficieTxB4.Name = "SuperficieTxB4";
             this.SuperficieTxB4.Size = new System.Drawing.Size(100, 22);
             this.SuperficieTxB4.TabIndex = 61;
@@ -352,7 +356,7 @@
             // checkBoxA4
             // 
             this.checkBoxA4.AutoSize = true;
-            this.checkBoxA4.Location = new System.Drawing.Point(29, 165);
+            this.checkBoxA4.Location = new System.Drawing.Point(29, 169);
             this.checkBoxA4.Name = "checkBoxA4";
             this.checkBoxA4.Size = new System.Drawing.Size(65, 20);
             this.checkBoxA4.TabIndex = 60;
@@ -362,7 +366,7 @@
             // 
             // SuperficieTxB3
             // 
-            this.SuperficieTxB3.Location = new System.Drawing.Point(100, 135);
+            this.SuperficieTxB3.Location = new System.Drawing.Point(100, 139);
             this.SuperficieTxB3.Name = "SuperficieTxB3";
             this.SuperficieTxB3.Size = new System.Drawing.Size(100, 22);
             this.SuperficieTxB3.TabIndex = 59;
@@ -370,7 +374,7 @@
             // checkBoxA3
             // 
             this.checkBoxA3.AutoSize = true;
-            this.checkBoxA3.Location = new System.Drawing.Point(29, 137);
+            this.checkBoxA3.Location = new System.Drawing.Point(29, 141);
             this.checkBoxA3.Name = "checkBoxA3";
             this.checkBoxA3.Size = new System.Drawing.Size(65, 20);
             this.checkBoxA3.TabIndex = 58;
@@ -380,7 +384,7 @@
             // 
             // SuperficieTxB2
             // 
-            this.SuperficieTxB2.Location = new System.Drawing.Point(100, 107);
+            this.SuperficieTxB2.Location = new System.Drawing.Point(100, 111);
             this.SuperficieTxB2.Name = "SuperficieTxB2";
             this.SuperficieTxB2.Size = new System.Drawing.Size(100, 22);
             this.SuperficieTxB2.TabIndex = 57;
@@ -388,7 +392,7 @@
             // checkBoxA2
             // 
             this.checkBoxA2.AutoSize = true;
-            this.checkBoxA2.Location = new System.Drawing.Point(29, 109);
+            this.checkBoxA2.Location = new System.Drawing.Point(29, 113);
             this.checkBoxA2.Name = "checkBoxA2";
             this.checkBoxA2.Size = new System.Drawing.Size(65, 20);
             this.checkBoxA2.TabIndex = 56;
@@ -443,7 +447,7 @@
             // 
             // SuperficieTxB1
             // 
-            this.SuperficieTxB1.Location = new System.Drawing.Point(100, 79);
+            this.SuperficieTxB1.Location = new System.Drawing.Point(100, 83);
             this.SuperficieTxB1.Name = "SuperficieTxB1";
             this.SuperficieTxB1.Size = new System.Drawing.Size(100, 22);
             this.SuperficieTxB1.TabIndex = 50;
@@ -451,7 +455,7 @@
             // checkBoxA1
             // 
             this.checkBoxA1.AutoSize = true;
-            this.checkBoxA1.Location = new System.Drawing.Point(29, 81);
+            this.checkBoxA1.Location = new System.Drawing.Point(29, 85);
             this.checkBoxA1.Name = "checkBoxA1";
             this.checkBoxA1.Size = new System.Drawing.Size(65, 20);
             this.checkBoxA1.TabIndex = 49;
@@ -480,7 +484,7 @@
             // 
             // buttonRegistrar
             // 
-            this.buttonRegistrar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonRegistrar.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -488,7 +492,7 @@
             this.buttonRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
             this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistrar.Location = new System.Drawing.Point(734, 413);
+            this.buttonRegistrar.Location = new System.Drawing.Point(794, 413);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(150, 48);
             this.buttonRegistrar.TabIndex = 10;
@@ -569,6 +573,24 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Crear Proyecto";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(383, 63);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 16);
+            this.label9.TabIndex = 96;
+            this.label9.Text = "(Num-Num)";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(497, 63);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(74, 16);
+            this.label10.TabIndex = 97;
+            this.label10.Text = "(Num-Num)";
+            // 
             // FormRegistro1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -648,5 +670,7 @@
         private System.Windows.Forms.RadioButton radioVolumen1;
         private System.Windows.Forms.PictureBox TipBox;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
     }
 }

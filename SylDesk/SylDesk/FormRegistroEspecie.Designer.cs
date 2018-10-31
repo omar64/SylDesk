@@ -69,6 +69,8 @@
             // 
             // textBoxGenero
             // 
+            this.textBoxGenero.Cursor = System.Windows.Forms.Cursors.No;
+            this.textBoxGenero.Enabled = false;
             this.textBoxGenero.Location = new System.Drawing.Point(178, 73);
             this.textBoxGenero.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBoxGenero.Name = "textBoxGenero";
@@ -322,8 +324,6 @@
             "Arbusto",
             "Bejuco",
             "Cactus",
-            "dqwad",
-            "Ejemplo",
             "Epífita",
             "Helecho",
             "Herbácea",
