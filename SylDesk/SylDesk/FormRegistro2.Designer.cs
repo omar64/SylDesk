@@ -58,14 +58,6 @@
             this.comboBoxAreas = new System.Windows.Forms.ComboBox();
             this.comboBoxSitios = new System.Windows.Forms.ComboBox();
             this.dataGridViewIndividuos = new System.Windows.Forms.DataGridView();
-            this.button6 = new System.Windows.Forms.Button();
-            this.buttonGrafica = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonImportar = new System.Windows.Forms.Button();
-            this.ButtonBack = new System.Windows.Forms.Button();
-            this.TipBox = new System.Windows.Forms.PictureBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.TBNombre = new System.Windows.Forms.TextBox();
             this.cuadrante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.arbolnumeroensitio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,8 +76,18 @@
             this.estadocondicion = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.volumen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.areabasal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button6 = new System.Windows.Forms.Button();
+            this.buttonGrafica = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonImportar = new System.Windows.Forms.Button();
+            this.ButtonBack = new System.Windows.Forms.Button();
+            this.TipBox = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.TBNombre = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIndividuos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonEliminarIndividuo
@@ -341,108 +343,6 @@
             this.dataGridViewIndividuos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewIndividuos_EditingControlShowing);
             this.dataGridViewIndividuos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewIndividuos_KeyPress);
             // 
-            // button6
-            // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(926, 80);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(118, 42);
-            this.button6.TabIndex = 89;
-            this.button6.Text = "Ubicación";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // buttonGrafica
-            // 
-            this.buttonGrafica.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonGrafica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.buttonGrafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGrafica.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.buttonGrafica.Image = ((System.Drawing.Image)(resources.GetObject("buttonGrafica.Image")));
-            this.buttonGrafica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGrafica.Location = new System.Drawing.Point(802, 80);
-            this.buttonGrafica.Name = "buttonGrafica";
-            this.buttonGrafica.Size = new System.Drawing.Size(118, 43);
-            this.buttonGrafica.TabIndex = 90;
-            this.buttonGrafica.Text = "Gráfica";
-            this.buttonGrafica.UseVisualStyleBackColor = true;
-            this.buttonGrafica.Click += new System.EventHandler(this.buttonGrafica_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(477, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 24);
-            this.label1.TabIndex = 91;
-            this.label1.Text = "Captura Proyecto";
-            // 
-            // buttonImportar
-            // 
-            this.buttonImportar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonImportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.buttonImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonImportar.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.buttonImportar.Image = ((System.Drawing.Image)(resources.GetObject("buttonImportar.Image")));
-            this.buttonImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonImportar.Location = new System.Drawing.Point(941, 485);
-            this.buttonImportar.Name = "buttonImportar";
-            this.buttonImportar.Size = new System.Drawing.Size(131, 36);
-            this.buttonImportar.TabIndex = 92;
-            this.buttonImportar.Text = "Importar";
-            this.buttonImportar.UseVisualStyleBackColor = true;
-            this.buttonImportar.Click += new System.EventHandler(this.buttonImportar_Click);
-            // 
-            // ButtonBack
-            // 
-            this.ButtonBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonBack.FlatAppearance.BorderSize = 0;
-            this.ButtonBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
-            this.ButtonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonBack.Image = ((System.Drawing.Image)(resources.GetObject("ButtonBack.Image")));
-            this.ButtonBack.Location = new System.Drawing.Point(3, 5);
-            this.ButtonBack.Name = "ButtonBack";
-            this.ButtonBack.Size = new System.Drawing.Size(62, 47);
-            this.ButtonBack.TabIndex = 107;
-            this.ButtonBack.UseVisualStyleBackColor = true;
-            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
-            // 
-            // TipBox
-            // 
-            this.TipBox.Cursor = System.Windows.Forms.Cursors.Help;
-            this.TipBox.Image = ((System.Drawing.Image)(resources.GetObject("TipBox.Image")));
-            this.TipBox.Location = new System.Drawing.Point(1052, 3);
-            this.TipBox.Name = "TipBox";
-            this.TipBox.Size = new System.Drawing.Size(23, 22);
-            this.TipBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.TipBox.TabIndex = 108;
-            this.TipBox.TabStop = false;
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.AutoPopDelay = 25000;
-            this.toolTip1.InitialDelay = 500;
-            this.toolTip1.IsBalloon = true;
-            this.toolTip1.ReshowDelay = 100;
-            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip1.ToolTipTitle = "Captura Proyecto";
-            // 
-            // TBNombre
-            // 
-            this.TBNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBNombre.Enabled = false;
-            this.TBNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBNombre.Location = new System.Drawing.Point(831, 33);
-            this.TBNombre.Multiline = true;
-            this.TBNombre.Name = "TBNombre";
-            this.TBNombre.Size = new System.Drawing.Size(210, 40);
-            this.TBNombre.TabIndex = 109;
-            // 
             // cuadrante
             // 
             this.cuadrante.HeaderText = "Cuadrante";
@@ -583,10 +483,123 @@
             this.areabasal.HeaderText = "Area Basal";
             this.areabasal.Name = "areabasal";
             // 
+            // button6
+            // 
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(926, 80);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(118, 42);
+            this.button6.TabIndex = 89;
+            this.button6.Text = "Ubicación";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // buttonGrafica
+            // 
+            this.buttonGrafica.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonGrafica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.buttonGrafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGrafica.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonGrafica.Image = ((System.Drawing.Image)(resources.GetObject("buttonGrafica.Image")));
+            this.buttonGrafica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGrafica.Location = new System.Drawing.Point(802, 80);
+            this.buttonGrafica.Name = "buttonGrafica";
+            this.buttonGrafica.Size = new System.Drawing.Size(118, 43);
+            this.buttonGrafica.TabIndex = 90;
+            this.buttonGrafica.Text = "Gráfica";
+            this.buttonGrafica.UseVisualStyleBackColor = true;
+            this.buttonGrafica.Click += new System.EventHandler(this.buttonGrafica_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(464, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(199, 27);
+            this.label1.TabIndex = 91;
+            this.label1.Text = "Captura Proyecto";
+            // 
+            // buttonImportar
+            // 
+            this.buttonImportar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonImportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.buttonImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImportar.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonImportar.Image = ((System.Drawing.Image)(resources.GetObject("buttonImportar.Image")));
+            this.buttonImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonImportar.Location = new System.Drawing.Point(941, 485);
+            this.buttonImportar.Name = "buttonImportar";
+            this.buttonImportar.Size = new System.Drawing.Size(131, 36);
+            this.buttonImportar.TabIndex = 92;
+            this.buttonImportar.Text = "Importar";
+            this.buttonImportar.UseVisualStyleBackColor = true;
+            this.buttonImportar.Click += new System.EventHandler(this.buttonImportar_Click);
+            // 
+            // ButtonBack
+            // 
+            this.ButtonBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonBack.FlatAppearance.BorderSize = 0;
+            this.ButtonBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
+            this.ButtonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonBack.Image = ((System.Drawing.Image)(resources.GetObject("ButtonBack.Image")));
+            this.ButtonBack.Location = new System.Drawing.Point(3, 5);
+            this.ButtonBack.Name = "ButtonBack";
+            this.ButtonBack.Size = new System.Drawing.Size(62, 47);
+            this.ButtonBack.TabIndex = 107;
+            this.ButtonBack.UseVisualStyleBackColor = true;
+            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
+            // 
+            // TipBox
+            // 
+            this.TipBox.Cursor = System.Windows.Forms.Cursors.Help;
+            this.TipBox.Image = ((System.Drawing.Image)(resources.GetObject("TipBox.Image")));
+            this.TipBox.Location = new System.Drawing.Point(1052, 3);
+            this.TipBox.Name = "TipBox";
+            this.TipBox.Size = new System.Drawing.Size(23, 22);
+            this.TipBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TipBox.TabIndex = 108;
+            this.TipBox.TabStop = false;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 25000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.ReshowDelay = 100;
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip1.ToolTipTitle = "Captura Proyecto";
+            // 
+            // TBNombre
+            // 
+            this.TBNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBNombre.Enabled = false;
+            this.TBNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBNombre.Location = new System.Drawing.Point(831, 33);
+            this.TBNombre.Multiline = true;
+            this.TBNombre.Name = "TBNombre";
+            this.TBNombre.Size = new System.Drawing.Size(210, 40);
+            this.TBNombre.TabIndex = 109;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(430, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(28, 27);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 110;
+            this.pictureBox2.TabStop = false;
+            // 
             // FormRegistro2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.TBNombre);
             this.Controls.Add(this.TipBox);
             this.Controls.Add(this.ButtonBack);
@@ -619,6 +632,7 @@
             this.Load += new System.EventHandler(this.FormRegistro2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIndividuos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -674,5 +688,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn estadocondicion;
         private System.Windows.Forms.DataGridViewTextBoxColumn volumen;
         private System.Windows.Forms.DataGridViewTextBoxColumn areabasal;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -38,6 +38,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.radioCobertura4 = new System.Windows.Forms.RadioButton();
             this.radioVolumen4 = new System.Windows.Forms.RadioButton();
@@ -84,8 +86,7 @@
             this.TipBox = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.ButtonBack = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -95,15 +96,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TipBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(487, 12);
+            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(464, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 24);
+            this.label1.Size = new System.Drawing.Size(176, 27);
             this.label1.TabIndex = 92;
             this.label1.Text = "Editar Proyecto";
             // 
@@ -208,6 +210,24 @@
             this.groupBox3.Size = new System.Drawing.Size(584, 195);
             this.groupBox3.TabIndex = 104;
             this.groupBox3.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(487, 63);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(73, 15);
+            this.label13.TabIndex = 98;
+            this.label13.Text = "(Num-Num)";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(372, 63);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 15);
+            this.label12.TabIndex = 97;
+            this.label12.Text = "(Num-Num)";
             // 
             // groupBox5
             // 
@@ -653,28 +673,21 @@
             this.ButtonBack.UseVisualStyleBackColor = true;
             this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
             // 
-            // label12
+            // pictureBox2
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(372, 63);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 15);
-            this.label12.TabIndex = 97;
-            this.label12.Text = "(Num-Num)";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(487, 63);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(73, 15);
-            this.label13.TabIndex = 98;
-            this.label13.Text = "(Num-Num)";
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(430, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(28, 27);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 110;
+            this.pictureBox2.TabStop = false;
             // 
             // FormEditar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.ButtonBack);
             this.Controls.Add(this.TipBox);
             this.Controls.Add(this.groupBox2);
@@ -699,6 +712,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TipBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -762,5 +776,6 @@
         private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
