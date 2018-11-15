@@ -434,7 +434,11 @@ namespace SylDesk
             chart1.Series[1].LegendText = "Densidad";
             chart1.Series[2].LegendText = "Dominancia";
 
+            /////////////////////////// ARREGLAAAAAAAAAAAAAAAAAR ////////////////////////////////////////////
 
+            SqlConnector.sendOptionsMessage("Decision", "Diametro(Si) o Cobertura(No)", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
 
             int num_sitios = 0;
             List<double> frec_abs = new List<double>();

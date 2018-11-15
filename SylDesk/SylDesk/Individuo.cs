@@ -26,6 +26,7 @@ namespace SylDesk
         private string alturatotal;
         private string coberturalargo;
         private string coberturaancho;
+        private string cobertura;
         private string formafuste;
         private string estadocondicion;
         private string rad;
@@ -38,7 +39,7 @@ namespace SylDesk
         public Individuo(string id, string proyecto_id, string sitio, string area, string cuadrante, 
             string numero, string numeroarbolensitio, string bifurcado, string nombrecientifico, string nombrecomun,
             string familia, string genero, string perimetro, string diametro, string alturafl, string alturatotal,
-            string coberturalargo, string coberturaancho, string formafuste, string estadocondicion, string rad,
+            string coberturalargo, string coberturaancho, string cobertura, string formafuste, string estadocondicion, string rad,
             string atcategoria, string dncategoria, string ab, string volumen, string areabasal)
         {
             this.id = id;
@@ -59,6 +60,7 @@ namespace SylDesk
             this.alturatotal = alturatotal;
             this.coberturalargo = coberturalargo;
             this.coberturaancho = coberturaancho;
+            this.cobertura = cobertura;
             this.formafuste = formafuste;
             this.estadocondicion = estadocondicion;
             this.rad = rad;
@@ -156,6 +158,11 @@ namespace SylDesk
         public string getCoberturaAncho()
         {
             return coberturaancho;
+        }
+
+        public string getCobertura()
+        {
+            return cobertura;
         }
 
         public string getFormaFuste()

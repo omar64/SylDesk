@@ -74,6 +74,9 @@ namespace SylDesk
                     SqlConnector.sendMessage("Error", "La cobertura ancho no debe de ser menor que " + rangos[0] + " y no debe ser mayor a " + rangos[1], MessageBoxIcon.Error);
                     row.Cells["coberturaancho"].Value = "";
                 }
+                {
+                    calculateCobertura(row);
+                }
             }            
 
             if (column_name == "coberturalargo")
@@ -83,6 +86,10 @@ namespace SylDesk
                 {
                     SqlConnector.sendMessage("Error", "La cobertura largo no debe de ser menor que " + rangos[0] + " y no debe ser mayor a " + rangos[1], MessageBoxIcon.Error);
                     row.Cells["coberturalargo"].Value = "";
+                }
+                else
+                {
+                    calculateCobertura(row);
                 }
             }
 
@@ -139,7 +146,21 @@ namespace SylDesk
             }
             else if (column_name == "perimetro")
             {
-                row.Cells["diametro"].Value = (Convert.ToDouble(row.Cells[column_name].Value) / Math.PI).ToString("F4");
+                try
+                {
+                    row.Cells["diametro"].Value = (Convert.ToDouble(row.Cells["perimetro"].Value) * Math.PI).ToString("F4");
+                }
+                catch (Exception ex)
+                {
+                    SqlConnector.sendMessage("Error", "Hubo un error al momento de calcular el perimetro.", MessageBoxIcon.Error);
+                    row.Cells["diametro"].Value = "";
+                    row.Cells["perimetro"].Value = "";
+                    row.Cells["areabasal"].Value = "";
+
+                    updateData("diametro", row, "");
+                    updateData("perimetro", row, "");
+                    updateData("areabasal", row, "");
+                }
 
                 double[] rangos = getCurrentDiaLar();
                 if (rangos[0] > Convert.ToDouble(row.Cells["diametro"].Value) || rangos[1] < Convert.ToDouble(row.Cells["diametro"].Value))
@@ -154,22 +175,7 @@ namespace SylDesk
                     updateData("areabasal", row, "");
                 }
                 else
-                {
-                    try
-                    {
-                        row.Cells["diametro"].Value = (Convert.ToDouble(row.Cells["perimetro"].Value) * Math.PI).ToString("F4");
-                    }
-                    catch (Exception ex)
-                    {
-                        SqlConnector.sendMessage("Error", "Hubo un error al momento de calcular el perimetro.", MessageBoxIcon.Error);
-                        row.Cells["diametro"].Value = "";
-                        row.Cells["perimetro"].Value = "";
-                        row.Cells["areabasal"].Value = "";
-
-                        updateData("diametro", row, "");
-                        updateData("perimetro", row, "");
-                        updateData("areabasal", row, "");
-                    }
+                {                    
                     try
                     {
                         row.Cells["areabasal"].Value = (Math.PI * Math.Pow(Convert.ToDouble(row.Cells[column_name].Value) / 2, 2)) / 10000;
@@ -185,14 +191,16 @@ namespace SylDesk
                         updateData("perimetro", row, "");
                         updateData("areabasal", row, "");
                     }
-                    updateData("perimetro", row, Convert.ToString(row.Cells["perimetro"].Value));
+                    updateData("diametro", row, Convert.ToString(row.Cells["diametro"].Value));
                     updateData("areabasal", row, Convert.ToString(row.Cells["areabasal"].Value));
                 }
             }
             else if (column_name == "nombrecientifico")
             {
                 String nombrecientifico = tryGetStringCellValue(row, "nombrecientifico");
-                if(nombrecientifico != "")
+                row.Cells["nombrecientifico"].Value = char.ToUpper(nombrecientifico[0]) + nombrecientifico.Substring(1);
+
+                if (nombrecientifico != "")
                 {
                     Especie especie = SqlConnector.especieGet(
                         "SELECT * FROM especies where nombrecientifico = @nombrecientifico",
@@ -510,23 +518,15 @@ namespace SylDesk
 
             if (getCurrentVolCob())
             {
-                dataGridViewIndividuos.Columns["perimetro"].Visible = true;
-                dataGridViewIndividuos.Columns["diametro"].Visible = true;
                 dataGridViewIndividuos.Columns["alturafl"].Visible = true;
-                dataGridViewIndividuos.Columns["coberturalargo"].Visible = false;
-                dataGridViewIndividuos.Columns["coberturaancho"].Visible = false;
-                dataGridViewIndividuos.Columns["formadefuste"].Visible = true;
-                dataGridViewIndividuos.Columns["estadocondicion"].Visible = true;
+                dataGridViewIndividuos.Columns["volumen"].Visible = true;
+                dataGridViewIndividuos.Columns["areabasal"].Visible = true;
             }
             else
             {
-                dataGridViewIndividuos.Columns["perimetro"].Visible = false;
-                dataGridViewIndividuos.Columns["diametro"].Visible = false;
                 dataGridViewIndividuos.Columns["alturafl"].Visible = false;
-                dataGridViewIndividuos.Columns["coberturalargo"].Visible = true;
-                dataGridViewIndividuos.Columns["coberturaancho"].Visible = true;
-                dataGridViewIndividuos.Columns["formadefuste"].Visible = false;
-                dataGridViewIndividuos.Columns["estadocondicion"].Visible = false;
+                dataGridViewIndividuos.Columns["volumen"].Visible = false;
+                dataGridViewIndividuos.Columns["areabasal"].Visible = false;
             }
         }
 
@@ -657,6 +657,7 @@ namespace SylDesk
                 lista_individuos.Add(individuo.getAlturaTotal());
                 lista_individuos.Add(individuo.getCoberturaLargo());
                 lista_individuos.Add(individuo.getCoberturaAncho());
+                lista_individuos.Add(individuo.getCobertura());
                 lista_individuos.Add(individuo.getFormaFuste());
                 lista_individuos.Add(individuo.getEstadoCondicion());
                 lista_individuos.Add(individuo.getVolumen());
@@ -1192,6 +1193,15 @@ namespace SylDesk
             else
             {
                 return "";
+            }
+        }
+
+        public void calculateCobertura(DataGridViewRow row)
+        {
+            if (row.Cells["coberturaancho"].Value != "" && row.Cells["coberturalargo"].Value != "")
+            {
+                row.Cells["cobertura"].Value = Math.PI * Math.Pow(((Convert.ToDouble(row.Cells["coberturaancho"].Value) * Convert.ToDouble(row.Cells["coberturalargo"].Value)) / 4), 2);
+                updateData("cobertura", row, Convert.ToString(row.Cells["cobertura"].Value));
             }
         }
 

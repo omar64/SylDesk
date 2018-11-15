@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SylDesk
 {
@@ -44,6 +45,7 @@ namespace SylDesk
             AlturaTxB2.Text = "";
             AlturaTxB3.Text = "";
             AlturaTxB4.Text = "";
+            comboBox1_Populate();
         }
 
         private void buttonRegistrar_Click(object sender, EventArgs e)
@@ -200,6 +202,20 @@ namespace SylDesk
                         new String[] { "proyecto_id", "numero_sitio" },
                         new String[] { proyecto.getId(), "1" }
                     );
+
+                    List<string> list = listView1.Items.Cast<ListViewItem>()
+                                 .Select(item => item.Text)
+                                 .ToList();
+
+                    foreach (string umafor in list)
+                    {
+                        SqlConnector.postPutDeleteGenerico(
+                            "Insert into proyecto_ecuaciones(proyecto_id, umafor_region)Values(@proyecto_id, @umafor_region)",
+                            new String[] { "proyecto_id", "umafor_region" },
+                            new String[] { "" + proyecto.getId(), umafor }
+                        );
+                    }
+
                     SqlConnector.sendMessage("Aviso", "Proyecto Guardado.", MessageBoxIcon.Information);
 
                     form1.formRegistro2ToFront(proyecto);
@@ -454,6 +470,43 @@ namespace SylDesk
             getComponent(3, number_area).Enabled = checkbox.Checked;
             getComponent(4, number_area).Enabled = checkbox.Checked;
             getComponent(5, number_area).Enabled = checkbox.Checked;
+        }
+
+        private void comboBox1_Populate()
+        {
+            comboBox1.Items.Clear();
+
+            String sqlQueryString = "SELECT * FROM `ecuaciones_volumen` Group By umafor";
+            String[] var_names = new String[] { };
+            String[] var_values = new String[] { };
+
+            List<EcuacionVolumen> list_ecuaciones_volumen = SqlConnector.ecuacionesVolumenGet(
+                sqlQueryString,
+                var_names,
+                var_values
+            );
+
+            foreach (EcuacionVolumen ecuacion_volumen in list_ecuaciones_volumen)
+            {
+                comboBox1.Items.Add(ecuacion_volumen.getUmafor());
+            }
+            comboBox1.SelectedIndex = 0;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<string> list = listView1.Items.Cast<ListViewItem>()
+                                 .Select(item => item.Text)
+                                 .ToList();
+
+            if (list.Contains(comboBox1.SelectedItem.ToString()))
+            {
+                SqlConnector.sendMessage("Alerta", "Esa Umafor/Region ya esta registrado al proyecto", MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                listView1.Items.Add(comboBox1.SelectedItem.ToString());
+            }
         }
     }
 }
