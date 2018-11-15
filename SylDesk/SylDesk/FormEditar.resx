@@ -968,18 +968,18 @@
   </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACAQAAAgEAShkjmkAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAACLklEQVRYR7WWv04bQRCHDypEqIAXQOJPnoSSGgmJKgVPwWOEkITUlngBCkCisOSKCikNHZCkA1Ek
-        DZLz++527bn1HD7b65G+4249M9/C7por+v3+3FAsiCNxI57FveiInUGOLciJYlVcCh5S/onDMi8tzIEC
-        +a14EVZsYRI7boNZUET573B/IVJ5pOM2mRZFlLPmD+KHWBZNk7h3G02DIsp5+CQ2xbhJPLvNJkUR5Vdi
-        X/wVB2LcJG7chpOgsPLlMLYn2kziyG3aFoWVfxBr5rOmSVDD6eCILow0bUtoZOUnopvkeJPgdFC3WubY
-        grZQHJpY+aPYdHLjJNiYnI6BvPzcJreB4tAkyr8IVx5RsDG5qcnLz+zDOCgOTd6V8yy6Yk2w8cgfkZe5
-        6UATFIcmUX4qnsRWkoecSX0W5DXKy3xvMIXi0CSrHNxBC8WhSZR/FZ58S0wkB3cwQnFoEuXfBPLtJA85
-        4xPJwR0EikMTK/8lssnBHxyVfxeefFtMLYfRgWb54DUq5M0sh/pDXb4izkSTnPGZ5DC8GcqvxYZAzvf2
-        x1oBr1GZ5DC8KYqe4OYt/HwVc5VDdal+Y24svVqiJiOyyqG66BVZRHHkfJBUyVmOrHKoLtW3WxRH7sS5
-        YGlYDv7lZpVDdSmKn8LKPVimrHIg1kUqS2FjcjqyyoHYFanQI7sciEXBy2IqtLAPssuBOBZLwk6CPcHG
-        5HRseIW5IP4IJsFfguVY9xLnQ7/4D3llKOOQIaMMAAAAAElFTkSuQmCC
+        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
+        5Vj3EudDv/gPeWUo45AhowwAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
