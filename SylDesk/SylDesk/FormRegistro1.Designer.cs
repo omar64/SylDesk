@@ -84,9 +84,9 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.AgregarUmafor = new System.Windows.Forms.Button();
+            this.umaforBox = new System.Windows.Forms.ComboBox();
+            this.listUmafor = new System.Windows.Forms.ListView();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBoxRegistro.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -633,9 +633,9 @@
             // groupBox6
             // 
             this.groupBox6.BackColor = System.Drawing.Color.Gainsboro;
-            this.groupBox6.Controls.Add(this.button1);
-            this.groupBox6.Controls.Add(this.comboBox1);
-            this.groupBox6.Controls.Add(this.listView1);
+            this.groupBox6.Controls.Add(this.AgregarUmafor);
+            this.groupBox6.Controls.Add(this.umaforBox);
+            this.groupBox6.Controls.Add(this.listUmafor);
             this.groupBox6.Controls.Add(this.label13);
             this.groupBox6.Location = new System.Drawing.Point(874, 39);
             this.groupBox6.Name = "groupBox6";
@@ -643,40 +643,40 @@
             this.groupBox6.TabIndex = 111;
             this.groupBox6.TabStop = false;
             // 
-            // button1
+            // AgregarUmafor
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(63, 405);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 43);
-            this.button1.TabIndex = 105;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AgregarUmafor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AgregarUmafor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
+            this.AgregarUmafor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AgregarUmafor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.AgregarUmafor.Image = ((System.Drawing.Image)(resources.GetObject("AgregarUmafor.Image")));
+            this.AgregarUmafor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AgregarUmafor.Location = new System.Drawing.Point(63, 405);
+            this.AgregarUmafor.Name = "AgregarUmafor";
+            this.AgregarUmafor.Size = new System.Drawing.Size(139, 43);
+            this.AgregarUmafor.TabIndex = 105;
+            this.AgregarUmafor.Text = "Agregar";
+            this.AgregarUmafor.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // umaforBox
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.Silver;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(18, 40);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(184, 21);
-            this.comboBox1.TabIndex = 104;
+            this.umaforBox.BackColor = System.Drawing.Color.Silver;
+            this.umaforBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.umaforBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.umaforBox.FormattingEnabled = true;
+            this.umaforBox.Location = new System.Drawing.Point(18, 40);
+            this.umaforBox.Name = "umaforBox";
+            this.umaforBox.Size = new System.Drawing.Size(184, 21);
+            this.umaforBox.TabIndex = 104;
             // 
-            // listView1
+            // listUmafor
             // 
-            this.listView1.Location = new System.Drawing.Point(18, 67);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(184, 322);
-            this.listView1.TabIndex = 102;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
+            this.listUmafor.Location = new System.Drawing.Point(18, 67);
+            this.listUmafor.Name = "listUmafor";
+            this.listUmafor.Size = new System.Drawing.Size(184, 322);
+            this.listUmafor.TabIndex = 102;
+            this.listUmafor.UseCompatibleStateImageBehavior = false;
+            this.listUmafor.View = System.Windows.Forms.View.List;
             // 
             // label13
             // 
@@ -778,9 +778,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button AgregarUmafor;
+        private System.Windows.Forms.ComboBox umaforBox;
+        private System.Windows.Forms.ListView listUmafor;
         private System.Windows.Forms.Label label13;
     }
 }
