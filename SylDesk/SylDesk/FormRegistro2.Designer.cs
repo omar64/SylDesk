@@ -544,18 +544,17 @@
             // 
             this.coberturalargo.HeaderText = "Largo(m)";
             this.coberturalargo.Name = "coberturalargo";
-            this.coberturalargo.Visible = false;
             // 
             // coberturaancho
             // 
             this.coberturaancho.HeaderText = "Ancho(m)";
             this.coberturaancho.Name = "coberturaancho";
-            this.coberturaancho.Visible = false;
             // 
             // cobertura
             // 
-            this.cobertura.HeaderText = "Cobertura(m2)";
+            this.cobertura.HeaderText = "*Cobertura(m2)";
             this.cobertura.Name = "cobertura";
+            this.cobertura.ReadOnly = true;
             // 
             // formadefuste
             // 
@@ -593,14 +592,15 @@
             // 
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.volumen.DefaultCellStyle = dataGridViewCellStyle8;
-            this.volumen.HeaderText = "Volumen(m3)";
+            this.volumen.HeaderText = "*Volumen(m3)";
             this.volumen.Name = "volumen";
             this.volumen.ReadOnly = true;
             // 
             // areabasal
             // 
-            this.areabasal.HeaderText = "Area Basal(m2)";
+            this.areabasal.HeaderText = "*Area Basal(m2)";
             this.areabasal.Name = "areabasal";
+            this.areabasal.ReadOnly = true;
             // 
             // FormRegistro2
             // 
