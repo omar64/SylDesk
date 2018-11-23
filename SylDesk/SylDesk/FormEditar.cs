@@ -53,10 +53,10 @@ namespace SylDesk
             SuperficieTxB2.Text = "";
             SuperficieTxB3.Text = "";
             SuperficieTxB4.Text = "";
-            radioVolumen1.Select();
-            radioVolumen2.Select();
-            radioVolumen3.Select();
-            radioVolumen4.Select();
+            checkBoxVolumen1.Select();
+            checkBoxVolumen2.Select();
+            checkBoxVolumen3.Select();
+            checkBoxVolumen4.Select();
             DiametroTxB1.Text = "";
             DiametroTxB2.Text = "";
             DiametroTxB3.Text = "";
@@ -165,7 +165,7 @@ namespace SylDesk
                     
                     if (checkBoxA1.Checked)
                     {
-                        updateArea(1, checkBoxA1.Checked, SuperficieTxB1.Text, radioVolumen1.Checked, DiametroTxB1.Text, AlturaTxB1.Text);
+                        updateArea(1, checkBoxA1.Checked, SuperficieTxB1.Text, checkBoxVolumen1.Checked, DiametroTxB1.Text, AlturaTxB1.Text);
                     }
                     else
                     {
@@ -173,7 +173,7 @@ namespace SylDesk
                     }
                     if (checkBoxA2.Checked)
                     {
-                        updateArea(2, checkBoxA2.Checked, SuperficieTxB2.Text, radioVolumen2.Checked, DiametroTxB2.Text, AlturaTxB2.Text);
+                        updateArea(2, checkBoxA2.Checked, SuperficieTxB2.Text, checkBoxVolumen2.Checked, DiametroTxB2.Text, AlturaTxB2.Text);
                     }
                     else
                     {
@@ -181,7 +181,7 @@ namespace SylDesk
                     }
                     if (checkBoxA3.Checked)
                     {
-                        updateArea(3, checkBoxA3.Checked, SuperficieTxB3.Text, radioVolumen3.Checked, DiametroTxB3.Text, AlturaTxB3.Text);
+                        updateArea(3, checkBoxA3.Checked, SuperficieTxB3.Text, checkBoxVolumen3.Checked, DiametroTxB3.Text, AlturaTxB3.Text);
                     }
                     else
                     {
@@ -189,7 +189,7 @@ namespace SylDesk
                     }
                     if (checkBoxA4.Checked)
                     {
-                        updateArea(4, checkBoxA4.Checked, SuperficieTxB4.Text, radioVolumen4.Checked, DiametroTxB4.Text, AlturaTxB4.Text);
+                        updateArea(4, checkBoxA4.Checked, SuperficieTxB4.Text, checkBoxVolumen4.Checked, DiametroTxB4.Text, AlturaTxB4.Text);
                     }
                     else
                     {
@@ -217,8 +217,7 @@ namespace SylDesk
             {
                 checkBoxA1.Checked = proyecto.getArea1Activo();
                 SuperficieTxB1.Text = proyecto.getArea1Superficie();
-                radioVolumen1.Checked = Convert.ToBoolean(proyecto.getArea1VolCob());
-                radioCobertura1.Checked = !Convert.ToBoolean(proyecto.getArea1VolCob());
+                checkBoxVolumen1.Checked = Convert.ToBoolean(proyecto.getArea1VolCob());
                 DiametroTxB1.Text = proyecto.getArea1DiaLar();
                 AlturaTxB1.Text = proyecto.getArea1AltAnc();
             }
@@ -226,8 +225,7 @@ namespace SylDesk
             {
                 checkBoxA2.Checked = proyecto.getArea2Activo();
                 SuperficieTxB2.Text = proyecto.getArea2Superficie();
-                radioVolumen2.Checked = Convert.ToBoolean(proyecto.getArea2VolCob());
-                radioCobertura2.Checked = !Convert.ToBoolean(proyecto.getArea2VolCob());
+                checkBoxVolumen2.Checked = Convert.ToBoolean(proyecto.getArea2VolCob());
                 DiametroTxB2.Text = proyecto.getArea2DiaLar();
                 AlturaTxB2.Text = proyecto.getArea2AltAnc();
             }
@@ -235,8 +233,7 @@ namespace SylDesk
             {
                 checkBoxA3.Checked = proyecto.getArea3Activo();
                 SuperficieTxB3.Text = proyecto.getArea3Superficie();
-                radioVolumen3.Checked = Convert.ToBoolean(proyecto.getArea3VolCob());
-                radioCobertura3.Checked = !Convert.ToBoolean(proyecto.getArea3VolCob());
+                checkBoxVolumen3.Checked = Convert.ToBoolean(proyecto.getArea3VolCob());
                 DiametroTxB3.Text = proyecto.getArea3DiaLar();
                 AlturaTxB3.Text = proyecto.getArea3AltAnc();
             }
@@ -244,8 +241,7 @@ namespace SylDesk
             {
                 checkBoxA4.Checked = proyecto.getArea4Activo();
                 SuperficieTxB4.Text = proyecto.getArea4Superficie();
-                radioVolumen4.Checked = Convert.ToBoolean(proyecto.getArea4VolCob());
-                radioCobertura4.Checked = !Convert.ToBoolean(proyecto.getArea4VolCob());
+                checkBoxVolumen4.Checked = Convert.ToBoolean(proyecto.getArea4VolCob());
                 DiametroTxB4.Text = proyecto.getArea4DiaLar();
                 AlturaTxB4.Text = proyecto.getArea4AltAnc();
             }
@@ -317,38 +313,38 @@ namespace SylDesk
             {
                 if (id == 1)
                 {
-                    return radioVolumen1;
+                    return checkBoxVolumen1;
                 }
                 else if (id == 2)
                 {
-                    return radioVolumen2;
+                    return checkBoxVolumen2;
                 }
                 else if (id == 3)
                 {
-                    return radioVolumen3;
+                    return checkBoxVolumen3;
                 }
                 else
                 {
-                    return radioVolumen4;
+                    return checkBoxVolumen4;
                 }
             }
             else if (type == 3)
             {
                 if (id == 1)
                 {
-                    return radioCobertura1;
+                    return checkBoxCobertura1;
                 }
                 else if (id == 2)
                 {
-                    return radioCobertura2;
+                    return checkBoxCobertura2;
                 }
                 else if (id == 3)
                 {
-                    return radioCobertura3;
+                    return checkBoxCobertura3;
                 }
                 else
                 {
-                    return radioCobertura4;
+                    return checkBoxCobertura4;
                 }
             }
             else if (type == 4)

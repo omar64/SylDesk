@@ -33,10 +33,10 @@ namespace SylDesk
             SuperficieTxB2.Text = "";
             SuperficieTxB3.Text = "";
             SuperficieTxB4.Text = "";
-            radioVolumen1.Select();
-            radioVolumen2.Select();
-            radioVolumen3.Select();
-            radioVolumen4.Select();
+            checkBoxVolumen1.Select();
+            checkBoxVolumen2.Select();
+            checkBoxVolumen3.Select();
+            checkBoxVolumen4.Select();
             DiametroTxB1.Text = "";
             DiametroTxB2.Text = "";
             DiametroTxB3.Text = "";
@@ -143,7 +143,7 @@ namespace SylDesk
                     if (checkBoxA1.Checked)
                     {
                         area1_var_names = new String[] { "area1_activo", "area1_superficie", "area1_vol_cob", "area1_dia_lar", "area1_alt_anc" };
-                        area1_var_values = new String[] { Convert.ToInt32(checkBoxA1.Checked).ToString(), SuperficieTxB1.Text, Convert.ToInt32(radioVolumen1.Checked).ToString(), DiametroTxB1.Text, AlturaTxB1.Text };
+                        area1_var_values = new String[] { Convert.ToInt32(checkBoxA1.Checked).ToString(), SuperficieTxB1.Text, Convert.ToInt32(checkBoxVolumen1.Checked).ToString(), DiametroTxB1.Text, AlturaTxB1.Text };
 
                         sql_variable_text1 += ",area1_activo, area1_superficie, area1_vol_cob, area1_dia_lar, area1_alt_anc";
                         sql_variable_text2 += ",@area1_activo, @area1_superficie, @area1_vol_cob, @area1_dia_lar, @area1_alt_anc";
@@ -153,7 +153,7 @@ namespace SylDesk
                     if (checkBoxA2.Checked)
                     {
                         area2_var_names = new String[] { "area2_activo", "area2_superficie", "area2_vol_cob", "area2_dia_lar", "area2_alt_anc" };
-                        area2_var_values = new String[] { Convert.ToInt32(checkBoxA2.Checked).ToString(), SuperficieTxB2.Text, Convert.ToInt32(radioVolumen2.Checked).ToString(), DiametroTxB2.Text, AlturaTxB2.Text };
+                        area2_var_values = new String[] { Convert.ToInt32(checkBoxA2.Checked).ToString(), SuperficieTxB2.Text, Convert.ToInt32(checkBoxVolumen2.Checked).ToString(), DiametroTxB2.Text, AlturaTxB2.Text };
 
                         sql_variable_text1 += ",area2_activo, area2_superficie, area2_vol_cob, area2_dia_lar, area2_alt_anc";
                         sql_variable_text2 += ",@area2_activo, @area2_superficie, @area2_vol_cob, @area2_dia_lar, @area2_alt_anc";
@@ -163,7 +163,7 @@ namespace SylDesk
                     if (checkBoxA3.Checked)
                     {
                         area3_var_names = new String[] { "area3_activo", "area3_superficie", "area3_vol_cob", "area3_dia_lar", "area3_alt_anc" };
-                        area3_var_values = new String[] { Convert.ToInt32(checkBoxA3.Checked).ToString(), SuperficieTxB3.Text, Convert.ToInt32(radioVolumen3.Checked).ToString(), DiametroTxB3.Text, AlturaTxB3.Text };
+                        area3_var_values = new String[] { Convert.ToInt32(checkBoxA3.Checked).ToString(), SuperficieTxB3.Text, Convert.ToInt32(checkBoxVolumen3.Checked).ToString(), DiametroTxB3.Text, AlturaTxB3.Text };
 
                         sql_variable_text1 += ",area3_activo, area3_superficie, area3_vol_cob, area3_dia_lar, area3_alt_anc";
                         sql_variable_text2 += ",@area3_activo, @area3_superficie, @area3_vol_cob, @area3_dia_lar, @area3_alt_anc";
@@ -173,7 +173,7 @@ namespace SylDesk
                     if (checkBoxA4.Checked)
                     {
                         area4_var_names = new String[] { "area4_activo", "area4_superficie", "area4_vol_cob", "area4_dia_lar", "area4_alt_anc" };
-                        area4_var_values = new String[] { Convert.ToInt32(checkBoxA4.Checked).ToString(), SuperficieTxB4.Text, Convert.ToInt32(radioVolumen4.Checked).ToString(), DiametroTxB4.Text, AlturaTxB4.Text };
+                        area4_var_values = new String[] { Convert.ToInt32(checkBoxA4.Checked).ToString(), SuperficieTxB4.Text, Convert.ToInt32(checkBoxVolumen4.Checked).ToString(), DiametroTxB4.Text, AlturaTxB4.Text };
 
                         sql_variable_text1 += ",area4_activo, area4_superficie, area4_vol_cob, area4_dia_lar, area4_alt_anc";
                         sql_variable_text2 += ",@area4_activo, @area4_superficie, @area4_vol_cob, @area4_dia_lar, @area4_alt_anc";
@@ -272,19 +272,19 @@ namespace SylDesk
             {
                 if (id == 1)
                 {
-                    return radioVolumen1;
+                    return checkBoxVolumen1;
                 }
                 else if (id == 2)
                 {
-                    return radioVolumen2;
+                    return checkBoxVolumen2;
                 }
                 else if (id == 3)
                 {
-                    return radioVolumen3;
+                    return checkBoxVolumen3;
                 }
                 else
                 {
-                    return radioVolumen4;
+                    return checkBoxVolumen4;
                 }
             }
             else if (type == 3)
