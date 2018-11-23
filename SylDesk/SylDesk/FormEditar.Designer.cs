@@ -72,7 +72,6 @@
             this.checkBoxA2 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.SuperficieTxB1 = new System.Windows.Forms.TextBox();
@@ -203,7 +202,6 @@
             this.groupBox3.Controls.Add(this.checkBoxA2);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.SuperficieTxB1);
@@ -227,7 +225,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(388, 31);
+            this.label14.Location = new System.Drawing.Point(384, 31);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(47, 15);
             this.label14.TabIndex = 99;
@@ -504,29 +502,20 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(486, 47);
+            this.label6.Location = new System.Drawing.Point(504, 47);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 15);
+            this.label6.Size = new System.Drawing.Size(38, 15);
             this.label6.TabIndex = 55;
-            this.label6.Text = "Altura/Ancho";
+            this.label6.Text = "Altura";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(364, 47);
+            this.label4.Location = new System.Drawing.Point(378, 47);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 15);
+            this.label4.Size = new System.Drawing.Size(58, 15);
             this.label4.TabIndex = 54;
-            this.label4.Text = "Diámetro/Largo";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(272, 47);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(62, 15);
-            this.label9.TabIndex = 53;
-            this.label9.Text = "Cobertura";
+            this.label4.Text = "Diámetro";
             // 
             // label10
             // 
@@ -788,7 +777,6 @@
         private System.Windows.Forms.CheckBox checkBoxA2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox SuperficieTxB1;

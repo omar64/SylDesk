@@ -203,7 +203,7 @@ namespace SylDesk
                         new String[] { proyecto.getId(), "1" }
                     );
 
-                    List<string> list = listView1.Items.Cast<ListViewItem>()
+                    List<string> list = listUmafor.Items.Cast<ListViewItem>()
                                  .Select(item => item.Text)
                                  .ToList();
 
@@ -474,7 +474,7 @@ namespace SylDesk
 
         private void comboBox1_Populate()
         {
-            comboBox1.Items.Clear();
+            umaforBox.Items.Clear();
 
             String sqlQueryString = "SELECT * FROM `ecuaciones_volumen` Group By umafor";
             String[] var_names = new String[] { };
@@ -488,24 +488,24 @@ namespace SylDesk
 
             foreach (EcuacionVolumen ecuacion_volumen in list_ecuaciones_volumen)
             {
-                comboBox1.Items.Add(ecuacion_volumen.getUmafor());
+                umaforBox.Items.Add(ecuacion_volumen.getUmafor());
             }
-            comboBox1.SelectedIndex = 0;
+            umaforBox.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<string> list = listView1.Items.Cast<ListViewItem>()
+            List<string> list = listUmafor.Items.Cast<ListViewItem>()
                                  .Select(item => item.Text)
                                  .ToList();
 
-            if (list.Contains(comboBox1.SelectedItem.ToString()))
+            if (list.Contains(umaforBox.SelectedItem.ToString()))
             {
                 SqlConnector.sendMessage("Alerta", "Esa Umafor/Region ya esta registrado al proyecto", MessageBoxIcon.Asterisk);
             }
             else
             {
-                listView1.Items.Add(comboBox1.SelectedItem.ToString());
+                listUmafor.Items.Add(umaforBox.SelectedItem.ToString());
             }
         }
     }

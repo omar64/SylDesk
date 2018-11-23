@@ -66,7 +66,6 @@
             this.checkBoxA2 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuperficieTxB1 = new System.Windows.Forms.TextBox();
@@ -150,7 +149,6 @@
             this.groupBox1.Controls.Add(this.checkBoxA2);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.SuperficieTxB1);
@@ -165,7 +163,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(500, 31);
+            this.label12.Location = new System.Drawing.Point(505, 31);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(42, 16);
             this.label12.TabIndex = 99;
@@ -451,29 +449,20 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(485, 47);
+            this.label6.Location = new System.Drawing.Point(504, 47);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 16);
+            this.label6.Size = new System.Drawing.Size(42, 16);
             this.label6.TabIndex = 55;
-            this.label6.Text = "Altura/Ancho";
+            this.label6.Text = "Altura";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(364, 47);
+            this.label5.Location = new System.Drawing.Point(381, 47);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 16);
+            this.label5.Size = new System.Drawing.Size(60, 16);
             this.label5.TabIndex = 54;
-            this.label5.Text = "Diámetro/Largo";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(272, 47);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 16);
-            this.label4.TabIndex = 53;
-            this.label4.Text = "Cobertura";
+            this.label5.Text = "Diámetro";
             // 
             // label3
             // 
@@ -637,13 +626,12 @@
             this.groupBox6.Controls.Add(this.umaforBox);
             this.groupBox6.Controls.Add(this.listUmafor);
             this.groupBox6.Controls.Add(this.label13);
-            this.groupBox6.Location = new System.Drawing.Point(874, 39);
+            this.groupBox6.Location = new System.Drawing.Point(874, 36);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(213, 464);
+            this.groupBox6.Size = new System.Drawing.Size(213, 467);
             this.groupBox6.TabIndex = 111;
             this.groupBox6.TabStop = false;
             // 
-<<<<<<< HEAD
             // AgregarUmafor
             // 
             this.AgregarUmafor.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -678,43 +666,6 @@
             this.listUmafor.TabIndex = 102;
             this.listUmafor.UseCompatibleStateImageBehavior = false;
             this.listUmafor.View = System.Windows.Forms.View.List;
-=======
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(63, 405);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 43);
-            this.button1.TabIndex = 105;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.Color.Silver;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(18, 40);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(184, 21);
-            this.comboBox1.TabIndex = 104;
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(18, 67);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(184, 322);
-            this.listView1.TabIndex = 102;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
->>>>>>> 244080ae080720f246fa890fa5afa749443bc349
             // 
             // label13
             // 
@@ -791,7 +742,6 @@
         private System.Windows.Forms.CheckBox checkBoxA2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox SuperficieTxB1;
