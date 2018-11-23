@@ -643,7 +643,6 @@
             this.groupBox6.TabIndex = 111;
             this.groupBox6.TabStop = false;
             // 
-<<<<<<< HEAD
             // AgregarUmafor
             // 
             this.AgregarUmafor.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -658,6 +657,7 @@
             this.AgregarUmafor.TabIndex = 105;
             this.AgregarUmafor.Text = "Agregar";
             this.AgregarUmafor.UseVisualStyleBackColor = true;
+            this.AgregarUmafor.Click += new System.EventHandler(this.AgregarUmafor_Click);
             // 
             // umaforBox
             // 
@@ -678,43 +678,6 @@
             this.listUmafor.TabIndex = 102;
             this.listUmafor.UseCompatibleStateImageBehavior = false;
             this.listUmafor.View = System.Windows.Forms.View.List;
-=======
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(63, 405);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 43);
-            this.button1.TabIndex = 105;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.Color.Silver;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(18, 40);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(184, 21);
-            this.comboBox1.TabIndex = 104;
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(18, 67);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(184, 322);
-            this.listView1.TabIndex = 102;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
->>>>>>> 244080ae080720f246fa890fa5afa749443bc349
             // 
             // label13
             // 
