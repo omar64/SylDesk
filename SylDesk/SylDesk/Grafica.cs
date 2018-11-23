@@ -33,7 +33,6 @@ namespace SylDesk
             form1.formRegistro2ToFront(proyecto);
         }
 
-
         private void ReportButton_Click(object sender, EventArgs e)
         {
             form1.reportToFront();

@@ -40,6 +40,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.buttonIVI3 = new System.Windows.Forms.Button();
+            this.buttonIVI2 = new System.Windows.Forms.Button();
+            this.buttonIVI1 = new System.Windows.Forms.Button();
+            this.buttonIVI4 = new System.Windows.Forms.Button();
             this.panelGrafica.SuspendLayout();
             this.PanelCargando.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoadingBox)).BeginInit();
@@ -163,10 +167,70 @@
             0});
             this.numericUpDown1.Visible = false;
             // 
+            // buttonIVI3
+            // 
+            this.buttonIVI3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonIVI3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.buttonIVI3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonIVI3.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonIVI3.Location = new System.Drawing.Point(266, 37);
+            this.buttonIVI3.Name = "buttonIVI3";
+            this.buttonIVI3.Size = new System.Drawing.Size(75, 40);
+            this.buttonIVI3.TabIndex = 124;
+            this.buttonIVI3.Text = "IVI 3";
+            this.buttonIVI3.UseVisualStyleBackColor = true;
+            this.buttonIVI3.Click += new System.EventHandler(this.buttonIVI3_Click);
+            // 
+            // buttonIVI2
+            // 
+            this.buttonIVI2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonIVI2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.buttonIVI2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonIVI2.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonIVI2.Location = new System.Drawing.Point(185, 37);
+            this.buttonIVI2.Name = "buttonIVI2";
+            this.buttonIVI2.Size = new System.Drawing.Size(75, 40);
+            this.buttonIVI2.TabIndex = 123;
+            this.buttonIVI2.Text = "IVI 2";
+            this.buttonIVI2.UseVisualStyleBackColor = true;
+            this.buttonIVI2.Click += new System.EventHandler(this.buttonIVI2_Click);
+            // 
+            // buttonIVI1
+            // 
+            this.buttonIVI1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonIVI1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.buttonIVI1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonIVI1.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonIVI1.Location = new System.Drawing.Point(104, 37);
+            this.buttonIVI1.Name = "buttonIVI1";
+            this.buttonIVI1.Size = new System.Drawing.Size(75, 40);
+            this.buttonIVI1.TabIndex = 122;
+            this.buttonIVI1.Text = "IVI  1";
+            this.buttonIVI1.UseVisualStyleBackColor = true;
+            this.buttonIVI1.Click += new System.EventHandler(this.buttonIVI1_Click);
+            // 
+            // buttonIVI4
+            // 
+            this.buttonIVI4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonIVI4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.buttonIVI4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonIVI4.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonIVI4.Location = new System.Drawing.Point(347, 37);
+            this.buttonIVI4.Name = "buttonIVI4";
+            this.buttonIVI4.Size = new System.Drawing.Size(75, 40);
+            this.buttonIVI4.TabIndex = 125;
+            this.buttonIVI4.Text = "IVI 4";
+            this.buttonIVI4.UseVisualStyleBackColor = true;
+            this.buttonIVI4.Click += new System.EventHandler(this.buttonIVI4_Click);
+            // 
             // ValordeImportancia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonIVI4);
+            this.Controls.Add(this.buttonIVI3);
+            this.Controls.Add(this.buttonIVI2);
+            this.Controls.Add(this.buttonIVI1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.panelGrafica);
             this.Controls.Add(this.label1);
@@ -195,5 +259,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button buttonIVI3;
+        private System.Windows.Forms.Button buttonIVI2;
+        private System.Windows.Forms.Button buttonIVI1;
+        private System.Windows.Forms.Button buttonIVI4;
     }
 }

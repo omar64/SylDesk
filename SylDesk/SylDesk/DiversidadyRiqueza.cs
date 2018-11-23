@@ -28,195 +28,199 @@ namespace SylDesk
         }
         public void Initialize(Proyecto proyecto)
         {
-            PanelCargando.Hide();
+           
 
 
             Empty();
             this.proyecto = proyecto;
-            numericUpDown1.Visible = false;
-
+            
 
             superficie = Convert.ToDouble(proyecto.getSuperficie());
         }
         public void Empty()
         {
-            chart1.Series.Clear();
-            chart1.Titles.Clear();
+
             dataGridView1.Rows.Clear();
             dataGridView1.Columns.Clear();
         }
 
-        private void get_IVI(int area)
+        private void get_IDR(String area) //Indice Diversidad
         {
             Empty();
-
-            chart1.ChartAreas[0].AxisY.Title = "I.V.I";
             dataGridView1.Columns.Add("especie", "Especie");
-            dataGridView1.Columns[0].DefaultCellStyle.Font = new Font("arial", 11);  //font Cursiva columna Nom. Cient.
-            dataGridView1.Columns.Add("frecuencia_absoluta", "Frecuencia absoluta");
-            dataGridView1.Columns.Add("frecuencia_relativa", "Frecuencia relativa");
-            dataGridView1.Columns.Add("densidad_absoluta", "Densidad absoluta");
-            dataGridView1.Columns.Add("densidad_relativa", "Densidad relativa");
-            dataGridView1.Columns.Add("dominancia_absoluta", "Dominancia absoluta");
-            dataGridView1.Columns.Add("dominancia_relativa", "Dominancia relativa");
-            dataGridView1.Columns.Add("ivi", "IVI");
+            dataGridView1.Columns.Add("ni", "ni");
+            dataGridView1.Columns.Add("pi", "pi");
+            dataGridView1.Columns.Add("ln_pi", "Ln(pi)");
+            dataGridView1.Columns.Add("shannon", "pi * Ln(pi)");
+            dataGridView1.Columns.Add("simpson", "pi^2");
 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            chart1.Legends[0].Enabled = true;
-            chart1.Series.Add(new kawaii_lolis.Series("frecuencia"));
-            chart1.Series.Add(new kawaii_lolis.Series("densidad"));
-            chart1.Series.Add(new kawaii_lolis.Series("dominancia"));
-            chart1.Series[0].LegendText = "Frecuencia";
-            chart1.Series[1].LegendText = "Densidad";
-            chart1.Series[2].LegendText = "Dominancia";
 
-            /////////////////////////// ARREGLAAAAAAAAAAAAAAAAAR ////////////////////////////////////////////
-
-            SqlConnector.sendOptionsMessage("Decision", "Diametro(Si) o Cobertura(No)", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-
-            ////////////////////////////////////////////////////////////////////////////////////////////////
-
-            int num_sitios = 0;
-            List<double> frec_abs = new List<double>();
-            List<double> frec_rel = new List<double>();
-            List<double> den_abs = new List<double>();
-            List<double> den_rel = new List<double>();
-            List<double> dom_abs = new List<double>();
-            List<double> dom_rel = new List<double>();
-
-            List<String> aux = SqlConnector.anyEspecificValueGet(
-                "SELECT Count(*) from sitios where proyecto_id = @proyecto_id",
-                new String[] { "proyecto_id" },
-                new String[] { "" + proyecto.getId() }
-            );
-            num_sitios = Convert.ToInt32(aux[0]);
-
-            List<Object> lista_individuos = new List<Object>();
-            List<IVI> list_ivis = new List<IVI>();
-
-            List<List<String>> aux2 = SqlConnector.anyEspecificValuesGet(
-                "SELECT nombrecientifico from individuos where proyecto_id = @proyecto_id AND area = " + area + " AND nombrecientifico != \"\" Group By nombrecientifico ORDER BY nombrecientifico ASC",
+            List<List<String>> null_checker = SqlConnector.anyEspecificValuesGet(
+                "SELECT nombrecientifico, Count(*) as conteo from individuos where proyecto_id = @proyecto_id AND area = " + area + " AND nombrecientifico != \"\" AND bifurcados = 0 Group By nombrecientifico",
                 new String[] { "proyecto_id" },
                 new String[] { "" + proyecto.getId() }
             );
 
-            foreach (List<String> results in aux2)
+            if (null_checker != null && null_checker.Count > 1)
             {
-                lista_individuos.Add(results[0]);
-            }
+                List<String> aux = SqlConnector.anyEspecificValueGet(
+                    "SELECT Count(*) as conteo from individuos where proyecto_id = @proyecto_id AND area = " + area + " AND nombrecientifico != \"\" AND bifurcados = 0",
+                    new String[] { "proyecto_id" },
+                    new String[] { "" + proyecto.getId() }
+                );
 
-            for (int i = 0; i < lista_individuos.Count; i++)
-            {
-                frec_abs.Add(0);
-                frec_rel.Add(0);
-                den_abs.Add(0);
-                den_rel.Add(0);
-                dom_abs.Add(0);
-                dom_rel.Add(0);
-            }
-
-            double frec_total = 0, den_total = 0, dom_total = 0;
-            for (int i = 0; i < lista_individuos.Count; i++)
-            {
-                double frec_aux = 0;
-                double dens_aux = 0;
-                double dom_aux = 0;
-                for (int j = 1; j <= num_sitios; j++)
+                double i_shannon = 0;
+                double e_shannon = 0;
+                double i_simpson = 0;
+                double i_margalef = 0;
+                foreach (List<String> aux2 in null_checker)
                 {
-                    aux = SqlConnector.anyEspecificValueGet(
-                        //"SELECT Count(nombrecientifico), areabasal from individuos where proyecto_id = @proyecto_id AND area =  " + area + " AND sitio = " + j + " AND nombrecientifico = \"" + lista_individuos[i] + "\" AND areabasal > 0",
-                        "SELECT Count(nombrecientifico), Sum(areabasal) from individuos where proyecto_id = @proyecto_id AND area =  " + area + " AND sitio = " + j + " AND nombrecientifico = \"" + lista_individuos[i] + "\" AND areabasal > 0",
-                        new String[] { "proyecto_id" },
-                        new String[] { "" + proyecto.getId() }
-                    );
+                    double pi = Convert.ToDouble(aux2[1]) / Convert.ToDouble(aux[0]);
+                    double ln = Math.Log(pi);
+                    double shannon = pi * ln;
+                    double simpson = Math.Pow(pi, 2);
 
-                    int aux3 = Convert.ToInt32(aux[0]);
-                    if (aux3 > 0)
-                    {
-                        frec_aux += 1;
-                        dens_aux += aux3;
-                        dom_aux += Convert.ToDouble(aux[1]);
-                    }
+                    i_shannon += shannon;
+                    i_simpson += simpson;
+
+                    dataGridView1.Rows.Add(aux2[0], aux2[1], pi, ln, shannon, simpson);
                 }
+                i_shannon = Math.Abs(i_shannon);
+                e_shannon = i_shannon / Math.Log(null_checker.Count);
+                i_simpson = 1 - i_simpson;
+                i_margalef = (null_checker.Count - 1) / Math.Log(Convert.ToDouble(aux[0]));
 
-                int area_muestreada = area * num_sitios;
-                frec_abs[i] = (frec_aux / num_sitios) * 100;
-                den_abs[i] = (dens_aux / area_muestreada) * 100;
-                dom_abs[i] = (dom_aux / area_muestreada) * 100;
-                frec_total += frec_abs[i];
-                den_total += den_abs[i];
-                dom_total += dom_abs[i];
+                dataGridView1.Rows.Add("", "", "I. de Shannon", "Sum. pi*Ln(pi)", i_shannon, "");
+                dataGridView1.Rows.Add("", "", "Equitatividad Shannon", "E=H/Ln(S)", e_shannon, "");
+                dataGridView1.Rows.Add("", "", "I. de Simpson", "S=1-D", "", i_simpson);
+                dataGridView1.Rows.Add("", "", "I. de Margalef", "(S-1)/Ln(N)", "", i_margalef);
+
+                List<String> area1 = get_IDR_Resume("500");
+                String area1_s = "";
+                foreach (string aux3 in area1)
+                {
+                    area1_s += aux3;
+                }
+                SqlConnector.sendMessage("Debug", area1_s, MessageBoxIcon.Stop);
             }
-
-            for (int i = 0; i < lista_individuos.Count; i++)
+            else
             {
-                frec_rel[i] = (frec_abs[i] / frec_total) * 100;
-                den_rel[i] = (den_abs[i] / den_total) * 100;
-                dom_rel[i] = (dom_abs[i] / dom_total) * 100;
-                list_ivis.Add(new IVI(lista_individuos[i].ToString(), frec_abs[i], frec_rel[i], den_abs[i], den_rel[i], dom_abs[i], dom_rel[i]));
-
-                dataGridView1.Rows.Add(lista_individuos[i], Convert.ToDouble(frec_abs[i].ToString("F4")), Convert.ToDouble(frec_rel[i].ToString("F4")), Convert.ToDouble(den_abs[i].ToString("F4")), Convert.ToDouble(den_rel[i].ToString("F4")), Convert.ToDouble(dom_abs[i].ToString("F5")), Convert.ToDouble(dom_rel[i].ToString("F4")), Convert.ToDouble(((frec_rel[i] + den_rel[i] + dom_rel[i])).ToString("F4")));
-                chart1.ChartAreas[0].AxisX.LabelStyle.Angle = -45;  //inclinacion de letras en graf.
-                chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("arial", 11, FontStyle.Italic);
+                SqlConnector.sendMessage("Datos Faltantes/Inadecuados", "La grafica no puede mostrarse porque no tiene datos adecuados", MessageBoxIcon.Stop);
             }
-            List<IVI> list_ivis2 = list_ivis.OrderByDescending((x) => x.ivi).ToList();
-            for (int i = 0; i < numericUpDown1.Value && i < list_ivis2.Count; i++)
-            {
-                chart1.Series["frecuencia"].Points.AddXY("" + list_ivis2[i].get_nombrecientifico(), Convert.ToDouble((list_ivis2[i].get_frec_rel())).ToString("F4"));
-                chart1.Series["densidad"].Points.AddXY("" + list_ivis2[i].get_nombrecientifico(), Convert.ToDouble((list_ivis2[i].get_den_rel())).ToString("F4"));
-                chart1.Series["dominancia"].Points.AddXY("" + list_ivis2[i].get_nombrecientifico(), Convert.ToDouble((list_ivis2[i].get_dom_rel())).ToString("F4"));
-                chart1.Series["frecuencia"].Points[i].ToolTip = "#VALX\nIVI: " + ((list_ivis2[i].get_frec_rel() + list_ivis2[i].get_den_rel() + list_ivis2[i].get_dom_rel())).ToString("F4");  //Valor position top
-                chart1.Series["densidad"].Points[i].ToolTip = "#VALX\nIVI: " + ((list_ivis2[i].get_frec_rel() + list_ivis2[i].get_den_rel() + list_ivis2[i].get_dom_rel())).ToString("F4");  //Valor position top
-                chart1.Series["dominancia"].Points[i].ToolTip = "#VALX\nIVI: " + ((list_ivis2[i].get_frec_rel() + list_ivis2[i].get_den_rel() + list_ivis2[i].get_dom_rel())).ToString("F4");  //Valor position top
-            }
-
-            chart1.ChartAreas[0].RecalculateAxesScale();
-            chart1.Series["frecuencia"].ChartType = kawaii_lolis.SeriesChartType.StackedColumn;
-            chart1.Series["densidad"].ChartType = kawaii_lolis.SeriesChartType.StackedColumn;
-            chart1.Series["dominancia"].ChartType = kawaii_lolis.SeriesChartType.StackedColumn;
         }
 
-        
-
-        private void buttonArb_Click(object sender, EventArgs e)
+        private List<String> get_IDR_Resume(String area) //Indice Diversidad
         {
-            numericUpDown1.Visible = true;
-            numericUpDown1.Value = 5;
-            flag = 3;
-            get_IVI(500);
+            List<String> results = new List<String>();
+            List<List<String>> null_checker = SqlConnector.anyEspecificValuesGet(
+                "SELECT nombrecientifico, Count(*) as conteo from individuos where proyecto_id = @proyecto_id AND area = " + area + " AND nombrecientifico != \"\" AND bifurcados = 0 Group By nombrecientifico",
+                new String[] { "proyecto_id" },
+                new String[] { "" + proyecto.getId() }
+            );
+
+            if (null_checker != null && null_checker.Count > 1)
+            {
+                List<String> aux = SqlConnector.anyEspecificValueGet(
+                    "SELECT Count(*) as conteo from individuos where proyecto_id = @proyecto_id AND area = " + area + " AND nombrecientifico != \"\" AND bifurcados = 0",
+                    new String[] { "proyecto_id" },
+                    new String[] { "" + proyecto.getId() }
+                );
+
+                double i_shannon = 0;
+                double e_shannon = 0;
+                double i_simpson = 0;
+                double i_margalef = 0;
+                foreach (List<String> aux2 in null_checker)
+                {
+                    double pi = Convert.ToDouble(aux2[1]) / Convert.ToDouble(aux[0]);
+                    double ln = Math.Log(pi);
+                    double shannon = pi * ln;
+                    double simpson = Math.Pow(pi, 2);
+
+                    i_shannon += shannon;
+                    i_simpson += simpson;
+                }
+                i_shannon = Math.Abs(i_shannon);
+                e_shannon = i_shannon / Math.Log(null_checker.Count);
+                i_simpson = 1 - i_simpson;
+                i_margalef = (null_checker.Count - 1) / Math.Log(Convert.ToDouble(aux[0]));
+
+                results.Add("" + aux[0]);
+                results.Add("" + null_checker.Count);
+                results.Add("" + i_simpson);
+                results.Add("" + i_shannon);
+                results.Add("" + e_shannon);
+                results.Add("" + i_margalef);
+
+                return results;
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        private void buttonAr_Click(object sender, EventArgs e)
+        private void get_IDR_Resumes() //Indice Diversidad
         {
-            numericUpDown1.Visible = true;
-            numericUpDown1.Value = 5;
-            flag = 4;
-            get_IVI(100);
+            Empty();
+            dataGridView1.Columns.Add("estrato", "Estrato");
+            dataGridView1.Columns.Add("abundancia", "Abundancia");
+            dataGridView1.Columns.Add("riqueza", "Riqueza");
+            dataGridView1.Columns.Add("i_simpson", "Índice de diversidad Simpson");
+            dataGridView1.Columns.Add("i_shannon", "Índice de Shannon-Wiener (H’)");
+            dataGridView1.Columns.Add("e_shannon", "Equidad de Shannon");
+            dataGridView1.Columns.Add("i_margalef", "Índice de Margalef");
+
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            List<String> area1 = get_IDR_Resume(proyecto.getArea1Superficie());
+            List<String> area2 = get_IDR_Resume(proyecto.getArea2Superficie());
+            List<String> area3 = get_IDR_Resume(proyecto.getArea3Superficie());
+            List<String> area4 = get_IDR_Resume(proyecto.getArea4Superficie());
+
+            if (area1 != null)
+            {
+                dataGridView1.Rows.Add(proyecto.getArea1Superficie(), area1[0], area1[1], area1[2], area1[3], area1[4]);
+            }
+            if (area2 != null)
+            {
+                dataGridView1.Rows.Add(proyecto.getArea2Superficie(), area2[0], area2[1], area2[2], area2[3], area2[4]);
+            }
+            if (area3 != null)
+            {
+                dataGridView1.Rows.Add(proyecto.getArea3Superficie(), area3[0], area3[1], area3[2], area3[3], area3[4]);
+            }
+            if (area4 != null)
+            {
+                dataGridView1.Rows.Add(proyecto.getArea4Superficie(), area4[0], area4[1], area4[2], area4[3], area4[4]);
+            }
         }
 
-        private void buttonHer_Click(object sender, EventArgs e)
+        private void buttonArea1_Click(object sender, EventArgs e)
         {
-            numericUpDown1.Visible = true;
-            numericUpDown1.Value = 5;
-            flag = 5;
-            get_IVI(5);
+            get_IDR(proyecto.getArea1Superficie());
         }
 
-        private void numericUpDown1_ValueChanged_1(object sender, EventArgs e)
+        private void buttonArea2_Click(object sender, EventArgs e)
         {
-            if (flag == 3)
-            {
-                get_IVI(500);
-            }
-            else if (flag == 4)
-            {
-                get_IVI(100);
-            }
-            else if (flag == 5)
-            {
-                get_IVI(5);
-            }
+            get_IDR(proyecto.getArea2Superficie());
+        }
+
+        private void buttonArea3_Click(object sender, EventArgs e)
+        {
+            get_IDR(proyecto.getArea3Superficie());
+        }
+
+        private void buttonArea4_Click(object sender, EventArgs e)
+        {
+            get_IDR(proyecto.getArea4Superficie());
+        }
+
+        private void buttonResumen_Click(object sender, EventArgs e)
+        {
+            get_IDR_Resumes();
         }
     }
 }
