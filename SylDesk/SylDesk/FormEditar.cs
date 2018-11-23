@@ -328,25 +328,7 @@ namespace SylDesk
                     return checkBoxVolumen4;
                 }
             }
-            else if (type == 3)
-            {
-                if (id == 1)
-                {
-                    return checkBoxCobertura1;
-                }
-                else if (id == 2)
-                {
-                    return checkBoxCobertura2;
-                }
-                else if (id == 3)
-                {
-                    return checkBoxCobertura3;
-                }
-                else
-                {
-                    return checkBoxCobertura4;
-                }
-            }
+            
             else if (type == 4)
             {
                 if (id == 1)

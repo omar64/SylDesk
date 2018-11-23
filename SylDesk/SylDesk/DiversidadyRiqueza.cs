@@ -36,6 +36,11 @@ namespace SylDesk
             
 
             superficie = Convert.ToDouble(proyecto.getSuperficie());
+
+            buttonArea1.Text = "" + proyecto.getArea1Superficie();
+            buttonArea2.Text = "" + proyecto.getArea2Superficie();
+            buttonArea3.Text = "" + proyecto.getArea3Superficie();
+            buttonArea4.Text = "" + proyecto.getArea4Superficie();
         }
         public void Empty()
         {
@@ -103,7 +108,6 @@ namespace SylDesk
                 {
                     area1_s += aux3;
                 }
-                SqlConnector.sendMessage("Debug", area1_s, MessageBoxIcon.Stop);
             }
             else
             {
@@ -182,19 +186,19 @@ namespace SylDesk
 
             if (area1 != null)
             {
-                dataGridView1.Rows.Add(proyecto.getArea1Superficie(), area1[0], area1[1], area1[2], area1[3], area1[4]);
+                dataGridView1.Rows.Add(proyecto.getArea1Superficie(), area1[0], area1[1], area1[2], area1[3], area1[4], area1[5]);
             }
             if (area2 != null)
             {
-                dataGridView1.Rows.Add(proyecto.getArea2Superficie(), area2[0], area2[1], area2[2], area2[3], area2[4]);
+                dataGridView1.Rows.Add(proyecto.getArea2Superficie(), area2[0], area2[1], area2[2], area2[3], area2[4], area2[5]);
             }
             if (area3 != null)
             {
-                dataGridView1.Rows.Add(proyecto.getArea3Superficie(), area3[0], area3[1], area3[2], area3[3], area3[4]);
+                dataGridView1.Rows.Add(proyecto.getArea3Superficie(), area3[0], area3[1], area3[2], area3[3], area3[4], area3[5]);
             }
             if (area4 != null)
             {
-                dataGridView1.Rows.Add(proyecto.getArea4Superficie(), area4[0], area4[1], area4[2], area4[3], area4[4]);
+                dataGridView1.Rows.Add(proyecto.getArea4Superficie(), area4[0], area4[1], area4[2], area4[3], area4[4], area4[5]);
             }
         }
 

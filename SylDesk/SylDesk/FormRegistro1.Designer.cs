@@ -36,18 +36,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.radioCobertura4 = new System.Windows.Forms.RadioButton();
-            this.radioVolumen4 = new System.Windows.Forms.RadioButton();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.radioCobertura3 = new System.Windows.Forms.RadioButton();
-            this.radioVolumen3 = new System.Windows.Forms.RadioButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioCobertura2 = new System.Windows.Forms.RadioButton();
-            this.radioVolumen2 = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioCobertura1 = new System.Windows.Forms.RadioButton();
-            this.radioVolumen1 = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.AlturaTxB4 = new System.Windows.Forms.TextBox();
@@ -87,12 +75,12 @@
             this.umaforBox = new System.Windows.Forms.ComboBox();
             this.listUmafor = new System.Windows.Forms.ListView();
             this.label13 = new System.Windows.Forms.Label();
+            this.checkBoxVolumen4 = new System.Windows.Forms.CheckBox();
+            this.checkBoxVolumen3 = new System.Windows.Forms.CheckBox();
+            this.checkBoxVolumen2 = new System.Windows.Forms.CheckBox();
+            this.checkBoxVolumen1 = new System.Windows.Forms.CheckBox();
             this.groupBoxRegistro.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -123,14 +111,14 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBox1.Controls.Add(this.checkBoxVolumen4);
+            this.groupBox1.Controls.Add(this.checkBoxVolumen3);
+            this.groupBox1.Controls.Add(this.checkBoxVolumen2);
+            this.groupBox1.Controls.Add(this.checkBoxVolumen1);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.groupBox5);
-            this.groupBox1.Controls.Add(this.groupBox4);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.AlturaTxB4);
@@ -195,126 +183,6 @@
             this.label9.Size = new System.Drawing.Size(74, 16);
             this.label9.TabIndex = 96;
             this.label9.Text = "(Num-Num)";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.radioCobertura4);
-            this.groupBox5.Controls.Add(this.radioVolumen4);
-            this.groupBox5.Location = new System.Drawing.Point(197, 167);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(145, 23);
-            this.groupBox5.TabIndex = 95;
-            this.groupBox5.TabStop = false;
-            // 
-            // radioCobertura4
-            // 
-            this.radioCobertura4.AutoSize = true;
-            this.radioCobertura4.Location = new System.Drawing.Point(98, 5);
-            this.radioCobertura4.Name = "radioCobertura4";
-            this.radioCobertura4.Size = new System.Drawing.Size(14, 13);
-            this.radioCobertura4.TabIndex = 91;
-            this.radioCobertura4.UseVisualStyleBackColor = true;
-            // 
-            // radioVolumen4
-            // 
-            this.radioVolumen4.AutoSize = true;
-            this.radioVolumen4.Checked = true;
-            this.radioVolumen4.Location = new System.Drawing.Point(28, 5);
-            this.radioVolumen4.Name = "radioVolumen4";
-            this.radioVolumen4.Size = new System.Drawing.Size(14, 13);
-            this.radioVolumen4.TabIndex = 90;
-            this.radioVolumen4.TabStop = true;
-            this.radioVolumen4.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.radioCobertura3);
-            this.groupBox4.Controls.Add(this.radioVolumen3);
-            this.groupBox4.Location = new System.Drawing.Point(197, 138);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(145, 23);
-            this.groupBox4.TabIndex = 94;
-            this.groupBox4.TabStop = false;
-            // 
-            // radioCobertura3
-            // 
-            this.radioCobertura3.AutoSize = true;
-            this.radioCobertura3.Location = new System.Drawing.Point(98, 5);
-            this.radioCobertura3.Name = "radioCobertura3";
-            this.radioCobertura3.Size = new System.Drawing.Size(14, 13);
-            this.radioCobertura3.TabIndex = 91;
-            this.radioCobertura3.UseVisualStyleBackColor = true;
-            // 
-            // radioVolumen3
-            // 
-            this.radioVolumen3.AutoSize = true;
-            this.radioVolumen3.Checked = true;
-            this.radioVolumen3.Location = new System.Drawing.Point(28, 5);
-            this.radioVolumen3.Name = "radioVolumen3";
-            this.radioVolumen3.Size = new System.Drawing.Size(14, 13);
-            this.radioVolumen3.TabIndex = 90;
-            this.radioVolumen3.TabStop = true;
-            this.radioVolumen3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.radioCobertura2);
-            this.groupBox3.Controls.Add(this.radioVolumen2);
-            this.groupBox3.Location = new System.Drawing.Point(197, 110);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(145, 23);
-            this.groupBox3.TabIndex = 93;
-            this.groupBox3.TabStop = false;
-            // 
-            // radioCobertura2
-            // 
-            this.radioCobertura2.AutoSize = true;
-            this.radioCobertura2.Location = new System.Drawing.Point(98, 5);
-            this.radioCobertura2.Name = "radioCobertura2";
-            this.radioCobertura2.Size = new System.Drawing.Size(14, 13);
-            this.radioCobertura2.TabIndex = 91;
-            this.radioCobertura2.UseVisualStyleBackColor = true;
-            // 
-            // radioVolumen2
-            // 
-            this.radioVolumen2.AutoSize = true;
-            this.radioVolumen2.Checked = true;
-            this.radioVolumen2.Location = new System.Drawing.Point(28, 5);
-            this.radioVolumen2.Name = "radioVolumen2";
-            this.radioVolumen2.Size = new System.Drawing.Size(14, 13);
-            this.radioVolumen2.TabIndex = 90;
-            this.radioVolumen2.TabStop = true;
-            this.radioVolumen2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.radioCobertura1);
-            this.groupBox2.Controls.Add(this.radioVolumen1);
-            this.groupBox2.Location = new System.Drawing.Point(197, 83);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(145, 23);
-            this.groupBox2.TabIndex = 50;
-            this.groupBox2.TabStop = false;
-            // 
-            // radioCobertura1
-            // 
-            this.radioCobertura1.AutoSize = true;
-            this.radioCobertura1.Location = new System.Drawing.Point(98, 5);
-            this.radioCobertura1.Name = "radioCobertura1";
-            this.radioCobertura1.Size = new System.Drawing.Size(14, 13);
-            this.radioCobertura1.TabIndex = 91;
-            this.radioCobertura1.UseVisualStyleBackColor = true;
-            // 
-            // radioVolumen1
-            // 
-            this.radioVolumen1.AutoSize = true;
-            this.radioVolumen1.Checked = true;
-            this.radioVolumen1.Location = new System.Drawing.Point(28, 5);
-            this.radioVolumen1.Name = "radioVolumen1";
-            this.radioVolumen1.Size = new System.Drawing.Size(14, 13);
-            this.radioVolumen1.TabIndex = 90;
-            this.radioVolumen1.TabStop = true;
-            this.radioVolumen1.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -467,7 +335,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(208, 47);
+            this.label3.Location = new System.Drawing.Point(226, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 16);
             this.label3.TabIndex = 52;
@@ -678,6 +546,42 @@
             this.label13.TabIndex = 103;
             this.label13.Text = "Umafor/Región";
             // 
+            // checkBoxVolumen4
+            // 
+            this.checkBoxVolumen4.AutoSize = true;
+            this.checkBoxVolumen4.Location = new System.Drawing.Point(251, 172);
+            this.checkBoxVolumen4.Name = "checkBoxVolumen4";
+            this.checkBoxVolumen4.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxVolumen4.TabIndex = 108;
+            this.checkBoxVolumen4.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxVolumen3
+            // 
+            this.checkBoxVolumen3.AutoSize = true;
+            this.checkBoxVolumen3.Location = new System.Drawing.Point(251, 144);
+            this.checkBoxVolumen3.Name = "checkBoxVolumen3";
+            this.checkBoxVolumen3.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxVolumen3.TabIndex = 107;
+            this.checkBoxVolumen3.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxVolumen2
+            // 
+            this.checkBoxVolumen2.AutoSize = true;
+            this.checkBoxVolumen2.Location = new System.Drawing.Point(251, 116);
+            this.checkBoxVolumen2.Name = "checkBoxVolumen2";
+            this.checkBoxVolumen2.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxVolumen2.TabIndex = 106;
+            this.checkBoxVolumen2.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxVolumen1
+            // 
+            this.checkBoxVolumen1.AutoSize = true;
+            this.checkBoxVolumen1.Location = new System.Drawing.Point(251, 86);
+            this.checkBoxVolumen1.Name = "checkBoxVolumen1";
+            this.checkBoxVolumen1.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxVolumen1.TabIndex = 105;
+            this.checkBoxVolumen1.UseVisualStyleBackColor = true;
+            // 
             // FormRegistro1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -694,14 +598,6 @@
             this.groupBoxRegistro.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -747,18 +643,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox SuperficieTxB1;
         private System.Windows.Forms.CheckBox checkBoxA1;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.RadioButton radioCobertura4;
-        private System.Windows.Forms.RadioButton radioVolumen4;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RadioButton radioCobertura3;
-        private System.Windows.Forms.RadioButton radioVolumen3;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioCobertura2;
-        private System.Windows.Forms.RadioButton radioVolumen2;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioCobertura1;
-        private System.Windows.Forms.RadioButton radioVolumen1;
         private System.Windows.Forms.PictureBox TipBox;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label10;
@@ -771,5 +655,9 @@
         private System.Windows.Forms.ComboBox umaforBox;
         private System.Windows.Forms.ListView listUmafor;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.CheckBox checkBoxVolumen4;
+        private System.Windows.Forms.CheckBox checkBoxVolumen3;
+        private System.Windows.Forms.CheckBox checkBoxVolumen2;
+        private System.Windows.Forms.CheckBox checkBoxVolumen1;
     }
 }

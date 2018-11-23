@@ -37,6 +37,12 @@ namespace SylDesk
 
 
             superficie = Convert.ToDouble(proyecto.getSuperficie());
+
+
+            buttonIVI1.Text = "" + proyecto.getArea1Superficie();
+            buttonIVI2.Text = "" + proyecto.getArea2Superficie();
+            buttonIVI3.Text = "" + proyecto.getArea3Superficie();
+            buttonIVI4.Text = "" + proyecto.getArea4Superficie();
         }
         public void Empty()
         {
