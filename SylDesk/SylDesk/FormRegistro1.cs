@@ -45,7 +45,7 @@ namespace SylDesk
             AlturaTxB2.Text = "";
             AlturaTxB3.Text = "";
             AlturaTxB4.Text = "";
-            comboBox1_Populate();
+            umaforBox_Populate();
         }
 
         private void buttonRegistrar_Click(object sender, EventArgs e)
@@ -472,7 +472,7 @@ namespace SylDesk
             getComponent(5, number_area).Enabled = checkbox.Checked;
         }
 
-        private void comboBox1_Populate()
+        private void umaforBox_Populate()
         {
             umaforBox.Items.Clear();
 
@@ -493,7 +493,7 @@ namespace SylDesk
             umaforBox.SelectedIndex = 0;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AgregarUmafor_Click(object sender, EventArgs e)
         {
             List<string> list = listUmafor.Items.Cast<ListViewItem>()
                                  .Select(item => item.Text)

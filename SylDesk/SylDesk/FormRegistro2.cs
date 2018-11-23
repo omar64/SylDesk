@@ -68,10 +68,13 @@ namespace SylDesk
 
             if (column_name == "coberturaancho")
             {
-                double[] rangos = getCurrentAltAnc();
-                if (rangos[0] > Convert.ToDouble(row.Cells["coberturaancho"].Value) || rangos[1] < Convert.ToDouble(row.Cells["coberturaancho"].Value))
+                double coberturaancho_value = Convert.ToDouble(row.Cells["coberturaancho"].Value);
+                //double[] rangos = getCurrentAltAnc();
+                //if (rangos[0] > Convert.ToDouble(row.Cells["coberturaancho"].Value) || rangos[1] < Convert.ToDouble(row.Cells["coberturaancho"].Value))
+                if (0 > coberturaancho_value)
                 {
-                    SqlConnector.sendMessage("Error", "La cobertura ancho no debe de ser menor que " + rangos[0] + " y no debe ser mayor a " + rangos[1], MessageBoxIcon.Error);
+                    //SqlConnector.sendMessage("Error", "La cobertura ancho no debe de ser menor que " + rangos[0] + " y no debe ser mayor a " + rangos[1], MessageBoxIcon.Error);
+                    SqlConnector.sendMessage("Error", "La cobertura ancho no debe de ser menor que 0", MessageBoxIcon.Error);
                     row.Cells["coberturaancho"].Value = "";
                 }
                 {
@@ -81,10 +84,13 @@ namespace SylDesk
 
             if (column_name == "coberturalargo")
             {
-                double[] rangos = getCurrentDiaLar();
-                if (rangos[0] > Convert.ToDouble(row.Cells["coberturalargo"].Value) || rangos[1] < Convert.ToDouble(row.Cells["coberturalargo"].Value))
+                double coberturalargo_value = Convert.ToDouble(row.Cells["coberturalargo"].Value);
+                //double[] rangos = getCurrentDiaLar();
+                //if (rangos[0] > Convert.ToDouble(row.Cells["coberturalargo"].Value) || rangos[1] < Convert.ToDouble(row.Cells["coberturalargo"].Value))
+                if (0 > coberturalargo_value)
                 {
-                    SqlConnector.sendMessage("Error", "La cobertura largo no debe de ser menor que " + rangos[0] + " y no debe ser mayor a " + rangos[1], MessageBoxIcon.Error);
+                    //SqlConnector.sendMessage("Error", "La cobertura largo no debe de ser menor que " + rangos[0] + " y no debe ser mayor a " + rangos[1], MessageBoxIcon.Error);
+                    SqlConnector.sendMessage("Error", "La cobertura largo no debe de ser menor que 0", MessageBoxIcon.Error);
                     row.Cells["coberturalargo"].Value = "";
                 }
                 else
@@ -381,7 +387,7 @@ namespace SylDesk
 
                                 double volumen = parser.Parse(result, false);
 
-                                SqlConnector.sendMessage("La Ecuacion", "" + result + "  =  " + volumen, MessageBoxIcon.Information);
+                                //SqlConnector.sendMessage("La Ecuacion", "" + result + "  =  " + volumen, MessageBoxIcon.Information);
 
                                 if (volumen < 0 || volumen > 50)
                                 {
@@ -1200,7 +1206,7 @@ namespace SylDesk
         {
             if (row.Cells["coberturaancho"].Value != "" && row.Cells["coberturalargo"].Value != "")
             {
-                row.Cells["cobertura"].Value = Math.PI * Math.Pow(((Convert.ToDouble(row.Cells["coberturaancho"].Value) * Convert.ToDouble(row.Cells["coberturalargo"].Value)) / 4), 2);
+                row.Cells["cobertura"].Value = Math.PI * Math.Pow(((Convert.ToDouble(row.Cells["coberturaancho"].Value) + Convert.ToDouble(row.Cells["coberturalargo"].Value)) / 4), 2);
                 updateData("cobertura", row, Convert.ToString(row.Cells["cobertura"].Value));
             }
         }

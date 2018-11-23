@@ -646,6 +646,7 @@
             this.AgregarUmafor.TabIndex = 105;
             this.AgregarUmafor.Text = "Agregar";
             this.AgregarUmafor.UseVisualStyleBackColor = true;
+            this.AgregarUmafor.Click += new System.EventHandler(this.AgregarUmafor_Click);
             // 
             // umaforBox
             // 
