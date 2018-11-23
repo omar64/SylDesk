@@ -70,6 +70,9 @@
             this.report = new SylDesk.Report();
             this.calculadoraEcu = new SylDesk.CalculadoraEcu();
             this.formEditar = new SylDesk.FormEditar();
+            this.dasometricos = new SylDesk.Dasometricos();
+            this.diversidadyRiqueza = new SylDesk.DiversidadyRiqueza();
+            this.valordeImportancia = new SylDesk.ValordeImportancia();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -579,6 +582,27 @@
             this.formEditar.Size = new System.Drawing.Size(1085, 527);
             this.formEditar.TabIndex = 73;
             // 
+            // dasometricos
+            // 
+            this.dasometricos.Location = new System.Drawing.Point(3, 161);
+            this.dasometricos.Name = "dasometricos";
+            this.dasometricos.Size = new System.Drawing.Size(1085, 527);
+            this.dasometricos.TabIndex = 73;
+            // 
+            // diversidadyriqueza
+            // 
+            this.diversidadyRiqueza.Location = new System.Drawing.Point(3, 161);
+            this.diversidadyRiqueza.Name = "diversidadyriqueza";
+            this.diversidadyRiqueza.Size = new System.Drawing.Size(1085, 527);
+            this.diversidadyRiqueza.TabIndex = 73;
+            // 
+            // valordeimportancia
+            // 
+            this.valordeImportancia.Location = new System.Drawing.Point(3, 161);
+            this.valordeImportancia.Name = "valordeimportancia";
+            this.valordeImportancia.Size = new System.Drawing.Size(1085, 527);
+            this.valordeImportancia.TabIndex = 73;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -593,6 +617,9 @@
             this.Controls.Add(this.report);
             this.Controls.Add(this.calculadoraEcu);
             this.Controls.Add(this.formEditar);
+            this.Controls.Add(this.dasometricos);
+            this.Controls.Add(this.diversidadyRiqueza);
+            this.Controls.Add(this.valordeImportancia);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -659,6 +686,9 @@
         private Report report = null;
         private CalculadoraEcu calculadoraEcu = null;
         private FormEditar formEditar = null;
+        private Dasometricos dasometricos = null;
+        private DiversidadyRiqueza diversidadyRiqueza = null;
+        private ValordeImportancia valordeImportancia = null;
         private System.Windows.Forms.Panel SidePanel1;
         private System.Windows.Forms.Panel SidePanel2;
         private System.Windows.Forms.Panel SidePanel4;

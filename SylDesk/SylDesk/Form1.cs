@@ -34,6 +34,10 @@ namespace SylDesk
             this.report.setForm(this);
             this.calculadoraEcu.setForm(this);
             this.formEditar.setForm(this);
+            this.dasometricos.setForm(this);
+            this.diversidadyRiqueza.setForm(this);
+            this.valordeImportancia.setForm(this);
+
 
             SidePanel1.Hide();
             SidePanel2.Hide();
@@ -187,7 +191,7 @@ namespace SylDesk
             grafica.Initialize(proyecto);
             grafica.BringToFront();
         }
-       public void reportToFront()
+        public void reportToFront()
         {            
             report.InitializeLifetimeService();
             report.BringToFront();
@@ -202,6 +206,22 @@ namespace SylDesk
             formEditar.Initialize(proyecto);
             formEditar.BringToFront();
         }
+        public void dasometricosToFront(Proyecto proyecto)
+        {
+            dasometricos.Initialize(proyecto);
+            dasometricos.BringToFront();
+        }
+        public void diversidadyriquezaToFront(Proyecto proyecto)
+        {
+            diversidadyRiqueza.Initialize(proyecto);
+            diversidadyRiqueza.BringToFront();
+        }
+        public void valordeimportanciaToFront(Proyecto proyecto)
+        {
+            valordeImportancia.Initialize(proyecto);
+            valordeImportancia.BringToFront();
+        }
+
 
         
 

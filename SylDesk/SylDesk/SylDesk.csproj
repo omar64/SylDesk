@@ -105,6 +105,18 @@
     <Compile Include="CalculadoraEcu.Designer.cs">
       <DependentUpon>CalculadoraEcu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dasometricos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dasometricos.Designer.cs">
+      <DependentUpon>Dasometricos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiversidadyRiqueza.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DiversidadyRiqueza.Designer.cs">
+      <DependentUpon>DiversidadyRiqueza.cs</DependentUpon>
+    </Compile>
     <Compile Include="EcuacionVolumen.cs" />
     <Compile Include="Especie.cs" />
     <Compile Include="Familia.cs" />
@@ -190,8 +202,20 @@
     </Compile>
     <Compile Include="Sitio.cs" />
     <Compile Include="SqlConnector.cs" />
+    <Compile Include="ValordeImportancia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ValordeImportancia.Designer.cs">
+      <DependentUpon>ValordeImportancia.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CalculadoraEcu.resx">
       <DependentUpon>CalculadoraEcu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dasometricos.resx">
+      <DependentUpon>Dasometricos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiversidadyRiqueza.resx">
+      <DependentUpon>DiversidadyRiqueza.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -240,6 +264,9 @@
       <DependentUpon>Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="ValordeImportancia.resx">
+      <DependentUpon>ValordeImportancia.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
