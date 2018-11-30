@@ -35,7 +35,8 @@ namespace SylDesk
 
         private void ReportButton_Click(object sender, EventArgs e)
         {
-            form1.reportToFront();
+            //form1.reportToFront();
+            form1.generarreporteToFront(proyecto);
         }
 
         private void Grafica_Load(object sender, EventArgs e)

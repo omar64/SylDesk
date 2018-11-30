@@ -38,6 +38,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxVolumen4 = new System.Windows.Forms.CheckBox();
+            this.checkBoxVolumen3 = new System.Windows.Forms.CheckBox();
+            this.checkBoxVolumen2 = new System.Windows.Forms.CheckBox();
+            this.checkBoxVolumen1 = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -76,10 +80,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.ButtonBack = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.checkBoxVolumen1 = new System.Windows.Forms.CheckBox();
-            this.checkBoxVolumen2 = new System.Windows.Forms.CheckBox();
-            this.checkBoxVolumen3 = new System.Windows.Forms.CheckBox();
-            this.checkBoxVolumen4 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -195,34 +195,70 @@
             this.groupBox3.Controls.Add(this.SuperficieTxB1);
             this.groupBox3.Controls.Add(this.checkBoxA1);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(249, 201);
+            this.groupBox3.Location = new System.Drawing.Point(274, 196);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(584, 195);
+            this.groupBox3.Size = new System.Drawing.Size(554, 195);
             this.groupBox3.TabIndex = 104;
             this.groupBox3.TabStop = false;
+            // 
+            // checkBoxVolumen4
+            // 
+            this.checkBoxVolumen4.AutoSize = true;
+            this.checkBoxVolumen4.Location = new System.Drawing.Point(225, 167);
+            this.checkBoxVolumen4.Name = "checkBoxVolumen4";
+            this.checkBoxVolumen4.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxVolumen4.TabIndex = 104;
+            this.checkBoxVolumen4.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxVolumen3
+            // 
+            this.checkBoxVolumen3.AutoSize = true;
+            this.checkBoxVolumen3.Location = new System.Drawing.Point(225, 139);
+            this.checkBoxVolumen3.Name = "checkBoxVolumen3";
+            this.checkBoxVolumen3.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxVolumen3.TabIndex = 103;
+            this.checkBoxVolumen3.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxVolumen2
+            // 
+            this.checkBoxVolumen2.AutoSize = true;
+            this.checkBoxVolumen2.Location = new System.Drawing.Point(225, 111);
+            this.checkBoxVolumen2.Name = "checkBoxVolumen2";
+            this.checkBoxVolumen2.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxVolumen2.TabIndex = 102;
+            this.checkBoxVolumen2.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxVolumen1
+            // 
+            this.checkBoxVolumen1.AutoSize = true;
+            this.checkBoxVolumen1.Location = new System.Drawing.Point(225, 81);
+            this.checkBoxVolumen1.Name = "checkBoxVolumen1";
+            this.checkBoxVolumen1.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxVolumen1.TabIndex = 101;
+            this.checkBoxVolumen1.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(503, 31);
+            this.label15.Location = new System.Drawing.Point(439, 31);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 15);
+            this.label15.Size = new System.Drawing.Size(26, 15);
             this.label15.TabIndex = 100;
-            this.label15.Text = "(m-m)";
+            this.label15.Text = "(m)";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(384, 31);
+            this.label14.Location = new System.Drawing.Point(317, 31);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(47, 15);
+            this.label14.Size = new System.Drawing.Size(32, 15);
             this.label14.TabIndex = 99;
-            this.label14.Text = "(cm-m)";
+            this.label14.Text = "(cm)";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(487, 63);
+            this.label13.Location = new System.Drawing.Point(415, 63);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(73, 15);
             this.label13.TabIndex = 98;
@@ -231,7 +267,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(372, 63);
+            this.label12.Location = new System.Drawing.Point(300, 63);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(73, 15);
             this.label12.TabIndex = 97;
@@ -241,7 +277,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(431, 13);
+            this.label8.Location = new System.Drawing.Point(359, 13);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(73, 18);
             this.label8.TabIndex = 85;
@@ -251,7 +287,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(154, 13);
+            this.label7.Location = new System.Drawing.Point(88, 12);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(173, 18);
             this.label7.TabIndex = 84;
@@ -259,56 +295,56 @@
             // 
             // AlturaTxB4
             // 
-            this.AlturaTxB4.Location = new System.Drawing.Point(477, 165);
+            this.AlturaTxB4.Location = new System.Drawing.Point(405, 165);
             this.AlturaTxB4.Name = "AlturaTxB4";
             this.AlturaTxB4.Size = new System.Drawing.Size(100, 21);
             this.AlturaTxB4.TabIndex = 82;
             // 
             // AlturaTxB3
             // 
-            this.AlturaTxB3.Location = new System.Drawing.Point(477, 137);
+            this.AlturaTxB3.Location = new System.Drawing.Point(405, 137);
             this.AlturaTxB3.Name = "AlturaTxB3";
             this.AlturaTxB3.Size = new System.Drawing.Size(100, 21);
             this.AlturaTxB3.TabIndex = 81;
             // 
             // AlturaTxB2
             // 
-            this.AlturaTxB2.Location = new System.Drawing.Point(477, 109);
+            this.AlturaTxB2.Location = new System.Drawing.Point(405, 109);
             this.AlturaTxB2.Name = "AlturaTxB2";
             this.AlturaTxB2.Size = new System.Drawing.Size(100, 21);
             this.AlturaTxB2.TabIndex = 80;
             // 
             // AlturaTxB1
             // 
-            this.AlturaTxB1.Location = new System.Drawing.Point(477, 81);
+            this.AlturaTxB1.Location = new System.Drawing.Point(405, 81);
             this.AlturaTxB1.Name = "AlturaTxB1";
             this.AlturaTxB1.Size = new System.Drawing.Size(100, 21);
             this.AlturaTxB1.TabIndex = 79;
             // 
             // DiametroTxB4
             // 
-            this.DiametroTxB4.Location = new System.Drawing.Point(360, 165);
+            this.DiametroTxB4.Location = new System.Drawing.Point(288, 165);
             this.DiametroTxB4.Name = "DiametroTxB4";
             this.DiametroTxB4.Size = new System.Drawing.Size(100, 21);
             this.DiametroTxB4.TabIndex = 77;
             // 
             // DiametroTxB3
             // 
-            this.DiametroTxB3.Location = new System.Drawing.Point(360, 137);
+            this.DiametroTxB3.Location = new System.Drawing.Point(288, 137);
             this.DiametroTxB3.Name = "DiametroTxB3";
             this.DiametroTxB3.Size = new System.Drawing.Size(100, 21);
             this.DiametroTxB3.TabIndex = 76;
             // 
             // DiametroTxB2
             // 
-            this.DiametroTxB2.Location = new System.Drawing.Point(360, 109);
+            this.DiametroTxB2.Location = new System.Drawing.Point(288, 109);
             this.DiametroTxB2.Name = "DiametroTxB2";
             this.DiametroTxB2.Size = new System.Drawing.Size(100, 21);
             this.DiametroTxB2.TabIndex = 75;
             // 
             // DiametroTxB1
             // 
-            this.DiametroTxB1.Location = new System.Drawing.Point(360, 81);
+            this.DiametroTxB1.Location = new System.Drawing.Point(288, 81);
             this.DiametroTxB1.Name = "DiametroTxB1";
             this.DiametroTxB1.Size = new System.Drawing.Size(100, 21);
             this.DiametroTxB1.TabIndex = 74;
@@ -370,7 +406,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(504, 47);
+            this.label6.Location = new System.Drawing.Point(432, 47);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 15);
             this.label6.TabIndex = 55;
@@ -379,7 +415,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(378, 47);
+            this.label4.Location = new System.Drawing.Point(306, 47);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 15);
             this.label4.TabIndex = 54;
@@ -561,42 +597,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 110;
             this.pictureBox2.TabStop = false;
-            // 
-            // checkBoxVolumen1
-            // 
-            this.checkBoxVolumen1.AutoSize = true;
-            this.checkBoxVolumen1.Location = new System.Drawing.Point(225, 81);
-            this.checkBoxVolumen1.Name = "checkBoxVolumen1";
-            this.checkBoxVolumen1.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxVolumen1.TabIndex = 101;
-            this.checkBoxVolumen1.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxVolumen2
-            // 
-            this.checkBoxVolumen2.AutoSize = true;
-            this.checkBoxVolumen2.Location = new System.Drawing.Point(225, 111);
-            this.checkBoxVolumen2.Name = "checkBoxVolumen2";
-            this.checkBoxVolumen2.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxVolumen2.TabIndex = 102;
-            this.checkBoxVolumen2.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxVolumen3
-            // 
-            this.checkBoxVolumen3.AutoSize = true;
-            this.checkBoxVolumen3.Location = new System.Drawing.Point(225, 139);
-            this.checkBoxVolumen3.Name = "checkBoxVolumen3";
-            this.checkBoxVolumen3.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxVolumen3.TabIndex = 103;
-            this.checkBoxVolumen3.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxVolumen4
-            // 
-            this.checkBoxVolumen4.AutoSize = true;
-            this.checkBoxVolumen4.Location = new System.Drawing.Point(225, 167);
-            this.checkBoxVolumen4.Name = "checkBoxVolumen4";
-            this.checkBoxVolumen4.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxVolumen4.TabIndex = 104;
-            this.checkBoxVolumen4.UseVisualStyleBackColor = true;
             // 
             // FormEditar
             // 

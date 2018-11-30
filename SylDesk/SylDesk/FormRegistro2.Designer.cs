@@ -58,15 +58,6 @@
             this.comboBoxAreas = new System.Windows.Forms.ComboBox();
             this.comboBoxSitios = new System.Windows.Forms.ComboBox();
             this.dataGridViewIndividuos = new System.Windows.Forms.DataGridView();
-            this.button6 = new System.Windows.Forms.Button();
-            this.buttonGrafica = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonImportar = new System.Windows.Forms.Button();
-            this.ButtonBack = new System.Windows.Forms.Button();
-            this.TipBox = new System.Windows.Forms.PictureBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.TBNombre = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.cuadrante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.arbolnumeroensitio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,6 +77,18 @@
             this.estadocondicion = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.volumen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.areabasal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button6 = new System.Windows.Forms.Button();
+            this.buttonGrafica = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonImportar = new System.Windows.Forms.Button();
+            this.ButtonBack = new System.Windows.Forms.Button();
+            this.TipBox = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.TBNombre = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.buttonDiversidad = new System.Windows.Forms.Button();
+            this.buttonImportancia = new System.Windows.Forms.Button();
+            this.ReportButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIndividuos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -99,7 +102,7 @@
             this.buttonEliminarIndividuo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonEliminarIndividuo.Image = ((System.Drawing.Image)(resources.GetObject("buttonEliminarIndividuo.Image")));
             this.buttonEliminarIndividuo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEliminarIndividuo.Location = new System.Drawing.Point(293, 44);
+            this.buttonEliminarIndividuo.Location = new System.Drawing.Point(289, 44);
             this.buttonEliminarIndividuo.Name = "buttonEliminarIndividuo";
             this.buttonEliminarIndividuo.Size = new System.Drawing.Size(138, 41);
             this.buttonEliminarIndividuo.TabIndex = 88;
@@ -115,7 +118,7 @@
             this.buttonAgregarBifurcacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonAgregarBifurcacion.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarBifurcacion.Image")));
             this.buttonAgregarBifurcacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAgregarBifurcacion.Location = new System.Drawing.Point(151, 94);
+            this.buttonAgregarBifurcacion.Location = new System.Drawing.Point(147, 94);
             this.buttonAgregarBifurcacion.Name = "buttonAgregarBifurcacion";
             this.buttonAgregarBifurcacion.Size = new System.Drawing.Size(133, 44);
             this.buttonAgregarBifurcacion.TabIndex = 87;
@@ -131,7 +134,7 @@
             this.buttonAgregarIndividuo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonAgregarIndividuo.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarIndividuo.Image")));
             this.buttonAgregarIndividuo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAgregarIndividuo.Location = new System.Drawing.Point(151, 44);
+            this.buttonAgregarIndividuo.Location = new System.Drawing.Point(147, 44);
             this.buttonAgregarIndividuo.Name = "buttonAgregarIndividuo";
             this.buttonAgregarIndividuo.Size = new System.Drawing.Size(133, 44);
             this.buttonAgregarIndividuo.TabIndex = 86;
@@ -143,7 +146,7 @@
             // 
             this.labelNombreProyecto.AutoSize = true;
             this.labelNombreProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreProyecto.Location = new System.Drawing.Point(750, 33);
+            this.labelNombreProyecto.Location = new System.Drawing.Point(733, 24);
             this.labelNombreProyecto.Name = "labelNombreProyecto";
             this.labelNombreProyecto.Size = new System.Drawing.Size(75, 20);
             this.labelNombreProyecto.TabIndex = 84;
@@ -151,22 +154,22 @@
             // 
             // textBoxEstadoSucesional
             // 
-            this.textBoxEstadoSucesional.Location = new System.Drawing.Point(643, 106);
+            this.textBoxEstadoSucesional.Location = new System.Drawing.Point(637, 106);
             this.textBoxEstadoSucesional.Name = "textBoxEstadoSucesional";
-            this.textBoxEstadoSucesional.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEstadoSucesional.Size = new System.Drawing.Size(53, 20);
             this.textBoxEstadoSucesional.TabIndex = 83;
             // 
             // textBoxMunicipio
             // 
-            this.textBoxMunicipio.Location = new System.Drawing.Point(643, 75);
+            this.textBoxMunicipio.Location = new System.Drawing.Point(637, 75);
             this.textBoxMunicipio.Name = "textBoxMunicipio";
-            this.textBoxMunicipio.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMunicipio.Size = new System.Drawing.Size(53, 20);
             this.textBoxMunicipio.TabIndex = 82;
             // 
             // labelEstadoSucesional
             // 
             this.labelEstadoSucesional.AutoSize = true;
-            this.labelEstadoSucesional.Location = new System.Drawing.Point(542, 108);
+            this.labelEstadoSucesional.Location = new System.Drawing.Point(536, 108);
             this.labelEstadoSucesional.Name = "labelEstadoSucesional";
             this.labelEstadoSucesional.Size = new System.Drawing.Size(95, 13);
             this.labelEstadoSucesional.TabIndex = 81;
@@ -176,7 +179,7 @@
             // labelMunicipio
             // 
             this.labelMunicipio.AutoSize = true;
-            this.labelMunicipio.Location = new System.Drawing.Point(585, 78);
+            this.labelMunicipio.Location = new System.Drawing.Point(579, 78);
             this.labelMunicipio.Name = "labelMunicipio";
             this.labelMunicipio.Size = new System.Drawing.Size(52, 13);
             this.labelMunicipio.TabIndex = 80;
@@ -184,14 +187,14 @@
             // 
             // textBoxY
             // 
-            this.textBoxY.Location = new System.Drawing.Point(463, 106);
+            this.textBoxY.Location = new System.Drawing.Point(457, 106);
             this.textBoxY.Name = "textBoxY";
             this.textBoxY.Size = new System.Drawing.Size(67, 20);
             this.textBoxY.TabIndex = 79;
             // 
             // textBoxX
             // 
-            this.textBoxX.Location = new System.Drawing.Point(463, 76);
+            this.textBoxX.Location = new System.Drawing.Point(457, 76);
             this.textBoxX.Name = "textBoxX";
             this.textBoxX.Size = new System.Drawing.Size(67, 20);
             this.textBoxX.TabIndex = 78;
@@ -200,7 +203,7 @@
             // labelY
             // 
             this.labelY.AutoSize = true;
-            this.labelY.Location = new System.Drawing.Point(443, 113);
+            this.labelY.Location = new System.Drawing.Point(437, 113);
             this.labelY.Name = "labelY";
             this.labelY.Size = new System.Drawing.Size(14, 13);
             this.labelY.TabIndex = 77;
@@ -209,7 +212,7 @@
             // labelX
             // 
             this.labelX.AutoSize = true;
-            this.labelX.Location = new System.Drawing.Point(443, 81);
+            this.labelX.Location = new System.Drawing.Point(437, 81);
             this.labelX.Name = "labelX";
             this.labelX.Size = new System.Drawing.Size(14, 13);
             this.labelX.TabIndex = 76;
@@ -219,7 +222,7 @@
             // 
             this.labelCoordenadas.AutoSize = true;
             this.labelCoordenadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCoordenadas.Location = new System.Drawing.Point(456, 58);
+            this.labelCoordenadas.Location = new System.Drawing.Point(450, 58);
             this.labelCoordenadas.Name = "labelCoordenadas";
             this.labelCoordenadas.Size = new System.Drawing.Size(81, 15);
             this.labelCoordenadas.TabIndex = 75;
@@ -251,7 +254,7 @@
             this.buttonBorrarSitio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonBorrarSitio.Image = ((System.Drawing.Image)(resources.GetObject("buttonBorrarSitio.Image")));
             this.buttonBorrarSitio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBorrarSitio.Location = new System.Drawing.Point(222, 476);
+            this.buttonBorrarSitio.Location = new System.Drawing.Point(222, 478);
             this.buttonBorrarSitio.Name = "buttonBorrarSitio";
             this.buttonBorrarSitio.Size = new System.Drawing.Size(139, 45);
             this.buttonBorrarSitio.TabIndex = 71;
@@ -268,7 +271,7 @@
             this.buttonAgregarSitio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonAgregarSitio.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarSitio.Image")));
             this.buttonAgregarSitio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAgregarSitio.Location = new System.Drawing.Point(71, 476);
+            this.buttonAgregarSitio.Location = new System.Drawing.Point(71, 478);
             this.buttonAgregarSitio.Name = "buttonAgregarSitio";
             this.buttonAgregarSitio.Size = new System.Drawing.Size(134, 45);
             this.buttonAgregarSitio.TabIndex = 70;
@@ -337,125 +340,13 @@
             this.estadocondicion,
             this.volumen,
             this.areabasal});
-            this.dataGridViewIndividuos.Location = new System.Drawing.Point(13, 144);
+            this.dataGridViewIndividuos.Location = new System.Drawing.Point(13, 147);
             this.dataGridViewIndividuos.Name = "dataGridViewIndividuos";
             this.dataGridViewIndividuos.Size = new System.Drawing.Size(1069, 323);
             this.dataGridViewIndividuos.TabIndex = 67;
             this.dataGridViewIndividuos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIndividuos_CellEndEdit);
             this.dataGridViewIndividuos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewIndividuos_EditingControlShowing);
             this.dataGridViewIndividuos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewIndividuos_KeyPress);
-            // 
-            // button6
-            // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(926, 80);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(118, 42);
-            this.button6.TabIndex = 89;
-            this.button6.Text = "Ubicación";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // buttonGrafica
-            // 
-            this.buttonGrafica.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonGrafica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.buttonGrafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGrafica.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.buttonGrafica.Image = ((System.Drawing.Image)(resources.GetObject("buttonGrafica.Image")));
-            this.buttonGrafica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGrafica.Location = new System.Drawing.Point(802, 80);
-            this.buttonGrafica.Name = "buttonGrafica";
-            this.buttonGrafica.Size = new System.Drawing.Size(118, 43);
-            this.buttonGrafica.TabIndex = 90;
-            this.buttonGrafica.Text = "Gráfica";
-            this.buttonGrafica.UseVisualStyleBackColor = true;
-            this.buttonGrafica.Click += new System.EventHandler(this.buttonGrafica_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(464, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 27);
-            this.label1.TabIndex = 91;
-            this.label1.Text = "Captura Proyecto";
-            // 
-            // buttonImportar
-            // 
-            this.buttonImportar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonImportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.buttonImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonImportar.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.buttonImportar.Image = ((System.Drawing.Image)(resources.GetObject("buttonImportar.Image")));
-            this.buttonImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonImportar.Location = new System.Drawing.Point(941, 485);
-            this.buttonImportar.Name = "buttonImportar";
-            this.buttonImportar.Size = new System.Drawing.Size(131, 36);
-            this.buttonImportar.TabIndex = 92;
-            this.buttonImportar.Text = "Importar";
-            this.buttonImportar.UseVisualStyleBackColor = true;
-            this.buttonImportar.Click += new System.EventHandler(this.buttonImportar_Click);
-            // 
-            // ButtonBack
-            // 
-            this.ButtonBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonBack.FlatAppearance.BorderSize = 0;
-            this.ButtonBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
-            this.ButtonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonBack.Image = ((System.Drawing.Image)(resources.GetObject("ButtonBack.Image")));
-            this.ButtonBack.Location = new System.Drawing.Point(3, 5);
-            this.ButtonBack.Name = "ButtonBack";
-            this.ButtonBack.Size = new System.Drawing.Size(62, 47);
-            this.ButtonBack.TabIndex = 107;
-            this.ButtonBack.UseVisualStyleBackColor = true;
-            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
-            // 
-            // TipBox
-            // 
-            this.TipBox.Cursor = System.Windows.Forms.Cursors.Help;
-            this.TipBox.Image = ((System.Drawing.Image)(resources.GetObject("TipBox.Image")));
-            this.TipBox.Location = new System.Drawing.Point(1052, 3);
-            this.TipBox.Name = "TipBox";
-            this.TipBox.Size = new System.Drawing.Size(23, 22);
-            this.TipBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.TipBox.TabIndex = 108;
-            this.TipBox.TabStop = false;
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.AutoPopDelay = 25000;
-            this.toolTip1.InitialDelay = 500;
-            this.toolTip1.IsBalloon = true;
-            this.toolTip1.ReshowDelay = 100;
-            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip1.ToolTipTitle = "Captura Proyecto";
-            // 
-            // TBNombre
-            // 
-            this.TBNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBNombre.Enabled = false;
-            this.TBNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBNombre.Location = new System.Drawing.Point(831, 33);
-            this.TBNombre.Multiline = true;
-            this.TBNombre.Name = "TBNombre";
-            this.TBNombre.Size = new System.Drawing.Size(210, 40);
-            this.TBNombre.TabIndex = 109;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(430, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(28, 27);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 110;
-            this.pictureBox2.TabStop = false;
             // 
             // cuadrante
             // 
@@ -602,10 +493,169 @@
             this.areabasal.Name = "areabasal";
             this.areabasal.ReadOnly = true;
             // 
+            // button6
+            // 
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(799, 482);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(111, 42);
+            this.button6.TabIndex = 89;
+            this.button6.Text = "Ubicación";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // buttonGrafica
+            // 
+            this.buttonGrafica.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonGrafica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.buttonGrafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGrafica.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonGrafica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGrafica.Location = new System.Drawing.Point(743, 70);
+            this.buttonGrafica.Name = "buttonGrafica";
+            this.buttonGrafica.Size = new System.Drawing.Size(118, 33);
+            this.buttonGrafica.TabIndex = 90;
+            this.buttonGrafica.Text = "Dasometricos";
+            this.buttonGrafica.UseVisualStyleBackColor = true;
+            this.buttonGrafica.Click += new System.EventHandler(this.buttonGrafica_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(464, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(199, 27);
+            this.label1.TabIndex = 91;
+            this.label1.Text = "Captura Proyecto";
+            // 
+            // buttonImportar
+            // 
+            this.buttonImportar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonImportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.buttonImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImportar.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonImportar.Image = ((System.Drawing.Image)(resources.GetObject("buttonImportar.Image")));
+            this.buttonImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonImportar.Location = new System.Drawing.Point(941, 485);
+            this.buttonImportar.Name = "buttonImportar";
+            this.buttonImportar.Size = new System.Drawing.Size(131, 36);
+            this.buttonImportar.TabIndex = 92;
+            this.buttonImportar.Text = "Importar";
+            this.buttonImportar.UseVisualStyleBackColor = true;
+            this.buttonImportar.Click += new System.EventHandler(this.buttonImportar_Click);
+            // 
+            // ButtonBack
+            // 
+            this.ButtonBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonBack.FlatAppearance.BorderSize = 0;
+            this.ButtonBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
+            this.ButtonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonBack.Image = ((System.Drawing.Image)(resources.GetObject("ButtonBack.Image")));
+            this.ButtonBack.Location = new System.Drawing.Point(3, 5);
+            this.ButtonBack.Name = "ButtonBack";
+            this.ButtonBack.Size = new System.Drawing.Size(62, 47);
+            this.ButtonBack.TabIndex = 107;
+            this.ButtonBack.UseVisualStyleBackColor = true;
+            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
+            // 
+            // TipBox
+            // 
+            this.TipBox.Cursor = System.Windows.Forms.Cursors.Help;
+            this.TipBox.Image = ((System.Drawing.Image)(resources.GetObject("TipBox.Image")));
+            this.TipBox.Location = new System.Drawing.Point(1052, 3);
+            this.TipBox.Name = "TipBox";
+            this.TipBox.Size = new System.Drawing.Size(23, 22);
+            this.TipBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TipBox.TabIndex = 108;
+            this.TipBox.TabStop = false;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 25000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.ReshowDelay = 100;
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip1.ToolTipTitle = "Captura Proyecto";
+            // 
+            // TBNombre
+            // 
+            this.TBNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBNombre.Enabled = false;
+            this.TBNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBNombre.Location = new System.Drawing.Point(814, 24);
+            this.TBNombre.Multiline = true;
+            this.TBNombre.Name = "TBNombre";
+            this.TBNombre.Size = new System.Drawing.Size(210, 40);
+            this.TBNombre.TabIndex = 109;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(430, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(28, 27);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 110;
+            this.pictureBox2.TabStop = false;
+            // 
+            // buttonDiversidad
+            // 
+            this.buttonDiversidad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDiversidad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.buttonDiversidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDiversidad.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonDiversidad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDiversidad.Location = new System.Drawing.Point(743, 109);
+            this.buttonDiversidad.Name = "buttonDiversidad";
+            this.buttonDiversidad.Size = new System.Drawing.Size(118, 33);
+            this.buttonDiversidad.TabIndex = 111;
+            this.buttonDiversidad.Text = "Diversidad y Riqueza";
+            this.buttonDiversidad.UseVisualStyleBackColor = true;
+            this.buttonDiversidad.Click += new System.EventHandler(this.buttonDiversidad_Click);
+            // 
+            // buttonImportancia
+            // 
+            this.buttonImportancia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonImportancia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.buttonImportancia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImportancia.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.buttonImportancia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonImportancia.Location = new System.Drawing.Point(867, 70);
+            this.buttonImportancia.Name = "buttonImportancia";
+            this.buttonImportancia.Size = new System.Drawing.Size(118, 33);
+            this.buttonImportancia.TabIndex = 112;
+            this.buttonImportancia.Text = "Valor de Importancia";
+            this.buttonImportancia.UseVisualStyleBackColor = true;
+            this.buttonImportancia.Click += new System.EventHandler(this.buttonImportancia_Click);
+            // 
+            // ReportButton
+            // 
+            this.ReportButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReportButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.ReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReportButton.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.ReportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ReportButton.Location = new System.Drawing.Point(867, 108);
+            this.ReportButton.Name = "ReportButton";
+            this.ReportButton.Size = new System.Drawing.Size(118, 33);
+            this.ReportButton.TabIndex = 113;
+            this.ReportButton.Text = "Reporte";
+            this.ReportButton.UseVisualStyleBackColor = true;
+            this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
+            // 
             // FormRegistro2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ReportButton);
+            this.Controls.Add(this.buttonImportancia);
+            this.Controls.Add(this.buttonDiversidad);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.TBNombre);
             this.Controls.Add(this.TipBox);
@@ -697,5 +747,8 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn estadocondicion;
         private System.Windows.Forms.DataGridViewTextBoxColumn volumen;
         private System.Windows.Forms.DataGridViewTextBoxColumn areabasal;
+        private System.Windows.Forms.Button buttonDiversidad;
+        private System.Windows.Forms.Button buttonImportancia;
+        private System.Windows.Forms.Button ReportButton;
     }
 }

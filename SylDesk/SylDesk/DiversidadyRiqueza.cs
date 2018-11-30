@@ -226,5 +226,11 @@ namespace SylDesk
         {
             get_IDR_Resumes();
         }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+
+            form1.formRegistro2ToFront(proyecto);
+        }
     }
 }

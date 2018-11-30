@@ -31,12 +31,17 @@ namespace SylDesk
             this.formRegistroEspecie.setForm(this);
             this.formInicial.setForm(this);
             this.grafica.setForm(this);
-            this.report.setForm(this);
+            //this.report.setForm(this);
+            this.generarreporte.setForm(this);
             this.calculadoraEcu.setForm(this);
             this.formEditar.setForm(this);
             this.dasometricos.setForm(this);
             this.diversidadyRiqueza.setForm(this);
             this.valordeImportancia.setForm(this);
+
+            
+
+          
 
 
             SidePanel1.Hide();
@@ -191,11 +196,19 @@ namespace SylDesk
             grafica.Initialize(proyecto);
             grafica.BringToFront();
         }
-        public void reportToFront()
+        /*public void reportToFront()
         {            
             report.InitializeLifetimeService();
             report.BringToFront();
+        }*/
+        
+        public void generarreporteToFront(Proyecto proyecto)
+        {
+            generarreporte.Initialize(proyecto);
+            
+            generarreporte.BringToFront();
         }
+
         public void calculadoraEcuToFront(Proyecto proyecto , int status, String especie)
         {
             calculadoraEcu.Initialize(proyecto, status, especie);

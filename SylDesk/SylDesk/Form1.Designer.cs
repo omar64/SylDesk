@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+
             this.panel1 = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -67,7 +68,7 @@
             this.formRegistroEspecie = new SylDesk.FormRegistroEspecie();
             this.formInicial = new SylDesk.FormInicial();
             this.grafica = new SylDesk.Grafica();
-            this.report = new SylDesk.Report();
+            this.generarreporte = new SylDesk.GenerarReporte();
             this.calculadoraEcu = new SylDesk.CalculadoraEcu();
             this.formEditar = new SylDesk.FormEditar();
             this.dasometricos = new SylDesk.Dasometricos();
@@ -561,12 +562,12 @@
             this.grafica.Size = new System.Drawing.Size(1085, 527);
             this.grafica.TabIndex = 73;
             // 
-            // report
-            // 
-            this.report.Location = new System.Drawing.Point(3, 161);
-            this.report.Name = "report";
-            this.report.Size = new System.Drawing.Size(1085, 527);
-            this.report.TabIndex = 73;
+            // generarreporte
+            //
+            this.generarreporte.Location = new System.Drawing.Point(3, 161);
+            this.generarreporte.Name = "generarreporte";
+            this.generarreporte.Size = new System.Drawing.Size(1085, 527);
+            this.generarreporte.TabIndex = 73;
             // 
             // calculadoraEcu
             // 
@@ -614,7 +615,7 @@
             this.Controls.Add(this.formRegistroEspecie);
             this.Controls.Add(this.formInicial);
             this.Controls.Add(this.grafica);
-            this.Controls.Add(this.report);
+            this.Controls.Add(this.generarreporte);
             this.Controls.Add(this.calculadoraEcu);
             this.Controls.Add(this.formEditar);
             this.Controls.Add(this.dasometricos);
@@ -683,7 +684,7 @@
         private FormRegistroEspecie formRegistroEspecie = null;
         private FormInicial formInicial = null;
         private Grafica grafica = null;
-        private Report report = null;
+        private GenerarReporte generarreporte = null;
         private CalculadoraEcu calculadoraEcu = null;
         private FormEditar formEditar = null;
         private Dasometricos dasometricos = null;
@@ -693,6 +694,9 @@
         private System.Windows.Forms.Panel SidePanel2;
         private System.Windows.Forms.Panel SidePanel4;
         private System.Windows.Forms.Panel SidePanel3;
+
+
+        
     }
 }
 

@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ValordeImportancia));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.label1 = new System.Windows.Forms.Label();
             this.panelGrafica = new System.Windows.Forms.Panel();
             this.PanelCargando = new System.Windows.Forms.Panel();
@@ -44,6 +45,7 @@
             this.buttonIVI2 = new System.Windows.Forms.Button();
             this.buttonIVI1 = new System.Windows.Forms.Button();
             this.buttonIVI4 = new System.Windows.Forms.Button();
+            this.buttonback = new System.Windows.Forms.Button();
             this.panelGrafica.SuspendLayout();
             this.PanelCargando.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoadingBox)).BeginInit();
@@ -122,6 +124,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(592, 11);
@@ -131,13 +141,13 @@
             // 
             // chart1
             // 
-            chartArea3.AxisX.MajorGrid.Enabled = false;
-            chartArea3.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Enabled = false;
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(13, 11);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(573, 417);
@@ -223,10 +233,25 @@
             this.buttonIVI4.UseVisualStyleBackColor = true;
             this.buttonIVI4.Click += new System.EventHandler(this.buttonIVI4_Click);
             // 
+            // buttonback
+            // 
+            this.buttonback.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonback.FlatAppearance.BorderSize = 0;
+            this.buttonback.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
+            this.buttonback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonback.Image = ((System.Drawing.Image)(resources.GetObject("buttonback.Image")));
+            this.buttonback.Location = new System.Drawing.Point(3, 5);
+            this.buttonback.Name = "buttonback";
+            this.buttonback.Size = new System.Drawing.Size(62, 47);
+            this.buttonback.TabIndex = 132;
+            this.buttonback.UseVisualStyleBackColor = true;
+            this.buttonback.Click += new System.EventHandler(this.buttonback_Click);
+            // 
             // ValordeImportancia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonback);
             this.Controls.Add(this.buttonIVI4);
             this.Controls.Add(this.buttonIVI3);
             this.Controls.Add(this.buttonIVI2);
@@ -263,5 +288,6 @@
         private System.Windows.Forms.Button buttonIVI2;
         private System.Windows.Forms.Button buttonIVI1;
         private System.Windows.Forms.Button buttonIVI4;
+        private System.Windows.Forms.Button buttonback;
     }
 }

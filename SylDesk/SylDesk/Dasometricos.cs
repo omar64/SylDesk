@@ -487,5 +487,11 @@ namespace SylDesk
                 get_volumen();
             }
         }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+
+            form1.formRegistro2ToFront(proyecto);
+        }
     }
 }

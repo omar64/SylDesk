@@ -239,5 +239,10 @@ namespace SylDesk
             flag = 5;
             get_IVI(Convert.ToInt32(proyecto.getArea4Superficie()));
         }
+
+        private void buttonback_Click(object sender, EventArgs e)
+        {
+            form1.formRegistro2ToFront(proyecto);
+        }
     }
 }
