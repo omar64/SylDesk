@@ -37,10 +37,27 @@ namespace SylDesk
 
             superficie = Convert.ToDouble(proyecto.getSuperficie());
 
-            buttonArea1.Text = "" + proyecto.getArea1Superficie();
-            buttonArea2.Text = "" + proyecto.getArea2Superficie();
-            buttonArea3.Text = "" + proyecto.getArea3Superficie();
-            buttonArea4.Text = "" + proyecto.getArea4Superficie();
+            if (!proyecto.getArea1Activo())
+            {
+                buttonArea1.Visible = false;
+            }
+            if (!proyecto.getArea2Activo())
+            {
+                buttonArea2.Visible = false;
+            }
+            if (!proyecto.getArea3Activo())
+            {
+                buttonArea3.Visible = false;
+            }
+            if (!proyecto.getArea4Activo())
+            {
+                buttonArea4.Visible = false;
+            }
+
+            buttonArea1.Text = "" + proyecto.getArea1Tag();
+            buttonArea2.Text = "" + proyecto.getArea2Tag();
+            buttonArea3.Text = "" + proyecto.getArea3Tag();
+            buttonArea4.Text = "" + proyecto.getArea4Tag();
         }
         public void Empty()
         {
@@ -97,10 +114,10 @@ namespace SylDesk
                 i_simpson = 1 - i_simpson;
                 i_margalef = (null_checker.Count - 1) / Math.Log(Convert.ToDouble(aux[0]));
 
-                dataGridView1.Rows.Add("", "", "I. de Shannon", "Sum. pi*Ln(pi)", i_shannon, "");
-                dataGridView1.Rows.Add("", "", "Equitatividad Shannon", "E=H/Ln(S)", e_shannon, "");
-                dataGridView1.Rows.Add("", "", "I. de Simpson", "S=1-D", "", i_simpson);
-                dataGridView1.Rows.Add("", "", "I. de Margalef", "(S-1)/Ln(N)", "", i_margalef);
+                textBox1.Text = "" + i_shannon;
+                textBox2.Text = "" + e_shannon;
+                textBox3.Text = "" + i_simpson;
+                textBox4.Text = "" + i_margalef;
 
                 List<String> area1 = get_IDR_Resume("500");
                 String area1_s = "";
@@ -204,26 +221,49 @@ namespace SylDesk
 
         private void buttonArea1_Click(object sender, EventArgs e)
         {
+            showLowerTexts(true);
             get_IDR(proyecto.getArea1Superficie());
         }
 
         private void buttonArea2_Click(object sender, EventArgs e)
         {
+            showLowerTexts(true);
             get_IDR(proyecto.getArea2Superficie());
         }
 
         private void buttonArea3_Click(object sender, EventArgs e)
         {
+            showLowerTexts(true);
             get_IDR(proyecto.getArea3Superficie());
         }
 
         private void buttonArea4_Click(object sender, EventArgs e)
         {
+            showLowerTexts(true);
             get_IDR(proyecto.getArea4Superficie());
+        }
+
+        private void showLowerTexts(Boolean state)
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+
+            label2.Visible = state;
+            label3.Visible = state;
+            label4.Visible = state;
+            label5.Visible = state;
+            textBox1.Visible = state;
+            textBox2.Visible = state;
+            textBox3.Visible = state;
+            textBox4.Visible = state;
+
         }
 
         private void buttonResumen_Click(object sender, EventArgs e)
         {
+            showLowerTexts(false);
             get_IDR_Resumes();
         }
 

@@ -38,11 +38,27 @@ namespace SylDesk
 
             superficie = Convert.ToDouble(proyecto.getSuperficie());
 
+            if (!proyecto.getArea1Activo())
+            {
+                buttonIVI1.Visible = false;
+            }
+            if (!proyecto.getArea2Activo())
+            {
+                buttonIVI2.Visible = false;
+            }
+            if (!proyecto.getArea3Activo())
+            {
+                buttonIVI3.Visible = false;
+            }
+            if (!proyecto.getArea4Activo())
+            {
+                buttonIVI4.Visible = false;
+            }
 
-            buttonIVI1.Text = "" + proyecto.getArea1Superficie();
-            buttonIVI2.Text = "" + proyecto.getArea2Superficie();
-            buttonIVI3.Text = "" + proyecto.getArea3Superficie();
-            buttonIVI4.Text = "" + proyecto.getArea4Superficie();
+            buttonIVI1.Text = "" + proyecto.getArea1Tag();
+            buttonIVI2.Text = "" + proyecto.getArea2Tag();
+            buttonIVI3.Text = "" + proyecto.getArea3Tag();
+            buttonIVI4.Text = "" + proyecto.getArea4Tag();
         }
         public void Empty()
         {
