@@ -46,16 +46,49 @@ namespace SylDesk
             ///Tabla y Grafica de Categoria de altura(cat)
             ///
             List<Cad> list_cad = getCads();  //get list of students
-            //reportViewer1.LocalReport.DataSources.Clear(); //clear report
-            //reportViewer1.LocalReport.ReportEmbeddedResource = "Syldesk.ReporteFormato.rdlc"; // bind reportviewer with .rdlc
             Microsoft.Reporting.WinForms.ReportDataSource dataset_cad = new Microsoft.Reporting.WinForms.ReportDataSource("cadDS", list_cad); // set the datasource
             reportViewer1.LocalReport.DataSources.Add(dataset_cad);
             dataset_cad.Value = list_cad;
-            reportViewer1.LocalReport.Refresh();
-            reportViewer1.RefreshReport(); // refresh report
 
+            ///
+            ///Tabla y Grafica de Numero Individuos
+            ///
+            List<No_Individuos> list_no_individuos = getNumeroIndividuos();  //get list of students
+            Microsoft.Reporting.WinForms.ReportDataSource dataset_no_individuos = new Microsoft.Reporting.WinForms.ReportDataSource("no_individuosDS", list_no_individuos); // set the datasource
+            reportViewer1.LocalReport.DataSources.Add(dataset_no_individuos);
+            dataset_no_individuos.Value = list_no_individuos;
 
+            ///
+            ///Tabla y Grafica de Area Basal
+            ///
+            List<Area_Basal> list_area_basal = getAreaBasal();  //get list of students
+            Microsoft.Reporting.WinForms.ReportDataSource dataset_area_basal = new Microsoft.Reporting.WinForms.ReportDataSource("areabasaDS", list_area_basal); // set the datasource
+            reportViewer1.LocalReport.DataSources.Add(dataset_area_basal);
+            dataset_area_basal.Value = list_area_basal;
 
+            ///
+            ///Tabla y Grafica de Volumen
+            ///
+            List<Volumen> list_volumen = getVolumen();  //get list of students
+            Microsoft.Reporting.WinForms.ReportDataSource dataset_volumen = new Microsoft.Reporting.WinForms.ReportDataSource("volumenDS", list_volumen); // set the datasource
+            reportViewer1.LocalReport.DataSources.Add(dataset_volumen);
+            dataset_volumen.Value = list_volumen;
+
+            ///
+            ///Tabla y Grafica de IVI
+            ///
+            List<IVI2> list_ivi = getIVI(500);  //get list of students
+            Microsoft.Reporting.WinForms.ReportDataSource dataset_ivi = new Microsoft.Reporting.WinForms.ReportDataSource("iviDS", list_ivi); // set the datasource
+            reportViewer1.LocalReport.DataSources.Add(dataset_ivi);
+            dataset_ivi.Value = list_ivi;
+
+            ///
+            ///Tabla y Grafica de IDR
+            ///
+            List<IDR> list_idr = getIDR("500");  //get list of students
+            Microsoft.Reporting.WinForms.ReportDataSource dataset_idr = new Microsoft.Reporting.WinForms.ReportDataSource("idrDS", list_idr); // set the datasource
+            reportViewer1.LocalReport.DataSources.Add(dataset_ivi);
+            dataset_idr.Value = list_idr;
         }
 
         private void GenerarReporte_Load(object sender, EventArgs e)
@@ -290,7 +323,7 @@ namespace SylDesk
             return list;
         }
 
-        private List<Area_Basal> get_area_basal(int size = 5) // area basal por especie (m^2 / ha)
+        private List<Area_Basal> getAreaBasal(int size = 5) // area basal por especie (m^2 / ha)
         {
             List<Area_Basal> list = new List<Area_Basal>();
 
@@ -322,7 +355,7 @@ namespace SylDesk
                         new Area_Basal
                         {
                             especie = aux[i][0],
-                            suma_ab = Convert.ToInt32(aux[i][1]),
+                            suma_ab = Convert.ToDouble(aux[i][1]),
                             ab_ha = Convert.ToDouble(ha.ToString("F4")),
                             ab_ha2 = Convert.ToDouble(ha2.ToString("F4"))
                         }
@@ -340,7 +373,37 @@ namespace SylDesk
 
             return list;
         }
-        private List<Volumen> get_volumen(int size = 5) // volumen por especie (m^3/ha)
+
+        /*
+        private List<Volumen> getVolumen(int size = 5)
+        {
+            List<Volumen> list = new List<Volumen>();
+
+            list.Add(
+                new Volumen
+                {
+                    especie = "1",
+                    suma_volumen = 1,
+                    volumen_ha = 2,
+                    volumen_ha2 = 3
+                }
+            );
+
+            list.Add(
+                new Volumen
+                {
+                    especie = "4",
+                    suma_volumen = 4,
+                    volumen_ha = 5,
+                    volumen_ha2 = 6
+                }
+            );
+
+            return list;
+        }
+        */
+
+        private List<Volumen> getVolumen(int size = 5) // volumen por especie (m^3/ha)
         {
             List<Volumen> list = new List<Volumen>();
 
@@ -375,7 +438,7 @@ namespace SylDesk
                         new Volumen
                         {
                             especie = aux[i][0],
-                            suma_volumen = Convert.ToInt32(aux[i][1]),
+                            suma_volumen = Convert.ToDouble(aux[i][1]),
                             volumen_ha = Convert.ToDouble(ha.ToString("F4")),
                             volumen_ha2 = Convert.ToDouble(ha2.ToString("F4"))
                         }
@@ -394,7 +457,7 @@ namespace SylDesk
             return list;
         }
 
-        private List<IVI2> get_IVI(int area, int size = 5)
+        private List<IVI2> getIVI(int area, int size = 5)
         {
             List<IVI2> list = new List<IVI2>();
 
@@ -511,7 +574,7 @@ namespace SylDesk
             return list;
         }
 
-        private List<IDR> get_IDR(String area) //Indice Diversidad
+        private List<IDR> getIDR(String area) //Indice Diversidad
         {
             List<IDR> list = new List<IDR>();
 
