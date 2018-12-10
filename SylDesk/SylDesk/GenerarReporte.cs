@@ -33,7 +33,47 @@ namespace SylDesk
 
         private void GenerarReporte_Load(object sender, EventArgs e)
         {
-            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();            
+
+            List<Cat> list = getCats();  //get list of students
+
+            //reportViewer1.LocalReport.DataSources.Clear(); //clear report
+
+            //reportViewer1.LocalReport.ReportEmbeddedResource = "Syldesk.ReporteFormato.rdlc"; // bind reportviewer with .rdlc
+
+            Microsoft.Reporting.WinForms.ReportDataSource dataset = new Microsoft.Reporting.WinForms.ReportDataSource("catDS", list); // set the datasource
+
+            reportViewer1.LocalReport.DataSources.Add(dataset);
+
+            dataset.Value = list;
+
+            reportViewer1.LocalReport.Refresh();
+
+            reportViewer1.RefreshReport(); // refresh report
+        }
+
+        public static List<Cat> getCats()
+        {
+
+            List<Cat> list = new List<Cat>
+            {
+                new Cat
+                {
+                    cat = 2,
+                    no_individuos = 102,
+                },
+                new Cat
+                {
+                    cat = 2,
+                    no_individuos = 202,
+                },
+                new Cat
+                {
+                    cat = 3,
+                    no_individuos = 302,
+                },
+            };
+            return list;
         }
 
         private void ButtonBack_Click(object sender, EventArgs e)
