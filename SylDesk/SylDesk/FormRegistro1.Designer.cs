@@ -445,16 +445,15 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(21, 56);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 56);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(222, 268);
+            this.pictureBox1.Size = new System.Drawing.Size(251, 321);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
             // richTextBoxDescripcion
             // 
-            this.richTextBoxDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBoxDescripcion.Location = new System.Drawing.Point(413, 115);
             this.richTextBoxDescripcion.Name = "richTextBoxDescripcion";
             this.richTextBoxDescripcion.Size = new System.Drawing.Size(389, 90);
@@ -582,7 +581,7 @@
             this.AgregarUmafor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.AgregarUmafor.Image = ((System.Drawing.Image)(resources.GetObject("AgregarUmafor.Image")));
             this.AgregarUmafor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AgregarUmafor.Location = new System.Drawing.Point(63, 405);
+            this.AgregarUmafor.Location = new System.Drawing.Point(44, 416);
             this.AgregarUmafor.Name = "AgregarUmafor";
             this.AgregarUmafor.Size = new System.Drawing.Size(139, 43);
             this.AgregarUmafor.TabIndex = 105;
@@ -605,7 +604,7 @@
             // 
             this.listUmafor.Location = new System.Drawing.Point(18, 67);
             this.listUmafor.Name = "listUmafor";
-            this.listUmafor.Size = new System.Drawing.Size(184, 322);
+            this.listUmafor.Size = new System.Drawing.Size(184, 340);
             this.listUmafor.TabIndex = 102;
             this.listUmafor.UseCompatibleStateImageBehavior = false;
             this.listUmafor.View = System.Windows.Forms.View.List;
