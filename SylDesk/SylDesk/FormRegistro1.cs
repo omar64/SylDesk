@@ -446,7 +446,7 @@ namespace SylDesk
             toolTip1.SetToolTip(TipBox, "Lorem ipsum dolor sit amet consectetur adipiscing\n elit ornare, accumsan nec auctor morbi eget diam cubilia curae,\n justo nisl fringilla natoque sodales dignissim tristique.\n Massa morbi fringilla taciti pulvinar vel nascetur risus luctus eros,\n aliquam orci accumsan quam convallis id sociis lectus egestas, dui mattis aptent leo conubia arcu mi consequat.\n Dictumst senectus litora suscipit proin pretium mattis facilisi, montes posuere ut felis convallis\n dignissim eleifend luctus, praesent urna nullam ridiculus vitae enim.");
         }
 
-        private Boolean checkAreaRangeOverlap()
+        private void checkAreaRangeOverlap()
         {
             string[] rangos_dialar1_str;
             string[] rangos_dialar2_str;
@@ -487,7 +487,7 @@ namespace SylDesk
                     if ((rangos_dialar1[0] >= rangos_dialar2[0] || rangos_dialar1[0] <= rangos_dialar2[1]) || (rangos_dialar1[1] >= rangos_dialar2[0] || rangos_dialar1[1] <= rangos_dialar2[1]) || (rangos_dialar2[0] >= rangos_dialar1[0] || rangos_dialar2[0] <= rangos_dialar1[1]) || (rangos_dialar2[1] >= rangos_dialar1[0] || rangos_dialar2[1] < rangos_dialar1[1]))
                     {
                         SqlConnector.sendMessage("Aviso!", "Los rangos del area 1 y 2 estan sobrepuestos", MessageBoxIcon.Exclamation);
-                        return true;
+                        //return true;
                     }
                 }
                 if (checkBoxA3.Checked)
@@ -495,7 +495,7 @@ namespace SylDesk
                     if ((rangos_dialar1[0] >= rangos_dialar3[0] || rangos_dialar1[0] <= rangos_dialar3[1]) || (rangos_dialar1[1] >= rangos_dialar3[0] || rangos_dialar3[1] <= rangos_dialar3[1]) || (rangos_dialar2[0] >= rangos_dialar1[0] || rangos_dialar3[0] <= rangos_dialar1[1]) || (rangos_dialar3[1] >= rangos_dialar1[0] || rangos_dialar3[1] < rangos_dialar1[1]))
                     {
                         SqlConnector.sendMessage("Aviso!", "Los rangos del area 1 y 3 estan sobrepuestos", MessageBoxIcon.Exclamation);
-                        return true;
+                        //return true;
                     }
 
                 }
@@ -504,7 +504,7 @@ namespace SylDesk
                     if ((rangos_dialar1[0] >= rangos_dialar4[0] || rangos_dialar1[0] <= rangos_dialar4[1]) || (rangos_dialar1[1] >= rangos_dialar4[0] || rangos_dialar1[1] <= rangos_dialar4[1]) || (rangos_dialar4[0] >= rangos_dialar1[0] || rangos_dialar4[0] <= rangos_dialar1[1]) || (rangos_dialar4[1] >= rangos_dialar1[0] || rangos_dialar4[1] < rangos_dialar1[1]))
                     {
                         SqlConnector.sendMessage("Aviso!", "Los rangos del area 1 y 4 estan sobrepuestos", MessageBoxIcon.Exclamation);
-                        return true;
+                        //return true;
                     }
                 }
             }
@@ -515,7 +515,7 @@ namespace SylDesk
                     if ((rangos_dialar2[0] >= rangos_dialar3[0] || rangos_dialar2[0] <= rangos_dialar3[1]) || (rangos_dialar2[1] >= rangos_dialar3[0] || rangos_dialar2[1] <= rangos_dialar3[1]) || (rangos_dialar3[0] >= rangos_dialar2[0] || rangos_dialar3[0] <= rangos_dialar2[1]) || (rangos_dialar3[1] >= rangos_dialar2[0] || rangos_dialar3[1] < rangos_dialar2[1]))
                     {
                         SqlConnector.sendMessage("Aviso!", "Los rangos del area 2 y 3 estan sobrepuestos", MessageBoxIcon.Exclamation);
-                        return true;
+                        //return true;
                     }
                 }
                 if (checkBoxA4.Checked)
@@ -523,7 +523,7 @@ namespace SylDesk
                     if ((rangos_dialar2[0] >= rangos_dialar4[0] || rangos_dialar2[0] <= rangos_dialar4[1]) || (rangos_dialar2[1] >= rangos_dialar4[0] || rangos_dialar2[1] <= rangos_dialar4[1]) || (rangos_dialar4[0] >= rangos_dialar2[0] || rangos_dialar4[0] <= rangos_dialar2[1]) || (rangos_dialar4[1] >= rangos_dialar2[0] || rangos_dialar4[1] < rangos_dialar2[1]))
                     {
                         SqlConnector.sendMessage("Aviso!", "Los rangos del area 2 y 3 estan sobrepuestos", MessageBoxIcon.Exclamation);
-                        return true;
+                        //return true;
                     }
                 }
             }
@@ -534,11 +534,11 @@ namespace SylDesk
                     if ((rangos_dialar3[0] >= rangos_dialar4[0] || rangos_dialar3[0] <= rangos_dialar4[1]) || (rangos_dialar3[1] >= rangos_dialar4[0] || rangos_dialar3[1] <= rangos_dialar4[1]) || (rangos_dialar4[0] >= rangos_dialar3[0] || rangos_dialar4[0] <= rangos_dialar3[1]) || (rangos_dialar4[1] >= rangos_dialar3[0] || rangos_dialar4[1] < rangos_dialar3[1]))
                     {
                         SqlConnector.sendMessage("Aviso!", "Los rangos del area 3 y 4 estan sobrepuestos", MessageBoxIcon.Exclamation);
-                        return true;
+                        //return true;
                     }
                 }
             }
-            return false;
+            //return false;
         }
 
         private void checkBoxA1_CheckedChanged(object sender, EventArgs e)

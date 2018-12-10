@@ -41,4 +41,68 @@ namespace SylDesk
             form1.formRegistro2ToFront(proyecto);
         }
     }
+
+    /// 
+    ///  DASOMETRICOS
+    /// 
+    public class Cat
+    {
+        public int cat { get; set; }
+        public int no_individuos { get; set; }
+    }
+
+    public class Cad
+    {
+        public int cad { get; set; }
+        public int no_individuos { get; set; }
+    }
+
+    public class No_Individuos
+    {
+        public int no_individuos { get; set; }
+        public int indidviduos_ha { get; set; }
+        public int individuos_scustf { get; set; }
+    }
+
+    public class Area_Basal
+    {
+        public string especie { get; set; }
+        public double suma_ab { get; set; }
+        public double ab_ha { get; set; }
+        public double ab_ha2 { get; set; }
+    }
+
+    public class Volumen
+    {
+        public string especie { get; set; }
+        public double suma_volumen { get; set; }
+        public double volumen_ha { get; set; }
+        public double volumen_ha2 { get; set; }
+    }
+    ///
+    /// IVI
+    ///
+    public class IVI2
+    {
+        public string nombrecientifico { get; set; }
+        public double frec_abs { get; set; }
+        public double frec_rel { get; set; }
+        public double den_abs { get; set; }
+        public double den_rel { get; set; }
+        public double dom_abs { get; set; }
+        public double dom_rel { get; set; }
+        public double ivi { get; set; }
+    }
+    ///
+    /// Diversidad y Riqueza
+    ///
+    public class IDR
+    {
+        public string especie { get; set; }
+        public double ni { get; set; }
+        public double pi { get; set; }
+        public double ln_pi { get; set; }
+        public double shannon { get; set; }
+        public double simpson { get; set; }
+    }
 }
