@@ -493,5 +493,10 @@ namespace SylDesk
 
             form1.formRegistro2ToFront(proyecto);
         }
+
+        private void Dasometricos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
