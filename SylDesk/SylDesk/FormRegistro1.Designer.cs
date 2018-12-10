@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro1));
             this.groupBoxRegistro = new System.Windows.Forms.GroupBox();
+            this.TagTxB4 = new System.Windows.Forms.TextBox();
+            this.TagTxB3 = new System.Windows.Forms.TextBox();
+            this.TagTxB2 = new System.Windows.Forms.TextBox();
+            this.TagTxB1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBoxVolumen4 = new System.Windows.Forms.CheckBox();
             this.checkBoxVolumen3 = new System.Windows.Forms.CheckBox();
@@ -79,6 +83,7 @@
             this.umaforBox = new System.Windows.Forms.ComboBox();
             this.listUmafor = new System.Windows.Forms.ListView();
             this.label13 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBoxRegistro.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -108,12 +113,45 @@
             this.groupBoxRegistro.TabStop = false;
             this.groupBoxRegistro.Text = "Crear Proyecto";
             // 
+            // TagTxB4
+            // 
+            this.TagTxB4.Location = new System.Drawing.Point(161, 167);
+            this.TagTxB4.Name = "TagTxB4";
+            this.TagTxB4.Size = new System.Drawing.Size(72, 22);
+            this.TagTxB4.TabIndex = 112;
+            // 
+            // TagTxB3
+            // 
+            this.TagTxB3.Location = new System.Drawing.Point(161, 139);
+            this.TagTxB3.Name = "TagTxB3";
+            this.TagTxB3.Size = new System.Drawing.Size(72, 22);
+            this.TagTxB3.TabIndex = 111;
+            // 
+            // TagTxB2
+            // 
+            this.TagTxB2.Location = new System.Drawing.Point(161, 109);
+            this.TagTxB2.Name = "TagTxB2";
+            this.TagTxB2.Size = new System.Drawing.Size(72, 22);
+            this.TagTxB2.TabIndex = 110;
+            // 
+            // TagTxB1
+            // 
+            this.TagTxB1.Location = new System.Drawing.Point(161, 81);
+            this.TagTxB1.Name = "TagTxB1";
+            this.TagTxB1.Size = new System.Drawing.Size(72, 22);
+            this.TagTxB1.TabIndex = 109;
+            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.TagTxB4);
             this.groupBox1.Controls.Add(this.checkBoxVolumen4);
+            this.groupBox1.Controls.Add(this.TagTxB3);
             this.groupBox1.Controls.Add(this.checkBoxVolumen3);
+            this.groupBox1.Controls.Add(this.TagTxB2);
             this.groupBox1.Controls.Add(this.checkBoxVolumen2);
+            this.groupBox1.Controls.Add(this.TagTxB1);
             this.groupBox1.Controls.Add(this.checkBoxVolumen1);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
@@ -298,7 +336,7 @@
             // 
             // SuperficieTxB4
             // 
-            this.SuperficieTxB4.Location = new System.Drawing.Point(91, 167);
+            this.SuperficieTxB4.Location = new System.Drawing.Point(55, 167);
             this.SuperficieTxB4.Name = "SuperficieTxB4";
             this.SuperficieTxB4.Size = new System.Drawing.Size(100, 22);
             this.SuperficieTxB4.TabIndex = 61;
@@ -306,7 +344,7 @@
             // checkBoxA4
             // 
             this.checkBoxA4.AutoSize = true;
-            this.checkBoxA4.Location = new System.Drawing.Point(20, 169);
+            this.checkBoxA4.Location = new System.Drawing.Point(-16, 169);
             this.checkBoxA4.Name = "checkBoxA4";
             this.checkBoxA4.Size = new System.Drawing.Size(65, 20);
             this.checkBoxA4.TabIndex = 60;
@@ -316,7 +354,7 @@
             // 
             // SuperficieTxB3
             // 
-            this.SuperficieTxB3.Location = new System.Drawing.Point(91, 139);
+            this.SuperficieTxB3.Location = new System.Drawing.Point(55, 139);
             this.SuperficieTxB3.Name = "SuperficieTxB3";
             this.SuperficieTxB3.Size = new System.Drawing.Size(100, 22);
             this.SuperficieTxB3.TabIndex = 59;
@@ -324,7 +362,7 @@
             // checkBoxA3
             // 
             this.checkBoxA3.AutoSize = true;
-            this.checkBoxA3.Location = new System.Drawing.Point(20, 141);
+            this.checkBoxA3.Location = new System.Drawing.Point(-16, 141);
             this.checkBoxA3.Name = "checkBoxA3";
             this.checkBoxA3.Size = new System.Drawing.Size(65, 20);
             this.checkBoxA3.TabIndex = 58;
@@ -334,7 +372,7 @@
             // 
             // SuperficieTxB2
             // 
-            this.SuperficieTxB2.Location = new System.Drawing.Point(91, 111);
+            this.SuperficieTxB2.Location = new System.Drawing.Point(55, 111);
             this.SuperficieTxB2.Name = "SuperficieTxB2";
             this.SuperficieTxB2.Size = new System.Drawing.Size(100, 22);
             this.SuperficieTxB2.TabIndex = 57;
@@ -342,7 +380,7 @@
             // checkBoxA2
             // 
             this.checkBoxA2.AutoSize = true;
-            this.checkBoxA2.Location = new System.Drawing.Point(20, 113);
+            this.checkBoxA2.Location = new System.Drawing.Point(-16, 113);
             this.checkBoxA2.Name = "checkBoxA2";
             this.checkBoxA2.Size = new System.Drawing.Size(65, 20);
             this.checkBoxA2.TabIndex = 56;
@@ -380,7 +418,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(88, 47);
+            this.label2.Location = new System.Drawing.Point(52, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 16);
             this.label2.TabIndex = 51;
@@ -388,7 +426,7 @@
             // 
             // SuperficieTxB1
             // 
-            this.SuperficieTxB1.Location = new System.Drawing.Point(91, 83);
+            this.SuperficieTxB1.Location = new System.Drawing.Point(55, 83);
             this.SuperficieTxB1.Name = "SuperficieTxB1";
             this.SuperficieTxB1.Size = new System.Drawing.Size(100, 22);
             this.SuperficieTxB1.TabIndex = 50;
@@ -396,7 +434,7 @@
             // checkBoxA1
             // 
             this.checkBoxA1.AutoSize = true;
-            this.checkBoxA1.Location = new System.Drawing.Point(20, 85);
+            this.checkBoxA1.Location = new System.Drawing.Point(-16, 85);
             this.checkBoxA1.Name = "checkBoxA1";
             this.checkBoxA1.Size = new System.Drawing.Size(65, 20);
             this.checkBoxA1.TabIndex = 49;
@@ -581,6 +619,15 @@
             this.label13.TabIndex = 103;
             this.label13.Text = "Umafor/Región";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(158, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 16);
+            this.label4.TabIndex = 113;
+            this.label4.Text = "Tag";
+            // 
             // FormRegistro1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -658,5 +705,10 @@
         private System.Windows.Forms.CheckBox checkBoxVolumen3;
         private System.Windows.Forms.CheckBox checkBoxVolumen2;
         private System.Windows.Forms.CheckBox checkBoxVolumen1;
+        private System.Windows.Forms.TextBox TagTxB4;
+        private System.Windows.Forms.TextBox TagTxB3;
+        private System.Windows.Forms.TextBox TagTxB2;
+        private System.Windows.Forms.TextBox TagTxB1;
+        private System.Windows.Forms.Label label4;
     }
 }
