@@ -37,9 +37,10 @@ namespace SylDesk
 
     public class No_Individuos
     {
+        public string especie { get; set; }
         public int no_individuos { get; set; }
-        public int indidviduos_ha { get; set; }
-        public int individuos_scustf { get; set; }
+        public double indidviduos_ha { get; set; }
+        public double individuos_scustf { get; set; }
     }
 
     public class Area_Basal

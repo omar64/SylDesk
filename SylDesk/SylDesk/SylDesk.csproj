@@ -284,7 +284,13 @@
       <DependentUpon>ValordeImportancia.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Area_Basal.datasource" />
+    <None Include="Properties\DataSources\Cad.datasource" />
     <None Include="Properties\DataSources\Cat.datasource" />
+    <None Include="Properties\DataSources\IDR.datasource" />
+    <None Include="Properties\DataSources\IVI2.datasource" />
+    <None Include="Properties\DataSources\No_Individuos.datasource" />
+    <None Include="Properties\DataSources\Volumen.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -313,6 +319,5 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
