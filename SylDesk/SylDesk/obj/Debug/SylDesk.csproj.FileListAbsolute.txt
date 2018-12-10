@@ -181,7 +181,6 @@ C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\ja\DevExpress.Office.v1
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\ru\DevExpress.Office.v17.2.Core.resources.dll
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\es\Microsoft.VisualStudio.Data.Services.resources.dll
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\bin\Debug\es\Microsoft.VisualStudio.Data.Core.resources.dll
-C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.csprojResolveAssemblyReference.cache
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.csproj.SylDesk.exe.config
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.CalculadoraEcu.resources
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.Dasometricos.resources
