@@ -423,7 +423,7 @@ namespace SylDesk
                 {
                     areas_query += " OR ";
                 }
-                areas_query += " area = " + proyecto.getArea2Superficie();
+                areas_query += " area = " + proyecto.getArea3Superficie();
             }
             if (proyecto.getArea4Activo() && Convert.ToBoolean(proyecto.getArea4VolCob()))
             {
@@ -431,7 +431,7 @@ namespace SylDesk
                 {
                     areas_query += " OR ";
                 }
-                areas_query += " area = " + proyecto.getArea2Superficie();
+                areas_query += " area = " + proyecto.getArea4Superficie();
             }
             return areas_query;
         }
