@@ -489,18 +489,15 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.93597cm</Width>
+                  <Width>10.68681cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.93597cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.93597cm</Width>
+                  <Width>10.68681cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>1.33479cm</Height>
+                  <Height>2.02271cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -511,8 +508,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>cat</Value>
-                                  <Style />
+                                  <Value>Categoria Altura</Value>
+                                  <Style>
+                                    <FontSize>14pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -541,8 +540,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>no individuos</Value>
-                                  <Style />
+                                  <Value>N° individuos</Value>
+                                  <Style>
+                                    <FontSize>14pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -562,40 +563,10 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox6">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox6</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>1.33479cm</Height>
+                  <Height>2.02271cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -657,43 +628,12 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox10">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox10</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
-                <TablixMember />
                 <TablixMember />
                 <TablixMember />
               </TablixMembers>
@@ -709,10 +649,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>catDS</DataSetName>
-            <Top>11.32099cm</Top>
-            <Left>8.99266cm</Left>
-            <Height>2.66958cm</Height>
-            <Width>8.80792cm</Width>
+            <Top>9.94516cm</Top>
+            <Left>3.12182cm</Left>
+            <Height>4.04542cm</Height>
+            <Width>21.37362cm</Width>
             <ZIndex>18</ZIndex>
             <Style>
               <Border>
