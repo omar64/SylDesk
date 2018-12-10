@@ -39,8 +39,6 @@ namespace SylDesk
             Microsoft.Reporting.WinForms.ReportDataSource dataset_cat = new Microsoft.Reporting.WinForms.ReportDataSource("catDS", list_cat); // set the datasource
             reportViewer1.LocalReport.DataSources.Add(dataset_cat);
             dataset_cat.Value = list_cat;
-            reportViewer1.LocalReport.Refresh();
-            reportViewer1.RefreshReport(); // refresh report
 
             ///
             ///Tabla y Grafica de Categoria de altura(cat)
@@ -82,13 +80,18 @@ namespace SylDesk
             reportViewer1.LocalReport.DataSources.Add(dataset_ivi);
             dataset_ivi.Value = list_ivi;
 
+            
             ///
             ///Tabla y Grafica de IDR
             ///
             List<IDR> list_idr = getIDR("500");  //get list of students
             Microsoft.Reporting.WinForms.ReportDataSource dataset_idr = new Microsoft.Reporting.WinForms.ReportDataSource("idrDS", list_idr); // set the datasource
-            reportViewer1.LocalReport.DataSources.Add(dataset_ivi);
+            reportViewer1.LocalReport.DataSources.Add(dataset_idr);
             dataset_idr.Value = list_idr;
+            
+
+            reportViewer1.LocalReport.Refresh();
+            reportViewer1.RefreshReport(); // refresh report
         }
 
         private void GenerarReporte_Load(object sender, EventArgs e)
@@ -374,34 +377,37 @@ namespace SylDesk
             return list;
         }
 
-        /*
-        private List<Volumen> getVolumen(int size = 5)
+        
+        private List<IDR> getIDR()
         {
-            List<Volumen> list = new List<Volumen>();
+            List<IDR> list = new List<IDR>();
 
             list.Add(
-                new Volumen
+                new IDR
                 {
                     especie = "1",
-                    suma_volumen = 1,
-                    volumen_ha = 2,
-                    volumen_ha2 = 3
+                    ni = 1,
+                    pi = 2,
+                    ln_pi = 3,
+                    shannon = 4,
+                    simpson = 5
                 }
             );
 
             list.Add(
-                new Volumen
+                new IDR
                 {
-                    especie = "4",
-                    suma_volumen = 4,
-                    volumen_ha = 5,
-                    volumen_ha2 = 6
+                    especie = "6",
+                    ni = 7,
+                    pi = 8,
+                    ln_pi = 9,
+                    shannon = 10,
+                    simpson = 11
                 }
             );
-
             return list;
         }
-        */
+        
 
         private List<Volumen> getVolumen(int size = 5) // volumen por especie (m^3/ha)
         {
