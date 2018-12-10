@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2018 a las 18:16:26
+-- Tiempo de generación: 10-12-2018 a las 05:41:08
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -2869,7 +2869,10 @@ INSERT INTO `individuos` (`id`, `proyecto_id`, `sitio`, `area`, `cuadrante`, `nu
 (7035, 15, 1, 10, 0, 17, 3, 1, '', '', '', '', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', NULL, '', '', NULL, NULL, NULL, NULL, '0.0000', NULL),
 (7036, 16, 1, 5, NULL, 1, 1, 0, 'Bauhinia divaricata', 'Maay wakax', 'Leguminosae', 'Bauhinia', NULL, NULL, NULL, '5.0000', '5.0000', '5.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0.0000', NULL),
 (7037, 16, 1, 500, NULL, 1, 1, 0, 'Acacia angustissima', 'K\'antemo', 'Leguminosae', 'Acacia', '11.0000', '34.5575', '10.0000', '10.0000', '10.0000', '1.0000', '19.6350', '', NULL, NULL, NULL, NULL, NULL, NULL, '0.0095'),
-(7038, 16, 1, 500, NULL, 2, 2, 0, 'Parathesis cubana', 'Pico de paloma', 'Primulaceae', 'Parathesis', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(7038, 16, 1, 500, NULL, 2, 2, 0, 'Parathesis cubana', 'Pico de paloma', 'Primulaceae', 'Parathesis', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7039, 18, 1, 500, NULL, 1, 1, 0, 'Lysiloma latisiliquum', 'Tzalam', 'Leguminosae', 'Lysiloma', '439.8230', '140.0000', NULL, '50.0000', '10.0000', '10.0000', '78.5398', NULL, NULL, NULL, NULL, NULL, NULL, '39.3343', '1.5394'),
+(7040, 18, 1, 500, NULL, 2, 2, 0, 'Acacia angustissima', 'K\'antemo', 'Leguminosae', 'Acacia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7041, 18, 1, 500, NULL, 3, 3, 0, 'Parathesis cubana', 'Pico de paloma', 'Primulaceae', 'Parathesis', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2884,21 +2887,25 @@ CREATE TABLE `proyectos` (
   `descripcion` varchar(400) DEFAULT NULL,
   `area1_activo` tinyint(1) NOT NULL,
   `area1_superficie` int(11) NOT NULL,
+  `area1_tag` varchar(20) NOT NULL,
   `area1_vol_cob` tinyint(1) NOT NULL,
   `area1_dia_lar` varchar(20) NOT NULL,
   `area1_alt_anc` varchar(20) NOT NULL,
   `area2_activo` tinyint(1) NOT NULL,
   `area2_superficie` int(11) NOT NULL,
+  `area2_tag` varchar(20) NOT NULL,
   `area2_vol_cob` tinyint(1) NOT NULL,
   `area2_dia_lar` varchar(20) NOT NULL,
   `area2_alt_anc` varchar(20) NOT NULL,
   `area3_activo` tinyint(1) NOT NULL,
   `area3_superficie` int(11) NOT NULL,
+  `area3_tag` varchar(20) NOT NULL,
   `area3_vol_cob` tinyint(1) NOT NULL,
   `area3_dia_lar` varchar(20) NOT NULL,
   `area3_alt_anc` varchar(20) NOT NULL,
   `area4_activo` tinyint(1) NOT NULL,
   `area4_superficie` int(11) NOT NULL,
+  `area4_tag` varchar(20) NOT NULL,
   `area4_vol_cob` tinyint(1) NOT NULL,
   `area4_dia_lar` varchar(20) NOT NULL,
   `area4_alt_anc` varchar(20) NOT NULL,
@@ -2910,14 +2917,15 @@ CREATE TABLE `proyectos` (
 -- Volcado de datos para la tabla `proyectos`
 --
 
-INSERT INTO `proyectos` (`id`, `nombre`, `superficie`, `descripcion`, `area1_activo`, `area1_superficie`, `area1_vol_cob`, `area1_dia_lar`, `area1_alt_anc`, `area2_activo`, `area2_superficie`, `area2_vol_cob`, `area2_dia_lar`, `area2_alt_anc`, `area3_activo`, `area3_superficie`, `area3_vol_cob`, `area3_dia_lar`, `area3_alt_anc`, `area4_activo`, `area4_superficie`, `area4_vol_cob`, `area4_dia_lar`, `area4_alt_anc`, `kml`, `kml_url`) VALUES
-(11, 'Ejemplo', '120.0000', 'Ejemploejemploejemploejemploejemplo', 0, 0, 0, '', '', 0, 0, 0, '', '', 0, 0, 0, '', '', 0, 0, 0, '', '', NULL, 'C:\\Users\\poseidon9\\Downloads\\ejemplo.kml'),
-(12, 'Prueba', '2.8120', '123', 1, 500, 1, '1-50', '1-50', 1, 100, 1, '1-50', '1-50', 1, 5, 0, '1-50', '1-50', 0, 0, 0, '', '', NULL, NULL),
-(13, 'Perro', '2.8120', '123', 1, 500, 1, '1-50', '1-50', 1, 100, 1, '1-50', '1-50', 1, 5, 0, '1-50', '1-50', 0, 0, 0, '', '', NULL, NULL),
-(14, '11', '1.0000', '1', 0, 0, 0, '', '', 1, 1, 1, '1-100', '1-100', 0, 0, 0, '', '', 0, 0, 0, '', '', NULL, NULL),
-(15, '3', '3.0000', '3', 1, 10, 1, '1-10', '1-10', 1, 20, 0, '2-200', '2-200', 1, 30, 1, '3-300', '3-300', 1, 40, 0, '4-400', '4-400', NULL, NULL),
-(16, 'Proyecto prueba 1', '2000.0000', 'Aiwadwdkid', 1, 500, 1, '10-100', '0-50', 1, 100, 1, '5-9.9', '0-10', 1, 5, 0, '0-10', '0-10', 1, 1000, 1, '100-1000', '0-50', NULL, NULL),
-(17, 'Pruebaumafor', '123.0000', '123', 1, 123, 1, '1-2', '1-2', 0, 0, 0, '', '', 0, 0, 0, '', '', 0, 0, 0, '', '', NULL, NULL);
+INSERT INTO `proyectos` (`id`, `nombre`, `superficie`, `descripcion`, `area1_activo`, `area1_superficie`, `area1_tag`, `area1_vol_cob`, `area1_dia_lar`, `area1_alt_anc`, `area2_activo`, `area2_superficie`, `area2_tag`, `area2_vol_cob`, `area2_dia_lar`, `area2_alt_anc`, `area3_activo`, `area3_superficie`, `area3_tag`, `area3_vol_cob`, `area3_dia_lar`, `area3_alt_anc`, `area4_activo`, `area4_superficie`, `area4_tag`, `area4_vol_cob`, `area4_dia_lar`, `area4_alt_anc`, `kml`, `kml_url`) VALUES
+(11, 'Ejemplo', '120.0000', 'Ejemploejemploejemploejemploejemplo', 0, 0, '', 0, '', '', 0, 0, '', 0, '', '', 0, 0, '', 0, '', '', 0, 0, '', 0, '', '', NULL, 'C:\\Users\\poseidon9\\Downloads\\ejemplo.kml'),
+(12, 'Prueba', '2.8120', '123', 1, 500, '', 1, '1-50', '1-50', 1, 100, '', 1, '1-50', '1-50', 1, 5, '', 0, '1-50', '1-50', 0, 0, '', 0, '', '', NULL, NULL),
+(13, 'Perro', '2.8120', '123', 1, 500, '', 1, '1-50', '1-50', 1, 100, '', 1, '1-50', '1-50', 1, 5, '', 0, '1-50', '1-50', 0, 0, '', 0, '', '', NULL, NULL),
+(14, '11', '1.0000', '1', 0, 0, '', 0, '', '', 1, 1, '', 1, '1-100', '1-100', 0, 0, '', 0, '', '', 0, 0, '', 0, '', '', NULL, NULL),
+(15, '3', '3.0000', '3', 1, 10, '', 1, '1-10', '1-10', 1, 20, '', 0, '2-200', '2-200', 1, 30, '', 1, '3-300', '3-300', 1, 40, '', 0, '4-400', '4-400', NULL, NULL),
+(16, 'Proyecto prueba 1', '2000.0000', 'Aiwadwdkid', 1, 500, '', 1, '10-100', '0-50', 1, 100, '', 1, '5-9.9', '0-10', 1, 5, '', 0, '0-10', '0-10', 1, 1000, '', 1, '100-1000', '0-50', NULL, NULL),
+(17, 'Pruebaumafor', '123.0000', '123', 1, 123, '', 1, '1-2', '1-2', 0, 0, '', 0, '', '', 0, 0, '', 0, '', '', 0, 0, '', 0, '', '', NULL, NULL),
+(18, '1', '300.0000', '123', 1, 500, 'Wer', 1, '10-500', '0-100', 1, 100, 'Xede', 0, '501-502', '101-102', 0, 0, '', 0, '', '', 0, 0, '', 0, '', '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2947,7 +2955,8 @@ INSERT INTO `proyecto_ecuaciones` (`id`, `proyecto_id`, `umafor_region`) VALUES
 (12, 15, 'Norte'),
 (13, 16, 'Centro'),
 (14, 17, 'Centro'),
-(15, 17, 'Norte');
+(15, 17, 'Norte'),
+(16, 18, 'Norte');
 
 -- --------------------------------------------------------
 
@@ -3002,7 +3011,8 @@ INSERT INTO `sitios` (`id`, `proyecto_id`, `numero_sitio`, `coordenada_x`, `coor
 (40, 15, 1, NULL, NULL, NULL, NULL, 20, 1, 1),
 (41, 15, 2, NULL, NULL, NULL, NULL, 1, 1, 1),
 (42, 16, 1, NULL, NULL, NULL, NULL, 3, 1, 2),
-(43, 17, 1, NULL, NULL, NULL, NULL, 1, 1, 1);
+(43, 17, 1, NULL, NULL, NULL, NULL, 1, 1, 1),
+(44, 18, 1, NULL, NULL, NULL, NULL, 4, 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -3088,22 +3098,22 @@ ALTER TABLE `generos`
 -- AUTO_INCREMENT de la tabla `individuos`
 --
 ALTER TABLE `individuos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7039;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7042;
 --
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT de la tabla `proyecto_ecuaciones`
 --
 ALTER TABLE `proyecto_ecuaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `sitios`
 --
 ALTER TABLE `sitios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
