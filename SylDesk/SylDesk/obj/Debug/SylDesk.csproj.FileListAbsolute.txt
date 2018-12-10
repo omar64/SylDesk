@@ -383,3 +383,4 @@ C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDes
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.exe
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.pdb
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.csprojResolveAssemblyReference.cache
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.csprojResolveAssemblyReference.cache

@@ -33,6 +33,8 @@
             this.ButtonBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.textFilter = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,10 +43,10 @@
             this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SylDesk.ReporteFormato.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(20, 56);
+            this.reportViewer1.Location = new System.Drawing.Point(20, 95);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1055, 455);
+            this.reportViewer1.Size = new System.Drawing.Size(1055, 416);
             this.reportViewer1.TabIndex = 0;
             // 
             // ButtonBack
@@ -81,11 +83,29 @@
             this.pictureBox2.TabIndex = 117;
             this.pictureBox2.TabStop = false;
             // 
+            // textFilter
+            // 
+            this.textFilter.Location = new System.Drawing.Point(547, 69);
+            this.textFilter.Name = "textFilter";
+            this.textFilter.Size = new System.Drawing.Size(226, 20);
+            this.textFilter.TabIndex = 118;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(885, 69);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(69, 20);
+            this.button1.TabIndex = 119;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // GenerarReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textFilter);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ButtonBack);
@@ -105,5 +125,7 @@
         private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox textFilter;
+        private System.Windows.Forms.Button button1;
     }
 }

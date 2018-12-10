@@ -33,6 +33,9 @@ namespace SylDesk
 
         private void GenerarReporte_Load(object sender, EventArgs e)
         {
+
+          
+
             this.reportViewer1.RefreshReport();            
 
             List<Cat> list = getCats();  //get list of students
