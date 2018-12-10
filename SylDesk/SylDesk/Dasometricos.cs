@@ -343,7 +343,7 @@ namespace SylDesk
             }
             chart1.ChartAreas[0].RecalculateAxesScale();
         }
-        private void get_volumen()
+        private void get_volumen() // volumen por especie (m^3/ha)
         {
             Empty();
 
