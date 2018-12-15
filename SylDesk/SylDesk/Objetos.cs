@@ -85,4 +85,10 @@ namespace SylDesk
         public double simpson { get; set; }
     }
 
+    public class Flags
+    {
+        public Boolean flag1 { get; set; }
+
+    }
+
 }

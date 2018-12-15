@@ -287,6 +287,7 @@
     <None Include="Properties\DataSources\Area_Basal.datasource" />
     <None Include="Properties\DataSources\Cad.datasource" />
     <None Include="Properties\DataSources\Cat.datasource" />
+    <None Include="Properties\DataSources\Flags.datasource" />
     <None Include="Properties\DataSources\IDR.datasource" />
     <None Include="Properties\DataSources\IVI2.datasource" />
     <None Include="Properties\DataSources\No_Individuos.datasource" />

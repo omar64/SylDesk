@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using kawaii_lolis = System.Windows.Forms.DataVisualization.Charting;
+using Microsoft.Reporting.WebForms;
 
 namespace SylDesk
 {
@@ -60,7 +61,7 @@ namespace SylDesk
             ///Tabla y Grafica de Area Basal
             ///
             List<Area_Basal> list_area_basal = getAreaBasal();  //get list of students
-            Microsoft.Reporting.WinForms.ReportDataSource dataset_area_basal = new Microsoft.Reporting.WinForms.ReportDataSource("areabasaDS", list_area_basal); // set the datasource
+            Microsoft.Reporting.WinForms.ReportDataSource dataset_area_basal = new Microsoft.Reporting.WinForms.ReportDataSource("areabasalDS", list_area_basal); // set the datasource
             reportViewer1.LocalReport.DataSources.Add(dataset_area_basal);
             dataset_area_basal.Value = list_area_basal;
 
@@ -88,7 +89,14 @@ namespace SylDesk
             Microsoft.Reporting.WinForms.ReportDataSource dataset_idr = new Microsoft.Reporting.WinForms.ReportDataSource("idrDS", list_idr); // set the datasource
             reportViewer1.LocalReport.DataSources.Add(dataset_idr);
             dataset_idr.Value = list_idr;
-            
+
+            //ReportParameter[] parameters = new ReportParameter[1];
+            IEnumerable<ReportParameter> parameters;
+            //parameters.Aggregate(new ReportParameter("flag1", "False"));
+
+            //parameters[0] = new ReportParameter("flag1", "False");
+
+            //this.reportViewer1.LocalReport.SetParameters();
 
             reportViewer1.LocalReport.Refresh();
             reportViewer1.RefreshReport(); // refresh report
