@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using kawaii_lolis = System.Windows.Forms.DataVisualization.Charting;
-using Microsoft.Reporting.WebForms;
+using Microsoft.Reporting.WinForms;
 
 namespace SylDesk
 {
@@ -90,13 +90,13 @@ namespace SylDesk
             reportViewer1.LocalReport.DataSources.Add(dataset_idr);
             dataset_idr.Value = list_idr;
 
-            //ReportParameter[] parameters = new ReportParameter[1];
-            IEnumerable<ReportParameter> parameters;
+            ReportParameter[] parameters = new ReportParameter[1];
+            //IEnumerable<ReportParameter> parameters;
             //parameters.Aggregate(new ReportParameter("flag1", "False"));
 
-            //parameters[0] = new ReportParameter("flag1", "False");
+            parameters[0] = new ReportParameter("flag1", "False");
 
-            //this.reportViewer1.LocalReport.SetParameters();
+            this.reportViewer1.LocalReport.SetParameters(parameters);
 
             reportViewer1.LocalReport.Refresh();
             reportViewer1.RefreshReport(); // refresh report
