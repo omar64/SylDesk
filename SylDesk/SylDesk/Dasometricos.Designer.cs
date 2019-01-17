@@ -65,7 +65,7 @@
             this.panelGrafica.Controls.Add(this.chart1);
             this.panelGrafica.Location = new System.Drawing.Point(3, 83);
             this.panelGrafica.Name = "panelGrafica";
-            this.panelGrafica.Size = new System.Drawing.Size(1090, 439);
+            this.panelGrafica.Size = new System.Drawing.Size(1193, 439);
             this.panelGrafica.TabIndex = 113;
             // 
             // PanelCargando
@@ -127,9 +127,9 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(592, 11);
+            this.dataGridView1.Location = new System.Drawing.Point(652, 11);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(483, 417);
+            this.dataGridView1.Size = new System.Drawing.Size(538, 417);
             this.dataGridView1.TabIndex = 98;
             // 
             // chart1
@@ -143,7 +143,7 @@
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(13, 11);
             this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(573, 417);
+            this.chart1.Size = new System.Drawing.Size(633, 417);
             this.chart1.TabIndex = 97;
             this.chart1.Text = "chart1";
             // 
@@ -221,7 +221,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(506, 3);
+            this.label1.Location = new System.Drawing.Point(562, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(157, 27);
             this.label1.TabIndex = 114;
@@ -230,7 +230,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(885, 57);
+            this.numericUpDown1.Location = new System.Drawing.Point(904, 55);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             20,
             0,
@@ -269,7 +269,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(472, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(528, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(28, 27);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -291,7 +291,7 @@
             this.Controls.Add(this.buttonDiam);
             this.Controls.Add(this.buttonAlt);
             this.Name = "Dasometricos";
-            this.Size = new System.Drawing.Size(1096, 528);
+            this.Size = new System.Drawing.Size(1199, 545);
             this.Load += new System.EventHandler(this.Dasometricos_Load);
             this.panelGrafica.ResumeLayout(false);
             this.PanelCargando.ResumeLayout(false);

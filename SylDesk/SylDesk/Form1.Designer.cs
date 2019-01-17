@@ -92,7 +92,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1100, 36);
+            this.panel1.Size = new System.Drawing.Size(1205, 36);
             this.panel1.TabIndex = 62;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -105,7 +105,7 @@
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(986, 3);
+            this.button12.Location = new System.Drawing.Point(1091, 3);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(29, 30);
             this.button12.TabIndex = 2;
@@ -123,7 +123,7 @@
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.White;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(1021, 3);
+            this.button11.Location = new System.Drawing.Point(1126, 3);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(29, 30);
             this.button11.TabIndex = 1;
@@ -139,7 +139,7 @@
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(1056, 3);
+            this.button10.Location = new System.Drawing.Point(1161, 3);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(29, 30);
             this.button10.TabIndex = 0;
@@ -521,21 +521,21 @@
             this.formRegistro1.AutoSize = true;
             this.formRegistro1.Location = new System.Drawing.Point(3, 161);
             this.formRegistro1.Name = "formRegistro1";
-            this.formRegistro1.Size = new System.Drawing.Size(1090, 527);
+            this.formRegistro1.Size = new System.Drawing.Size(1199, 545);
             this.formRegistro1.TabIndex = 73;
             // 
             // formRegistro2
             // 
             this.formRegistro2.Location = new System.Drawing.Point(3, 161);
             this.formRegistro2.Name = "formRegistro2";
-            this.formRegistro2.Size = new System.Drawing.Size(1085, 527);
+            this.formRegistro2.Size = new System.Drawing.Size(1199, 545);
             this.formRegistro2.TabIndex = 73;
             // 
             // formRegistro3
             // 
             this.formRegistro3.Location = new System.Drawing.Point(3, 161);
             this.formRegistro3.Name = "formRegistro3";
-            this.formRegistro3.Size = new System.Drawing.Size(1090, 527);
+            this.formRegistro3.Size = new System.Drawing.Size(1199, 545);
             this.formRegistro3.TabIndex = 73;
             // 
             // formRegistroEspecie
@@ -543,7 +543,7 @@
             this.formRegistroEspecie.Location = new System.Drawing.Point(3, 161);
             this.formRegistroEspecie.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.formRegistroEspecie.Name = "formRegistroEspecie";
-            this.formRegistroEspecie.Size = new System.Drawing.Size(1085, 527);
+            this.formRegistroEspecie.Size = new System.Drawing.Size(1199, 545);
             this.formRegistroEspecie.TabIndex = 73;
             // 
             // formInicial
@@ -552,7 +552,7 @@
             this.formInicial.Location = new System.Drawing.Point(3, 161);
             this.formInicial.Name = "formInicial";
             this.formInicial.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.formInicial.Size = new System.Drawing.Size(1090, 527);
+            this.formInicial.Size = new System.Drawing.Size(1199, 545);
             this.formInicial.TabIndex = 73;
             // 
             // grafica
@@ -567,49 +567,50 @@
             this.generarreporte.AutoSize = true;
             this.generarreporte.Location = new System.Drawing.Point(3, 161);
             this.generarreporte.Name = "generarreporte";
-            this.generarreporte.Size = new System.Drawing.Size(1085, 527);
+            this.generarreporte.Size = new System.Drawing.Size(1199, 545);
             this.generarreporte.TabIndex = 73;
             // 
             // calculadoraEcu
             // 
             this.calculadoraEcu.Location = new System.Drawing.Point(3, 161);
             this.calculadoraEcu.Name = "calculadoraEcu";
-            this.calculadoraEcu.Size = new System.Drawing.Size(1085, 527);
+            this.calculadoraEcu.Size = new System.Drawing.Size(1199, 545);
             this.calculadoraEcu.TabIndex = 73;
             // 
             // formEditar
             // 
             this.formEditar.Location = new System.Drawing.Point(3, 161);
             this.formEditar.Name = "formEditar";
-            this.formEditar.Size = new System.Drawing.Size(1085, 527);
+            this.formEditar.Size = new System.Drawing.Size(1199, 545);
             this.formEditar.TabIndex = 73;
             // 
             // dasometricos
             // 
             this.dasometricos.Location = new System.Drawing.Point(3, 161);
             this.dasometricos.Name = "dasometricos";
-            this.dasometricos.Size = new System.Drawing.Size(1085, 527);
+            this.dasometricos.Size = new System.Drawing.Size(1199, 545);
             this.dasometricos.TabIndex = 73;
             // 
             // diversidadyRiqueza
             // 
             this.diversidadyRiqueza.Location = new System.Drawing.Point(3, 161);
             this.diversidadyRiqueza.Name = "diversidadyRiqueza";
-            this.diversidadyRiqueza.Size = new System.Drawing.Size(1085, 527);
+            this.diversidadyRiqueza.Size = new System.Drawing.Size(1199, 545);
             this.diversidadyRiqueza.TabIndex = 73;
             // 
             // valordeImportancia
             // 
             this.valordeImportancia.Location = new System.Drawing.Point(3, 161);
             this.valordeImportancia.Name = "valordeImportancia";
-            this.valordeImportancia.Size = new System.Drawing.Size(1085, 527);
+            this.valordeImportancia.Size = new System.Drawing.Size(1199, 545);
             this.valordeImportancia.TabIndex = 73;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 700);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1205, 709);
             this.Controls.Add(this.formRegistro1);
             this.Controls.Add(this.formRegistro2);
             this.Controls.Add(this.formRegistro3);
@@ -634,6 +635,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);

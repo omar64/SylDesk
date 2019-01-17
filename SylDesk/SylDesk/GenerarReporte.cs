@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using kawaii_lolis = System.Windows.Forms.DataVisualization.Charting;
 using Microsoft.Reporting.WinForms;
 
 namespace SylDesk
@@ -16,6 +15,7 @@ namespace SylDesk
     {
         private Proyecto proyecto;
         private Form1 form1;
+        private ReportParameter[] parameters = new ReportParameter[6];
 
 
         public GenerarReporte()
@@ -29,6 +29,24 @@ namespace SylDesk
         }
         public void Initialize(Proyecto proyecto)
         {
+            parameters[0] = new ReportParameter("flag1", "True");
+            parameters[1] = new ReportParameter("flag2", "True");
+            parameters[2] = new ReportParameter("flag3", "True");
+            parameters[3] = new ReportParameter("flag4", "True");
+            parameters[4] = new ReportParameter("flag5", "True");
+            parameters[5] = new ReportParameter("flag6", "True");
+            this.reportViewer1.LocalReport.SetParameters(parameters);
+
+
+            reportViewer1.LocalReport.Refresh();
+            reportViewer1.RefreshReport(); // refresh report
+
+            reportViewer1.LocalReport.DataSources.Clear();
+
+            checkCAT.Checked = true;
+            checkVolumen.Checked = true;
+            checkCAD.Checked = true;
+
             this.proyecto = proyecto;
 
             ///
@@ -90,13 +108,9 @@ namespace SylDesk
             reportViewer1.LocalReport.DataSources.Add(dataset_idr);
             dataset_idr.Value = list_idr;
 
-            ReportParameter[] parameters = new ReportParameter[1];
             //IEnumerable<ReportParameter> parameters;
             //parameters.Aggregate(new ReportParameter("flag1", "False"));
 
-            parameters[0] = new ReportParameter("flag1", "False");
-
-            this.reportViewer1.LocalReport.SetParameters(parameters);
 
             reportViewer1.LocalReport.Refresh();
             reportViewer1.RefreshReport(); // refresh report
@@ -689,6 +703,21 @@ namespace SylDesk
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             form1.formRegistro2ToFront(proyecto);
+        }
+
+        private void buttonFiltrar_Click(object sender, EventArgs e)
+        {
+            parameters[0] = new ReportParameter("flag1", checkVolumen.Checked.ToString());
+            parameters[1] = new ReportParameter("flag2", checkCAT.Checked.ToString());
+            parameters[2] = new ReportParameter("flag3", checkCAD.Checked.ToString());
+            parameters[3] = new ReportParameter("flag4", "True");
+            parameters[4] = new ReportParameter("flag5", "True");
+            parameters[5] = new ReportParameter("flag6", "True");
+            this.reportViewer1.LocalReport.SetParameters(parameters);
+
+
+            reportViewer1.LocalReport.Refresh();
+            reportViewer1.RefreshReport();
         }
     }
 }

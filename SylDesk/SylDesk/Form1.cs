@@ -242,5 +242,15 @@ namespace SylDesk
         {
             formInicial.BringToFront();
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult res = MessageBox.Show("¿Seguro que desea Cerrar SylDesk?", "Cerrar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (res == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

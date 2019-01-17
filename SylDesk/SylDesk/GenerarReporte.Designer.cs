@@ -33,9 +33,21 @@
             this.ButtonBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textFilter = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonFiltrar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkCAD = new System.Windows.Forms.CheckBox();
+            this.checkVolumen = new System.Windows.Forms.CheckBox();
+            this.checkCAT = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkDyR = new System.Windows.Forms.CheckBox();
+            this.checkAB = new System.Windows.Forms.CheckBox();
+            this.checkIVI = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // reportViewer1
@@ -43,10 +55,10 @@
             this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SylDesk.ReporteFormato.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(20, 95);
+            this.reportViewer1.Location = new System.Drawing.Point(8, 95);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1055, 416);
+            this.reportViewer1.Size = new System.Drawing.Size(1034, 433);
             this.reportViewer1.TabIndex = 0;
             // 
             // ButtonBack
@@ -83,37 +95,153 @@
             this.pictureBox2.TabIndex = 117;
             this.pictureBox2.TabStop = false;
             // 
-            // textFilter
+            // buttonFiltrar
             // 
-            this.textFilter.Location = new System.Drawing.Point(547, 69);
-            this.textFilter.Name = "textFilter";
-            this.textFilter.Size = new System.Drawing.Size(226, 20);
-            this.textFilter.TabIndex = 118;
+            this.buttonFiltrar.Location = new System.Drawing.Point(1082, 447);
+            this.buttonFiltrar.Name = "buttonFiltrar";
+            this.buttonFiltrar.Size = new System.Drawing.Size(91, 32);
+            this.buttonFiltrar.TabIndex = 119;
+            this.buttonFiltrar.Text = "Filtrar";
+            this.buttonFiltrar.UseVisualStyleBackColor = true;
+            this.buttonFiltrar.Click += new System.EventHandler(this.buttonFiltrar_Click);
             // 
-            // button1
+            // groupBox1
             // 
-            this.button1.Location = new System.Drawing.Point(885, 69);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(69, 20);
-            this.button1.TabIndex = 119;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.groupBox1.Controls.Add(this.checkIVI);
+            this.groupBox1.Controls.Add(this.checkAB);
+            this.groupBox1.Controls.Add(this.checkDyR);
+            this.groupBox1.Controls.Add(this.checkCAD);
+            this.groupBox1.Controls.Add(this.checkVolumen);
+            this.groupBox1.Controls.Add(this.checkCAT);
+            this.groupBox1.Location = new System.Drawing.Point(1051, 95);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(144, 290);
+            this.groupBox1.TabIndex = 123;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tabla";
+            // 
+            // checkCAD
+            // 
+            this.checkCAD.AutoSize = true;
+            this.checkCAD.Location = new System.Drawing.Point(6, 69);
+            this.checkCAD.Name = "checkCAD";
+            this.checkCAD.Size = new System.Drawing.Size(131, 17);
+            this.checkCAD.TabIndex = 125;
+            this.checkCAD.Text = "Categoria de Diametro";
+            this.checkCAD.UseVisualStyleBackColor = true;
+            // 
+            // checkVolumen
+            // 
+            this.checkVolumen.AutoSize = true;
+            this.checkVolumen.Location = new System.Drawing.Point(6, 46);
+            this.checkVolumen.Name = "checkVolumen";
+            this.checkVolumen.Size = new System.Drawing.Size(67, 17);
+            this.checkVolumen.TabIndex = 124;
+            this.checkVolumen.Text = "Volumen";
+            this.checkVolumen.UseVisualStyleBackColor = true;
+            // 
+            // checkCAT
+            // 
+            this.checkCAT.AutoSize = true;
+            this.checkCAT.Location = new System.Drawing.Point(6, 23);
+            this.checkCAT.Name = "checkCAT";
+            this.checkCAT.Size = new System.Drawing.Size(116, 17);
+            this.checkCAT.TabIndex = 123;
+            this.checkCAT.Text = "Categoria de Altura";
+            this.checkCAT.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.checkBox2);
+            this.groupBox2.Controls.Add(this.checkBox1);
+            this.groupBox2.Controls.Add(this.checkBox4);
+            this.groupBox2.Location = new System.Drawing.Point(668, 37);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(262, 52);
+            this.groupBox2.TabIndex = 124;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Graficas";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(181, 23);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(80, 17);
+            this.checkBox2.TabIndex = 2;
+            this.checkBox2.Text = "checkBox2";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(95, 23);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(9, 23);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(80, 17);
+            this.checkBox4.TabIndex = 0;
+            this.checkBox4.Text = "checkBox4";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkDyR
+            // 
+            this.checkDyR.AutoSize = true;
+            this.checkDyR.Location = new System.Drawing.Point(6, 92);
+            this.checkDyR.Name = "checkDyR";
+            this.checkDyR.Size = new System.Drawing.Size(131, 17);
+            this.checkDyR.TabIndex = 126;
+            this.checkDyR.Text = "Diversisdad y Riqueza";
+            this.checkDyR.UseVisualStyleBackColor = true;
+            // 
+            // checkAB
+            // 
+            this.checkAB.AutoSize = true;
+            this.checkAB.Location = new System.Drawing.Point(6, 115);
+            this.checkAB.Name = "checkAB";
+            this.checkAB.Size = new System.Drawing.Size(74, 17);
+            this.checkAB.TabIndex = 127;
+            this.checkAB.Text = "AreaBasal";
+            this.checkAB.UseVisualStyleBackColor = true;
+            // 
+            // checkIVI
+            // 
+            this.checkIVI.AutoSize = true;
+            this.checkIVI.Location = new System.Drawing.Point(6, 138);
+            this.checkIVI.Name = "checkIVI";
+            this.checkIVI.Size = new System.Drawing.Size(45, 17);
+            this.checkIVI.TabIndex = 128;
+            this.checkIVI.Text = "I.V.I";
+            this.checkIVI.UseVisualStyleBackColor = true;
             // 
             // GenerarReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textFilter);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.buttonFiltrar);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ButtonBack);
             this.Controls.Add(this.reportViewer1);
             this.Name = "GenerarReporte";
-            this.Size = new System.Drawing.Size(1096, 528);
+            this.Size = new System.Drawing.Size(1199, 545);
             this.Load += new System.EventHandler(this.GenerarReporte_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,7 +253,17 @@
         private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textFilter;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonFiltrar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkCAD;
+        private System.Windows.Forms.CheckBox checkVolumen;
+        private System.Windows.Forms.CheckBox checkCAT;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkDyR;
+        private System.Windows.Forms.CheckBox checkAB;
+        private System.Windows.Forms.CheckBox checkIVI;
     }
 }

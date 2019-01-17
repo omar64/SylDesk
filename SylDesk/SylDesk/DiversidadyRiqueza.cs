@@ -272,5 +272,10 @@ namespace SylDesk
 
             form1.formRegistro2ToFront(proyecto);
         }
+
+        private void DiversidadyRiqueza_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

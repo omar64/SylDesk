@@ -31,14 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro1));
             this.groupBoxRegistro = new System.Windows.Forms.GroupBox();
-            this.TagTxB4 = new System.Windows.Forms.TextBox();
-            this.TagTxB3 = new System.Windows.Forms.TextBox();
-            this.TagTxB2 = new System.Windows.Forms.TextBox();
-            this.TagTxB1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TagTxB4 = new System.Windows.Forms.TextBox();
             this.checkBoxVolumen4 = new System.Windows.Forms.CheckBox();
+            this.TagTxB3 = new System.Windows.Forms.TextBox();
             this.checkBoxVolumen3 = new System.Windows.Forms.CheckBox();
+            this.TagTxB2 = new System.Windows.Forms.TextBox();
             this.checkBoxVolumen2 = new System.Windows.Forms.CheckBox();
+            this.TagTxB1 = new System.Windows.Forms.TextBox();
             this.checkBoxVolumen1 = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -83,7 +84,6 @@
             this.umaforBox = new System.Windows.Forms.ComboBox();
             this.listUmafor = new System.Windows.Forms.ListView();
             this.label13 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBoxRegistro.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -108,38 +108,10 @@
             this.groupBoxRegistro.ForeColor = System.Drawing.Color.Black;
             this.groupBoxRegistro.Location = new System.Drawing.Point(17, 36);
             this.groupBoxRegistro.Name = "groupBoxRegistro";
-            this.groupBoxRegistro.Size = new System.Drawing.Size(848, 467);
+            this.groupBoxRegistro.Size = new System.Drawing.Size(935, 467);
             this.groupBoxRegistro.TabIndex = 11;
             this.groupBoxRegistro.TabStop = false;
             this.groupBoxRegistro.Text = "Crear Proyecto";
-            // 
-            // TagTxB4
-            // 
-            this.TagTxB4.Location = new System.Drawing.Point(161, 167);
-            this.TagTxB4.Name = "TagTxB4";
-            this.TagTxB4.Size = new System.Drawing.Size(72, 22);
-            this.TagTxB4.TabIndex = 112;
-            // 
-            // TagTxB3
-            // 
-            this.TagTxB3.Location = new System.Drawing.Point(161, 139);
-            this.TagTxB3.Name = "TagTxB3";
-            this.TagTxB3.Size = new System.Drawing.Size(72, 22);
-            this.TagTxB3.TabIndex = 111;
-            // 
-            // TagTxB2
-            // 
-            this.TagTxB2.Location = new System.Drawing.Point(161, 109);
-            this.TagTxB2.Name = "TagTxB2";
-            this.TagTxB2.Size = new System.Drawing.Size(72, 22);
-            this.TagTxB2.TabIndex = 110;
-            // 
-            // TagTxB1
-            // 
-            this.TagTxB1.Location = new System.Drawing.Point(161, 81);
-            this.TagTxB1.Name = "TagTxB1";
-            this.TagTxB1.Size = new System.Drawing.Size(72, 22);
-            this.TagTxB1.TabIndex = 109;
             // 
             // groupBox1
             // 
@@ -180,11 +152,27 @@
             this.groupBox1.Controls.Add(this.SuperficieTxB1);
             this.groupBox1.Controls.Add(this.checkBoxA1);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(279, 211);
+            this.groupBox1.Location = new System.Drawing.Point(342, 211);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(549, 196);
             this.groupBox1.TabIndex = 49;
             this.groupBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(158, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 16);
+            this.label4.TabIndex = 113;
+            this.label4.Text = "Tag";
+            // 
+            // TagTxB4
+            // 
+            this.TagTxB4.Location = new System.Drawing.Point(161, 167);
+            this.TagTxB4.Name = "TagTxB4";
+            this.TagTxB4.Size = new System.Drawing.Size(72, 22);
+            this.TagTxB4.TabIndex = 112;
             // 
             // checkBoxVolumen4
             // 
@@ -195,6 +183,13 @@
             this.checkBoxVolumen4.TabIndex = 108;
             this.checkBoxVolumen4.UseVisualStyleBackColor = true;
             // 
+            // TagTxB3
+            // 
+            this.TagTxB3.Location = new System.Drawing.Point(161, 139);
+            this.TagTxB3.Name = "TagTxB3";
+            this.TagTxB3.Size = new System.Drawing.Size(72, 22);
+            this.TagTxB3.TabIndex = 111;
+            // 
             // checkBoxVolumen3
             // 
             this.checkBoxVolumen3.AutoSize = true;
@@ -204,6 +199,13 @@
             this.checkBoxVolumen3.TabIndex = 107;
             this.checkBoxVolumen3.UseVisualStyleBackColor = true;
             // 
+            // TagTxB2
+            // 
+            this.TagTxB2.Location = new System.Drawing.Point(161, 109);
+            this.TagTxB2.Name = "TagTxB2";
+            this.TagTxB2.Size = new System.Drawing.Size(72, 22);
+            this.TagTxB2.TabIndex = 110;
+            // 
             // checkBoxVolumen2
             // 
             this.checkBoxVolumen2.AutoSize = true;
@@ -212,6 +214,13 @@
             this.checkBoxVolumen2.Size = new System.Drawing.Size(15, 14);
             this.checkBoxVolumen2.TabIndex = 106;
             this.checkBoxVolumen2.UseVisualStyleBackColor = true;
+            // 
+            // TagTxB1
+            // 
+            this.TagTxB1.Location = new System.Drawing.Point(161, 81);
+            this.TagTxB1.Name = "TagTxB1";
+            this.TagTxB1.Size = new System.Drawing.Size(72, 22);
+            this.TagTxB1.TabIndex = 109;
             // 
             // checkBoxVolumen1
             // 
@@ -454,7 +463,7 @@
             // 
             // richTextBoxDescripcion
             // 
-            this.richTextBoxDescripcion.Location = new System.Drawing.Point(413, 115);
+            this.richTextBoxDescripcion.Location = new System.Drawing.Point(476, 115);
             this.richTextBoxDescripcion.Name = "richTextBoxDescripcion";
             this.richTextBoxDescripcion.Size = new System.Drawing.Size(389, 90);
             this.richTextBoxDescripcion.TabIndex = 7;
@@ -470,7 +479,7 @@
             this.buttonRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
             this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistrar.Location = new System.Drawing.Point(669, 412);
+            this.buttonRegistrar.Location = new System.Drawing.Point(732, 412);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(150, 48);
             this.buttonRegistrar.TabIndex = 10;
@@ -480,14 +489,14 @@
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.Location = new System.Drawing.Point(413, 27);
+            this.textBoxNombre.Location = new System.Drawing.Point(476, 27);
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(389, 22);
             this.textBoxNombre.TabIndex = 0;
             // 
             // textBoxSuperficie
             // 
-            this.textBoxSuperficie.Location = new System.Drawing.Point(413, 70);
+            this.textBoxSuperficie.Location = new System.Drawing.Point(476, 70);
             this.textBoxSuperficie.Name = "textBoxSuperficie";
             this.textBoxSuperficie.Size = new System.Drawing.Size(389, 22);
             this.textBoxSuperficie.TabIndex = 1;
@@ -495,7 +504,7 @@
             // labelDescripcion
             // 
             this.labelDescripcion.AutoSize = true;
-            this.labelDescripcion.Location = new System.Drawing.Point(331, 114);
+            this.labelDescripcion.Location = new System.Drawing.Point(394, 114);
             this.labelDescripcion.Name = "labelDescripcion";
             this.labelDescripcion.Size = new System.Drawing.Size(80, 16);
             this.labelDescripcion.TabIndex = 6;
@@ -504,7 +513,7 @@
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(282, 30);
+            this.labelNombre.Location = new System.Drawing.Point(345, 30);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(134, 16);
             this.labelNombre.TabIndex = 3;
@@ -513,7 +522,7 @@
             // labelSuperficie
             // 
             this.labelSuperficie.AutoSize = true;
-            this.labelSuperficie.Location = new System.Drawing.Point(276, 70);
+            this.labelSuperficie.Location = new System.Drawing.Point(339, 70);
             this.labelSuperficie.Name = "labelSuperficie";
             this.labelSuperficie.Size = new System.Drawing.Size(140, 16);
             this.labelSuperficie.TabIndex = 4;
@@ -533,7 +542,7 @@
             // 
             this.TipBox.Cursor = System.Windows.Forms.Cursors.Help;
             this.TipBox.Image = ((System.Drawing.Image)(resources.GetObject("TipBox.Image")));
-            this.TipBox.Location = new System.Drawing.Point(1052, 3);
+            this.TipBox.Location = new System.Drawing.Point(1173, 3);
             this.TipBox.Name = "TipBox";
             this.TipBox.Size = new System.Drawing.Size(23, 22);
             this.TipBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -567,7 +576,7 @@
             this.groupBox6.Controls.Add(this.umaforBox);
             this.groupBox6.Controls.Add(this.listUmafor);
             this.groupBox6.Controls.Add(this.label13);
-            this.groupBox6.Location = new System.Drawing.Point(874, 36);
+            this.groupBox6.Location = new System.Drawing.Point(969, 36);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(213, 467);
             this.groupBox6.TabIndex = 111;
@@ -619,15 +628,6 @@
             this.label13.TabIndex = 103;
             this.label13.Text = "Umafor/Región";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(158, 47);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 16);
-            this.label4.TabIndex = 113;
-            this.label4.Text = "Tag";
-            // 
             // FormRegistro1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -638,7 +638,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBoxRegistro);
             this.Name = "FormRegistro1";
-            this.Size = new System.Drawing.Size(1096, 528);
+            this.Size = new System.Drawing.Size(1199, 545);
             this.Load += new System.EventHandler(this.FormRegistro1_Load);
             this.groupBoxRegistro.ResumeLayout(false);
             this.groupBoxRegistro.PerformLayout();
