@@ -15,7 +15,7 @@ namespace SylDesk
     {
         private Proyecto proyecto;
         private Form1 form1;
-        private ReportParameter[] parameters = new ReportParameter[10];
+        private ReportParameter[] parameters = new ReportParameter[14];
 
 
         public GenerarReporte()
@@ -40,6 +40,11 @@ namespace SylDesk
             parameters[7] = new ReportParameter("flagArea2", proyecto.getArea2Activo().ToString());
             parameters[8] = new ReportParameter("flagArea3", proyecto.getArea3Activo().ToString());
             parameters[9] = new ReportParameter("flagArea4", proyecto.getArea4Activo().ToString());
+
+            parameters[6] = new ReportParameter("area1", proyecto.getArea1Superficie().ToString());
+            parameters[7] = new ReportParameter("area2", proyecto.getArea2Superficie().ToString());
+            parameters[8] = new ReportParameter("area3", proyecto.getArea3Superficie().ToString());
+            parameters[9] = new ReportParameter("area4", proyecto.getArea4Superficie().ToString());
 
             this.reportViewer1.LocalReport.SetParameters(parameters);
 
