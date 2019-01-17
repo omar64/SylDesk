@@ -15,7 +15,7 @@ namespace SylDesk
     {
         private Proyecto proyecto;
         private Form1 form1;
-        private ReportParameter[] parameters = new ReportParameter[6];
+        private ReportParameter[] parameters = new ReportParameter[10];
 
 
         public GenerarReporte()
@@ -35,6 +35,12 @@ namespace SylDesk
             parameters[3] = new ReportParameter("flag4", "True");
             parameters[4] = new ReportParameter("flag5", "True");
             parameters[5] = new ReportParameter("flag6", "True");
+            
+            parameters[6] = new ReportParameter("flagArea1", proyecto.getArea1Activo().ToString());
+            parameters[7] = new ReportParameter("flagArea2", proyecto.getArea2Activo().ToString());
+            parameters[8] = new ReportParameter("flagArea3", proyecto.getArea3Activo().ToString());
+            parameters[9] = new ReportParameter("flagArea4", proyecto.getArea4Activo().ToString());
+
             this.reportViewer1.LocalReport.SetParameters(parameters);
 
 
@@ -97,38 +103,42 @@ namespace SylDesk
             ///
             ///Tabla y Grafica de IVI
             ///
+            List<IVI2> list_ivi1 = new List<IVI2>();
             if (proyecto.getArea1Activo())
-            {
-                
-                List<IVI2> list_ivi1 = getIVI(proyecto.getArea1Superficie());  //get list of students
-                Microsoft.Reporting.WinForms.ReportDataSource dataset_ivi1 = new Microsoft.Reporting.WinForms.ReportDataSource("ivi1DS", list_ivi1); // set the datasource
-                reportViewer1.LocalReport.DataSources.Add(dataset_ivi1);
-                dataset_ivi1.Value = list_ivi1;
+            {               
+                list_ivi1 = getIVI(proyecto.getArea1Superficie());  //get list of students
             }
+            Microsoft.Reporting.WinForms.ReportDataSource dataset_ivi1 = new Microsoft.Reporting.WinForms.ReportDataSource("ivi1DS", list_ivi1); // set the datasource
+            reportViewer1.LocalReport.DataSources.Add(dataset_ivi1);
+            dataset_ivi1.Value = list_ivi1;
 
+            List<IVI2> list_ivi2 = new List<IVI2>();
             if (proyecto.getArea2Activo())
             {
-                List<IVI2> list_ivi2 = getIVI(proyecto.getArea2Superficie());  //get list of students
-                Microsoft.Reporting.WinForms.ReportDataSource dataset_ivi2 = new Microsoft.Reporting.WinForms.ReportDataSource("ivi2DS", list_ivi2); // set the datasource
-                reportViewer1.LocalReport.DataSources.Add(dataset_ivi2);
-                dataset_ivi2.Value = list_ivi2;
-            }
+                list_ivi2 = getIVI(proyecto.getArea2Superficie());  //get list of students
 
+            }
+            Microsoft.Reporting.WinForms.ReportDataSource dataset_ivi2 = new Microsoft.Reporting.WinForms.ReportDataSource("ivi2DS", list_ivi2); // set the datasource
+            reportViewer1.LocalReport.DataSources.Add(dataset_ivi2);
+            dataset_ivi2.Value = list_ivi2;
+
+            List<IVI2> list_ivi3 = new List<IVI2>();
             if (proyecto.getArea3Activo())
             {
-                List<IVI2> list_ivi3 = getIVI(proyecto.getArea3Superficie());  //get list of students
-                Microsoft.Reporting.WinForms.ReportDataSource dataset_ivi3 = new Microsoft.Reporting.WinForms.ReportDataSource("ivi3DS", list_ivi3); // set the datasource
-                reportViewer1.LocalReport.DataSources.Add(dataset_ivi3);
-                dataset_ivi3.Value = list_ivi3;
+                list_ivi3 = getIVI(proyecto.getArea3Superficie());  //get list of students
             }
+            Microsoft.Reporting.WinForms.ReportDataSource dataset_ivi3 = new Microsoft.Reporting.WinForms.ReportDataSource("ivi3DS", list_ivi3); // set the datasource
+            reportViewer1.LocalReport.DataSources.Add(dataset_ivi3);
+            dataset_ivi3.Value = list_ivi3;
 
+            List<IVI2> list_ivi4 = new List<IVI2>();
             if (proyecto.getArea4Activo())
             {
-                List<IVI2> list_ivi4 = getIVI(proyecto.getArea4Superficie());  //get list of students
-                Microsoft.Reporting.WinForms.ReportDataSource dataset_ivi4 = new Microsoft.Reporting.WinForms.ReportDataSource("ivi4DS", list_ivi4); // set the datasource
-                reportViewer1.LocalReport.DataSources.Add(dataset_ivi4);
-                dataset_ivi4.Value = list_ivi4;
+                list_ivi4 = getIVI(proyecto.getArea4Superficie());  //get list of students
             }
+            Microsoft.Reporting.WinForms.ReportDataSource dataset_ivi4 = new Microsoft.Reporting.WinForms.ReportDataSource("ivi4DS", list_ivi4); // set the datasource
+            reportViewer1.LocalReport.DataSources.Add(dataset_ivi4);
+            dataset_ivi4.Value = list_ivi4;
 
             ///
             ///Tabla y Grafica de IDR
@@ -137,9 +147,6 @@ namespace SylDesk
             Microsoft.Reporting.WinForms.ReportDataSource dataset_idr = new Microsoft.Reporting.WinForms.ReportDataSource("idrDS", list_idr); // set the datasource
             reportViewer1.LocalReport.DataSources.Add(dataset_idr);
             dataset_idr.Value = list_idr;
-
-            //IEnumerable<ReportParameter> parameters;
-            //parameters.Aggregate(new ReportParameter("flag1", "False"));
 
 
             reportViewer1.LocalReport.Refresh();
