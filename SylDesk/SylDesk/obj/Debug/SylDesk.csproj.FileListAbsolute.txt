@@ -384,3 +384,6 @@ C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDes
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.pdb
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.csprojResolveAssemblyReference.cache
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.csprojResolveAssemblyReference.cache
+C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\MySql.Data.xml
+C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\MySql.Data.Entity.EF6.xml
+C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\MySql.Web.xml
