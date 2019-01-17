@@ -62,8 +62,6 @@ namespace SylDesk
             ///Tabla y Grafica de Categoria de altura(cat)
             ///
             List<Cat> list_cat = getCats();  //get list of students
-            //reportViewer1.LocalReport.DataSources.Clear(); //clear report
-            //reportViewer1.LocalReport.ReportEmbeddedResource = "Syldesk.ReporteFormato.rdlc"; // bind reportviewer with .rdlc
             Microsoft.Reporting.WinForms.ReportDataSource dataset_cat = new Microsoft.Reporting.WinForms.ReportDataSource("catDS", list_cat); // set the datasource
             reportViewer1.LocalReport.DataSources.Add(dataset_cat);
             dataset_cat.Value = list_cat;
@@ -143,11 +141,41 @@ namespace SylDesk
             ///
             ///Tabla y Grafica de IDR
             ///
-            List<IDR> list_idr = getIDR("500");  //get list of students
-            Microsoft.Reporting.WinForms.ReportDataSource dataset_idr = new Microsoft.Reporting.WinForms.ReportDataSource("idrDS", list_idr); // set the datasource
-            reportViewer1.LocalReport.DataSources.Add(dataset_idr);
-            dataset_idr.Value = list_idr;
+            List<IDR> list_idr1 = new List<IDR>();
+            if (proyecto.getArea1Activo())
+            {
+                list_idr1 = getIDR(proyecto.getArea1Superficie());  //get list of students
+            }
+            Microsoft.Reporting.WinForms.ReportDataSource dataset_idr1 = new Microsoft.Reporting.WinForms.ReportDataSource("idr1DS", list_idr1); // set the datasource
+            reportViewer1.LocalReport.DataSources.Add(dataset_idr1);
+            dataset_idr1.Value = list_idr1;
 
+            List<IDR> list_idr2 = new List<IDR>();
+            if (proyecto.getArea2Activo())
+            {
+                list_idr2 = getIDR(proyecto.getArea2Superficie());  //get list of students
+            }
+            Microsoft.Reporting.WinForms.ReportDataSource dataset_idr2 = new Microsoft.Reporting.WinForms.ReportDataSource("idr2DS", list_idr2); // set the datasource
+            reportViewer1.LocalReport.DataSources.Add(dataset_idr2);
+            dataset_idr2.Value = list_idr2;
+
+            List<IDR> list_idr3 = new List<IDR>();
+            if (proyecto.getArea3Activo())
+            {
+                list_idr3 = getIDR(proyecto.getArea3Superficie());
+            }
+            Microsoft.Reporting.WinForms.ReportDataSource dataset_idr3 = new Microsoft.Reporting.WinForms.ReportDataSource("idr3DS", list_idr3); // set the datasource
+            reportViewer1.LocalReport.DataSources.Add(dataset_idr3);
+            dataset_idr3.Value = list_idr3;
+
+            List<IDR> list_idr4 = new List<IDR>();
+            if (proyecto.getArea4Activo())
+            {
+                list_idr4 = getIDR(proyecto.getArea4Superficie());
+            }
+            Microsoft.Reporting.WinForms.ReportDataSource dataset_idr4 = new Microsoft.Reporting.WinForms.ReportDataSource("idr4DS", list_idr4); // set the datasource
+            reportViewer1.LocalReport.DataSources.Add(dataset_idr4);
+            dataset_idr4.Value = list_idr4;
 
             reportViewer1.LocalReport.Refresh();
             reportViewer1.RefreshReport(); // refresh report
@@ -751,7 +779,6 @@ namespace SylDesk
             parameters[4] = new ReportParameter("flag5", checkAB.Checked.ToString());
             parameters[5] = new ReportParameter("flag6", checkIVI.Checked.ToString());
             this.reportViewer1.LocalReport.SetParameters(parameters);
-
 
             reportViewer1.LocalReport.Refresh();
             reportViewer1.RefreshReport();
