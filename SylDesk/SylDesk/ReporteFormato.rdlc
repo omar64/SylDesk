@@ -7397,7 +7397,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Area 1</Value>
+                        <Value>=Parameters!area1.Value</Value>
                         <Style />
                       </TextRun>
                     </TextRuns>
@@ -7427,7 +7427,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Area 2</Value>
+                        <Value>=Parameters!area2.Value</Value>
                         <Style />
                       </TextRun>
                     </TextRuns>
@@ -7457,7 +7457,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Area 3</Value>
+                        <Value>=Parameters!area3.Value</Value>
                         <Style />
                       </TextRun>
                     </TextRuns>
@@ -7487,7 +7487,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Area 4</Value>
+                        <Value>=Parameters!area4.Value</Value>
                         <Style />
                       </TextRun>
                     </TextRuns>
@@ -7588,11 +7588,27 @@
       <DataType>Boolean</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="area1">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="area2">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="area3">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="area4">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>3</NumberOfRows>
+      <NumberOfRows>4</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -7643,6 +7659,26 @@
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>2</RowIndex>
           <ParameterName>flagArea4</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>area1</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>area2</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>area3</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>area4</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
