@@ -46,6 +46,9 @@ namespace SylDesk
             checkCAT.Checked = true;
             checkVolumen.Checked = true;
             checkCAD.Checked = true;
+            checkDyR.Checked = true;
+            checkAB.Checked = true;
+            checkIVI.Checked = true;
 
             this.proyecto = proyecto;
 
@@ -710,9 +713,9 @@ namespace SylDesk
             parameters[0] = new ReportParameter("flag1", checkVolumen.Checked.ToString());
             parameters[1] = new ReportParameter("flag2", checkCAT.Checked.ToString());
             parameters[2] = new ReportParameter("flag3", checkCAD.Checked.ToString());
-            parameters[3] = new ReportParameter("flag4", "True");
-            parameters[4] = new ReportParameter("flag5", "True");
-            parameters[5] = new ReportParameter("flag6", "True");
+            parameters[3] = new ReportParameter("flag4", checkDyR.Checked.ToString());
+            parameters[4] = new ReportParameter("flag5", checkAB.Checked.ToString());
+            parameters[5] = new ReportParameter("flag6", checkIVI.Checked.ToString());
             this.reportViewer1.LocalReport.SetParameters(parameters);
 
 

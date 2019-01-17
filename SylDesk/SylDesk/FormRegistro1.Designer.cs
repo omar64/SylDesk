@@ -152,16 +152,16 @@
             this.groupBox1.Controls.Add(this.SuperficieTxB1);
             this.groupBox1.Controls.Add(this.checkBoxA1);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(342, 211);
+            this.groupBox1.Location = new System.Drawing.Point(318, 211);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(549, 196);
+            this.groupBox1.Size = new System.Drawing.Size(573, 196);
             this.groupBox1.TabIndex = 49;
             this.groupBox1.TabStop = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(158, 47);
+            this.label4.Location = new System.Drawing.Point(177, 47);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 16);
             this.label4.TabIndex = 113;
@@ -169,7 +169,7 @@
             // 
             // TagTxB4
             // 
-            this.TagTxB4.Location = new System.Drawing.Point(161, 167);
+            this.TagTxB4.Location = new System.Drawing.Point(180, 167);
             this.TagTxB4.Name = "TagTxB4";
             this.TagTxB4.Size = new System.Drawing.Size(72, 22);
             this.TagTxB4.TabIndex = 112;
@@ -177,7 +177,7 @@
             // checkBoxVolumen4
             // 
             this.checkBoxVolumen4.AutoSize = true;
-            this.checkBoxVolumen4.Location = new System.Drawing.Point(251, 172);
+            this.checkBoxVolumen4.Location = new System.Drawing.Point(270, 172);
             this.checkBoxVolumen4.Name = "checkBoxVolumen4";
             this.checkBoxVolumen4.Size = new System.Drawing.Size(15, 14);
             this.checkBoxVolumen4.TabIndex = 108;
@@ -185,7 +185,7 @@
             // 
             // TagTxB3
             // 
-            this.TagTxB3.Location = new System.Drawing.Point(161, 139);
+            this.TagTxB3.Location = new System.Drawing.Point(180, 139);
             this.TagTxB3.Name = "TagTxB3";
             this.TagTxB3.Size = new System.Drawing.Size(72, 22);
             this.TagTxB3.TabIndex = 111;
@@ -193,7 +193,7 @@
             // checkBoxVolumen3
             // 
             this.checkBoxVolumen3.AutoSize = true;
-            this.checkBoxVolumen3.Location = new System.Drawing.Point(251, 144);
+            this.checkBoxVolumen3.Location = new System.Drawing.Point(270, 144);
             this.checkBoxVolumen3.Name = "checkBoxVolumen3";
             this.checkBoxVolumen3.Size = new System.Drawing.Size(15, 14);
             this.checkBoxVolumen3.TabIndex = 107;
@@ -201,7 +201,7 @@
             // 
             // TagTxB2
             // 
-            this.TagTxB2.Location = new System.Drawing.Point(161, 109);
+            this.TagTxB2.Location = new System.Drawing.Point(180, 109);
             this.TagTxB2.Name = "TagTxB2";
             this.TagTxB2.Size = new System.Drawing.Size(72, 22);
             this.TagTxB2.TabIndex = 110;
@@ -209,7 +209,7 @@
             // checkBoxVolumen2
             // 
             this.checkBoxVolumen2.AutoSize = true;
-            this.checkBoxVolumen2.Location = new System.Drawing.Point(251, 116);
+            this.checkBoxVolumen2.Location = new System.Drawing.Point(270, 116);
             this.checkBoxVolumen2.Name = "checkBoxVolumen2";
             this.checkBoxVolumen2.Size = new System.Drawing.Size(15, 14);
             this.checkBoxVolumen2.TabIndex = 106;
@@ -217,7 +217,7 @@
             // 
             // TagTxB1
             // 
-            this.TagTxB1.Location = new System.Drawing.Point(161, 81);
+            this.TagTxB1.Location = new System.Drawing.Point(180, 81);
             this.TagTxB1.Name = "TagTxB1";
             this.TagTxB1.Size = new System.Drawing.Size(72, 22);
             this.TagTxB1.TabIndex = 109;
@@ -225,7 +225,7 @@
             // checkBoxVolumen1
             // 
             this.checkBoxVolumen1.AutoSize = true;
-            this.checkBoxVolumen1.Location = new System.Drawing.Point(251, 86);
+            this.checkBoxVolumen1.Location = new System.Drawing.Point(270, 86);
             this.checkBoxVolumen1.Name = "checkBoxVolumen1";
             this.checkBoxVolumen1.Size = new System.Drawing.Size(15, 14);
             this.checkBoxVolumen1.TabIndex = 105;
@@ -234,7 +234,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(457, 31);
+            this.label12.Location = new System.Drawing.Point(476, 31);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(27, 16);
             this.label12.TabIndex = 99;
@@ -243,7 +243,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(338, 31);
+            this.label11.Location = new System.Drawing.Point(357, 31);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(34, 16);
             this.label11.TabIndex = 98;
@@ -252,7 +252,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(433, 63);
+            this.label10.Location = new System.Drawing.Point(452, 63);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(74, 16);
             this.label10.TabIndex = 97;
@@ -261,7 +261,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(319, 63);
+            this.label9.Location = new System.Drawing.Point(338, 63);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 16);
             this.label9.TabIndex = 96;
@@ -271,7 +271,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(376, 18);
+            this.label8.Location = new System.Drawing.Point(395, 18);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(73, 18);
             this.label8.TabIndex = 85;
@@ -281,7 +281,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(96, 18);
+            this.label7.Location = new System.Drawing.Point(115, 18);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(173, 18);
             this.label7.TabIndex = 84;
@@ -289,63 +289,63 @@
             // 
             // AlturaTxB4
             // 
-            this.AlturaTxB4.Location = new System.Drawing.Point(422, 167);
+            this.AlturaTxB4.Location = new System.Drawing.Point(441, 167);
             this.AlturaTxB4.Name = "AlturaTxB4";
             this.AlturaTxB4.Size = new System.Drawing.Size(100, 22);
             this.AlturaTxB4.TabIndex = 82;
             // 
             // AlturaTxB3
             // 
-            this.AlturaTxB3.Location = new System.Drawing.Point(422, 139);
+            this.AlturaTxB3.Location = new System.Drawing.Point(441, 139);
             this.AlturaTxB3.Name = "AlturaTxB3";
             this.AlturaTxB3.Size = new System.Drawing.Size(100, 22);
             this.AlturaTxB3.TabIndex = 81;
             // 
             // AlturaTxB2
             // 
-            this.AlturaTxB2.Location = new System.Drawing.Point(422, 111);
+            this.AlturaTxB2.Location = new System.Drawing.Point(441, 111);
             this.AlturaTxB2.Name = "AlturaTxB2";
             this.AlturaTxB2.Size = new System.Drawing.Size(100, 22);
             this.AlturaTxB2.TabIndex = 80;
             // 
             // AlturaTxB1
             // 
-            this.AlturaTxB1.Location = new System.Drawing.Point(422, 83);
+            this.AlturaTxB1.Location = new System.Drawing.Point(441, 83);
             this.AlturaTxB1.Name = "AlturaTxB1";
             this.AlturaTxB1.Size = new System.Drawing.Size(100, 22);
             this.AlturaTxB1.TabIndex = 79;
             // 
             // DiametroTxB4
             // 
-            this.DiametroTxB4.Location = new System.Drawing.Point(305, 167);
+            this.DiametroTxB4.Location = new System.Drawing.Point(324, 167);
             this.DiametroTxB4.Name = "DiametroTxB4";
             this.DiametroTxB4.Size = new System.Drawing.Size(100, 22);
             this.DiametroTxB4.TabIndex = 77;
             // 
             // DiametroTxB3
             // 
-            this.DiametroTxB3.Location = new System.Drawing.Point(305, 139);
+            this.DiametroTxB3.Location = new System.Drawing.Point(324, 139);
             this.DiametroTxB3.Name = "DiametroTxB3";
             this.DiametroTxB3.Size = new System.Drawing.Size(100, 22);
             this.DiametroTxB3.TabIndex = 76;
             // 
             // DiametroTxB2
             // 
-            this.DiametroTxB2.Location = new System.Drawing.Point(305, 111);
+            this.DiametroTxB2.Location = new System.Drawing.Point(324, 111);
             this.DiametroTxB2.Name = "DiametroTxB2";
             this.DiametroTxB2.Size = new System.Drawing.Size(100, 22);
             this.DiametroTxB2.TabIndex = 75;
             // 
             // DiametroTxB1
             // 
-            this.DiametroTxB1.Location = new System.Drawing.Point(305, 83);
+            this.DiametroTxB1.Location = new System.Drawing.Point(324, 83);
             this.DiametroTxB1.Name = "DiametroTxB1";
             this.DiametroTxB1.Size = new System.Drawing.Size(100, 22);
             this.DiametroTxB1.TabIndex = 74;
             // 
             // SuperficieTxB4
             // 
-            this.SuperficieTxB4.Location = new System.Drawing.Point(55, 167);
+            this.SuperficieTxB4.Location = new System.Drawing.Point(74, 167);
             this.SuperficieTxB4.Name = "SuperficieTxB4";
             this.SuperficieTxB4.Size = new System.Drawing.Size(100, 22);
             this.SuperficieTxB4.TabIndex = 61;
@@ -353,7 +353,7 @@
             // checkBoxA4
             // 
             this.checkBoxA4.AutoSize = true;
-            this.checkBoxA4.Location = new System.Drawing.Point(-16, 169);
+            this.checkBoxA4.Location = new System.Drawing.Point(3, 169);
             this.checkBoxA4.Name = "checkBoxA4";
             this.checkBoxA4.Size = new System.Drawing.Size(65, 20);
             this.checkBoxA4.TabIndex = 60;
@@ -363,7 +363,7 @@
             // 
             // SuperficieTxB3
             // 
-            this.SuperficieTxB3.Location = new System.Drawing.Point(55, 139);
+            this.SuperficieTxB3.Location = new System.Drawing.Point(74, 139);
             this.SuperficieTxB3.Name = "SuperficieTxB3";
             this.SuperficieTxB3.Size = new System.Drawing.Size(100, 22);
             this.SuperficieTxB3.TabIndex = 59;
@@ -371,7 +371,7 @@
             // checkBoxA3
             // 
             this.checkBoxA3.AutoSize = true;
-            this.checkBoxA3.Location = new System.Drawing.Point(-16, 141);
+            this.checkBoxA3.Location = new System.Drawing.Point(3, 141);
             this.checkBoxA3.Name = "checkBoxA3";
             this.checkBoxA3.Size = new System.Drawing.Size(65, 20);
             this.checkBoxA3.TabIndex = 58;
@@ -381,7 +381,7 @@
             // 
             // SuperficieTxB2
             // 
-            this.SuperficieTxB2.Location = new System.Drawing.Point(55, 111);
+            this.SuperficieTxB2.Location = new System.Drawing.Point(74, 111);
             this.SuperficieTxB2.Name = "SuperficieTxB2";
             this.SuperficieTxB2.Size = new System.Drawing.Size(100, 22);
             this.SuperficieTxB2.TabIndex = 57;
@@ -389,7 +389,7 @@
             // checkBoxA2
             // 
             this.checkBoxA2.AutoSize = true;
-            this.checkBoxA2.Location = new System.Drawing.Point(-16, 113);
+            this.checkBoxA2.Location = new System.Drawing.Point(3, 113);
             this.checkBoxA2.Name = "checkBoxA2";
             this.checkBoxA2.Size = new System.Drawing.Size(65, 20);
             this.checkBoxA2.TabIndex = 56;
@@ -400,7 +400,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(449, 47);
+            this.label6.Location = new System.Drawing.Point(468, 47);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 16);
             this.label6.TabIndex = 55;
@@ -409,7 +409,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(326, 47);
+            this.label5.Location = new System.Drawing.Point(345, 47);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 16);
             this.label5.TabIndex = 54;
@@ -418,7 +418,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(226, 47);
+            this.label3.Location = new System.Drawing.Point(245, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 16);
             this.label3.TabIndex = 52;
@@ -427,7 +427,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 47);
+            this.label2.Location = new System.Drawing.Point(71, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 16);
             this.label2.TabIndex = 51;
@@ -435,7 +435,7 @@
             // 
             // SuperficieTxB1
             // 
-            this.SuperficieTxB1.Location = new System.Drawing.Point(55, 83);
+            this.SuperficieTxB1.Location = new System.Drawing.Point(74, 83);
             this.SuperficieTxB1.Name = "SuperficieTxB1";
             this.SuperficieTxB1.Size = new System.Drawing.Size(100, 22);
             this.SuperficieTxB1.TabIndex = 50;
@@ -443,7 +443,7 @@
             // checkBoxA1
             // 
             this.checkBoxA1.AutoSize = true;
-            this.checkBoxA1.Location = new System.Drawing.Point(-16, 85);
+            this.checkBoxA1.Location = new System.Drawing.Point(3, 85);
             this.checkBoxA1.Name = "checkBoxA1";
             this.checkBoxA1.Size = new System.Drawing.Size(65, 20);
             this.checkBoxA1.TabIndex = 49;

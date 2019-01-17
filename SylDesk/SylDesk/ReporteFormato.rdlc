@@ -98,7 +98,7 @@
         <rd:ObjectDataSourceType>SylDesk.IDR, SylDesk, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="iviDS">
+    <DataSet Name="ivi1DS">
       <Query>
         <DataSourceName>SylDesk</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -216,6 +216,141 @@
         <rd:DataSetName>SylDesk</rd:DataSetName>
         <rd:TableName>Area_Basal</rd:TableName>
         <rd:ObjectDataSourceType>SylDesk.Area_Basal, SylDesk, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="ivi2DS">
+      <Query>
+        <DataSourceName>SylDesk</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="den_abs">
+          <DataField>den_abs</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="den_rel">
+          <DataField>den_rel</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="dom_abs">
+          <DataField>dom_abs</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="dom_rel">
+          <DataField>dom_rel</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="frec_abs">
+          <DataField>frec_abs</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="frec_rel">
+          <DataField>frec_rel</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="ivi">
+          <DataField>ivi</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="nombrecientifico">
+          <DataField>nombrecientifico</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>SylDesk</rd:DataSetName>
+        <rd:TableName>IVI2</rd:TableName>
+        <rd:ObjectDataSourceType>SylDesk.IVI2, SylDesk, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="ivi3DS">
+      <Query>
+        <DataSourceName>SylDesk</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="den_abs">
+          <DataField>den_abs</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="den_rel">
+          <DataField>den_rel</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="dom_abs">
+          <DataField>dom_abs</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="dom_rel">
+          <DataField>dom_rel</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="frec_abs">
+          <DataField>frec_abs</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="frec_rel">
+          <DataField>frec_rel</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="ivi">
+          <DataField>ivi</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="nombrecientifico">
+          <DataField>nombrecientifico</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>SylDesk</rd:DataSetName>
+        <rd:TableName>IVI2</rd:TableName>
+        <rd:ObjectDataSourceType>SylDesk.IVI2, SylDesk, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="ivi4DS">
+      <Query>
+        <DataSourceName>SylDesk</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="den_abs">
+          <DataField>den_abs</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="den_rel">
+          <DataField>den_rel</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="dom_abs">
+          <DataField>dom_abs</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="dom_rel">
+          <DataField>dom_rel</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="frec_abs">
+          <DataField>frec_abs</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="frec_rel">
+          <DataField>frec_rel</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="ivi">
+          <DataField>ivi</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="nombrecientifico">
+          <DataField>nombrecientifico</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>SylDesk</rd:DataSetName>
+        <rd:TableName>IVI2</rd:TableName>
+        <rd:ObjectDataSourceType>SylDesk.IVI2, SylDesk, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -3118,7 +3253,9 @@
                           <ChartDataLabel>
                             <Style />
                           </ChartDataLabel>
-                          <Style />
+                          <Style>
+                            <Color>Green</Color>
+                          </Style>
                           <ChartMarker>
                             <Style />
                           </ChartMarker>
@@ -3827,11 +3964,54 @@
           </Rectangle>
           <Rectangle Name="Rectangle8">
             <ReportItems>
-              <Tablix Name="Tablix3">
+              <Textbox Name="Textbox22">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Indice de Valor de Importancia</Value>
+                        <Style>
+                          <FontSize>14pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox22</rd:DefaultName>
+                <Top>0.45156cm</Top>
+                <Left>0.13948cm</Left>
+                <Height>0.75875cm</Height>
+                <Width>7.17236cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Line Name="Line6">
+                <Top>1.58927cm</Top>
+                <Left>0.29059cm</Left>
+                <Height>0cm</Height>
+                <Width>24.42788cm</Width>
+                <ZIndex>1</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                </Style>
+              </Line>
+              <Tablix Name="Tablix7">
                 <TablixBody>
                   <TablixColumns>
                     <TablixColumn>
-                      <Width>3.07237cm</Width>
+                      <Width>3.02714cm</Width>
                     </TablixColumn>
                     <TablixColumn>
                       <Width>3.07237cm</Width>
@@ -3840,10 +4020,10 @@
                       <Width>3.07237cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>3.07237cm</Width>
+                      <Width>3.05599cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>3.07237cm</Width>
+                      <Width>3.08875cm</Width>
                     </TablixColumn>
                     <TablixColumn>
                       <Width>3.07237cm</Width>
@@ -3857,11 +4037,11 @@
                   </TablixColumns>
                   <TablixRows>
                     <TablixRow>
-                      <Height>1.235cm</Height>
+                      <Height>1.47313cm</Height>
                       <TablixCells>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="Textbox35">
+                            <Textbox Name="Textbox26">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -3877,7 +4057,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>Textbox35</rd:DefaultName>
+                              <rd:DefaultName>Textbox26</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -3893,7 +4073,7 @@
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="Textbox21">
+                            <Textbox Name="Textbox37">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -3909,7 +4089,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>Textbox21</rd:DefaultName>
+                              <rd:DefaultName>Textbox37</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -3925,7 +4105,7 @@
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="Textbox23">
+                            <Textbox Name="Textbox30">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -3941,7 +4121,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>Textbox23</rd:DefaultName>
+                              <rd:DefaultName>Textbox30</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -3957,7 +4137,7 @@
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="Textbox25">
+                            <Textbox Name="Textbox34">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -3973,7 +4153,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>Textbox25</rd:DefaultName>
+                              <rd:DefaultName>Textbox34</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -3989,7 +4169,7 @@
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="Textbox27">
+                            <Textbox Name="Textbox40">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -4005,7 +4185,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>Textbox27</rd:DefaultName>
+                              <rd:DefaultName>Textbox40</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -4021,7 +4201,7 @@
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="Textbox29">
+                            <Textbox Name="Textbox44">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -4037,7 +4217,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>Textbox29</rd:DefaultName>
+                              <rd:DefaultName>Textbox44</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -4053,7 +4233,7 @@
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="Textbox31">
+                            <Textbox Name="Textbox48">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -4069,7 +4249,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>Textbox31</rd:DefaultName>
+                              <rd:DefaultName>Textbox48</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -4085,7 +4265,7 @@
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="Textbox33">
+                            <Textbox Name="Textbox52">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -4101,7 +4281,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>Textbox33</rd:DefaultName>
+                              <rd:DefaultName>Textbox52</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -4118,11 +4298,11 @@
                       </TablixCells>
                     </TablixRow>
                     <TablixRow>
-                      <Height>1.235cm</Height>
+                      <Height>1.47313cm</Height>
                       <TablixCells>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="nombrecientifico">
+                            <Textbox Name="nombrecientifico1">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -4136,7 +4316,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>nombrecientifico</rd:DefaultName>
+                              <rd:DefaultName>nombrecientifico1</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -4152,7 +4332,7 @@
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="den_abs">
+                            <Textbox Name="den_abs1">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -4166,7 +4346,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>den_abs</rd:DefaultName>
+                              <rd:DefaultName>den_abs1</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -4182,7 +4362,7 @@
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="den_rel">
+                            <Textbox Name="den_rel1">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -4196,7 +4376,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>den_rel</rd:DefaultName>
+                              <rd:DefaultName>den_rel1</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -4212,7 +4392,7 @@
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="dom_abs">
+                            <Textbox Name="dom_abs1">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -4226,7 +4406,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>dom_abs</rd:DefaultName>
+                              <rd:DefaultName>dom_abs1</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -4242,7 +4422,7 @@
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="dom_rel">
+                            <Textbox Name="dom_rel1">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -4256,7 +4436,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>dom_rel</rd:DefaultName>
+                              <rd:DefaultName>dom_rel1</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -4272,7 +4452,7 @@
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="frec_abs">
+                            <Textbox Name="frec_abs1">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -4286,7 +4466,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>frec_abs</rd:DefaultName>
+                              <rd:DefaultName>frec_abs1</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -4302,7 +4482,7 @@
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="frec_rel">
+                            <Textbox Name="frec_rel1">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -4316,7 +4496,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>frec_rel</rd:DefaultName>
+                              <rd:DefaultName>frec_rel1</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -4332,7 +4512,7 @@
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="ivi">
+                            <Textbox Name="ivi1">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -4346,7 +4526,7 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>ivi</rd:DefaultName>
+                              <rd:DefaultName>ivi1</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
@@ -4382,71 +4562,28 @@
                       <KeepWithGroup>After</KeepWithGroup>
                     </TablixMember>
                     <TablixMember>
-                      <Group Name="Detalles2" />
+                      <Group Name="Detalles6" />
                     </TablixMember>
                   </TablixMembers>
                 </TablixRowHierarchy>
-                <DataSetName>iviDS</DataSetName>
-                <Top>1.90677cm</Top>
-                <Left>0.13948cm</Left>
-                <Height>2.47cm</Height>
-                <Width>24.57896cm</Width>
+                <DataSetName>ivi1DS</DataSetName>
+                <Top>2.03729cm</Top>
+                <Left>0.18471cm</Left>
+                <Height>2.94625cm</Height>
+                <Width>24.53373cm</Width>
+                <ZIndex>2</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
                   </Border>
                 </Style>
               </Tablix>
-              <Textbox Name="Textbox22">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>Indice de Valor de Importancia</Value>
-                        <Style>
-                          <FontSize>14pt</FontSize>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style />
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox22</rd:DefaultName>
-                <Top>0.45156cm</Top>
-                <Left>0.13948cm</Left>
-                <Height>0.75875cm</Height>
-                <Width>7.17236cm</Width>
-                <ZIndex>1</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Line Name="Line6">
-                <Top>1.58927cm</Top>
-                <Left>0.29059cm</Left>
-                <Height>0cm</Height>
-                <Width>24.42788cm</Width>
-                <ZIndex>2</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                  </Border>
-                </Style>
-              </Line>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>64.66099cm</Top>
             <Left>0.68573cm</Left>
-            <Height>4.64313cm</Height>
-            <Width>24.90318cm</Width>
+            <Height>10.12001cm</Height>
+            <Width>26.93969cm</Width>
             <ZIndex>23</ZIndex>
             <Style>
               <Border>
@@ -4455,14 +4592,14 @@
             </Style>
           </Rectangle>
         </ReportItems>
-        <Height>28.08333in</Height>
+        <Height>31.19792in</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>10.49317in</Width>
+      <Width>10.87615in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

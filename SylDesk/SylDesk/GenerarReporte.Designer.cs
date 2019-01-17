@@ -35,19 +35,14 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonFiltrar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkIVI = new System.Windows.Forms.CheckBox();
+            this.checkAB = new System.Windows.Forms.CheckBox();
+            this.checkDyR = new System.Windows.Forms.CheckBox();
             this.checkCAD = new System.Windows.Forms.CheckBox();
             this.checkVolumen = new System.Windows.Forms.CheckBox();
             this.checkCAT = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkDyR = new System.Windows.Forms.CheckBox();
-            this.checkAB = new System.Windows.Forms.CheckBox();
-            this.checkIVI = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // reportViewer1
@@ -55,10 +50,10 @@
             this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SylDesk.ReporteFormato.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(8, 95);
+            this.reportViewer1.Location = new System.Drawing.Point(8, 58);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1034, 433);
+            this.reportViewer1.Size = new System.Drawing.Size(1034, 470);
             this.reportViewer1.TabIndex = 0;
             // 
             // ButtonBack
@@ -113,12 +108,42 @@
             this.groupBox1.Controls.Add(this.checkCAD);
             this.groupBox1.Controls.Add(this.checkVolumen);
             this.groupBox1.Controls.Add(this.checkCAT);
-            this.groupBox1.Location = new System.Drawing.Point(1051, 95);
+            this.groupBox1.Location = new System.Drawing.Point(1049, 53);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(144, 290);
             this.groupBox1.TabIndex = 123;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tabla";
+            // 
+            // checkIVI
+            // 
+            this.checkIVI.AutoSize = true;
+            this.checkIVI.Location = new System.Drawing.Point(6, 138);
+            this.checkIVI.Name = "checkIVI";
+            this.checkIVI.Size = new System.Drawing.Size(45, 17);
+            this.checkIVI.TabIndex = 128;
+            this.checkIVI.Text = "I.V.I";
+            this.checkIVI.UseVisualStyleBackColor = true;
+            // 
+            // checkAB
+            // 
+            this.checkAB.AutoSize = true;
+            this.checkAB.Location = new System.Drawing.Point(6, 115);
+            this.checkAB.Name = "checkAB";
+            this.checkAB.Size = new System.Drawing.Size(74, 17);
+            this.checkAB.TabIndex = 127;
+            this.checkAB.Text = "AreaBasal";
+            this.checkAB.UseVisualStyleBackColor = true;
+            // 
+            // checkDyR
+            // 
+            this.checkDyR.AutoSize = true;
+            this.checkDyR.Location = new System.Drawing.Point(6, 92);
+            this.checkDyR.Name = "checkDyR";
+            this.checkDyR.Size = new System.Drawing.Size(131, 17);
+            this.checkDyR.TabIndex = 126;
+            this.checkDyR.Text = "Diversisdad y Riqueza";
+            this.checkDyR.UseVisualStyleBackColor = true;
             // 
             // checkCAD
             // 
@@ -150,84 +175,11 @@
             this.checkCAT.Text = "Categoria de Altura";
             this.checkCAT.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.checkBox2);
-            this.groupBox2.Controls.Add(this.checkBox1);
-            this.groupBox2.Controls.Add(this.checkBox4);
-            this.groupBox2.Location = new System.Drawing.Point(668, 37);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(262, 52);
-            this.groupBox2.TabIndex = 124;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Graficas";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(181, 23);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(80, 17);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(95, 23);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(9, 23);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(80, 17);
-            this.checkBox4.TabIndex = 0;
-            this.checkBox4.Text = "checkBox4";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkDyR
-            // 
-            this.checkDyR.AutoSize = true;
-            this.checkDyR.Location = new System.Drawing.Point(6, 92);
-            this.checkDyR.Name = "checkDyR";
-            this.checkDyR.Size = new System.Drawing.Size(131, 17);
-            this.checkDyR.TabIndex = 126;
-            this.checkDyR.Text = "Diversisdad y Riqueza";
-            this.checkDyR.UseVisualStyleBackColor = true;
-            // 
-            // checkAB
-            // 
-            this.checkAB.AutoSize = true;
-            this.checkAB.Location = new System.Drawing.Point(6, 115);
-            this.checkAB.Name = "checkAB";
-            this.checkAB.Size = new System.Drawing.Size(74, 17);
-            this.checkAB.TabIndex = 127;
-            this.checkAB.Text = "AreaBasal";
-            this.checkAB.UseVisualStyleBackColor = true;
-            // 
-            // checkIVI
-            // 
-            this.checkIVI.AutoSize = true;
-            this.checkIVI.Location = new System.Drawing.Point(6, 138);
-            this.checkIVI.Name = "checkIVI";
-            this.checkIVI.Size = new System.Drawing.Size(45, 17);
-            this.checkIVI.TabIndex = 128;
-            this.checkIVI.Text = "I.V.I";
-            this.checkIVI.UseVisualStyleBackColor = true;
-            // 
             // GenerarReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonFiltrar);
             this.Controls.Add(this.pictureBox2);
@@ -240,8 +192,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,10 +208,6 @@
         private System.Windows.Forms.CheckBox checkCAD;
         private System.Windows.Forms.CheckBox checkVolumen;
         private System.Windows.Forms.CheckBox checkCAT;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkDyR;
         private System.Windows.Forms.CheckBox checkAB;
         private System.Windows.Forms.CheckBox checkIVI;
