@@ -204,6 +204,7 @@ C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.exe.licenses
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.csproj.CoreCompileInputs.cache
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.exe
 C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.pdb
+C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.csprojResolveAssemblyReference.cache
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\SqlServerTypes\x86\msvcr120.dll
@@ -382,8 +383,3 @@ C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDes
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.exe.licenses
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.exe
 C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.pdb
-C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\obj\Debug\SylDesk.csprojResolveAssemblyReference.cache
-C:\Users\omarc\Desktop\Syldesk\SylDesk\SylDesk\obj\Debug\SylDesk.csprojResolveAssemblyReference.cache
-C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\MySql.Data.xml
-C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\MySql.Data.Entity.EF6.xml
-C:\Users\poseidon9\Desktop\Repositories\SylDesk\SylDesk\SylDesk\bin\Debug\MySql.Web.xml
