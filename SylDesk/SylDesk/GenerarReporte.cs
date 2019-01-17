@@ -97,12 +97,39 @@ namespace SylDesk
             ///
             ///Tabla y Grafica de IVI
             ///
-            List<IVI2> list_ivi = getIVI(500);  //get list of students
-            Microsoft.Reporting.WinForms.ReportDataSource dataset_ivi = new Microsoft.Reporting.WinForms.ReportDataSource("iviDS", list_ivi); // set the datasource
-            reportViewer1.LocalReport.DataSources.Add(dataset_ivi);
-            dataset_ivi.Value = list_ivi;
+            if (proyecto.getArea1Activo())
+            {
+                
+                List<IVI2> list_ivi1 = getIVI(proyecto.getArea1Superficie());  //get list of students
+                Microsoft.Reporting.WinForms.ReportDataSource dataset_ivi1 = new Microsoft.Reporting.WinForms.ReportDataSource("ivi1DS", list_ivi1); // set the datasource
+                reportViewer1.LocalReport.DataSources.Add(dataset_ivi1);
+                dataset_ivi1.Value = list_ivi1;
+            }
 
-            
+            if (proyecto.getArea2Activo())
+            {
+                List<IVI2> list_ivi2 = getIVI(proyecto.getArea2Superficie());  //get list of students
+                Microsoft.Reporting.WinForms.ReportDataSource dataset_ivi2 = new Microsoft.Reporting.WinForms.ReportDataSource("ivi2DS", list_ivi2); // set the datasource
+                reportViewer1.LocalReport.DataSources.Add(dataset_ivi2);
+                dataset_ivi2.Value = list_ivi2;
+            }
+
+            if (proyecto.getArea3Activo())
+            {
+                List<IVI2> list_ivi3 = getIVI(proyecto.getArea3Superficie());  //get list of students
+                Microsoft.Reporting.WinForms.ReportDataSource dataset_ivi3 = new Microsoft.Reporting.WinForms.ReportDataSource("ivi3DS", list_ivi3); // set the datasource
+                reportViewer1.LocalReport.DataSources.Add(dataset_ivi3);
+                dataset_ivi3.Value = list_ivi3;
+            }
+
+            if (proyecto.getArea4Activo())
+            {
+                List<IVI2> list_ivi4 = getIVI(proyecto.getArea4Superficie());  //get list of students
+                Microsoft.Reporting.WinForms.ReportDataSource dataset_ivi4 = new Microsoft.Reporting.WinForms.ReportDataSource("ivi4DS", list_ivi4); // set the datasource
+                reportViewer1.LocalReport.DataSources.Add(dataset_ivi4);
+                dataset_ivi4.Value = list_ivi4;
+            }
+
             ///
             ///Tabla y Grafica de IDR
             ///
@@ -488,7 +515,7 @@ namespace SylDesk
             return list;
         }
 
-        private List<IVI2> getIVI(int area, int size = 5)
+        private List<IVI2> getIVI(String area, int size = 5)
         {
             List<IVI2> list = new List<IVI2>();
 
@@ -562,7 +589,7 @@ namespace SylDesk
                     }
                 }
 
-                int area_muestreada = area * num_sitios;
+                int area_muestreada = Convert.ToInt32(area) * num_sitios;
                 frec_abs[i] = (frec_aux / num_sitios) * 100;
                 den_abs[i] = (dens_aux / area_muestreada) * 100;
                 dom_abs[i] = (dom_aux / area_muestreada) * 100;

@@ -461,22 +461,34 @@ namespace SylDesk
             if (checkBoxA1.Checked)
             {
                 rangos_dialar1_str = SqlConnector.getWordsDividedByMinus(getComponent(4, 1).Text);
-                rangos_dialar1 = new Double[]{ Convert.ToDouble(rangos_dialar1_str[0]), Convert.ToDouble(rangos_dialar1_str[1]) };
+                if (rangos_dialar1_str != null)
+                {
+                    rangos_dialar1 = new Double[] { Convert.ToDouble(rangos_dialar1_str[0]), Convert.ToDouble(rangos_dialar1_str[1]) };
+                }
             }
             if (checkBoxA2.Checked)
             {
                 rangos_dialar2_str = SqlConnector.getWordsDividedByMinus(getComponent(4, 2).Text);
-                rangos_dialar2 = new Double[] { Convert.ToDouble(rangos_dialar2_str[0]), Convert.ToDouble(rangos_dialar2_str[1]) };
+                if (rangos_dialar2_str != null)
+                {
+                    rangos_dialar2 = new Double[] { Convert.ToDouble(rangos_dialar2_str[0]), Convert.ToDouble(rangos_dialar2_str[1]) };
+                }
             }
             if (checkBoxA3.Checked)
             {
                 rangos_dialar3_str = SqlConnector.getWordsDividedByMinus(getComponent(4, 3).Text);
-                rangos_dialar3 = new Double[] { Convert.ToDouble(rangos_dialar3_str[0]), Convert.ToDouble(rangos_dialar3_str[1]) };
+                if (rangos_dialar3_str != null)
+                {
+                    rangos_dialar3 = new Double[] { Convert.ToDouble(rangos_dialar3_str[0]), Convert.ToDouble(rangos_dialar3_str[1]) };
+                }
             }
             if (checkBoxA4.Checked)
             {
                 rangos_dialar4_str = SqlConnector.getWordsDividedByMinus(getComponent(4, 4).Text);
-                rangos_dialar4 = new Double[] { Convert.ToDouble(rangos_dialar4_str[0]), Convert.ToDouble(rangos_dialar4_str[1]) };
+                if (rangos_dialar4_str != null)
+                {
+                    rangos_dialar4 = new Double[] { Convert.ToDouble(rangos_dialar4_str[0]), Convert.ToDouble(rangos_dialar4_str[1]) };
+                }
             }
 
             if (checkBoxA1.Checked)
