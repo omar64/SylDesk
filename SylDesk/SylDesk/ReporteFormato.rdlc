@@ -61,7 +61,7 @@
         <rd:ObjectDataSourceType>SylDesk.Volumen, SylDesk, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="idrDS">
+    <DataSet Name="idr1DS">
       <Query>
         <DataSourceName>SylDesk</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -3280,7 +3280,7 @@
                     </TablixMember>
                   </TablixMembers>
                 </TablixRowHierarchy>
-                <DataSetName>idrDS</DataSetName>
+                <DataSetName>idr1DS</DataSetName>
                 <Top>1.51889cm</Top>
                 <Left>0.81971cm</Left>
                 <Height>2.07312cm</Height>
