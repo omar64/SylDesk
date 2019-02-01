@@ -587,6 +587,7 @@
             this.AgregarUmafor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AgregarUmafor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.AgregarUmafor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AgregarUmafor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AgregarUmafor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.AgregarUmafor.Image = ((System.Drawing.Image)(resources.GetObject("AgregarUmafor.Image")));
             this.AgregarUmafor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;

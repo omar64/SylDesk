@@ -3766,7 +3766,7 @@
                 <DataSetName>idr2DS</DataSetName>
                 <Top>4.36124cm</Top>
                 <Left>0.81971cm</Left>
-                <Height>1.99375cm</Height>
+                <Height>1.99376cm</Height>
                 <Width>23.93748cm</Width>
                 <ZIndex>3</ZIndex>
                 <Style>
@@ -4205,7 +4205,7 @@
                 <DataSetName>idr3DS</DataSetName>
                 <Top>7.48332cm</Top>
                 <Left>0.86851cm</Left>
-                <Height>1.96729cm</Height>
+                <Height>1.9673cm</Height>
                 <Width>23.88868cm</Width>
                 <ZIndex>4</ZIndex>
                 <Style>
@@ -4644,7 +4644,7 @@
                 <DataSetName>idr4DS</DataSetName>
                 <Top>10.7377cm</Top>
                 <Left>0.81971cm</Left>
-                <Height>2.31125cm</Height>
+                <Height>2.31124cm</Height>
                 <Width>23.93748cm</Width>
                 <ZIndex>5</ZIndex>
                 <Style>
@@ -5026,7 +5026,7 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>56.58238cm</Top>
+            <Top>53.08988cm</Top>
             <Left>0.68573cm</Left>
             <Height>4.56847cm</Height>
             <Width>25.96692cm</Width>
@@ -5650,7 +5650,7 @@
                 <DataSetName>ivi1DS</DataSetName>
                 <Top>2.98979cm</Top>
                 <Left>0.50221cm</Left>
-                <Height>2.94625cm</Height>
+                <Height>2.94626cm</Height>
                 <Width>24.53373cm</Width>
                 <ZIndex>2</ZIndex>
                 <Visibility>
@@ -6226,7 +6226,7 @@
                 <DataSetName>ivi2DS</DataSetName>
                 <Top>7.3025cm</Top>
                 <Left>0.50221cm</Left>
-                <Height>2.94625cm</Height>
+                <Height>2.94624cm</Height>
                 <Width>24.579cm</Width>
                 <ZIndex>3</ZIndex>
                 <Visibility>
@@ -7406,7 +7406,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox107</rd:DefaultName>
                 <Top>2.01938cm</Top>
-                <Left>0.68693cm</Left>
+                <Left>2.90943cm</Left>
                 <Height>0.6cm</Height>
                 <Width>2.5cm</Width>
                 <ZIndex>6</ZIndex>
@@ -7436,7 +7436,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox108</rd:DefaultName>
                 <Top>6.35cm</Top>
-                <Left>0.68693cm</Left>
+                <Left>2.94471cm</Left>
                 <Height>0.6cm</Height>
                 <Width>2.5cm</Width>
                 <ZIndex>7</ZIndex>
@@ -7466,7 +7466,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox109</rd:DefaultName>
                 <Top>10.90084cm</Top>
-                <Left>0.68693cm</Left>
+                <Left>2.91858cm</Left>
                 <Height>0.6cm</Height>
                 <Width>2.5cm</Width>
                 <ZIndex>8</ZIndex>
@@ -7495,8 +7495,8 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox110</rd:DefaultName>
-                <Top>14.91341cm</Top>
-                <Left>0.66002cm</Left>
+                <Top>14.94869cm</Top>
+                <Left>2.90943cm</Left>
                 <Height>0.6cm</Height>
                 <Width>2.5cm</Width>
                 <ZIndex>9</ZIndex>
@@ -7510,9 +7510,137 @@
                   <PaddingBottom>2pt</PaddingBottom>
                 </Style>
               </Textbox>
+              <Textbox Name="Textbox21">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Superficie:</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox21</rd:DefaultName>
+                <Top>2.01938cm</Top>
+                <Left>0.60408cm</Left>
+                <Height>0.6cm</Height>
+                <Width>2.23479cm</Width>
+                <ZIndex>10</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox23">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Superficie:</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox21</rd:DefaultName>
+                <Top>6.35cm</Top>
+                <Left>0.56881cm</Left>
+                <Height>0.6cm</Height>
+                <Width>2.23479cm</Width>
+                <ZIndex>11</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox25">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Superficie:</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox21</rd:DefaultName>
+                <Top>10.90084cm</Top>
+                <Left>0.68379cm</Left>
+                <Height>0.6cm</Height>
+                <Width>2.23479cm</Width>
+                <ZIndex>12</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox27">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Superficie:</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox21</rd:DefaultName>
+                <Top>14.94869cm</Top>
+                <Left>0.67464cm</Left>
+                <Height>0.6cm</Height>
+                <Width>2.23479cm</Width>
+                <ZIndex>13</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>61.48599cm</Top>
+            <Top>57.99349cm</Top>
             <Left>0.68573cm</Left>
             <Height>19.38043cm</Height>
             <Width>25.96692cm</Width>
@@ -7527,7 +7655,7 @@
             </Style>
           </Rectangle>
         </ReportItems>
-        <Height>32.5625in</Height>
+        <Height>31.01042in</Height>
         <Style>
           <Border>
             <Style>None</Style>

@@ -50,7 +50,7 @@
             this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SylDesk.ReporteFormato.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(8, 58);
+            this.reportViewer1.Location = new System.Drawing.Point(18, 58);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(1034, 470);
@@ -92,9 +92,15 @@
             // 
             // buttonFiltrar
             // 
-            this.buttonFiltrar.Location = new System.Drawing.Point(1082, 447);
+            this.buttonFiltrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFiltrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.buttonFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonFiltrar.Image")));
+            this.buttonFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonFiltrar.Location = new System.Drawing.Point(2, 423);
             this.buttonFiltrar.Name = "buttonFiltrar";
-            this.buttonFiltrar.Size = new System.Drawing.Size(91, 32);
+            this.buttonFiltrar.Size = new System.Drawing.Size(136, 46);
             this.buttonFiltrar.TabIndex = 119;
             this.buttonFiltrar.Text = "Filtrar";
             this.buttonFiltrar.UseVisualStyleBackColor = true;
@@ -103,17 +109,18 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.checkIVI);
+            this.groupBox1.Controls.Add(this.buttonFiltrar);
             this.groupBox1.Controls.Add(this.checkAB);
             this.groupBox1.Controls.Add(this.checkDyR);
             this.groupBox1.Controls.Add(this.checkCAD);
             this.groupBox1.Controls.Add(this.checkVolumen);
             this.groupBox1.Controls.Add(this.checkCAT);
-            this.groupBox1.Location = new System.Drawing.Point(1049, 53);
+            this.groupBox1.Location = new System.Drawing.Point(1057, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(144, 290);
+            this.groupBox1.Size = new System.Drawing.Size(139, 475);
             this.groupBox1.TabIndex = 123;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tabla";
+            this.groupBox1.Text = "Filtro";
             // 
             // checkIVI
             // 
@@ -148,7 +155,7 @@
             // checkCAD
             // 
             this.checkCAD.AutoSize = true;
-            this.checkCAD.Location = new System.Drawing.Point(6, 69);
+            this.checkCAD.Location = new System.Drawing.Point(6, 46);
             this.checkCAD.Name = "checkCAD";
             this.checkCAD.Size = new System.Drawing.Size(131, 17);
             this.checkCAD.TabIndex = 125;
@@ -158,7 +165,7 @@
             // checkVolumen
             // 
             this.checkVolumen.AutoSize = true;
-            this.checkVolumen.Location = new System.Drawing.Point(6, 46);
+            this.checkVolumen.Location = new System.Drawing.Point(6, 69);
             this.checkVolumen.Name = "checkVolumen";
             this.checkVolumen.Size = new System.Drawing.Size(67, 17);
             this.checkVolumen.TabIndex = 124;
@@ -181,7 +188,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonFiltrar);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ButtonBack);
