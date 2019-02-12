@@ -411,8 +411,8 @@ namespace SylDesk
                             DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.\n\n Usar ventana emergente?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                             if (dr == DialogResult.Yes)
                             {
-                                FormEmergente form_emergente = new FormEmergente();
-                                form_emergente.Show();
+                                //FormEmergente form_emergente = new FormEmergente();
+                                //form_emergente.Show();
                             }
                             else if (dr == DialogResult.No)
                             {
@@ -1235,6 +1235,9 @@ namespace SylDesk
         private void ReportButton_Click(object sender, EventArgs e)
         {
             form1.generarreporteToFront(proyecto);
+
+            //ReporteForm reporteForm = new ReporteForm();
+            //reporteForm.Show();
         }
     }
 }

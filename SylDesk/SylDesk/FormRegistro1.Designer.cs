@@ -161,11 +161,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(177, 47);
+            this.label4.Location = new System.Drawing.Point(187, 47);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 16);
+            this.label4.Size = new System.Drawing.Size(53, 16);
             this.label4.TabIndex = 113;
-            this.label4.Text = "Tag";
+            this.label4.Text = "Nombre";
             // 
             // TagTxB4
             // 
@@ -338,10 +338,14 @@
             // 
             // DiametroTxB1
             // 
+            this.DiametroTxB1.ForeColor = System.Drawing.Color.Gray;
             this.DiametroTxB1.Location = new System.Drawing.Point(324, 83);
             this.DiametroTxB1.Name = "DiametroTxB1";
             this.DiametroTxB1.Size = new System.Drawing.Size(100, 22);
             this.DiametroTxB1.TabIndex = 74;
+            this.DiametroTxB1.Text = "     Num-Num";
+            this.DiametroTxB1.Enter += new System.EventHandler(this.DiametroTxB1_Enter);
+            this.DiametroTxB1.Leave += new System.EventHandler(this.DiametroTxB1_Leave);
             // 
             // SuperficieTxB4
             // 
@@ -427,7 +431,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 47);
+            this.label2.Location = new System.Drawing.Point(75, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 16);
             this.label2.TabIndex = 51;

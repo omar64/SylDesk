@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Linq;
+using System.Drawing;
 
 namespace SylDesk
 {
@@ -617,6 +618,24 @@ namespace SylDesk
             else
             {
                 listUmafor.Items.Add(umaforBox.SelectedItem.ToString());
+            }
+        }
+
+        private void DiametroTxB1_Enter(object sender, EventArgs e)
+        {
+            if (DiametroTxB1.Text == "     Num-Num")
+            {
+                DiametroTxB1.Text = "";
+                DiametroTxB1.ForeColor = Color.Black;
+            }
+        }
+
+        private void DiametroTxB1_Leave(object sender, EventArgs e)
+        {
+            if (DiametroTxB1.Text == "")
+            {
+                DiametroTxB1.Text = "     Num-Num";
+                DiametroTxB1.ForeColor = Color.Gray;
             }
         }
     }
