@@ -638,5 +638,26 @@ namespace SylDesk
                 DiametroTxB1.ForeColor = Color.Gray;
             }
         }
+
+        private void umaforBox_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void umaforBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<string> list = listUmafor.Items.Cast<ListViewItem>()
+                                 .Select(item => item.Text)
+                                 .ToList();
+
+            if (list.Contains(umaforBox.SelectedItem.ToString()))
+            {
+                SqlConnector.sendMessage("Alerta", "Esa Umafor/Region ya esta registrado al proyecto", MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                listUmafor.Items.Add(umaforBox.SelectedItem.ToString());
+            }
+        }
     }
 }

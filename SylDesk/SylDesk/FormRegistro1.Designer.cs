@@ -613,6 +613,8 @@
             this.umaforBox.Name = "umaforBox";
             this.umaforBox.Size = new System.Drawing.Size(184, 21);
             this.umaforBox.TabIndex = 104;
+            this.umaforBox.SelectedIndexChanged += new System.EventHandler(this.umaforBox_SelectedIndexChanged);
+            this.umaforBox.Click += new System.EventHandler(this.umaforBox_Click);
             // 
             // listUmafor
             // 
