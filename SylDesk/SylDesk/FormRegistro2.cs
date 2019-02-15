@@ -631,7 +631,7 @@ namespace SylDesk
 
             foreach (Sitio sitio in list_sitios)
             {
-                comboBoxSitios.Items.Add(1);
+                comboBoxSitios.Items.Add(sitio.getNumeroSitio());
             }
         }
 
@@ -805,6 +805,7 @@ namespace SylDesk
                             new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["arbolnumeroensitio"].Value.ToString() }
                         );
 
+
                         SqlConnector.postPutDeleteGenerico(
                             "UPDATE sitios SET numero_consecutivo" + numero + " = (numero_consecutivo" + numero + " - 1) WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
                             new String[] { "proyecto_id", "numero_sitio" },
@@ -824,6 +825,12 @@ namespace SylDesk
                             new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
                             new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["arbolnumeroensitio"].Value.ToString() }
                         );
+
+                        SqlConnector.postPutDeleteGenerico(
+                           "UPDATE sitios SET numero_consecutivo" + numero + " = (numero_consecutivo" + numero + " - 1) WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
+                           new String[] { "proyecto_id", "numero_sitio" },
+                           new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString() }
+                       );
                     }
                 }
 
