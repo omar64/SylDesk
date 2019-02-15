@@ -47,6 +47,7 @@ namespace SylDesk
             AlturaTxB3.Text = "";
             AlturaTxB4.Text = "";
             umaforBox_Populate();
+            listUmafor.Clear();
         }
 
         private void buttonRegistrar_Click(object sender, EventArgs e)
@@ -362,14 +363,14 @@ namespace SylDesk
             {
                 if (getComponent(4, number_area).Text.IndexOf("-") < 0)
                 {
-                    SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area" + number_area + " falta simbolo de separacion \"-\".", MessageBoxIcon.Error);
+                    SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area " + number_area + " falta simbolo de separacion \"-\".", MessageBoxIcon.Error);
                     error_flag = true;
                 }
                 else
                 {
                     if (Regex.Matches(getComponent(4, number_area).Text, "-").Count > 1)
                     {
-                        SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area" + number_area + " hay mas de un simbolo de separacion \"-\".", MessageBoxIcon.Error);
+                        SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area " + number_area + " hay mas de un simbolo de separacion \"-\".", MessageBoxIcon.Error);
                         error_flag = true;
                     }
                     else
@@ -380,17 +381,17 @@ namespace SylDesk
                         bool flag2 = Double.TryParse(rangos_dialar[1], out aux2);
                         if (!flag1)
                         {
-                            SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area" + number_area + " el valor inferior debe ser numerico.", MessageBoxIcon.Error);
+                            SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area " + number_area + " el valor inferior debe ser numerico.", MessageBoxIcon.Error);
                             error_flag = true;
                         }
                         if (!flag2)
                         {
-                            SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area" + number_area + " el valor superior debe ser numerico.", MessageBoxIcon.Error);
+                            SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area " + number_area + " el valor superior debe ser numerico.", MessageBoxIcon.Error);
                             error_flag = true;
                         }
                         if (flag1 && flag2 && aux1 >= aux2)
                         {
-                            SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area" + number_area + " el valor inferior no debe ser mayor o igual al superior.", MessageBoxIcon.Error);
+                            SqlConnector.sendMessage("Error", "En el campo de rangos de Diametro/Largo del Area " + number_area + " el valor inferior no debe ser mayor o igual al superior.", MessageBoxIcon.Error);
                             error_flag = true;
                         }
                     }
@@ -400,14 +401,14 @@ namespace SylDesk
             {
                 if (getComponent(5, number_area).Text.IndexOf("-") < 0)
                 {
-                    SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area" + number_area + " falta simbolo de separacion \"-\".", MessageBoxIcon.Error);
+                    SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area " + number_area + " falta simbolo de separacion \"-\".", MessageBoxIcon.Error);
                     error_flag = true;
                 }
                 else
                 {
                     if (Regex.Matches(getComponent(5, number_area).Text, "-").Count > 1)
                     {
-                        SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area" + number_area + " hay mas de un simbolo de separacion \"-\".", MessageBoxIcon.Error);
+                        SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area " + number_area + " hay mas de un simbolo de separacion \"-\".", MessageBoxIcon.Error);
                         error_flag = true;
                     }
                     else
@@ -418,17 +419,17 @@ namespace SylDesk
                         bool flag2 = Double.TryParse(rangos_altanc[1], out aux2);
                         if (!flag1)
                         {
-                            SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area" + number_area + " el valor inferior debe ser numerico.", MessageBoxIcon.Error);
+                            SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area " + number_area + " el valor inferior debe ser numerico.", MessageBoxIcon.Error);
                             error_flag = true;
                         }
                         if (!flag2)
                         {
-                            SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area" + number_area + " el valor superior debe ser numerico.", MessageBoxIcon.Error);
+                            SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area " + number_area + " el valor superior debe ser numerico.", MessageBoxIcon.Error);
                             error_flag = true;
                         }
                         if (flag1 && flag2 && aux1 >= aux2)
                         {
-                            SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area" + number_area + " el valor inferior no debe ser mayor o igual al superior.", MessageBoxIcon.Error);
+                            SqlConnector.sendMessage("Error", "En el campo de rangos de Altura/Ancho del Area " + number_area + " el valor inferior no debe ser mayor o igual al superior.", MessageBoxIcon.Error);
                             error_flag = true;
                         }
                     }
@@ -436,7 +437,7 @@ namespace SylDesk
             }
             if (!(Double.TryParse(getComponent(1, number_area).Text, out double aux3)))
             {
-                SqlConnector.sendMessage("Error", "Superficie del Area" + number_area + " debe ser numerico.", MessageBoxIcon.Error);
+                SqlConnector.sendMessage("Error", "Superficie del Area " + number_area + " debe ser numerico.", MessageBoxIcon.Error);
                 error_flag = true;
             }
             return error_flag;
@@ -499,7 +500,7 @@ namespace SylDesk
                 {
                     if ((rangos_dialar1[0] >= rangos_dialar2[0] || rangos_dialar1[0] <= rangos_dialar2[1]) || (rangos_dialar1[1] >= rangos_dialar2[0] || rangos_dialar1[1] <= rangos_dialar2[1]) || (rangos_dialar2[0] >= rangos_dialar1[0] || rangos_dialar2[0] <= rangos_dialar1[1]) || (rangos_dialar2[1] >= rangos_dialar1[0] || rangos_dialar2[1] < rangos_dialar1[1]))
                     {
-                        SqlConnector.sendMessage("Aviso!", "Los rangos del area 1 y 2 estan sobrepuestos", MessageBoxIcon.Exclamation);
+                        SqlConnector.sendMessage("Aviso!", "Los rangos de Diametro del area 1 y 2 estan sobrepuestos", MessageBoxIcon.Exclamation);
                         //return true;
                     }
                 }
@@ -507,7 +508,7 @@ namespace SylDesk
                 {
                     if ((rangos_dialar1[0] >= rangos_dialar3[0] || rangos_dialar1[0] <= rangos_dialar3[1]) || (rangos_dialar1[1] >= rangos_dialar3[0] || rangos_dialar3[1] <= rangos_dialar3[1]) || (rangos_dialar2[0] >= rangos_dialar1[0] || rangos_dialar3[0] <= rangos_dialar1[1]) || (rangos_dialar3[1] >= rangos_dialar1[0] || rangos_dialar3[1] < rangos_dialar1[1]))
                     {
-                        SqlConnector.sendMessage("Aviso!", "Los rangos del area 1 y 3 estan sobrepuestos", MessageBoxIcon.Exclamation);
+                        SqlConnector.sendMessage("Aviso!", "Los rangos de Diametro del area 1 y 3 estan sobrepuestos", MessageBoxIcon.Exclamation);
                         //return true;
                     }
 
@@ -516,7 +517,7 @@ namespace SylDesk
                 {
                     if ((rangos_dialar1[0] >= rangos_dialar4[0] || rangos_dialar1[0] <= rangos_dialar4[1]) || (rangos_dialar1[1] >= rangos_dialar4[0] || rangos_dialar1[1] <= rangos_dialar4[1]) || (rangos_dialar4[0] >= rangos_dialar1[0] || rangos_dialar4[0] <= rangos_dialar1[1]) || (rangos_dialar4[1] >= rangos_dialar1[0] || rangos_dialar4[1] < rangos_dialar1[1]))
                     {
-                        SqlConnector.sendMessage("Aviso!", "Los rangos del area 1 y 4 estan sobrepuestos", MessageBoxIcon.Exclamation);
+                        SqlConnector.sendMessage("Aviso!", "Los rangos de Diametro del area 1 y 4 estan sobrepuestos", MessageBoxIcon.Exclamation);
                         //return true;
                     }
                 }
@@ -527,7 +528,7 @@ namespace SylDesk
                 {
                     if ((rangos_dialar2[0] >= rangos_dialar3[0] || rangos_dialar2[0] <= rangos_dialar3[1]) || (rangos_dialar2[1] >= rangos_dialar3[0] || rangos_dialar2[1] <= rangos_dialar3[1]) || (rangos_dialar3[0] >= rangos_dialar2[0] || rangos_dialar3[0] <= rangos_dialar2[1]) || (rangos_dialar3[1] >= rangos_dialar2[0] || rangos_dialar3[1] < rangos_dialar2[1]))
                     {
-                        SqlConnector.sendMessage("Aviso!", "Los rangos del area 2 y 3 estan sobrepuestos", MessageBoxIcon.Exclamation);
+                        SqlConnector.sendMessage("Aviso!", "Los rangos de Diametro del area 2 y 3 estan sobrepuestos", MessageBoxIcon.Exclamation);
                         //return true;
                     }
                 }
@@ -535,7 +536,7 @@ namespace SylDesk
                 {
                     if ((rangos_dialar2[0] >= rangos_dialar4[0] || rangos_dialar2[0] <= rangos_dialar4[1]) || (rangos_dialar2[1] >= rangos_dialar4[0] || rangos_dialar2[1] <= rangos_dialar4[1]) || (rangos_dialar4[0] >= rangos_dialar2[0] || rangos_dialar4[0] <= rangos_dialar2[1]) || (rangos_dialar4[1] >= rangos_dialar2[0] || rangos_dialar4[1] < rangos_dialar2[1]))
                     {
-                        SqlConnector.sendMessage("Aviso!", "Los rangos del area 2 y 3 estan sobrepuestos", MessageBoxIcon.Exclamation);
+                        SqlConnector.sendMessage("Aviso!", "Los rangos de Diametro del area 2 y 3 estan sobrepuestos", MessageBoxIcon.Exclamation);
                         //return true;
                     }
                 }
@@ -546,7 +547,7 @@ namespace SylDesk
                 {
                     if ((rangos_dialar3[0] >= rangos_dialar4[0] || rangos_dialar3[0] <= rangos_dialar4[1]) || (rangos_dialar3[1] >= rangos_dialar4[0] || rangos_dialar3[1] <= rangos_dialar4[1]) || (rangos_dialar4[0] >= rangos_dialar3[0] || rangos_dialar4[0] <= rangos_dialar3[1]) || (rangos_dialar4[1] >= rangos_dialar3[0] || rangos_dialar4[1] < rangos_dialar3[1]))
                     {
-                        SqlConnector.sendMessage("Aviso!", "Los rangos del area 3 y 4 estan sobrepuestos", MessageBoxIcon.Exclamation);
+                        SqlConnector.sendMessage("Aviso!", "Los rangos de Diametro del area 3 y 4 estan sobrepuestos", MessageBoxIcon.Exclamation);
                         //return true;
                     }
                 }
@@ -602,22 +603,26 @@ namespace SylDesk
             {
                 umaforBox.Items.Add(ecuacion_volumen.getUmafor());
             }
-            umaforBox.SelectedIndex = 0;
+            //umaforBox.SelectedIndex = 0;
         }
 
         private void AgregarUmafor_Click(object sender, EventArgs e)
         {
-            List<string> list = listUmafor.Items.Cast<ListViewItem>()
-                                 .Select(item => item.Text)
-                                 .ToList();
-
-            if (list.Contains(umaforBox.SelectedItem.ToString()))
+            if (listUmafor.SelectedIndices.Count > 0)
             {
-                SqlConnector.sendMessage("Alerta", "Esa Umafor/Region ya esta registrado al proyecto", MessageBoxIcon.Asterisk);
+                int i = listUmafor.SelectedIndices[0];
+                DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "¿Seguro que desea eliminar el umafor?.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dr == DialogResult.Yes)
+                {
+                    string s = listUmafor.Items[i].Text;
+                    listUmafor.Items.RemoveAt(i);
+
+                }
             }
             else
             {
-                listUmafor.Items.Add(umaforBox.SelectedItem.ToString());
+                SqlConnector.sendMessage("Alert", "Para Eliminar Debe Seleccionar El Umafor", MessageBoxIcon.Exclamation);
             }
         }
 

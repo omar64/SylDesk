@@ -408,16 +408,16 @@ namespace SylDesk
 
                         if (!found_flag)
                         {
-                            DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.\n\n Usar ventana emergente?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                            DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada.\n\n ¿Desea Registrar una Ecuación?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (dr == DialogResult.Yes)
                             {
+
+                                form1.calculadoraEcuToFront(proyecto, 1, nombrecientifico);
+
                                 //FormEmergente form_emergente = new FormEmergente();
                                 //form_emergente.Show();
                             }
-                            else if (dr == DialogResult.No)
-                            {
-                                form1.calculadoraEcuToFront(proyecto, 1, nombrecientifico);
-                            }
+                            
                         }
                     }
                     else
@@ -770,70 +770,80 @@ namespace SylDesk
         {
             if (dataGridViewIndividuos.SelectedRows.Count > 0)
             {
-                DialogResult dr = SqlConnector.sendOptionsMessage("Alerta", "¿Seguro que desea eliminar ese individuo?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dr;
+                if (dataGridViewIndividuos.SelectedRows.Count == 1)
+                {
+                    dr = SqlConnector.sendOptionsMessage("Alerta", "¿Seguro que desea eliminar ese individuo?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                }
+                else
+                {
+                    dr = SqlConnector.sendOptionsMessage("Alerta", "¿Seguro que desea eliminar estos individuos?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                }
 
                 if (dr == DialogResult.Yes)
                 {
-                    var row = dataGridViewIndividuos.SelectedRows[0];
-                    int numero = comboBoxAreas.SelectedIndex + 1;
-
-                    if (Convert.ToBoolean(row.Cells["bifurcados"].Value))
+                    for (int i = 0; i < dataGridViewIndividuos.SelectedRows.Count; i++)
                     {
-                        List<String> list_values = SqlConnector.anyEspecificValueGet(
-                            "SELECT COUNT(id) FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero",
-                            new String[] { "proyecto_id", "sitio", "area", "numero" },
-                            new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["numero"].Value.ToString() }
-                        );
+                        var row = dataGridViewIndividuos.SelectedRows[i];
+                        int numero = comboBoxAreas.SelectedIndex + 1;
 
-                        int numero_elementos = Convert.ToInt32(list_values[0]);
+                        if (Convert.ToBoolean(row.Cells["bifurcados"].Value))
+                        {
+                            List<String> list_values = SqlConnector.anyEspecificValueGet(
+                                "SELECT COUNT(id) FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero = @numero",
+                                new String[] { "proyecto_id", "sitio", "area", "numero" },
+                                new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["numero"].Value.ToString() }
+                            );
 
-                        SqlConnector.postPutDeleteGenerico(
-                            "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero  = @numero",
-                            new String[] { "proyecto_id", "sitio", "area", "numero" },
-                            new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["numero"].Value.ToString() }
-                        );
+                            int numero_elementos = Convert.ToInt32(list_values[0]);
 
-                        SqlConnector.postPutDeleteGenerico(
-                            "UPDATE individuos SET numero = (numero - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero > @numero",
-                            new String[] { "proyecto_id", "sitio", "area", "numero" },
-                            new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["numero"].Value.ToString() }
-                        );
+                            SqlConnector.postPutDeleteGenerico(
+                                "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero  = @numero",
+                                new String[] { "proyecto_id", "sitio", "area", "numero" },
+                                new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["numero"].Value.ToString() }
+                            );
 
-                        SqlConnector.postPutDeleteGenerico(
-                            "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio - " + numero_elementos + ") WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio",
-                            new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
-                            new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["arbolnumeroensitio"].Value.ToString() }
-                        );
+                            SqlConnector.postPutDeleteGenerico(
+                                "UPDATE individuos SET numero = (numero - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND numero > @numero",
+                                new String[] { "proyecto_id", "sitio", "area", "numero" },
+                                new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["numero"].Value.ToString() }
+                            );
+
+                            SqlConnector.postPutDeleteGenerico(
+                                "UPDATE individuos SET arbolnumeroensitio = (arbolnumeroensitio - " + numero_elementos + ") WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio",
+                                new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
+                                new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["arbolnumeroensitio"].Value.ToString() }
+                            );
 
 
-                        SqlConnector.postPutDeleteGenerico(
-                            "UPDATE sitios SET numero_consecutivo" + numero + " = (numero_consecutivo" + numero + " - 1) WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
-                            new String[] { "proyecto_id", "numero_sitio" },
-                            new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString() }
-                        );
-                    }
-                    else
-                    {
-                        SqlConnector.postPutDeleteGenerico(
-                            "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio = @arbolnumeroensitio",
-                            new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
-                            new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["arbolnumeroensitio"].Value.ToString() }
-                        );
+                            SqlConnector.postPutDeleteGenerico(
+                                "UPDATE sitios SET numero_consecutivo" + numero + " = (numero_consecutivo" + numero + " - 1) WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
+                                new String[] { "proyecto_id", "numero_sitio" },
+                                new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString() }
+                            );
+                        }
+                        else
+                        {
+                            SqlConnector.postPutDeleteGenerico(
+                                "DELETE FROM individuos WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio = @arbolnumeroensitio",
+                                new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
+                                new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["arbolnumeroensitio"].Value.ToString() }
+                            );
 
-                        SqlConnector.postPutDeleteGenerico(
-                            "UPDATE individuos SET numero = (numero - 1), arbolnumeroensitio = (arbolnumeroensitio - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio",
-                            new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
-                            new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["arbolnumeroensitio"].Value.ToString() }
-                        );
+                            SqlConnector.postPutDeleteGenerico(
+                                "UPDATE individuos SET numero = (numero - 1), arbolnumeroensitio = (arbolnumeroensitio - 1) WHERE proyecto_id = @proyecto_id AND sitio = @sitio AND area = @area AND arbolnumeroensitio > @arbolnumeroensitio",
+                                new String[] { "proyecto_id", "sitio", "area", "arbolnumeroensitio" },
+                                new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString(), comboBoxAreas.SelectedItem.ToString(), row.Cells["arbolnumeroensitio"].Value.ToString() }
+                            );
 
-                        SqlConnector.postPutDeleteGenerico(
-                           "UPDATE sitios SET numero_consecutivo" + numero + " = (numero_consecutivo" + numero + " - 1) WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
-                           new String[] { "proyecto_id", "numero_sitio" },
-                           new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString() }
-                       );
+                            SqlConnector.postPutDeleteGenerico(
+                               "UPDATE sitios SET numero_consecutivo" + numero + " = (numero_consecutivo" + numero + " - 1) WHERE proyecto_id = @proyecto_id AND numero_sitio = @numero_sitio",
+                               new String[] { "proyecto_id", "numero_sitio" },
+                               new String[] { "" + Convert.ToInt32(proyecto.getId()), comboBoxSitios.SelectedItem.ToString() }
+                           );
+                        }
                     }
                 }
-
                 dataGridViewIndividuos_Populate();
             }
         }
@@ -1241,10 +1251,11 @@ namespace SylDesk
 
         private void ReportButton_Click(object sender, EventArgs e)
         {
-            form1.generarreporteToFront(proyecto);
+            //form1.generarreporteToFront(proyecto);
 
-            //ReporteForm reporteForm = new ReporteForm();
-            //reporteForm.Show();
+            ReporteForm reporteForm = new ReporteForm();
+            reporteForm.Initialize(proyecto);
+            reporteForm.Show();
         }
     }
 }
