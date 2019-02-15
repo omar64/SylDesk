@@ -408,16 +408,16 @@ namespace SylDesk
 
                         if (!found_flag)
                         {
-                            DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada. Para su registro se desplegará el editor de ecuaciones.\n\n Usar ventana emergente?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                            DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "Algunas especies capturadas no presentan ecuación para los inventarios seleccionados o no existe ecuación registrada.\n\n ¿Desea Registrar una Ecuación?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (dr == DialogResult.Yes)
                             {
+
+                                form1.calculadoraEcuToFront(proyecto, 1, nombrecientifico);
+
                                 //FormEmergente form_emergente = new FormEmergente();
                                 //form_emergente.Show();
                             }
-                            else if (dr == DialogResult.No)
-                            {
-                                form1.calculadoraEcuToFront(proyecto, 1, nombrecientifico);
-                            }
+                            
                         }
                     }
                     else
@@ -1234,10 +1234,11 @@ namespace SylDesk
 
         private void ReportButton_Click(object sender, EventArgs e)
         {
-            form1.generarreporteToFront(proyecto);
+            //form1.generarreporteToFront(proyecto);
 
-            //ReporteForm reporteForm = new ReporteForm();
-            //reporteForm.Show();
+            ReporteForm reporteForm = new ReporteForm();
+            reporteForm.Initialize(proyecto);
+            reporteForm.Show();
         }
     }
 }

@@ -500,29 +500,33 @@ namespace SylDesk
             {
                 comboBox1.Items.Add(ecuacion_volumen.getUmafor());
             }
-            comboBox1.SelectedIndex = 0;
+            //comboBox1.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ProyectoEcuacion proyecto_ecuacion = SqlConnector.proyectoEcuacionGet(
-                                    "SELECT * FROM `proyecto_ecuaciones` where umafor_region = @umafor_region and proyecto_id = @proyecto_id",
-                                    new String[] { "umafor_region", "proyecto_id" },
-                                    new String[] { comboBox1.Text, "" + proyecto.getId() }
-                                );
-
-            if (proyecto_ecuacion == null)
+            if (listView1.SelectedIndices.Count > 0)
             {
-                SqlConnector.postPutDeleteGenerico(
-                    "Insert into proyecto_ecuaciones(proyecto_id, umafor_region)Values(@proyecto_id, @umafor_region)",
-                    new String[] { "proyecto_id", "umafor_region" },
-                    new String[] { "" + proyecto.getId(), comboBox1.Text }
-                );
-                listview1_Populate();
+                int i = listView1.SelectedIndices[0];
+                DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "¿Seguro que desea eliminar la ecuación? No habrá forma de deshacer esta acción posteriormente.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dr == DialogResult.Yes)
+                {
+                    string s = listView1.Items[i].Text;
+
+                    SqlConnector.postPutDeleteGenerico(
+                        "DELETE FROM proyecto_ecuaciones WHERE umafor_region = @umafor_region",
+                        new String[] { "umafor_region" },
+                        new String[] { s }
+                    );
+
+                    
+                    listview1_Populate();
+                }
             }
             else
             {
-                SqlConnector.sendMessage("Error", "La UMAFOR/Región ya se encuentra registrada como parte de los inventarios utilizados en el proyecto.", MessageBoxIcon.Error);
+                SqlConnector.sendMessage("Alert", "Para Eliminar Debe Seleccionar El Umafor", MessageBoxIcon.Exclamation);
             }
         }
 
@@ -660,6 +664,29 @@ namespace SylDesk
             getComponent(3, number_area).Enabled = checkbox.Checked;
             getComponent(4, number_area).Enabled = checkbox.Checked;
             getComponent(5, number_area).Enabled = checkbox.Checked;           
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ProyectoEcuacion proyecto_ecuacion = SqlConnector.proyectoEcuacionGet(
+                                    "SELECT * FROM `proyecto_ecuaciones` where umafor_region = @umafor_region and proyecto_id = @proyecto_id",
+                                    new String[] { "umafor_region", "proyecto_id" },
+                                    new String[] { comboBox1.Text, "" + proyecto.getId() }
+                                );
+
+            if (proyecto_ecuacion == null)
+            {
+                SqlConnector.postPutDeleteGenerico(
+                    "Insert into proyecto_ecuaciones(proyecto_id, umafor_region)Values(@proyecto_id, @umafor_region)",
+                    new String[] { "proyecto_id", "umafor_region" },
+                    new String[] { "" + proyecto.getId(), comboBox1.Text }
+                );
+                listview1_Populate();
+            }
+            else
+            {
+                SqlConnector.sendMessage("Error", "La UMAFOR/Región ya se encuentra registrada como parte de los inventarios utilizados en el proyecto.", MessageBoxIcon.Error);
+            }
         }
     }
 }

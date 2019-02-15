@@ -602,22 +602,26 @@ namespace SylDesk
             {
                 umaforBox.Items.Add(ecuacion_volumen.getUmafor());
             }
-            umaforBox.SelectedIndex = 0;
+            //umaforBox.SelectedIndex = 0;
         }
 
         private void AgregarUmafor_Click(object sender, EventArgs e)
         {
-            List<string> list = listUmafor.Items.Cast<ListViewItem>()
-                                 .Select(item => item.Text)
-                                 .ToList();
-
-            if (list.Contains(umaforBox.SelectedItem.ToString()))
+            if (listUmafor.SelectedIndices.Count > 0)
             {
-                SqlConnector.sendMessage("Alerta", "Esa Umafor/Region ya esta registrado al proyecto", MessageBoxIcon.Asterisk);
+                int i = listUmafor.SelectedIndices[0];
+                DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "¿Seguro que desea eliminar el umafor?.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dr == DialogResult.Yes)
+                {
+                    string s = listUmafor.Items[i].Text;
+                    listUmafor.Items.RemoveAt(i);
+
+                }
             }
             else
             {
-                listUmafor.Items.Add(umaforBox.SelectedItem.ToString());
+                SqlConnector.sendMessage("Alert", "Para Eliminar Debe Seleccionar El Umafor", MessageBoxIcon.Exclamation);
             }
         }
 
