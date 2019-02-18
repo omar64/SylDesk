@@ -157,7 +157,7 @@
             this.dataGridViewEspecies.Location = new System.Drawing.Point(14, 209);
             this.dataGridViewEspecies.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dataGridViewEspecies.Name = "dataGridViewEspecies";
-            this.dataGridViewEspecies.Size = new System.Drawing.Size(1168, 302);
+            this.dataGridViewEspecies.Size = new System.Drawing.Size(1168, 322);
             this.dataGridViewEspecies.TabIndex = 79;
             // 
             // familia

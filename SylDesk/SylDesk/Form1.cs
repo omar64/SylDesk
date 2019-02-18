@@ -39,8 +39,8 @@ namespace SylDesk
             this.diversidadyRiqueza.setForm(this);
             this.valordeImportancia.setForm(this);
 
-            
 
+            button11.Hide();
           
 
 
@@ -125,14 +125,14 @@ namespace SylDesk
         
         private void button11_Click(object sender, EventArgs e)
         {
-            if (WindowState.ToString() == "Normal")
+            /*if (WindowState.ToString() == "Normal")
             {
                 this.WindowState = FormWindowState.Maximized;
             }
             else
             {
                 this.WindowState = FormWindowState.Normal;
-            }
+            }*/
             
         }
 

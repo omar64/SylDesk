@@ -105,7 +105,7 @@
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(1091, 3);
+            this.button12.Location = new System.Drawing.Point(1132, 3);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(29, 30);
             this.button12.TabIndex = 2;
@@ -123,7 +123,7 @@
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.White;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(1126, 3);
+            this.button11.Location = new System.Drawing.Point(1084, 3);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(29, 30);
             this.button11.TabIndex = 1;
@@ -139,7 +139,7 @@
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(1161, 3);
+            this.button10.Location = new System.Drawing.Point(1169, 3);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(29, 30);
             this.button10.TabIndex = 0;
@@ -634,7 +634,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "SylDesk";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

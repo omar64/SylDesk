@@ -84,19 +84,24 @@
             this.umaforBox = new System.Windows.Forms.ComboBox();
             this.listUmafor = new System.Windows.Forms.ListView();
             this.label13 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBoxRegistro.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox6.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxRegistro
             // 
             this.groupBoxRegistro.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBoxRegistro.Controls.Add(this.panel1);
             this.groupBoxRegistro.Controls.Add(this.groupBox1);
-            this.groupBoxRegistro.Controls.Add(this.pictureBox1);
             this.groupBoxRegistro.Controls.Add(this.richTextBoxDescripcion);
             this.groupBoxRegistro.Controls.Add(this.buttonRegistrar);
             this.groupBoxRegistro.Controls.Add(this.textBoxNombre);
@@ -108,7 +113,7 @@
             this.groupBoxRegistro.ForeColor = System.Drawing.Color.Black;
             this.groupBoxRegistro.Location = new System.Drawing.Point(17, 36);
             this.groupBoxRegistro.Name = "groupBoxRegistro";
-            this.groupBoxRegistro.Size = new System.Drawing.Size(935, 467);
+            this.groupBoxRegistro.Size = new System.Drawing.Size(935, 492);
             this.groupBoxRegistro.TabIndex = 11;
             this.groupBoxRegistro.TabStop = false;
             this.groupBoxRegistro.Text = "Crear Proyecto";
@@ -457,16 +462,18 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 56);
+            this.pictureBox1.Location = new System.Drawing.Point(51, 35);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(251, 321);
+            this.pictureBox1.Size = new System.Drawing.Size(167, 211);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
             // richTextBoxDescripcion
             // 
+            this.richTextBoxDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBoxDescripcion.Location = new System.Drawing.Point(476, 115);
             this.richTextBoxDescripcion.Name = "richTextBoxDescripcion";
             this.richTextBoxDescripcion.Size = new System.Drawing.Size(389, 90);
@@ -483,7 +490,7 @@
             this.buttonRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegistrar.Image")));
             this.buttonRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistrar.Location = new System.Drawing.Point(732, 412);
+            this.buttonRegistrar.Location = new System.Drawing.Point(732, 432);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(150, 48);
             this.buttonRegistrar.TabIndex = 10;
@@ -582,7 +589,7 @@
             this.groupBox6.Controls.Add(this.label13);
             this.groupBox6.Location = new System.Drawing.Point(969, 36);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(213, 467);
+            this.groupBox6.Size = new System.Drawing.Size(213, 492);
             this.groupBox6.TabIndex = 111;
             this.groupBox6.TabStop = false;
             // 
@@ -595,7 +602,7 @@
             this.AgregarUmafor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.AgregarUmafor.Image = ((System.Drawing.Image)(resources.GetObject("AgregarUmafor.Image")));
             this.AgregarUmafor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AgregarUmafor.Location = new System.Drawing.Point(44, 416);
+            this.AgregarUmafor.Location = new System.Drawing.Point(61, 438);
             this.AgregarUmafor.Name = "AgregarUmafor";
             this.AgregarUmafor.Size = new System.Drawing.Size(139, 43);
             this.AgregarUmafor.TabIndex = 105;
@@ -605,22 +612,25 @@
             // 
             // umaforBox
             // 
-            this.umaforBox.BackColor = System.Drawing.Color.Silver;
+            this.umaforBox.BackColor = System.Drawing.Color.LightSlateGray;
             this.umaforBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.umaforBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.umaforBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.umaforBox.ForeColor = System.Drawing.Color.White;
             this.umaforBox.FormattingEnabled = true;
             this.umaforBox.Location = new System.Drawing.Point(18, 40);
             this.umaforBox.Name = "umaforBox";
-            this.umaforBox.Size = new System.Drawing.Size(184, 21);
+            this.umaforBox.Size = new System.Drawing.Size(184, 23);
             this.umaforBox.TabIndex = 104;
             this.umaforBox.SelectedIndexChanged += new System.EventHandler(this.umaforBox_SelectedIndexChanged);
             this.umaforBox.Click += new System.EventHandler(this.umaforBox_Click);
             // 
             // listUmafor
             // 
+            this.listUmafor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listUmafor.Location = new System.Drawing.Point(18, 67);
             this.listUmafor.Name = "listUmafor";
-            this.listUmafor.Size = new System.Drawing.Size(184, 340);
+            this.listUmafor.Size = new System.Drawing.Size(184, 365);
             this.listUmafor.TabIndex = 102;
             this.listUmafor.UseCompatibleStateImageBehavior = false;
             this.listUmafor.View = System.Windows.Forms.View.List;
@@ -634,6 +644,36 @@
             this.label13.Size = new System.Drawing.Size(93, 16);
             this.label13.TabIndex = 103;
             this.label13.Text = "Umafor/Región";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(274, 492);
+            this.panel1.TabIndex = 50;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(48)))));
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Location = new System.Drawing.Point(0, 268);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(296, 56);
+            this.panel2.TabIndex = 13;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(32, 12);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(212, 32);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Crear Proyecto";
             // 
             // FormRegistro1
             // 
@@ -656,6 +696,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -717,5 +760,8 @@
         private System.Windows.Forms.TextBox TagTxB2;
         private System.Windows.Forms.TextBox TagTxB1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label14;
     }
 }

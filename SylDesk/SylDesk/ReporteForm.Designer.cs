@@ -38,16 +38,19 @@
             this.checkCAD = new System.Windows.Forms.CheckBox();
             this.checkVolumen = new System.Windows.Forms.CheckBox();
             this.checkCAT = new System.Windows.Forms.CheckBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SylDesk.ReporteFormato.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(5, 29);
+            this.reportViewer1.Location = new System.Drawing.Point(5, 46);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1034, 470);
+            this.reportViewer1.Size = new System.Drawing.Size(1041, 488);
             this.reportViewer1.TabIndex = 0;
             // 
             // groupBox1
@@ -59,7 +62,7 @@
             this.groupBox1.Controls.Add(this.checkCAD);
             this.groupBox1.Controls.Add(this.checkVolumen);
             this.groupBox1.Controls.Add(this.checkCAT);
-            this.groupBox1.Location = new System.Drawing.Point(1042, 24);
+            this.groupBox1.Location = new System.Drawing.Point(1052, 38);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(139, 475);
             this.groupBox1.TabIndex = 124;
@@ -142,19 +145,45 @@
             this.checkCAT.Text = "Categoria de Altura";
             this.checkCAT.UseVisualStyleBackColor = true;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(474, 9);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(28, 27);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 126;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(508, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(192, 27);
+            this.label1.TabIndex = 125;
+            this.label1.Text = "Generar Reporte";
+            // 
             // ReporteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1186, 506);
+            this.ClientSize = new System.Drawing.Size(1197, 546);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReporteForm";
-            this.Text = "ReporteForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Reporte";
             this.Load += new System.EventHandler(this.ReporteForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -169,5 +198,7 @@
         private System.Windows.Forms.CheckBox checkCAD;
         private System.Windows.Forms.CheckBox checkVolumen;
         private System.Windows.Forms.CheckBox checkCAT;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label1;
     }
 }
