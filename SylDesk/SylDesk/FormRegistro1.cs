@@ -664,5 +664,7 @@ namespace SylDesk
                 listUmafor.Items.Add(umaforBox.SelectedItem.ToString());
             }
         }
+
+
     }
 }

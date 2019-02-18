@@ -508,7 +508,7 @@ namespace SylDesk
             if (listView1.SelectedIndices.Count > 0)
             {
                 int i = listView1.SelectedIndices[0];
-                DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "¿Seguro que desea eliminar la ecuación? No habrá forma de deshacer esta acción posteriormente.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dr = SqlConnector.sendOptionsMessage("Decision", "¿Seguro que desea eliminar el umafor?.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (dr == DialogResult.Yes)
                 {
@@ -532,7 +532,7 @@ namespace SylDesk
 
         private void FormEditar_Load(object sender, EventArgs e)
         {
-            toolTip1.SetToolTip(TipBox, "En este formulario se editaran los proyectos llenando \nlos campos requeridos para su registro.\nRevisa bien los datos antes de guardar te quiero bb.");
+            toolTip1.SetToolTip(TipBox, "En este formulario se editaran los proyectos llenando \nlos campos requeridos para su registro.\nRevisa bien los datos antes de guardar.");
             
         }
 
