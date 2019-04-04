@@ -154,6 +154,7 @@
             this.formadevida,
             this.categoriadelanorma,
             this.borrar});
+            this.dataGridViewEspecies.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewEspecies.Location = new System.Drawing.Point(14, 209);
             this.dataGridViewEspecies.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dataGridViewEspecies.Name = "dataGridViewEspecies";
