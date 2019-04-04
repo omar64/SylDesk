@@ -47,6 +47,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.labelTxt2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SliderPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -81,7 +82,7 @@
             this.buttonIniciar.ForeColor = System.Drawing.Color.White;
             this.buttonIniciar.Image = ((System.Drawing.Image)(resources.GetObject("buttonIniciar.Image")));
             this.buttonIniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonIniciar.Location = new System.Drawing.Point(476, 249);
+            this.buttonIniciar.Location = new System.Drawing.Point(476, 259);
             this.buttonIniciar.Name = "buttonIniciar";
             this.buttonIniciar.Size = new System.Drawing.Size(275, 56);
             this.buttonIniciar.TabIndex = 14;
@@ -108,12 +109,11 @@
             this.labelTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
             this.labelTxt.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTxt.ForeColor = System.Drawing.Color.White;
-            this.labelTxt.Location = new System.Drawing.Point(109, 141);
+            this.labelTxt.Location = new System.Drawing.Point(171, 156);
             this.labelTxt.Name = "labelTxt";
-            this.labelTxt.Size = new System.Drawing.Size(984, 29);
+            this.labelTxt.Size = new System.Drawing.Size(920, 29);
             this.labelTxt.TabIndex = 16;
-            this.labelTxt.Text = "SylDesk es una aplicación que permite al usuario el manejo de proyectos forestale" +
-    "s. ";
+            this.labelTxt.Text = "“Syldesk es una aplicación que permite el manejo y gestión de levantamientos ";
             this.labelTxt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // labelS
@@ -228,11 +228,25 @@
             this.pictureBox2.TabIndex = 23;
             this.pictureBox2.TabStop = false;
             // 
+            // labelTxt2
+            // 
+            this.labelTxt2.AutoSize = true;
+            this.labelTxt2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.labelTxt2.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTxt2.ForeColor = System.Drawing.Color.White;
+            this.labelTxt2.Location = new System.Drawing.Point(415, 195);
+            this.labelTxt2.Name = "labelTxt2";
+            this.labelTxt2.Size = new System.Drawing.Size(390, 29);
+            this.labelTxt2.TabIndex = 28;
+            this.labelTxt2.Text = " forestales y sitios de muestreo”.";
+            this.labelTxt2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // FormInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.labelTxt2);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -280,5 +294,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label labelTxt2;
     }
 }

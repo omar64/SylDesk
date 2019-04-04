@@ -43,7 +43,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(370, 62);
+            this.pictureBox1.Location = new System.Drawing.Point(393, 23);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(187, 135);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -86,11 +86,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(36, 149);
+            this.label2.Location = new System.Drawing.Point(22, 175);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(249, 19);
+            this.label2.Size = new System.Drawing.Size(421, 19);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Gestor de Proyectos Ambientales";
+            this.label2.Text = "Gestor de levantamientos forestales y sitios de muestreo";
             // 
             // label3
             // 

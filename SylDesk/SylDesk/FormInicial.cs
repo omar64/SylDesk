@@ -64,6 +64,9 @@ namespace SylDesk
             labelTxt.BackColor = Color.Transparent;
             labelTxt.Parent = SliderPic;
 
+            labelTxt2.BackColor = Color.Transparent;
+            labelTxt2.Parent = SliderPic;
+
             labelS.BackColor = Color.Transparent;
             labelS.Parent = SliderPic;
 
