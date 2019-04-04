@@ -121,6 +121,47 @@ namespace SylDesk
                     if (openFileDialog1.FileName != "")
                     {
                         dataSet = ReadXlsx(openFileDialog1.FileName);
+
+                        dt = dataSet.Tables[0];
+
+                        SqlConnector.postPutDeleteGenerico(
+                            "Delete from especies",
+                            new String[] { },
+                            new String[] { }
+                        );
+
+                        String[] array = new String[4];
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < dt.Columns.Count; j++)
+                            {
+                                var val = dt.Rows[i][j].ToString().Trim();
+                                array[j] = val;
+                            }
+
+                            int len = array[2].Trim().IndexOf(" ");
+
+                            string subString = array[2];
+
+                            try
+                            {
+                                subString = array[2].Substring(0, len);
+                            }
+                            catch (Exception exc)
+                            {
+
+                                char aux_char = (char)160;
+                                len = array[2].Trim().IndexOf(aux_char);
+                                subString = array[2].Substring(0, len);
+                            }
+
+                            SqlConnector.postPutDeleteGenerico(
+                                "Insert into especies(nombrecientifico, nombrecomun, familia, formadevida, genero)" +
+                                "Values(@nombrecientifico, @nombrecomun, @familia, @formadevida, @genero)",
+                                new String[] { "nombrecientifico", "nombrecomun", "familia", "formadevida", "genero" },
+                                new String[] { array[2], array[0], array[1], array[3], subString }
+                            );
+                        }
                     }
                     else
                     {
@@ -129,56 +170,11 @@ namespace SylDesk
                     }
                 }
 
-                dt = dataSet.Tables[0];
             }
             catch (Exception ex)
             {
                 SqlConnector.sendMessage("Error", "Error inesperado.", MessageBoxIcon.Error);
                 return;
-            }
-
-            if (dataSet == null)
-            {
-                
-            }
-
-            SqlConnector.postPutDeleteGenerico(
-            "Delete from especies",
-            new String[] { },
-            new String[] { }
-            );
-
-            String[] array = new String[4];
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                for (int j = 0; j < dt.Columns.Count; j++)
-                {
-                    var val = dt.Rows[i][j].ToString().Trim();
-                    array[j] = val;
-                }
-
-                int len = array[2].Trim().IndexOf(" ");
-
-                string subString = array[2];
-
-                try
-                {
-                    subString = array[2].Substring(0, len);
-                }
-                catch (Exception exc)
-                {
-
-                    char aux_char = (char)160;
-                    len = array[2].Trim().IndexOf(aux_char);
-                    subString = array[2].Substring(0, len);
-                }
-
-                SqlConnector.postPutDeleteGenerico(
-                    "Insert into especies(nombrecientifico, nombrecomun, familia, formadevida, genero)" +
-                    "Values(@nombrecientifico, @nombrecomun, @familia, @formadevida, @genero)",
-                    new String[] { "nombrecientifico", "nombrecomun", "familia", "formadevida", "genero" },
-                    new String[] { array[2], array[0], array[1], array[3], subString }
-                );
             }
         }
 

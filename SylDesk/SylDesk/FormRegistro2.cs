@@ -602,19 +602,19 @@ namespace SylDesk
             comboBoxAreas.Items.Clear();
             if (proyecto.getArea1Activo())
             {
-                comboBoxAreas.Items.Add(proyecto.getArea1Superficie());
+                comboBoxAreas.Items.Add(proyecto.getArea1Tag());
             }
             if (proyecto.getArea2Activo())
             {
-                comboBoxAreas.Items.Add(proyecto.getArea2Superficie());
+                comboBoxAreas.Items.Add(proyecto.getArea2Tag());
             } 
             if (proyecto.getArea3Activo())
             {
-                comboBoxAreas.Items.Add(proyecto.getArea3Superficie());
+                comboBoxAreas.Items.Add(proyecto.getArea3Tag());
             }                            
             if (proyecto.getArea4Activo())
             {
-                comboBoxAreas.Items.Add(proyecto.getArea4Superficie());
+                comboBoxAreas.Items.Add(proyecto.getArea4Tag());
             }
         }
 

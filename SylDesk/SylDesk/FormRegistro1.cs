@@ -495,10 +495,9 @@ namespace SylDesk
 
             if (checkBoxA1.Checked)
             {
-
                 if (checkBoxA2.Checked)
                 {
-                    if ((rangos_dialar1[0] >= rangos_dialar2[0] || rangos_dialar1[0] <= rangos_dialar2[1]) || (rangos_dialar1[1] >= rangos_dialar2[0] || rangos_dialar1[1] <= rangos_dialar2[1]) || (rangos_dialar2[0] >= rangos_dialar1[0] || rangos_dialar2[0] <= rangos_dialar1[1]) || (rangos_dialar2[1] >= rangos_dialar1[0] || rangos_dialar2[1] < rangos_dialar1[1]))
+                    if ((rangos_dialar1[0] >= rangos_dialar2[0] && rangos_dialar1[0] <= rangos_dialar2[1]) || (rangos_dialar1[1] >= rangos_dialar2[0] && rangos_dialar1[1] <= rangos_dialar2[1]) || (rangos_dialar2[0] >= rangos_dialar1[0] && rangos_dialar2[0] <= rangos_dialar1[1]) || (rangos_dialar2[1] >= rangos_dialar1[0] && rangos_dialar2[1] < rangos_dialar1[1]))
                     {
                         SqlConnector.sendMessage("Aviso!", "Los rangos de \"Diametro\" del area 1 y 2 estan sobrepuestos", MessageBoxIcon.Exclamation);
                         //return true;
@@ -506,16 +505,15 @@ namespace SylDesk
                 }
                 if (checkBoxA3.Checked)
                 {
-                    if ((rangos_dialar1[0] >= rangos_dialar3[0] || rangos_dialar1[0] <= rangos_dialar3[1]) || (rangos_dialar1[1] >= rangos_dialar3[0] || rangos_dialar3[1] <= rangos_dialar3[1]) || (rangos_dialar2[0] >= rangos_dialar1[0] || rangos_dialar3[0] <= rangos_dialar1[1]) || (rangos_dialar3[1] >= rangos_dialar1[0] || rangos_dialar3[1] < rangos_dialar1[1]))
+                    if ((rangos_dialar1[0] >= rangos_dialar3[0] && rangos_dialar1[0] <= rangos_dialar3[1]) || (rangos_dialar1[1] >= rangos_dialar3[0] && rangos_dialar3[1] <= rangos_dialar3[1]) || (rangos_dialar2[0] >= rangos_dialar1[0] && rangos_dialar3[0] <= rangos_dialar1[1]) || (rangos_dialar3[1] >= rangos_dialar1[0] && rangos_dialar3[1] < rangos_dialar1[1]))
                     {
                         SqlConnector.sendMessage("Aviso!", "Los rangos de \"Diametro\" del area 1 y 3 estan sobrepuestos", MessageBoxIcon.Exclamation);
                         //return true;
                     }
-
                 }
                 if (checkBoxA4.Checked)
                 {
-                    if ((rangos_dialar1[0] >= rangos_dialar4[0] || rangos_dialar1[0] <= rangos_dialar4[1]) || (rangos_dialar1[1] >= rangos_dialar4[0] || rangos_dialar1[1] <= rangos_dialar4[1]) || (rangos_dialar4[0] >= rangos_dialar1[0] || rangos_dialar4[0] <= rangos_dialar1[1]) || (rangos_dialar4[1] >= rangos_dialar1[0] || rangos_dialar4[1] < rangos_dialar1[1]))
+                    if ((rangos_dialar1[0] >= rangos_dialar4[0] && rangos_dialar1[0] <= rangos_dialar4[1]) || (rangos_dialar1[1] >= rangos_dialar4[0] && rangos_dialar1[1] <= rangos_dialar4[1]) || (rangos_dialar4[0] >= rangos_dialar1[0] && rangos_dialar4[0] <= rangos_dialar1[1]) || (rangos_dialar4[1] >= rangos_dialar1[0] && rangos_dialar4[1] < rangos_dialar1[1]))
                     {
                         SqlConnector.sendMessage("Aviso!", "Los rangos de \"Diametro\" del area 1 y 4 estan sobrepuestos", MessageBoxIcon.Exclamation);
                         //return true;
@@ -526,7 +524,7 @@ namespace SylDesk
             {
                 if (checkBoxA3.Checked)
                 {
-                    if ((rangos_dialar2[0] >= rangos_dialar3[0] || rangos_dialar2[0] <= rangos_dialar3[1]) || (rangos_dialar2[1] >= rangos_dialar3[0] || rangos_dialar2[1] <= rangos_dialar3[1]) || (rangos_dialar3[0] >= rangos_dialar2[0] || rangos_dialar3[0] <= rangos_dialar2[1]) || (rangos_dialar3[1] >= rangos_dialar2[0] || rangos_dialar3[1] < rangos_dialar2[1]))
+                    if ((rangos_dialar2[0] >= rangos_dialar3[0] && rangos_dialar2[0] <= rangos_dialar3[1]) || (rangos_dialar2[1] >= rangos_dialar3[0] && rangos_dialar2[1] <= rangos_dialar3[1]) || (rangos_dialar3[0] >= rangos_dialar2[0] && rangos_dialar3[0] <= rangos_dialar2[1]) || (rangos_dialar3[1] >= rangos_dialar2[0] && rangos_dialar3[1] < rangos_dialar2[1]))
                     {
                         SqlConnector.sendMessage("Aviso!", "Los rangos de \"Diametro\" del area 2 y 3 estan sobrepuestos", MessageBoxIcon.Exclamation);
                         //return true;
@@ -534,7 +532,7 @@ namespace SylDesk
                 }
                 if (checkBoxA4.Checked)
                 {
-                    if ((rangos_dialar2[0] >= rangos_dialar4[0] || rangos_dialar2[0] <= rangos_dialar4[1]) || (rangos_dialar2[1] >= rangos_dialar4[0] || rangos_dialar2[1] <= rangos_dialar4[1]) || (rangos_dialar4[0] >= rangos_dialar2[0] || rangos_dialar4[0] <= rangos_dialar2[1]) || (rangos_dialar4[1] >= rangos_dialar2[0] || rangos_dialar4[1] < rangos_dialar2[1]))
+                    if ((rangos_dialar2[0] >= rangos_dialar4[0] && rangos_dialar2[0] <= rangos_dialar4[1]) || (rangos_dialar2[1] >= rangos_dialar4[0] && rangos_dialar2[1] <= rangos_dialar4[1]) || (rangos_dialar4[0] >= rangos_dialar2[0] && rangos_dialar4[0] <= rangos_dialar2[1]) || (rangos_dialar4[1] >= rangos_dialar2[0] && rangos_dialar4[1] < rangos_dialar2[1]))
                     {
                         SqlConnector.sendMessage("Aviso!", "Los rangos de \"Diametro\" del area 2 y 3 estan sobrepuestos", MessageBoxIcon.Exclamation);
                         //return true;
@@ -545,7 +543,7 @@ namespace SylDesk
             {
                 if (checkBoxA4.Checked)
                 {
-                    if ((rangos_dialar3[0] >= rangos_dialar4[0] || rangos_dialar3[0] <= rangos_dialar4[1]) || (rangos_dialar3[1] >= rangos_dialar4[0] || rangos_dialar3[1] <= rangos_dialar4[1]) || (rangos_dialar4[0] >= rangos_dialar3[0] || rangos_dialar4[0] <= rangos_dialar3[1]) || (rangos_dialar4[1] >= rangos_dialar3[0] || rangos_dialar4[1] < rangos_dialar3[1]))
+                    if ((rangos_dialar3[0] >= rangos_dialar4[0] && rangos_dialar3[0] <= rangos_dialar4[1]) || (rangos_dialar3[1] >= rangos_dialar4[0] && rangos_dialar3[1] <= rangos_dialar4[1]) || (rangos_dialar4[0] >= rangos_dialar3[0] && rangos_dialar4[0] <= rangos_dialar3[1]) || (rangos_dialar4[1] >= rangos_dialar3[0] && rangos_dialar4[1] < rangos_dialar3[1]))
                     {
                         SqlConnector.sendMessage("Aviso!", "Los rangos de \"Diametro\" del area 3 y 4 estan sobrepuestos", MessageBoxIcon.Exclamation);
                         //return true;
