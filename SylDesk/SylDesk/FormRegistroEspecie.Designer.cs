@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistroEspecie));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.textBoxGenero = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,13 +39,6 @@
             this.textBoxBuscarEspecie = new System.Windows.Forms.TextBox();
             this.labelBuscarEspecie = new System.Windows.Forms.Label();
             this.dataGridViewEspecies = new System.Windows.Forms.DataGridView();
-            this.familia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrecientifico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrecomun = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formadevida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoriadelanorma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.borrar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.textBoxFamilia = new System.Windows.Forms.TextBox();
             this.textBoxNombreComun = new System.Windows.Forms.TextBox();
             this.textBoxNombreCientifico = new System.Windows.Forms.TextBox();
@@ -63,10 +55,19 @@
             this.TipBox = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.familia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecientifico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecomun = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formadevida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriadelanorma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Borrar = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspecies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxGenero
@@ -137,14 +138,14 @@
             this.dataGridViewEspecies.AllowUserToAddRows = false;
             this.dataGridViewEspecies.AllowUserToDeleteRows = false;
             this.dataGridViewEspecies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewEspecies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEspecies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewEspecies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEspecies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.familia,
@@ -152,62 +153,15 @@
             this.nombrecientifico,
             this.nombrecomun,
             this.formadevida,
-            this.categoriadelanorma,
-            this.borrar});
+            this.categoriadelanorma});
             this.dataGridViewEspecies.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewEspecies.Location = new System.Drawing.Point(14, 209);
             this.dataGridViewEspecies.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dataGridViewEspecies.Name = "dataGridViewEspecies";
             this.dataGridViewEspecies.Size = new System.Drawing.Size(1168, 322);
             this.dataGridViewEspecies.TabIndex = 79;
-            // 
-            // familia
-            // 
-            this.familia.HeaderText = "Familia";
-            this.familia.Name = "familia";
-            // 
-            // genero
-            // 
-            this.genero.HeaderText = "Género";
-            this.genero.Name = "genero";
-            // 
-            // nombrecientifico
-            // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle2;
-            this.nombrecientifico.HeaderText = "Nombre Científico";
-            this.nombrecientifico.Name = "nombrecientifico";
-            // 
-            // nombrecomun
-            // 
-            this.nombrecomun.HeaderText = "Nombre Común";
-            this.nombrecomun.Name = "nombrecomun";
-            // 
-            // formadevida
-            // 
-            this.formadevida.HeaderText = "Forma de Vida";
-            this.formadevida.Name = "formadevida";
-            // 
-            // categoriadelanorma
-            // 
-            this.categoriadelanorma.HeaderText = "Categoría de la Norma";
-            this.categoriadelanorma.Name = "categoriadelanorma";
-            // 
-            // borrar
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.borrar.DefaultCellStyle = dataGridViewCellStyle3;
-            this.borrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.borrar.HeaderText = "Borrar";
-            this.borrar.Name = "borrar";
-            this.borrar.Text = "Borrar";
-            this.borrar.ToolTipText = "Se Borrara un elemento";
-            this.borrar.UseColumnTextForButtonValue = true;
+            this.dataGridViewEspecies.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewEspecies_CellMouseUp);
+            this.dataGridViewEspecies.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridViewEspecies_RowContextMenuStripNeeded);
             // 
             // textBoxFamilia
             // 
@@ -406,6 +360,55 @@
             this.pictureBox2.TabIndex = 110;
             this.pictureBox2.TabStop = false;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Borrar});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 26);
+            this.contextMenuStrip1.Click += new System.EventHandler(this.contextMenuStrip1_Click);
+            // 
+            // familia
+            // 
+            this.familia.HeaderText = "Familia";
+            this.familia.Name = "familia";
+            // 
+            // genero
+            // 
+            this.genero.HeaderText = "Género";
+            this.genero.Name = "genero";
+            // 
+            // nombrecientifico
+            // 
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrecientifico.DefaultCellStyle = dataGridViewCellStyle14;
+            this.nombrecientifico.HeaderText = "Nombre Científico";
+            this.nombrecientifico.Name = "nombrecientifico";
+            // 
+            // nombrecomun
+            // 
+            this.nombrecomun.HeaderText = "Nombre Común";
+            this.nombrecomun.Name = "nombrecomun";
+            // 
+            // formadevida
+            // 
+            this.formadevida.HeaderText = "Forma de Vida";
+            this.formadevida.Name = "formadevida";
+            // 
+            // categoriadelanorma
+            // 
+            this.categoriadelanorma.HeaderText = "Categoría de la Norma";
+            this.categoriadelanorma.Name = "categoriadelanorma";
+            // 
+            // Borrar
+            // 
+            this.Borrar.BackColor = System.Drawing.Color.Red;
+            this.Borrar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Borrar.ForeColor = System.Drawing.Color.White;
+            this.Borrar.Name = "Borrar";
+            this.Borrar.Size = new System.Drawing.Size(161, 22);
+            this.Borrar.Text = "Borrar Especie";
+            // 
             // FormRegistroEspecie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,6 +443,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,15 +470,16 @@
         private System.Windows.Forms.ComboBox comboBoxCategoriaDeNorma;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox TipBox;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn familia;
         private System.Windows.Forms.DataGridViewTextBoxColumn genero;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombrecientifico;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombrecomun;
         private System.Windows.Forms.DataGridViewTextBoxColumn formadevida;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoriadelanorma;
-        private System.Windows.Forms.DataGridViewButtonColumn borrar;
-        private System.Windows.Forms.PictureBox TipBox;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolStripMenuItem Borrar;
     }
 }

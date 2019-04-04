@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using ExcelDataReader;
@@ -13,6 +14,8 @@ namespace SylDesk
         private Proyecto proyecto = null;
         private int status = 0;
         private string nombre = "";
+
+        private int rowIndex = 0;
 
         public FormRegistroEspecie()
         {
@@ -218,6 +221,31 @@ namespace SylDesk
             string s = textBoxNombreCientifico.Text;
             textBoxGenero.Text = SqlConnector.getFirstWord(s);
 
+        }
+
+        private void dataGridViewEspecies_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+            
+        }
+
+        private void dataGridViewEspecies_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                this.dataGridViewEspecies.Rows[e.RowIndex].Selected = true;
+                this.rowIndex = e.RowIndex;
+                this.dataGridViewEspecies.CurrentCell = this.dataGridViewEspecies.Rows[e.RowIndex].Cells[1];
+                this.contextMenuStrip1.Show(this.dataGridViewEspecies, e.Location);
+                contextMenuStrip1.Show(Cursor.Position);
+            }
+        }
+
+        private void contextMenuStrip1_Click(object sender, EventArgs e)
+        {
+            if (!this.dataGridViewEspecies.Rows[this.rowIndex].IsNewRow)
+            {
+                this.dataGridViewEspecies.Rows.RemoveAt(this.rowIndex);
+            }
         }
     }
 }
