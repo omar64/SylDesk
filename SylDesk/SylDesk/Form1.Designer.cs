@@ -105,7 +105,7 @@
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(1132, 3);
+            this.button12.Location = new System.Drawing.Point(1102, 3);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(29, 30);
             this.button12.TabIndex = 2;
@@ -123,7 +123,7 @@
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.White;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(1084, 3);
+            this.button11.Location = new System.Drawing.Point(1136, 3);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(29, 30);
             this.button11.TabIndex = 1;
@@ -518,6 +518,7 @@
             // 
             // formRegistro1
             // 
+            this.formRegistro1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.formRegistro1.AutoSize = true;
             this.formRegistro1.Location = new System.Drawing.Point(3, 161);
             this.formRegistro1.Name = "formRegistro1";
@@ -526,6 +527,7 @@
             // 
             // formRegistro2
             // 
+            this.formRegistro2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.formRegistro2.Location = new System.Drawing.Point(3, 161);
             this.formRegistro2.Name = "formRegistro2";
             this.formRegistro2.Size = new System.Drawing.Size(1199, 545);
@@ -533,6 +535,7 @@
             // 
             // formRegistro3
             // 
+            this.formRegistro3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.formRegistro3.Location = new System.Drawing.Point(3, 161);
             this.formRegistro3.Name = "formRegistro3";
             this.formRegistro3.Size = new System.Drawing.Size(1199, 545);
@@ -540,6 +543,7 @@
             // 
             // formRegistroEspecie
             // 
+            this.formRegistroEspecie.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.formRegistroEspecie.Location = new System.Drawing.Point(3, 161);
             this.formRegistroEspecie.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.formRegistroEspecie.Name = "formRegistroEspecie";
@@ -548,6 +552,7 @@
             // 
             // formInicial
             // 
+            this.formInicial.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.formInicial.BackColor = System.Drawing.SystemColors.Control;
             this.formInicial.Location = new System.Drawing.Point(3, 161);
             this.formInicial.Name = "formInicial";
@@ -557,6 +562,7 @@
             // 
             // grafica
             // 
+            this.grafica.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grafica.Location = new System.Drawing.Point(3, 161);
             this.grafica.Name = "grafica";
             this.grafica.Size = new System.Drawing.Size(1085, 527);
@@ -564,6 +570,7 @@
             // 
             // generarreporte
             // 
+            this.generarreporte.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.generarreporte.AutoSize = true;
             this.generarreporte.Location = new System.Drawing.Point(3, 161);
             this.generarreporte.Name = "generarreporte";
@@ -572,6 +579,7 @@
             // 
             // calculadoraEcu
             // 
+            this.calculadoraEcu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.calculadoraEcu.Location = new System.Drawing.Point(3, 161);
             this.calculadoraEcu.Name = "calculadoraEcu";
             this.calculadoraEcu.Size = new System.Drawing.Size(1199, 545);
@@ -579,6 +587,7 @@
             // 
             // formEditar
             // 
+            this.formEditar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.formEditar.Location = new System.Drawing.Point(3, 161);
             this.formEditar.Name = "formEditar";
             this.formEditar.Size = new System.Drawing.Size(1199, 545);
@@ -586,6 +595,7 @@
             // 
             // dasometricos
             // 
+            this.dasometricos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dasometricos.Location = new System.Drawing.Point(3, 161);
             this.dasometricos.Name = "dasometricos";
             this.dasometricos.Size = new System.Drawing.Size(1199, 545);
@@ -593,6 +603,7 @@
             // 
             // diversidadyRiqueza
             // 
+            this.diversidadyRiqueza.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.diversidadyRiqueza.Location = new System.Drawing.Point(3, 161);
             this.diversidadyRiqueza.Name = "diversidadyRiqueza";
             this.diversidadyRiqueza.Size = new System.Drawing.Size(1199, 545);
@@ -600,6 +611,7 @@
             // 
             // valordeImportancia
             // 
+            this.valordeImportancia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.valordeImportancia.Location = new System.Drawing.Point(3, 161);
             this.valordeImportancia.Name = "valordeImportancia";
             this.valordeImportancia.Size = new System.Drawing.Size(1199, 545);

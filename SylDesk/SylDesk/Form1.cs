@@ -23,6 +23,8 @@ namespace SylDesk
 
             InitializeComponent();
 
+            
+
             t.Abort(); // se utiliza para terminar el hilo y dejar al form principal comenzar
 
             this.formRegistro1.setForm(this);
@@ -40,7 +42,7 @@ namespace SylDesk
             this.valordeImportancia.setForm(this);
 
 
-            button11.Hide();
+            /*button11.Hide();*/
           
 
 
@@ -59,6 +61,9 @@ namespace SylDesk
             
             
         }
+
+        
+
 
         //permite inicializar el form loading
         public void StartForm()
@@ -125,14 +130,14 @@ namespace SylDesk
         
         private void button11_Click(object sender, EventArgs e)
         {
-            /*if (WindowState.ToString() == "Normal")
+            if (WindowState.ToString() == "Normal")
             {
                 this.WindowState = FormWindowState.Maximized;
             }
             else
             {
                 this.WindowState = FormWindowState.Normal;
-            }*/
+            }
             
         }
 
