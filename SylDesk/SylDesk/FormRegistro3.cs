@@ -48,7 +48,7 @@ namespace SylDesk
 
             foreach(Proyecto proyecto in list_proyectos)
             {
-                dataGridView1.Rows.Insert(0, new String[] { proyecto.getNombre(), proyecto.getSuperficie(), proyecto.getDescripcion() });
+                dataGridView1.Rows.Insert(0, new String[] {proyecto.getId(), proyecto.getNombre(), proyecto.getSuperficie(), proyecto.getDescripcion() });
             }
         }
 

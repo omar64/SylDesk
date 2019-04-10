@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Drawing;
+
 
 namespace SylDesk
 {
@@ -59,6 +61,8 @@ namespace SylDesk
                 SqlConnector.sendMessage("Error", "Faltan Datos del proyecto.", MessageBoxIcon.Error);
                 error_flag = true;
             }
+
+
 
             if (checkBoxA1.Checked)
             {
@@ -663,6 +667,13 @@ namespace SylDesk
             }
         }
 
-
+        private void textBoxSuperficie_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Regex.IsMatch(textBoxSuperficie.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Solo Ingrese Numeros en este Campo..");
+                textBoxSuperficie.Text = textBoxSuperficie.Text.Remove(textBoxSuperficie.Text.Length - 1);
+            }
+        }
     }
 }
