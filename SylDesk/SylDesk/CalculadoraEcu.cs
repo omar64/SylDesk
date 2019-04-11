@@ -85,7 +85,7 @@ namespace SylDesk
             comboBox1.Text = ecuacion_volumen.getInventario();
             Ecuaciontext.Text = ecuacion_volumen.getEcuacion();
             comboBox2.Text = s2;
-            textBox3.Text = s1;
+            //textBox3.Text = s1;
         }
 
         private void button3_Click(object sender, EventArgs e)
