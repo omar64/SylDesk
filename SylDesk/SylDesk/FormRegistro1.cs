@@ -669,6 +669,8 @@ namespace SylDesk
 
         private void textBoxSuperficie_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //labelNombre.Text = "" + e.KeyChar;
+
             if (Regex.IsMatch(textBoxSuperficie.Text, "[^0-9]"))
             {
                 MessageBox.Show("Solo Ingrese Numeros en este Campo..");
