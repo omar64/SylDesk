@@ -36,6 +36,10 @@ namespace SylDesk
             SuperficieTxB2.Text = "";
             SuperficieTxB3.Text = "";
             SuperficieTxB4.Text = "";
+            TagTxB1.Text = "";
+            TagTxB2.Text = "";
+            TagTxB3.Text = "";
+            TagTxB4.Text = "";
             checkBoxVolumen1.Select();
             checkBoxVolumen2.Select();
             checkBoxVolumen3.Select();

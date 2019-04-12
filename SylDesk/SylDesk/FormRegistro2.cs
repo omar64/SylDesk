@@ -622,6 +622,7 @@ namespace SylDesk
         private void comboBoxSitios_Populate()
         {
             comboBoxSitios.Items.Clear();
+            SqlConnector.sendMessage("debug", "plz" + proyecto.getId(), MessageBoxIcon.Error);
             List<Sitio> list_sitios = SqlConnector.sitiosGet(
                 "SELECT * FROM `sitios` where proyecto_id = @proyecto_id",
                 new String[] { "proyecto_id" },
@@ -1044,7 +1045,7 @@ namespace SylDesk
             }
             else
             {
-                SqlConnector.sendMessage("Error", "Este mensaje no deberia aparececr", MessageBoxIcon.Error);
+                //SqlConnector.sendMessage("Error", "Este mensaje no deberia aparececr", MessageBoxIcon.Error);
             }
             return current_area;
         }
@@ -1070,7 +1071,7 @@ namespace SylDesk
             }
             else
             {
-                SqlConnector.sendMessage("Error", "Este mensaje no deberia aparececr" , MessageBoxIcon.Error);
+                //SqlConnector.sendMessage("Error", "Este mensaje no deberia aparececr" , MessageBoxIcon.Error);
             }
             return current_area_superficie;
         }
