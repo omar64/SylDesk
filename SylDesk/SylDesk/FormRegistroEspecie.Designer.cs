@@ -63,6 +63,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Borrar = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspecies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipBox)).BeginInit();
@@ -409,10 +410,21 @@
             this.Borrar.Size = new System.Drawing.Size(161, 22);
             this.Borrar.Text = "Borrar Especie";
             // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Location = new System.Drawing.Point(608, 112);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(140, 45);
+            this.buttonCancelar.TabIndex = 111;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            // 
             // FormRegistroEspecie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.TipBox);
             this.Controls.Add(this.label2);
@@ -481,5 +493,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn formadevida;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoriadelanorma;
         private System.Windows.Forms.ToolStripMenuItem Borrar;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }

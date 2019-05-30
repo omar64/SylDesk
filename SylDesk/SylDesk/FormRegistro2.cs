@@ -35,8 +35,14 @@ namespace SylDesk
 
             comboBoxSitios_Populate();
             comboBoxAreas_Populate();
-            comboBoxSitios.SelectedIndex = 0;
-            comboBoxAreas.SelectedIndex = 0;
+            //if (comboBoxSitios.SelectedItem == null)
+            //{
+                comboBoxSitios.SelectedIndex = 0;
+            //}
+            //if (comboBoxAreas.SelectedItem == null)
+            //{
+                comboBoxAreas.SelectedIndex = 0;
+            //}
 
             dataGridViewIndividuos_Populate();
             fillForm();
@@ -622,7 +628,6 @@ namespace SylDesk
         private void comboBoxSitios_Populate()
         {
             comboBoxSitios.Items.Clear();
-            SqlConnector.sendMessage("debug", "plz" + proyecto.getId(), MessageBoxIcon.Error);
             List<Sitio> list_sitios = SqlConnector.sitiosGet(
                 "SELECT * FROM `sitios` where proyecto_id = @proyecto_id",
                 new String[] { "proyecto_id" },
@@ -1097,7 +1102,7 @@ namespace SylDesk
             }
             else
             {
-                SqlConnector.sendMessage("Error", "Este mensaje no deberia aparececr", MessageBoxIcon.Error);
+                //SqlConnector.sendMessage("Error", "Este mensaje no deberia aparececr", MessageBoxIcon.Error);
             }
             return current_vol_cob;
         }
@@ -1123,7 +1128,7 @@ namespace SylDesk
             }
             else
             {
-                SqlConnector.sendMessage("Error", "Este mensaje no deberia aparececr", MessageBoxIcon.Error);
+                //SqlConnector.sendMessage("Error", "Este mensaje no deberia aparececr", MessageBoxIcon.Error);
                 return new Double[]{ 0 , 0};
             }
             String[] aux2 = SqlConnector.getWordsDividedByMinus(aux);
@@ -1152,7 +1157,7 @@ namespace SylDesk
             }
             else
             {
-                SqlConnector.sendMessage("Error", "Este mensaje no deberia aparececr", MessageBoxIcon.Error);
+                //SqlConnector.sendMessage("Error", "Este mensaje no deberia aparececr", MessageBoxIcon.Error);
                 return new Double[] { 0, 0 };
             }
             String[] aux2 = SqlConnector.getWordsDividedByMinus(aux);

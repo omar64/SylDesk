@@ -35,6 +35,15 @@ namespace SylDesk
             this.status = status;
             this.nombre = nombre;
             textBoxNombreCientifico.Text = nombre;
+
+            if (this.status == 0)
+            {
+                this.buttonCancelar.Visible = false;
+            }
+            else
+            {
+                this.buttonCancelar.Visible = true;
+            }
         }
 
         public void Empty()
@@ -246,6 +255,12 @@ namespace SylDesk
             {
                 this.dataGridViewEspecies.Rows.RemoveAt(this.rowIndex);
             }
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Empty();
+            form1.formRegistro2ToFront(proyecto);
         }
     }
 }
